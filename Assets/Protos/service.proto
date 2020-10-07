@@ -1,0 +1,96 @@
+﻿syntax = "proto3";
+
+option go_package = ".;rpc";
+
+package gardarike;
+
+service GameServer {
+  // Returns the map around the specific location
+  rpc GetNearMap(GetMapRequest) returns (GetMapResponse) {};
+  rpc SubscribeForEvents(SubscribeRequest) returns (stream Event) {};
+}
+
+// Requests
+message Request {
+  oneof data {
+    GetMapRequest getMapRequest = 1;
+    SubscribeRequest subscribeRequest = 2;
+  }
+}
+
+// Responses
+message Response {
+  oneof data {
+    ErrorResponse errorResponse = 1;
+    GetMapResponse getMapResponse = 2;
+  }
+}
+
+message ErrorResponse {
+  string message = 1;
+}
+
+message SubscribeRequest {
+
+}
+
+message Event {
+  oneof payload {
+    ObjectPlacedEvent objectPlaced = 1;
+    ObjectRemovedEvent objectRemoved = 2;
+    PlayerMovedEvent playerMoved = 3;
+  }
+}
+
+message ObjectPlacedEvent {
+  Object object = 1;
+}
+
+message ObjectRemovedEvent {
+  int64 id = 1;
+}
+
+message PlayerMovedEvent {
+  int64 playerID = 1;
+  Vector3D location = 2;
+}
+
+message Object {
+  int64 id = 1;
+  int64 ownerID = 2;
+  string name = 3;
+  Vector3D location = 4;
+}
+
+message Vector3D {
+  int32 x = 1;
+  int32 y = 2;
+  int32 z = 3;
+}
+
+// For now location is ignored
+message GetMapRequest {
+  Vector3D location = 1;  // Reserved for the future use
+}
+
+// Map represents the game map. Map consists of 3D points.
+message Map {
+  int32 width = 1;
+  int32 height = 2;
+  repeated Vector3D points = 3;
+}
+
+message GetMapResponse {
+  Map map = 1;
+}
+message MapChunk {
+
+}
+
+message Vector3 {
+}
+
+message Handshake {
+  string login = 1;
+  string password = 2;
+}

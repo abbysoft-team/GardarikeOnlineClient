@@ -18,6 +18,5 @@ see Projects for more info. Currently we're trying to apply some Scrum methodolo
 
 
 <h2><i>WE NEED GAME DESIGNERS AND ARTISTS</i></h2>
-(in a team)
 
-please, send your emails to contact@abbysoft.org or Telegram (@apopovofficial)
+please, send your mails to contact@abbysoft.org or add me on Telegram (@apopovofficial)

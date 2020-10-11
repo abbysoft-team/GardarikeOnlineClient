@@ -15,7 +15,9 @@ Roadmap:
 
 see Projects for more info. Currently we're trying to apply some Scrum methodology (but a bit modified one)
 
-WE NEED GAME DESIGNERS AND ARTISTS
+
+
+<h2><i>WE NEED GAME DESIGNERS AND ARTISTS</i></h2>
 (in a team)
 
 please, send your emails to contact@abbysoft.org or Telegram (@apopovofficial)

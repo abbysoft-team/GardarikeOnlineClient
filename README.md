@@ -14,3 +14,6 @@ What already done:
 Roadmap:
 
 see Projects for more info. Currently we're trying to apply some Scrum methodology (but a bit modified one)
+
+WE NEED GAME DESIGNERS AND ARTISTS
+(in a team)

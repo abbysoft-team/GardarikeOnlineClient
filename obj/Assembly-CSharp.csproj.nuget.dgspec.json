@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\Assembly-CSharp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\Assembly-CSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\Assembly-CSharp.csproj",
+        "projectName": "Assembly-CSharp",
+        "projectPath": "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\Assembly-CSharp.csproj",
+        "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net471"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net471": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net471": {
+          "dependencies": {
+            "ZeroMQ": {
+              "target": "Package",
+              "version": "[4.1.0.31, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

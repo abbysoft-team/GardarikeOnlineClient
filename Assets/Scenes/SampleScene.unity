@@ -570,6 +570,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324160772}
   m_CullTransparentMesh: 0
+--- !u!1 &327981233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327981235}
+  - component: {fileID: 327981234}
+  m_Layer: 0
+  m_Name: NetworkDispatcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &327981234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327981233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9fffffe37a04b4bb550faf5e189e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &327981235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327981233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 357.40002, y: 244.20001, z: 2.0333333}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333006090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,7 +3942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615917457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.761105, y: -18.7, z: 21.07216}
+  m_LocalPosition: {x: -25.761105, y: -26, z: 21.07216}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3917,6 +3960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d69eea4aae66af4281eaa1a29a220b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  Rotate: 0
 --- !u!1 &1627248780
 GameObject:
   m_ObjectHideFlags: 0
@@ -4355,9 +4400,9 @@ GameObject:
   - component: {fileID: 1822716895}
   - component: {fileID: 1822716894}
   - component: {fileID: 1822716893}
-  - component: {fileID: 1822716896}
   - component: {fileID: 1822716897}
   - component: {fileID: 1822716898}
+  - component: {fileID: 1822716896}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -4432,9 +4477,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1822716892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284230df69f3eff4ab51a4d8f77a99be, type: 3}
+  m_Script: {fileID: 11500000, guid: ea55237fd2e63b146a3b068bc48bf5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GRAIN: 8
+  GENERATE_PLAINS: 0
+  material: {fileID: 0}
+  hillCoeff: 0
 --- !u!23 &1822716897
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5057,6 +5106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d69eea4aae66af4281eaa1a29a220b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  Rotate: 0
 --- !u!4 &2023156228
 Transform:
   m_ObjectHideFlags: 0

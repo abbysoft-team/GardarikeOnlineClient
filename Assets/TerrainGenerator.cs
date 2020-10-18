@@ -14,24 +14,24 @@ public class TerrainGenerator : MonoBehaviour
 	public Material material;
 	public float hillCoeff;
 	public float[,] heights;
+	private Terrain terrain;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		GenerateRandomTerrain();
-		EventBus.instance.TerrainGenerationFinished(heights);
+		//GenerateRandomTerrain();
+		//EventBus.instance.TerrainGenerationFinished(heights);
+		terrain = FindObjectOfType<Terrain>();
+		EventBus.instance.onTerrainLoadingComplete += OnTerrainLoaded;
 	}
 
 	private void Awake()
 	{
 		instance = this;
-		EventBus.instance.onTerrainLoadingComplete += OnTerrainLoaded;
 	}
 
 	private void OnTerrainLoaded(int width, int height, float[,] heights)
 	{
-		var terrain = FindObjectOfType<Terrain>();
-
 		terrain.terrainData.size = new Vector3(width, height, width);
 		terrain.terrainData.heightmapResolution = width;
 		terrain.terrainData.SetHeights(0, 0, heights);

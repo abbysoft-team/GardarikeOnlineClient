@@ -1,0 +1,138 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.1": {
+      "ZeroMQ/4.1.0.31": {
+        "type": "package",
+        "compile": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "build": {
+          "build/net40/ZeroMQ.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.1/win": {
+      "ZeroMQ/4.1.0.31": {
+        "type": "package",
+        "compile": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "build": {
+          "build/net40/ZeroMQ.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.1/win-x64": {
+      "ZeroMQ/4.1.0.31": {
+        "type": "package",
+        "compile": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "build": {
+          "build/net40/ZeroMQ.targets": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.1/win-x86": {
+      "ZeroMQ/4.1.0.31": {
+        "type": "package",
+        "compile": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ZeroMQ.dll": {}
+        },
+        "build": {
+          "build/net40/ZeroMQ.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ZeroMQ/4.1.0.31": {
+      "sha512": "xzxg43qW/udHljMd4jTmsWcCTcxFnheVPqnMF+Me+naJCNgeNk/ymP0RhFmVOcqncg+uWzI4WmrTRuz4pjRBkQ==",
+      "type": "package",
+      "path": "zeromq/4.1.0.31",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/amd64/libzmq.dll",
+        "build/amd64/libzmq.dylib",
+        "build/amd64/libzmq.so",
+        "build/i386/libzmq.dll",
+        "build/net40/ZeroMQ.targets",
+        "lib/net40/ZeroMQ.dll",
+        "lib/net40/ZeroMQ.xml",
+        "zeromq.4.1.0.31.nupkg.sha512",
+        "zeromq.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.1": [
+      "ZeroMQ >= 4.1.0.31"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Artem\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\Assembly-CSharp.csproj",
+      "projectName": "Assembly-CSharp",
+      "projectPath": "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\Assembly-CSharp.csproj",
+      "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Artem\\Documents\\Project\\ProjectXClient\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net471"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net471": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net471": {
+        "dependencies": {
+          "ZeroMQ": {
+            "target": "Package",
+            "version": "[4.1.0.31, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

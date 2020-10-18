@@ -1,16 +1,15 @@
 ﻿using Google.Protobuf.Collections;
-using Gardarike;
 
 public class ProtoConverter
 {
-    public static float[,] ToHeights(RepeatedField<Vector3D> vectors, int width, int height) {
+    public static float[,] ToHeightsFromProto(RepeatedField<float> points, int width, int height) {
         float[,] heights = new float[width, height];
 
         int column = 0;
         int row = 0;
-        foreach (var vector in vectors)
+        foreach (var point in points)
         {
-            heights[row, column] = vector.Z;
+            heights[row, column] = point / 10.0f;
            
             column++;
             if (column >= width)

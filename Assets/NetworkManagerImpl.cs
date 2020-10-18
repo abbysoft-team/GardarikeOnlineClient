@@ -6,129 +6,101 @@ using Google.Protobuf;
 using System.Threading.Tasks;
 using UnityEngine;
 using Gardarike;
+using ZMQ;
 
 public class NetworkManagerImpl : NetworkManager
 {
-    private const string SERVER_URL = "https://server.abbysoft.org:27015";
-    private UdpClient client;
-    private UdpClient socket;
-    private byte[] buffer;
-    private int multipartLengthBytes;
-    private long multipartLengthPackets;
-
+    private string serverIp;
+    private int serverPort;
+    private List<Response> responseBuffer;
 
     public void ConnectToServer(string login, string password)
     {
         // Listen to server packets 
-        StartCommunicationThread();
-
-        // Request Map
-        GetMapRequest mapRequest = new GetMapRequest
-        {
-            Location = new Vector3D
-            {
-                X = 1,
-                Y = 2,
-                Z = 3
-            }
-        };
-
-        var bytes = mapRequest.ToByteArray();
-
-        client.Send(bytes, bytes.Length);
+        StartZeroMQCommunicationThread();
     }
 
-    private void StartCommunicationThread()
+    private void StartZeroMQCommunicationThread()
     {
-        //start listening for messages and copy the messages back to the client
         Task.Factory.StartNew(async () =>
         {
-            while (true)
+            try
             {
-                IPEndPoint endpoint = new IPEndPoint(IPAddress.Any, 0);
-                var rawResponse = client.Receive(ref endpoint);
-
-                Debug.Log("received raw response: " + rawResponse.Length);
-
-                if (multipartLengthPackets > 0)
-                {
-                    Debug.Log((multipartLengthPackets - 1) + " to go");
-                    Buffer.BlockCopy(rawResponse, 0, buffer, multipartLengthBytes, rawResponse.Length);
-                    multipartLengthBytes += rawResponse.Length;
-                    multipartLengthPackets--;
-                }
-                else
-                {
-                    Response response;
-                    if (multipartLengthBytes > 0) {
-                        Debug.Log("Received big packet, size: " + multipartLengthBytes);
-
-                        byte[] bigPacket = new byte[multipartLengthBytes];
-                        Buffer.BlockCopy(buffer, 0, bigPacket, 0, multipartLengthBytes);
-                        response = Response.Parser.ParseFrom(bigPacket);
-                    } else {
-                        response = Response.Parser.ParseFrom(rawResponse);
-                    }
-
-                    Debug.Log("Received server packet " + response);
-
-                    switch (response.DataCase)
-                    {
-                        case Response.DataOneofCase.MultipartResponse:
-                            ProcessMultipart(response.MultipartResponse);
-                            break;
-                        case Response.DataOneofCase.GetMapResponse:
-                            ProcessMapReply(response.GetMapResponse);
-                            break;
-                        case Response.DataOneofCase.ErrorResponse:
-                            ProcessServerErrorReply(response.ErrorResponse);
-                            break;
-                        default:
-                            ProcessInvalidReply(response);
-                            break;
-                    }
-                }
+                CommunicationTask();
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error occured in network thread: " + e);
             }
         });
     }
 
-    private void ProcessMultipart(MultipartResponse response)
+    private void CommunicationTask()
     {
-        Debug.Log("Receiving " + response.Parts + " packets as part of one big one...");
-        multipartLengthBytes = 0;
-        multipartLengthPackets = response.Parts;
+        Debug.Log("Start listening thread");
+
+        var mapRequest = new GetMapRequest
+        {
+            Location = new Vector3D
+            {
+                X = 0,
+                Y = 0,
+                Z = 0
+            }
+        };
+
+        using (var requester = new ZMQ.Socket(ZMQ.SocketType.REQ))
+        {
+            Debug.Log("Trying to request map information ");
+            var address = string.Format("tcp://{0}:{1}", serverIp, serverPort);
+            // Connect
+            requester.Connect(address);
+
+            // Send Map request
+            requester.Send(mapRequest.ToByteArray());
+
+            Debug.Log("Sent map request to server");
+
+            while (true)
+            {
+                // Receive
+                var reply = requester.Recv();
+
+                Debug.Log("RECEIVED RAW PACKET " + reply.Length);
+
+                ParseResponse(reply);
+            }
+        }
     }
 
-    private void ProcessMapReply(GetMapResponse getMapResponse)
+    private void ParseResponse(byte[] rawResponse)
     {
-        var width = getMapResponse.Map.Width;
-        var height = getMapResponse.Map.Height;
-        var heights = ProtoConverter.ToHeights(getMapResponse.Map.Points, width, height);
-        EventBus.instance.TerrainLoaded(width, height, heights);
-    }
-
-    private void ProcessServerErrorReply(ErrorResponse errorResponse)
-    {
-        Debug.LogError("Server replied with error: " + errorResponse.Message);
-    }
-
-    private void ProcessInvalidReply(Response response)
-    {
-        Debug.LogError("Server responded with invalid reponse");
+        try
+        {
+            var response = Response.Parser.ParseFrom(rawResponse);
+            Debug.Log("Received server packet " + response);
+            responseBuffer.Add(response);
+        }
+        catch
+        {
+            Debug.LogError("Cannot parse packet: " + rawResponse);
+        }
     }
 
     public void Init(string ipAddress, int port)
     {
-        client = new UdpClient(ipAddress, port);
+        serverIp = ipAddress;
+        serverPort = port;
 
-        buffer = new byte[1024 * 1024 * 5];
-
-        //listenAddress = new IPEndPoint(IPAddress.Parse(ipAddress), 27015);
-        //socket = new UdpClient(listenAddress);
-        //socket.Client.ReceiveTimeout = 99000;
+        responseBuffer = new List<Response>();
     }
 
     public void SendEvent(Event eventObject)
     {
+    }
+
+    public List<Response> getEventBuffer()
+    {
+        return responseBuffer;
     }
 }

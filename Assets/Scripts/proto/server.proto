@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+option go_package = ".;rpc";
+
+package Gardarike;
+
+service GameServer {
+  // Returns the map around the specific location
+  rpc GetNearMap(GetMapRequest) returns (GetMapResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+// Requests
+message Request {
+  oneof data {
+    GetMapRequest getMapRequest = 1;
+    LoginRequest loginRequest = 2;
+  }
+}
+
+// For now location is ignored
+message GetMapRequest {
+  Vector3D location = 1;  // Reserved for the future use
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+// Responses
+message Response {
+  oneof data {
+    ErrorResponse errorResponse = 1;
+    GetMapResponse getMapResponse = 2;
+    LoginResponse loginResponse = 3;
+    MultipartResponse multipartResponse = 4;
+  }
+}
+
+// Response indicating start of the multipart response
+// Parts field indicating how many subsequent datagram packets
+// should be considered as a single response.
+message MultipartResponse {
+  int64 parts = 1;
+}
+
+message LoginResponse {
+
+}
+
+message ErrorResponse {
+  string message = 1;
+}
+
+message SubscribeRequest {
+
+}
+
+message Event {
+  oneof payload {
+    ObjectPlacedEvent objectPlaced = 1;
+    ObjectRemovedEvent objectRemoved = 2;
+    PlayerMovedEvent playerMoved = 3;
+  }
+}
+
+message ObjectPlacedEvent {
+  Object object = 1;
+}
+
+message ObjectRemovedEvent {
+  int64 id = 1;
+}
+
+message PlayerMovedEvent {
+  int64 playerID = 1;
+  Vector3D location = 2;
+}
+
+message Object {
+  int64 id = 1;
+  int64 ownerID = 2;
+  string name = 3;
+  Vector3D location = 4;
+}
+
+message Vector3D {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+// Map represents the game map. Map consists of 3D points.
+message Map {
+  int32 width = 1;
+  int32 height = 2;
+  repeated float points = 3;
+}
+
+message GetMapResponse {
+  Map map = 1;
+}
+message MapChunk {
+
+}
+
+message Vector3 {
+}
+
+message Handshake {
+  string login = 1;
+  string password = 2;
+}

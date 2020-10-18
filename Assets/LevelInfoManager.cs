@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.ComponentModel;
@@ -48,16 +49,18 @@ public class LevelInfoManager : MonoBehaviour
 
     public void Load()
     {
-        Debug.Log("Start loading saved game [testLevel]");
+        Debug.Log("Start loading map info");
 
-        var propertyName = GlobalConstants.SAVE_PREFIX + "testLevel";
-        var savingContent = PlayerPrefs.GetString(propertyName);
+        NetworkManagerFactory.GetManager().ConnectToServer("some", "pass");
 
-        var rootSaveables = savingContent.Split('@');
-        RestoreAllRootSaveables(rootSaveables);
+        //var propertyName = GlobalConstants.SAVE_PREFIX + "testLevel";
+        //var savingContent = PlayerPrefs.GetString(propertyName);
+
+        //var rootSaveables = savingContent.Split('@');
+        //RestoreAllRootSaveables(rootSaveables);
 
         // Custom actions
-        TerrainGenerator.instance.UpdateTerrain();
+        //TerrainGenerator.instance.UpdateTerrain();
 
         Debug.Log("Loaded succesfully");
     }

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
         //ConnectToServer(LOGIN, PASSWORD);
         // Give free gold
         //PlayerPrefs.SetInt("Gold", 1000);
-        PlayerPrefs.SetInt("Population", 0);
+        //PlayerPrefs.SetInt("Population", 0);
 
         var array = new float[2, 2];
         array[0, 0] = 0;

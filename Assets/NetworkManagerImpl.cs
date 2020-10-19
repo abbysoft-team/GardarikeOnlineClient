@@ -4,9 +4,12 @@ using System.Net.Sockets;
 using System.Net;
 using Google.Protobuf;
 using System.Threading.Tasks;
+using NetMQ.Sockets;
+using NetMQ;
+
 using UnityEngine;
+
 using Gardarike;
-using ZMQ;
 
 public class NetworkManagerImpl : NetworkManager
 {
@@ -49,22 +52,21 @@ public class NetworkManagerImpl : NetworkManager
             }
         };
 
-        using (var requester = new ZMQ.Socket(ZMQ.SocketType.REQ))
+        var address = string.Format(">tcp://{0}:{1}", serverIp, serverPort);
+
+        using (var requester = new RequestSocket(address))
         {
             Debug.Log("Trying to request map information ");
-            var address = string.Format("tcp://{0}:{1}", serverIp, serverPort);
-            // Connect
-            requester.Connect(address);
 
             // Send Map request
-            requester.Send(mapRequest.ToByteArray());
+            requester.SendFrame(mapRequest.ToByteArray());
 
             Debug.Log("Sent map request to server");
 
             while (true)
             {
                 // Receive
-                var reply = requester.Recv();
+                var reply = requester.ReceiveFrameBytes();
 
                 Debug.Log("RECEIVED RAW PACKET " + reply.Length);
 

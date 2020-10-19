@@ -13,7 +13,6 @@ ScriptsOnlyBuild:
     - GameManager
     - JobManager
     - LevelInfoManager
-    - MobileInput
     - NetworkParser
     - PeopleController
     - PeopleManager
@@ -78,70 +77,70 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1518}
+      Script: {instanceID: 12768}
     - Class: 114
-      Script: {instanceID: 1640}
+      Script: {instanceID: 12888}
     - Class: 114
-      Script: {instanceID: 1644}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 1686}
+      Script: {instanceID: 12930}
     - Class: 114
-      Script: {instanceID: 1726}
+      Script: {instanceID: 12970}
     - Class: 114
-      Script: {instanceID: 1746}
+      Script: {instanceID: 12990}
     - Class: 114
-      Script: {instanceID: 2014}
+      Script: {instanceID: 13256}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 13318}
     - Class: 114
-      Script: {instanceID: 2090}
+      Script: {instanceID: 13332}
     - Class: 114
-      Script: {instanceID: 2254}
+      Script: {instanceID: 13494}
     - Class: 114
-      Script: {instanceID: 2288}
+      Script: {instanceID: 13528}
     - Class: 114
-      Script: {instanceID: 2670}
+      Script: {instanceID: 13596}
     - Class: 114
-      Script: {instanceID: 2710}
+      Script: {instanceID: 13908}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 13948}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 14048}
     - Class: 114
-      Script: {instanceID: 2880}
+      Script: {instanceID: 14094}
     - Class: 114
-      Script: {instanceID: 3048}
+      Script: {instanceID: 14116}
     - Class: 114
-      Script: {instanceID: 3050}
+      Script: {instanceID: 14284}
     - Class: 114
-      Script: {instanceID: 3080}
+      Script: {instanceID: 14286}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 14316}
     - Class: 114
-      Script: {instanceID: 3198}
+      Script: {instanceID: 14354}
     - Class: 114
-      Script: {instanceID: 3216}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 3256}
+      Script: {instanceID: 14450}
     - Class: 114
-      Script: {instanceID: 3390}
+      Script: {instanceID: 14490}
     - Class: 114
-      Script: {instanceID: 3400}
+      Script: {instanceID: 14622}
     - Class: 114
-      Script: {instanceID: 3420}
+      Script: {instanceID: 14632}
     - Class: 114
-      Script: {instanceID: 3514}
+      Script: {instanceID: 14652}
     - Class: 114
-      Script: {instanceID: 3536}
+      Script: {instanceID: 14746}
     - Class: 114
-      Script: {instanceID: 3554}
+      Script: {instanceID: 14768}
     - Class: 114
-      Script: {instanceID: 3562}
+      Script: {instanceID: 14786}
     - Class: 114
-      Script: {instanceID: 15458}
-    - Class: 114
-      Script: {instanceID: 36660}
+      Script: {instanceID: 14794}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
@@ -402,16 +401,16 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 700e56d62786652f6dfad0dd83d64945
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MobileInput
-  - hash:
-      serializedVersion: 2
       Hash: c60c5cba0d5ed4f4a018240d6339217f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkParser
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -736,13 +735,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NetworkParser
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Artem/Documents/Project/ProjectXClient/Build/0.0.2.apk
+  playerPath: /home/artem/Documents/GithubProjects/ProjectXClient/Build/0.0.2.apk

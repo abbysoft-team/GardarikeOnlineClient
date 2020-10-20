@@ -8,6 +8,7 @@ service GameServer {
   // Returns the map around the specific location
   rpc GetNearMap(GetMapRequest) returns (GetMapResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
+  rpc SelectCharacter(SelectCharacterRequest) returns (SelectCharacterResponse);
 }
 
 // Requests
@@ -15,6 +16,7 @@ message Request {
   oneof data {
     GetMapRequest getMapRequest = 1;
     LoginRequest loginRequest = 2;
+    SelectCharacterRequest selectCharacterRequest = 3;
   }
 }
 
@@ -28,6 +30,11 @@ message LoginRequest {
   string password = 2;
 }
 
+message SelectCharacterRequest {
+  int32 accountID = 1;
+  int32 characterID = 2;
+}
+
 // Responses
 message Response {
   oneof data {
@@ -35,6 +42,7 @@ message Response {
     GetMapResponse getMapResponse = 2;
     LoginResponse loginResponse = 3;
     MultipartResponse multipartResponse = 4;
+    SelectCharacterResponse getCharacterResponse = 5;
   }
 }
 
@@ -46,14 +54,14 @@ message MultipartResponse {
 }
 
 message LoginResponse {
-
+  repeated Character characters = 1;
 }
 
 message ErrorResponse {
   string message = 1;
 }
 
-message SubscribeRequest {
+message SelectCharacterResponse {
 
 }
 
@@ -101,6 +109,7 @@ message Map {
 message GetMapResponse {
   Map map = 1;
 }
+
 message MapChunk {
 
 }
@@ -111,4 +120,10 @@ message Vector3 {
 message Handshake {
   string login = 1;
   string password = 2;
+}
+
+message Character {
+  int32 id = 1;
+  string name = 2;
+  uint64 gold = 3;
 }

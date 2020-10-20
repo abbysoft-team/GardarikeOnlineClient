@@ -303,6 +303,9 @@
     <Reference Include="System.Numerics.Vectors">
         <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/System.Numerics.Vectors.4.4.0/lib/netstandard2.0/System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="AsyncIO">
+        <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/NetMQ.Unity.4.0.0.1/lib/AsyncIO.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers">
         <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/System.Buffers.4.4.0/lib/netstandard2.0/System.Buffers.dll</HintPath>
     </Reference>
@@ -315,17 +318,14 @@
     <Reference Include="Google.Protobuf">
         <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/Google.Protobuf.3.13.0/lib/netstandard2.0/Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="NetMQ">
+        <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/NetMQ.Unity.4.0.0.1/lib/NetMQ.dll</HintPath>
+    </Reference>
     <Reference Include="clrzmq-ext">
         <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/clrzmq-ext.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
         <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/System.Memory.4.5.2/lib/netstandard2.0/System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="AsyncIO">
-        <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/NetMQ.Unity.4.0.0.1/lib/AsyncIO.dll</HintPath>
-    </Reference>
-    <Reference Include="NetMQ">
-        <HintPath>/home/artem/Documents/GithubProjects/ProjectXClient/Assets/Packages/NetMQ.Unity.4.0.0.1/lib/NetMQ.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

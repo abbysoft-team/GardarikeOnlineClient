@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Google.Protobuf.Collections;
 
 using Gardarike;
 
@@ -44,6 +45,9 @@ public class NetworkParser : MonoBehaviour
                 case Response.DataOneofCase.ErrorResponse:
                     ProcessServerErrorReply(packet.ErrorResponse);
                     break;
+                case Response.DataOneofCase.LoginResponse:
+                    ProcessLoginResponse(packet.LoginResponse);
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;
@@ -65,6 +69,12 @@ public class NetworkParser : MonoBehaviour
         var height = getMapResponse.Map.Height;
         var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
         EventBus.instance.TerrainLoaded(width, height, heights);
+    }
+
+    private void ProcessLoginResponse(LoginResponse loginResponse) {
+        Debug.Log("Received login response: " + loginResponse);
+
+        EventBus.instance.CharacterListLoaded(loginResponse.Characters);
     }
 
     private void ProcessServerErrorReply(ErrorResponse errorResponse)

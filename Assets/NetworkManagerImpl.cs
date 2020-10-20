@@ -63,6 +63,11 @@ public class NetworkManagerImpl : NetworkManager
 
             Debug.Log("Sent map request to server");
 
+            // Send Login request
+            requester.SendFrame(GetLoginRequest());
+
+            Debug.Log("Sent login request");
+
             while (true)
             {
                 // Receive
@@ -73,6 +78,13 @@ public class NetworkManagerImpl : NetworkManager
                 ParseResponse(reply);
             }
         }
+    }
+
+    private byte[] GetLoginRequest() {
+        return new LoginRequest {
+            Username = "40RT",
+            Password = "gay4life"
+        }.ToByteArray();
     }
 
     private void ParseResponse(byte[] rawResponse)

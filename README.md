@@ -1,7 +1,7 @@
-# ProjectXClient
-Project XXX Client (Unity)
+# GardarikeOnline Client
+GardarikeOnline game client (Unity)
 
-This is Unity frontend for https://github.com/abbysoft-team/ProjectXServer
+This is Unity client for https://github.com/abbysoft-team/ProjectXServer
 
 <b> Working on Android implementation </b>
 

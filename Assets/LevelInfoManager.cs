@@ -51,7 +51,7 @@ public class LevelInfoManager : MonoBehaviour
     {
         Debug.Log("Start loading map info");
 
-        NetworkManagerFactory.GetManager().ConnectToServer("some", "pass");
+        //NetworkManagerFactory.GetManager().ConnectToServer("some", "pass");
 
         //var propertyName = GlobalConstants.SAVE_PREFIX + "testLevel";
         //var savingContent = PlayerPrefs.GetString(propertyName);

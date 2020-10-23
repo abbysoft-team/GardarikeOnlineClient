@@ -18,7 +18,7 @@ public class NetworkParser : MonoBehaviour
     void Update()
     {
         // Get all buffered packets
-        var packets = networkManager.getEventBuffer();
+        var packets = networkManager.GetEventQueue();
         // Nothing to process this tick
         if (packets.Count == 0) return;
 
@@ -30,7 +30,7 @@ public class NetworkParser : MonoBehaviour
         packets.Clear();
     }
 
-    private void DispatchPackets(List<Response> packets)
+    private void DispatchPackets(Queue<Response> packets)
     {
         foreach (var packet in packets)
         {
@@ -74,7 +74,7 @@ public class NetworkParser : MonoBehaviour
     private void ProcessLoginResponse(LoginResponse loginResponse) {
         Debug.Log("Received login response: " + loginResponse);
 
-        EventBus.instance.CharacterListLoaded(loginResponse.Characters);
+        EventBus.instance.LoginComplete(loginResponse.SessionID, loginResponse.Characters);
     }
 
     private void ProcessServerErrorReply(ErrorResponse errorResponse)

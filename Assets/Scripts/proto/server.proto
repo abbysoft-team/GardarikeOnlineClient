@@ -20,9 +20,9 @@ message Request {
   }
 }
 
-// For now location is ignored
 message GetMapRequest {
-  Vector3D location = 1;  // Reserved for the future use
+  string sessionID = 1;
+  Vector3D location = 2;
 }
 
 message LoginRequest {
@@ -31,7 +31,7 @@ message LoginRequest {
 }
 
 message SelectCharacterRequest {
-  int32 accountID = 1;
+  string sessionID = 1;
   int32 characterID = 2;
 }
 
@@ -42,7 +42,7 @@ message Response {
     GetMapResponse getMapResponse = 2;
     LoginResponse loginResponse = 3;
     MultipartResponse multipartResponse = 4;
-    SelectCharacterResponse getCharacterResponse = 5;
+    SelectCharacterResponse selectCharacterResponse = 5;
   }
 }
 
@@ -54,7 +54,8 @@ message MultipartResponse {
 }
 
 message LoginResponse {
-  repeated Character characters = 1;
+  string sessionID = 1;
+  repeated Character characters = 2;
 }
 
 message ErrorResponse {

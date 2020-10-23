@@ -7,7 +7,6 @@ using Gardarike;
 public interface NetworkManager
 {
     void Init(string serverUrl, int port);
-    void ConnectToServer(string login, string password);
     void SendEvent(Event eventObject);
-    List<Response> getEventBuffer();
+    Queue<Response> GetEventQueue();
 }

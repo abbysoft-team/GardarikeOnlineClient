@@ -16,6 +16,7 @@ public class EventBus : MonoBehaviour
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onLoginRequest;
+    public event Action<string> onMapLoadRequest;
 
     private void Awake()
     {
@@ -49,5 +50,9 @@ public class EventBus : MonoBehaviour
     public void LoginRequest(string username, string password)
     {
         onLoginRequest?.Invoke(username, password);
+    }
+
+    public void LoadMap(string sessionId) {
+        onMapLoadRequest?.Invoke(sessionId);
     }
 }

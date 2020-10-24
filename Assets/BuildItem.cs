@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Gardarike;
 
 public class BuildItem : MonoBehaviour
 {
@@ -48,5 +49,9 @@ public class BuildItem : MonoBehaviour
     {
         Utility.AddToIntProperty("Gold", priceGold * -1);
         model.SetActive(true);
+    }
+
+    public Vector3D Location() {
+        return new Vector3D {X = model.transform.position.x, Y = model.transform.position.y, Z = model.transform.position.z};
     }
 }

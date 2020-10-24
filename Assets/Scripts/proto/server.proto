@@ -9,6 +9,7 @@ service GameServer {
   rpc GetNearMap(GetMapRequest) returns (GetMapResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc SelectCharacter(SelectCharacterRequest) returns (SelectCharacterResponse);
+  rpc PlaceBuilding(PlaceBuildingRequest) returns (PlaceBuildingResponse);
 }
 
 // Requests
@@ -17,7 +18,14 @@ message Request {
     GetMapRequest getMapRequest = 1;
     LoginRequest loginRequest = 2;
     SelectCharacterRequest selectCharacterRequest = 3;
+    PlaceBuildingRequest placeBuildingRequest = 4;
   }
+}
+
+message PlaceBuildingRequest {
+  string sessionID = 1;
+  int64 buildingID = 2;
+  Vector3D location = 3;
 }
 
 message GetMapRequest {
@@ -43,7 +51,12 @@ message Response {
     LoginResponse loginResponse = 3;
     MultipartResponse multipartResponse = 4;
     SelectCharacterResponse selectCharacterResponse = 5;
+    PlaceBuildingResponse placeBuildingResponse = 6;
   }
+}
+
+message PlaceBuildingResponse {
+
 }
 
 // Response indicating start of the multipart response
@@ -60,6 +73,7 @@ message LoginResponse {
 
 message ErrorResponse {
   string message = 1;
+  int64 code = 2;
 }
 
 message SelectCharacterResponse {
@@ -105,6 +119,13 @@ message Map {
   int32 width = 1;
   int32 height = 2;
   repeated float points = 3;
+  repeated Building buildings = 4;
+}
+
+message Building {
+  int64 id = 1;
+  int64 ownerID = 3;
+  Vector3D location = 4;
 }
 
 message GetMapResponse {

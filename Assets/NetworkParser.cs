@@ -48,6 +48,9 @@ public class NetworkParser : MonoBehaviour
                 case Response.DataOneofCase.LoginResponse:
                     ProcessLoginResponse(packet.LoginResponse);
                     break;
+                case Response.DataOneofCase.PlaceBuildingResponse:
+                    Debug.Log("Building response arrived: " + packet.PlaceBuildingResponse);
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;

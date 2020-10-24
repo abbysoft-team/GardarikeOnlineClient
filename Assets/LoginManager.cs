@@ -28,7 +28,8 @@ public class LoginManager : MonoBehaviour
         Debug.Log("Login complete. Welcome, " + sessionID);
         gameObject.SetActive(false);
         this.sessionID = sessionID;
-        //characterChoose.SetActive(true);
+        PlayerPrefs.SetString("sessionId", sessionID);
+        PlayerPrefs.SetInt("Gold", (int) characters[0].Gold);
     }
 
     // Update is called once per frame

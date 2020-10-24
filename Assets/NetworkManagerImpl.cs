@@ -25,7 +25,7 @@ public class NetworkManagerImpl : NetworkManager
         {
             try
             {
-                ServerTask();
+                //ServerTask();
             }
             catch (System.Exception e)
             {
@@ -54,7 +54,7 @@ public class NetworkManagerImpl : NetworkManager
 
         var address = string.Format(">tcp://{0}:{1}", serverIp, serverPort);
 
-        using (var requester = new DealerSocket(address))
+        using (var requester = new RequestSocket(address))
         {
             while (true)
             {
@@ -64,7 +64,13 @@ public class NetworkManagerImpl : NetworkManager
                     continue;
                 }
 
-                SendAllRequests(requester);
+                SendNextRequest(requester);
+
+                var reply = requester.ReceiveFrameBytes();
+
+                Debug.Log("Received response from server: " + reply.Length);
+
+                EnqueueResponse(reply);
             }
         }
     }
@@ -89,12 +95,20 @@ public class NetworkManagerImpl : NetworkManager
         }
     }
 
-    private void SendAllRequests(DealerSocket client)
+    private void SendAllRequests(NetMQSocket client)
     {
         Debug.Log("Sending " + requestQueue.Count + " packets");
         while (requestQueue.Count > 0) {
-            client.SendFrame(requestQueue.Dequeue());
+            client.TrySendFrame(requestQueue.Dequeue());
+            Debug.Log("Sent packets");
         }
+    }
+
+    private void SendNextRequest(NetMQSocket client)
+    {
+        Debug.Log("Sending " + requestQueue.Count + " packets");
+        bool success = client.TrySendFrame(requestQueue.Dequeue());
+        Debug.Log("Sent packets with success = " + success);
     }
 
     private void EnqueueResponse(byte[] rawResponse)
@@ -120,6 +134,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue = new Queue<byte[]>();
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
+        EventBus.instance.onMapLoadRequest += SendMapRequest;
         EventBus.instance.onBuildingComplete += SendBuildingEvent;
 
         StartZeroMQCommunicationThread();
@@ -128,36 +143,52 @@ public class NetworkManagerImpl : NetworkManager
     private void SendLoginRequest(string username, string password)
     {
         Debug.Log("Login request added into queue");
-        var loginRequest = new LoginRequest
+
+        var loginRequest = new Request
         {
-            Username = username,
-            Password = password
-        };
-
-        requestQueue.Enqueue(loginRequest.ToByteArray());
-    }
-
-    private byte[] SendMapRequest()
-    {
-        Debug.Log("Trying to request map information ");
-
-        var mapRequest = new GetMapRequest
-        {
-            Location = new Vector3D
-            {
-                X = 0,
-                Y = 0,
-                Z = 0
+            LoginRequest = new LoginRequest {
+                Username = username,
+                Password = password
             }
         };
 
-        return mapRequest.ToByteArray();
+        Debug.Log("Sending " + BitConverter.ToString(loginRequest.ToByteArray()));
+        requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
-    private void SendBuildingEvent(BuildItem bulding) {
+    private void SendMapRequest(string sessionId)
+    {
+        Debug.Log("Trying to request map information ");
+
+
+        var mapRequest = new Request
+        {
+            GetMapRequest = new GetMapRequest {
+                Location = new Vector3D
+                {
+                    X = 0,
+                    Y = 0,
+                    Z = 0
+                },
+                SessionID = sessionId
+            }
+        };
+
+        requestQueue.Enqueue(mapRequest.ToByteArray());
+    }
+
+    private void SendBuildingEvent(BuildItem building) {
         Debug.Log("Sending build event to server");
 
-        //var buildingEvent = new Buildi
+        var buildingEvent = new Request {
+            PlaceBuildingRequest = new PlaceBuildingRequest {
+                BuildingID = 0,
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Location = building.Location()
+            }
+        };
+
+        requestQueue.Enqueue(buildingEvent.ToByteArray());
     }
 
     public void SendEvent(Event eventObject)

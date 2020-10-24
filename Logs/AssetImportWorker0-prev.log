@@ -1,0 +1,1401 @@
+Using pre-set license
+Desktop is 1920 x 1080 @ 60 Hz
+
+ COMMAND LINE ARGUMENTS:
+Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/home/artem/Documents/GithubProjects/ProjectXClient
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+39753
+Successfully changed project path to: /home/artem/Documents/GithubProjects/ProjectXClient
+/home/artem/Documents/GithubProjects/ProjectXClient
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 28,42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Initialize engine version: 2020.2.0b6 (24a0f8b56f72)
+[Subsystems] Discovering subsystems at path /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /home/artem/Documents/GithubProjects/ProjectXClient/Assets
+GLX Extensions: GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_create_context_robustness GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_buffer_age GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_import_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_INTEL_swap_event GLX_MESA_copy_sub_buffer GLX_MESA_query_renderer GLX_MESA_swap_control GLX_OML_swap_method GLX_OML_sync_control GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read GLX_SGI_swap_control GLX_SGI_video_sync 
+Renderer: Mesa DRI Intel(R) UHD Graphics (CML GT2)
+Vendor:   Intel Open Source Technology Center
+Version:  4.6 (Core Profile) Mesa 20.0.8
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_depth_clamp_separate GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_APPLE_object_purgeable GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_stat
+e_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_fragment_shader_interlock GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_
+coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_
+rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ATI_blend_equation_separate GL_ATI_texture_flo
+at GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_demote_to_helper_invocation GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM
+_multimode_draw_arrays GL_INTEL_conservative_rasterization GL_INTEL_performance_query GL_INTEL_shader_atomic_float_minmax GL_INTEL_shader_integer_functions2 GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_depth_clamp GL_NV_fragment_shader_interlock GL_NV_packed_depth_stencil GL_NV_texture_barrier GL_OES_EGL_image GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle 109596240
+Initialize mono
+Mono path[0] = '/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Managed'
+Mono path[1] = '/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56508
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000863 seconds.
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 27,32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,359 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002565 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+DisplayProgressbar: Restoring NuGet Packages
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,977 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0,48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 58,6 MB.
+System memory in use after: 58,4 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 1559.
+Total: 2,855296 ms (FindLiveObjects: 0,312754 ms CreateObjectMapping: 0,057370 ms MarkObjects: 2,064510 ms  DeleteObjects: 0,419638 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/folder.png
+  artifactKey: Guid(41f598a37d4676143a2e3f6bf1924b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/folder.png using Guid(41f598a37d4676143a2e3f6bf1924b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1013ba58cec3dddc014992b757c4392') in 0,065770 seconds
+  Import took 0,068396 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000165 seconds.
+  path: Assets/ActivateObjectScript.cs
+  artifactKey: Guid(7b53860fd1ad0d046800d52242d9d555) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ActivateObjectScript.cs using Guid(7b53860fd1ad0d046800d52242d9d555) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd316ead62de4b168046bff787caa2ddc') in 0,000446 seconds
+  Import took 0,002192 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000150 seconds.
+  path: Assets/ObjectType.cs
+  artifactKey: Guid(a443cd8d0fa6b054d8d0eb4fc40cc8eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ObjectType.cs using Guid(a443cd8d0fa6b054d8d0eb4fc40cc8eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8b83d319add9b1e6828e74c7dc1d308') in 0,000485 seconds
+  Import took 0,002292 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000202 seconds.
+  path: Assets/JobManager.cs
+  artifactKey: Guid(52a74388c08d13748a2bb27d79bcd457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JobManager.cs using Guid(52a74388c08d13748a2bb27d79bcd457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1581765390860beee7d06ef84a039315') in 0,000785 seconds
+  Import took 0,003245 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000140 seconds.
+  path: Assets/Textures
+  artifactKey: Guid(4f6a162b17bedf242be002cf761c88cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures using Guid(4f6a162b17bedf242be002cf761c88cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bb8db222dd28af3709f88eee46d79b6') in 0,000458 seconds
+  Import took 0,002057 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000106 seconds.
+  path: Assets/Dialog.cs
+  artifactKey: Guid(4525f77de591215449efa8646f6e74a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dialog.cs using Guid(4525f77de591215449efa8646f6e74a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52989ae48e5740a038130f60ca087512') in 0,000431 seconds
+  Import took 0,001912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000112 seconds.
+  path: Assets/NetworkManagerImpl.cs
+  artifactKey: Guid(8196eac8b74bb684c8f9fea66b2ce1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NetworkManagerImpl.cs using Guid(8196eac8b74bb684c8f9fea66b2ce1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd57955e7525284b92fe873e7ce4d242b') in 0,000414 seconds
+  Import took 0,001850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000107 seconds.
+  path: Assets/PropertyLabel.cs
+  artifactKey: Guid(0c7586b97e0a54e4ea8413cd5fe47418) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PropertyLabel.cs using Guid(0c7586b97e0a54e4ea8413cd5fe47418) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60b1c5dd051f2e02a2a436d8e0cd6483') in 0,000415 seconds
+  Import took 0,001837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000115 seconds.
+  path: Assets/Event.cs
+  artifactKey: Guid(b8dce9e5cbfab04469272d6dd40f021e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Event.cs using Guid(b8dce9e5cbfab04469272d6dd40f021e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57fd880e79bead17e4aa324eb6f5b09b') in 0,000452 seconds
+  Import took 0,002066 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000124 seconds.
+  path: Assets/LoginManager.cs
+  artifactKey: Guid(2c6331c33b9516542a6bec473f617fcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LoginManager.cs using Guid(2c6331c33b9516542a6bec473f617fcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c3ec381740e4d571fac563840ac549b') in 0,000483 seconds
+  Import took 0,002100 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000170 seconds.
+  path: Assets/hut.png
+  artifactKey: Guid(aa20160c6f376a34bab36354344a114b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/hut.png using Guid(aa20160c6f376a34bab36354344a114b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52307477c2673df083691ba162f931fa') in 0,007830 seconds
+  Import took 0,010213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000159 seconds.
+  path: Assets/Role.cs
+  artifactKey: Guid(601854897e8a4ca469ea3c40e9c49011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Role.cs using Guid(601854897e8a4ca469ea3c40e9c49011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e02b4c531f38714e87ca537911faab06') in 0,000645 seconds
+  Import took 0,003341 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000556 seconds.
+  path: Assets/NetworkParser.cs
+  artifactKey: Guid(dd9fffffe37a04b4bb550faf5e189e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NetworkParser.cs using Guid(dd9fffffe37a04b4bb550faf5e189e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e025804fd18dc8ab096218aa55a4d87') in 0,000805 seconds
+  Import took 0,004476 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000146 seconds.
+  path: Assets/CameraController.cs
+  artifactKey: Guid(cd67228982a9b5742bb4cdc551ad88ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CameraController.cs using Guid(cd67228982a9b5742bb4cdc551ad88ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a9c1d4254c17acc26f9d0f5ad869f24') in 0,000810 seconds
+  Import took 0,004055 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000132 seconds.
+  path: Assets/Packages
+  artifactKey: Guid(7b3aef7cad50ab24f988283d8ac15d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages using Guid(7b3aef7cad50ab24f988283d8ac15d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b72b1f754e01e25ac7bf75cd4e4321c') in 0,000552 seconds
+  Import took 0,002987 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000130 seconds.
+  path: Assets/NuGet.config
+  artifactKey: Guid(0724249b195e57a428bce9794264c97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NuGet.config using Guid(0724249b195e57a428bce9794264c97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '006dc25aaba4adcd8c98a79ea92f8714') in 0,001007 seconds
+  Import took 0,003399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000130 seconds.
+  path: Assets/FoodGenerator.cs
+  artifactKey: Guid(7af2b529cd1279e4ea1a7c57bd137df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FoodGenerator.cs using Guid(7af2b529cd1279e4ea1a7c57bd137df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f7a274a9c8fae755d0818f71fd32184') in 0,000528 seconds
+  Import took 0,003239 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000165 seconds.
+  path: Assets/water.mat
+  artifactKey: Guid(6df2f825fda0de3498d2d58f0937a274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/water.mat using Guid(6df2f825fda0de3498d2d58f0937a274) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca846dab2c5929862af5676f3dc8f0db') in 0,305298 seconds
+  Import took 0,307557 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000175 seconds.
+  path: Assets/packages.config
+  artifactKey: Guid(b34039e257cdef94abe1488b12ff217d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/packages.config using Guid(b34039e257cdef94abe1488b12ff217d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '171b8680bb7fba09a5d4ce24991b2be9') in 0,000707 seconds
+  Import took 0,002318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000149 seconds.
+  path: Assets/ScrollAndPitch.cs
+  artifactKey: Guid(8d69eea4aae66af4281eaa1a29a220b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScrollAndPitch.cs using Guid(8d69eea4aae66af4281eaa1a29a220b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '184093769aa86395ff28dd01af0cbbc3') in 0,000416 seconds
+  Import took 0,001870 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000131 seconds.
+  path: Assets/Images
+  artifactKey: Guid(917663a1d425d5046908f42acd9f2743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images using Guid(917663a1d425d5046908f42acd9f2743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ea17695a7697defddcc73703c53c121') in 0,000405 seconds
+  Import took 0,001970 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000172 seconds.
+  path: Assets/BuildingLogic.cs
+  artifactKey: Guid(a946500c9567f9444b7390ad0978cb5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingLogic.cs using Guid(a946500c9567f9444b7390ad0978cb5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9276e4e42a6f9d4d2a7e33c73d753e84') in 0,000477 seconds
+  Import took 0,002291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000164 seconds.
+  path: Assets/Job.cs
+  artifactKey: Guid(a9fb6f0ce7053534495a7d64e36cb700) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Job.cs using Guid(a9fb6f0ce7053534495a7d64e36cb700) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9817b5e0e419e15e98d2d0885ab484cf') in 0,000509 seconds
+  Import took 0,002711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000135 seconds.
+  path: Assets/clrzmq-ext.dll
+  artifactKey: Guid(b9d276ed0d5a5ec469df8a301dde5146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/clrzmq-ext.dll using Guid(b9d276ed0d5a5ec469df8a301dde5146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1104aee579249c3c448bf77411770f52') in 0,000450 seconds
+  Import took 0,002024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000112 seconds.
+  path: Assets/clrzmq.dll
+  artifactKey: Guid(b4fffc0b60a899649957d0f031d65827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/clrzmq.dll using Guid(b4fffc0b60a899649957d0f031d65827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08ca53f38a7705c45396de10cee866aa') in 0,000400 seconds
+  Import took 0,001858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000109 seconds.
+  path: Assets/CarouselItem.cs
+  artifactKey: Guid(addfe7628ea0be440a324dc18803d0ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CarouselItem.cs using Guid(addfe7628ea0be440a324dc18803d0ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d708fa01ad53b5138509406071e85d2') in 0,000410 seconds
+  Import took 0,001838 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000081 seconds.
+  path: Assets/user (2).png
+  artifactKey: Guid(0b0a59eee88e5294baae91eb0b805440) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/user (2).png using Guid(0b0a59eee88e5294baae91eb0b805440) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a25169801f3595e1e3e4781e1b07acb6') in 0,006793 seconds
+  Import took 0,008609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000110 seconds.
+  path: Assets/New Terrain.asset
+  artifactKey: Guid(13db6f2962c121e459c4471be08b33c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain.asset using Guid(13db6f2962c121e459c4471be08b33c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a08aab50f799117800fce008604f2dc6') in 0,003893 seconds
+  Import took 0,006043 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000163 seconds.
+  path: Assets/Sound
+  artifactKey: Guid(f5cae9475e6734a408bc4e2659136fec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound using Guid(f5cae9475e6734a408bc4e2659136fec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4760bad6a966a8fd9b1df8a5016a062d') in 0,000533 seconds
+  Import took 0,002400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000146 seconds.
+  path: Assets/save.png
+  artifactKey: Guid(81b54effce7944d47857f4a13e39e573) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/save.png using Guid(81b54effce7944d47857f4a13e39e573) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af14bd20f2856192ec6aecffc319f33c') in 0,006670 seconds
+  Import took 0,008600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000101 seconds.
+  path: Assets/BuildingManager.cs
+  artifactKey: Guid(058df6ad25da7d64d8ade3b026de0f4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildingManager.cs using Guid(058df6ad25da7d64d8ade3b026de0f4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17f70063c97a3113c999a78e8d98cc45') in 0,000429 seconds
+  Import took 0,002046 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000056 seconds.
+  path: Assets/libzmq.dll
+  artifactKey: Guid(d9b70800c2a3db24aa6945443f76bc23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/libzmq.dll using Guid(d9b70800c2a3db24aa6945443f76bc23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c32185b47d4a49151fb8737fdef3aeb') in 0,000421 seconds
+  Import took 0,001960 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000051 seconds.
+  path: Assets/Saveable.cs
+  artifactKey: Guid(318d5eef05d81254a98718c620889a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Saveable.cs using Guid(318d5eef05d81254a98718c620889a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '322f7ed7ea10c1257a8978f68d98fa18') in 0,000456 seconds
+  Import took 0,002217 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000107 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(9197f728d3d28c948b6468634a2efd13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(9197f728d3d28c948b6468634a2efd13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37fe8a34d7182f96ecf4382a72c8b8d1') in 0,000409 seconds
+  Import took 0,001830 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000101 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(e541d5e25377af74b94e095b3a780f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(e541d5e25377af74b94e095b3a780f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e805487f5b099ac919f012016b03c53c') in 0,000383 seconds
+  Import took 0,001851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000098 seconds.
+  path: Assets/PeopleController.cs
+  artifactKey: Guid(25815ad3de76ab74197e532e1b71c00e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PeopleController.cs using Guid(25815ad3de76ab74197e532e1b71c00e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01e6cb12b98db56cc73a3fdcfa944c2f') in 0,000650 seconds
+  Import took 0,002838 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,001293 seconds.
+  path: Assets/CustomLogic.cs
+  artifactKey: Guid(ff35139f0d37bdb4699e36828263e69a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CustomLogic.cs using Guid(ff35139f0d37bdb4699e36828263e69a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c7f24d65413aa1d0c69b0feaa3a2f97') in 0,000602 seconds
+  Import took 0,003101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000110 seconds.
+  path: Assets/LevelInfoManager.cs
+  artifactKey: Guid(67c7dbea250148146b39b1c13f90d064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LevelInfoManager.cs using Guid(67c7dbea250148146b39b1c13f90d064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '034f5bee27b5ade82372250678f6d61d') in 0,000636 seconds
+  Import took 0,002684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000097 seconds.
+  path: Assets/GlobalConstants.cs
+  artifactKey: Guid(5368c3f859c754b498ccde0244b84c43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GlobalConstants.cs using Guid(5368c3f859c754b498ccde0244b84c43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1fb1d6df9a7f087c135d0c6c1b1c3e') in 0,000685 seconds
+  Import took 0,002637 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000088 seconds.
+  path: Assets/Shaders
+  artifactKey: Guid(e0f164f3599512341b1410e44ccb67bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders using Guid(e0f164f3599512341b1410e44ccb67bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '856792ff3c43a94836fdd2ade3736461') in 0,000630 seconds
+  Import took 0,003199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000132 seconds.
+  path: Assets/Protos
+  artifactKey: Guid(b88d4e5809f23404e9522f9e67703196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Protos using Guid(b88d4e5809f23404e9522f9e67703196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98c3a6bab045830b98b3548e45ddb2b5') in 0,000590 seconds
+  Import took 0,003455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000220 seconds.
+  path: Assets/BottomPanelLogic.cs
+  artifactKey: Guid(12a2432df8be7f049b6f02a28bfbdbe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BottomPanelLogic.cs using Guid(12a2432df8be7f049b6f02a28bfbdbe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db1dfcbf68efe19b392e23fac88e5fa2') in 0,000886 seconds
+  Import took 0,003811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000255 seconds.
+  path: Assets/ErrorDialogs.cs
+  artifactKey: Guid(b092885f0cb63a1409966e848331c3b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ErrorDialogs.cs using Guid(b092885f0cb63a1409966e848331c3b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbdecacfa71ef1ce162270b8103a1f34') in 0,000546 seconds
+  Import took 0,003303 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000129 seconds.
+  path: Assets/NetworkManagerFactory.cs
+  artifactKey: Guid(eca4a363268c70c49b86d3b9a3f28803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NetworkManagerFactory.cs using Guid(eca4a363268c70c49b86d3b9a3f28803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a01ed21464faaab8de70765cde7c998') in 0,000726 seconds
+  Import took 0,003431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000212 seconds.
+  path: Assets/Utility.cs
+  artifactKey: Guid(3834faa163b373a4e8f18fa34e3969ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Utility.cs using Guid(3834faa163b373a4e8f18fa34e3969ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbf0d2b42fcc5c41440a97bbc1edca20') in 0,000539 seconds
+  Import took 0,003002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000169 seconds.
+  path: Assets/PeopleManager.cs
+  artifactKey: Guid(9a08bcc816aff544b93d28b8d9812be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PeopleManager.cs using Guid(9a08bcc816aff544b93d28b8d9812be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f8b7a5055880fcabce059e1185de622') in 0,000816 seconds
+  Import took 0,003455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000182 seconds.
+  path: Assets/ObjectMana.cs
+  artifactKey: Guid(c228502f6ebb3a843a1761e07c93536a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ObjectMana.cs using Guid(c228502f6ebb3a843a1761e07c93536a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c5c5c4e4a3db62b2321c18a0085bab3') in 0,000626 seconds
+  Import took 0,002844 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000211 seconds.
+  path: Assets/GameManager.cs
+  artifactKey: Guid(ea0b3c8e731db7640a47a2dfe3560e21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameManager.cs using Guid(ea0b3c8e731db7640a47a2dfe3560e21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '385169ab6e5530ceda06bde64fb4688e') in 0,000647 seconds
+  Import took 0,002868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000108 seconds.
+  path: Assets/real-estate.png
+  artifactKey: Guid(546e9fce8bf1b284d8fd2d09f8419226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/real-estate.png using Guid(546e9fce8bf1b284d8fd2d09f8419226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fa6ba0b62993c87e2df5f0b0c3b4045') in 0,005336 seconds
+  Import took 0,007632 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000152 seconds.
+  path: Assets/Lumberjack.cs
+  artifactKey: Guid(2be19f32a5047b14292b22f51f3fe75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Lumberjack.cs using Guid(2be19f32a5047b14292b22f51f3fe75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '189bb07308a04d78778c16e5ae562b5e') in 0,000556 seconds
+  Import took 0,002978 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000094 seconds.
+  path: Assets/Fonts
+  artifactKey: Guid(021128ce325c40c43bd47d05f0cc9480) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts using Guid(021128ce325c40c43bd47d05f0cc9480) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b2bde49b0b8576d8e4b09c248e5a8ae') in 0,000581 seconds
+  Import took 0,002957 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000088 seconds.
+  path: Assets/ObjectManager.cs
+  artifactKey: Guid(2d98b1291399be3499644270a8f8c03f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ObjectManager.cs using Guid(2d98b1291399be3499644270a8f8c03f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6226b87081296f43e87beca78d68e6fd') in 0,000474 seconds
+  Import took 0,002156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000079 seconds.
+  path: Assets/PessoCoin2.png
+  artifactKey: Guid(af9f910f81499404fbd151e251280732) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PessoCoin2.png using Guid(af9f910f81499404fbd151e251280732) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '898d10d2380eba134b48f83c120e9a3c') in 0,007125 seconds
+  Import took 0,009106 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000110 seconds.
+  path: Assets/NetworkManager.cs
+  artifactKey: Guid(984c80a903208a841b7aea1d71fe4827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NetworkManager.cs using Guid(984c80a903208a841b7aea1d71fe4827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b31ba251759a2595d42cf8dc5d8554c5') in 0,000760 seconds
+  Import took 0,003178 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000118 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(5569f8a233e36d04585b5943413bc0f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(5569f8a233e36d04585b5943413bc0f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6d376bbb3944d9ac463c7ed4eb4c9f') in 0,000564 seconds
+  Import took 0,002405 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000065 seconds.
+  path: Assets/NuGet
+  artifactKey: Guid(217cb7caed5f7fb49b339428b1d80974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NuGet using Guid(217cb7caed5f7fb49b339428b1d80974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f02f916691317c58cbeb11c1466a1d4') in 0,000429 seconds
+  Import took 0,002045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000072 seconds.
+  path: Assets/bush.fbx
+  artifactKey: Guid(82c57611450a6b04c92c1f8c3c11ac14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/bush.fbx using Guid(82c57611450a6b04c92c1f8c3c11ac14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '545edbacb71d79e2bf12a76038152b8b') in 0,050015 seconds
+  Import took 0,052462 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000101 seconds.
+  path: Assets/Packs
+  artifactKey: Guid(0acfb5df6beb0a84086211ba145762a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs using Guid(0acfb5df6beb0a84086211ba145762a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29d726fdee883146904b5be4d21245d2') in 0,000492 seconds
+  Import took 0,002752 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000128 seconds.
+  path: Assets/ProtoConverter.cs
+  artifactKey: Guid(7a2b3cdb2ac87cf4e9cf71a16a4f67ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ProtoConverter.cs using Guid(7a2b3cdb2ac87cf4e9cf71a16a4f67ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62e50d8cdbcf2464f6c253c3c52fb912') in 0,000948 seconds
+  Import took 0,003793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000160 seconds.
+  path: Assets/Animation
+  artifactKey: Guid(3792772104fc2134c83aefbe6acc87f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation using Guid(3792772104fc2134c83aefbe6acc87f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86e0f4744e14c782d4cfbb8a261d8d19') in 0,000612 seconds
+  Import took 0,002915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000120 seconds.
+  path: Assets/TerrainGenerator.cs
+  artifactKey: Guid(ea55237fd2e63b146a3b068bc48bf5f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainGenerator.cs using Guid(ea55237fd2e63b146a3b068bc48bf5f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8d44e7cd400435ccd98f15563292822') in 0,000734 seconds
+  Import took 0,002964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000153 seconds.
+  path: Assets/TreeGenerator.cs
+  artifactKey: Guid(59854441deeebe34eae19b50428328b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TreeGenerator.cs using Guid(59854441deeebe34eae19b50428328b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa60f0fedee672a79e721857e84b79d4') in 0,000488 seconds
+  Import took 0,002073 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000111 seconds.
+  path: Assets/NewBehaviourScript.cs
+  artifactKey: Guid(fdda4b0e46a1f564494e01a1b269a847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NewBehaviourScript.cs using Guid(fdda4b0e46a1f564494e01a1b269a847) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd33f4ee79eb83bf54eb8ec703223f284') in 0,000473 seconds
+  Import took 0,002135 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000118 seconds.
+  path: Assets/EventBus.cs
+  artifactKey: Guid(7a128557425dda44caa0cf1110a460ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/EventBus.cs using Guid(7a128557425dda44caa0cf1110a460ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '185d61b439e72081913f538c9262ba8e') in 0,000560 seconds
+  Import took 0,002450 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000225 seconds.
+  path: Assets/BuildItem.cs
+  artifactKey: Guid(0a7174f06b1941b4982dde8944f483c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildItem.cs using Guid(0a7174f06b1941b4982dde8944f483c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffdae38f52e55c0d15d24aaeec944314') in 0,000467 seconds
+  Import took 0,002183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000127 seconds.
+  path: Assets/Tree.cs
+  artifactKey: Guid(021c79666cf45a946bf405d5d867538f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tree.cs using Guid(021c79666cf45a946bf405d5d867538f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '449f66a3fbe73337641b3f9ba9dd1703') in 0,000442 seconds
+  Import took 0,002300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000137 seconds.
+  path: Assets/BuildManager.cs
+  artifactKey: Guid(fd17be35a95dfe34b88221ca2ebca2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildManager.cs using Guid(fd17be35a95dfe34b88221ca2ebca2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d4afb5db57be6be40138981bebe474b') in 0,000513 seconds
+  Import took 0,002609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 63,135373 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6301e43d72a3e1e84fb052254d97cc3e') in 0,000813 seconds
+  Import took 0,003137 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3,24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 21 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 39,7 MB.
+System memory in use after: 39,0 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1606.
+Total: 4,341031 ms (FindLiveObjects: 0,400645 ms CreateObjectMapping: 0,059054 ms MarkObjects: 3,145361 ms  DeleteObjects: 0,734241 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,001196 seconds.
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 38,09 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,313 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,003111 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,321 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 50,2 MB.
+System memory in use after: 50,0 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1618.
+Total: 3,740728 ms (FindLiveObjects: 0,329541 ms CreateObjectMapping: 0,064201 ms MarkObjects: 2,913389 ms  DeleteObjects: 0,431287 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 21 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 50,2 MB.
+System memory in use after: 49,9 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1618.
+Total: 3,179039 ms (FindLiveObjects: 0,353530 ms CreateObjectMapping: 0,059268 ms MarkObjects: 2,315999 ms  DeleteObjects: 0,449115 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000902 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 26,23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,951 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002214 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,904 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 61,3 MB.
+System memory in use after: 61,1 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1630.
+Total: 2,714173 ms (FindLiveObjects: 0,391921 ms CreateObjectMapping: 0,050417 ms MarkObjects: 1,928371 ms  DeleteObjects: 0,342305 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,001052 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 26,22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,999 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002210 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,940 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72,2 MB.
+System memory in use after: 72,0 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1642.
+Total: 2,644028 ms (FindLiveObjects: 0,331366 ms CreateObjectMapping: 0,045900 ms MarkObjects: 1,936849 ms  DeleteObjects: 0,328792 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000954 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 31,25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,104 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002212 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,210 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 83,2 MB.
+System memory in use after: 82,9 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1654.
+Total: 3,568336 ms (FindLiveObjects: 0,503099 ms CreateObjectMapping: 0,076021 ms MarkObjects: 2,511924 ms  DeleteObjects: 0,475206 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000898 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 26,00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,031 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002135 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,923 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 94,1 MB.
+System memory in use after: 93,9 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1666.
+Total: 2,700559 ms (FindLiveObjects: 0,348771 ms CreateObjectMapping: 0,031544 ms MarkObjects: 1,968693 ms  DeleteObjects: 0,349292 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000884 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 25,78 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,039 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002061 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,972 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 105,1 MB.
+System memory in use after: 104,8 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1678.
+Total: 2,868983 ms (FindLiveObjects: 0,342120 ms CreateObjectMapping: 0,048748 ms MarkObjects: 2,125828 ms  DeleteObjects: 0,351222 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000890 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 30,61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,175 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002217 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,082 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 116,0 MB.
+System memory in use after: 115,8 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1690.
+Total: 2,670472 ms (FindLiveObjects: 0,285475 ms CreateObjectMapping: 0,043256 ms MarkObjects: 2,006751 ms  DeleteObjects: 0,333788 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,001071 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 35,97 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,471 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002971 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,434 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126,9 MB.
+System memory in use after: 126,7 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1702.
+Total: 3,510468 ms (FindLiveObjects: 0,399647 ms CreateObjectMapping: 0,061104 ms MarkObjects: 2,581749 ms  DeleteObjects: 0,466590 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,001066 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 36,00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,501 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002960 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,488 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137,9 MB.
+System memory in use after: 137,6 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1714.
+Total: 3,482489 ms (FindLiveObjects: 0,411028 ms CreateObjectMapping: 0,062713 ms MarkObjects: 2,523115 ms  DeleteObjects: 0,484149 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000868 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 29,64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,183 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002336 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,103 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 148,6 MB.
+System memory in use after: 148,4 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1726.
+Total: 2,703689 ms (FindLiveObjects: 0,341676 ms CreateObjectMapping: 0,050616 ms MarkObjects: 1,976706 ms  DeleteObjects: 0,333752 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000856 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 26,29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,175 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002189 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,077 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158,7 MB.
+System memory in use after: 158,5 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1738.
+Total: 2,958182 ms (FindLiveObjects: 0,353270 ms CreateObjectMapping: 0,057495 ms MarkObjects: 2,194445 ms  DeleteObjects: 0,351900 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000858 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 28,11 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,225 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002425 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,134 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 169,6 MB.
+System memory in use after: 169,4 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1750.
+Total: 2,764625 ms (FindLiveObjects: 0,331679 ms CreateObjectMapping: 0,049287 ms MarkObjects: 2,035747 ms  DeleteObjects: 0,346936 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000858 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 26,04 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,236 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002154 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,118 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180,6 MB.
+System memory in use after: 180,3 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1762.
+Total: 2,876526 ms (FindLiveObjects: 0,347763 ms CreateObjectMapping: 0,050625 ms MarkObjects: 2,113112 ms  DeleteObjects: 0,363982 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000982 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 25,37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,336 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002307 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,191 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 191,5 MB.
+System memory in use after: 191,3 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1774.
+Total: 2,668617 ms (FindLiveObjects: 0,322433 ms CreateObjectMapping: 0,032878 ms MarkObjects: 1,951431 ms  DeleteObjects: 0,360170 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000903 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 25,82 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,250 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,001834 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,143 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 202,4 MB.
+System memory in use after: 202,2 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1786.
+Total: 2,784378 ms (FindLiveObjects: 0,351052 ms CreateObjectMapping: 0,066583 ms MarkObjects: 2,007022 ms  DeleteObjects: 0,358752 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000858 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 25,57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,258 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,001825 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,139 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 213,2 MB.
+System memory in use after: 213,0 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1798.
+Total: 2,929851 ms (FindLiveObjects: 0,345535 ms CreateObjectMapping: 0,049052 ms MarkObjects: 2,174172 ms  DeleteObjects: 0,359985 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000831 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 25,91 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,316 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002143 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,210 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 223,3 MB.
+System memory in use after: 223,1 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1810.
+Total: 2,785772 ms (FindLiveObjects: 0,356591 ms CreateObjectMapping: 0,051663 ms MarkObjects: 2,009100 ms  DeleteObjects: 0,367116 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000958 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 25,84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,371 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002149 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,212 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 234,2 MB.
+System memory in use after: 234,0 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1822.
+Total: 2,798279 ms (FindLiveObjects: 0,329686 ms CreateObjectMapping: 0,049574 ms MarkObjects: 2,065470 ms  DeleteObjects: 0,352617 ms)
+

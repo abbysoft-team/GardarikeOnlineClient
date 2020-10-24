@@ -16,7 +16,6 @@ public class NetworkManagerImpl : NetworkManager
 {
     private string serverIp;
     private int serverPort;
-    // TODO make queues instead of this type
     private Queue<Response> responseQueue;
     private Queue<byte[]> requestQueue;
 
@@ -39,7 +38,7 @@ public class NetworkManagerImpl : NetworkManager
         {
             try
             {
-                //ClientTask();
+                ClientTask();
             }
             catch (System.Exception e)
             {
@@ -59,6 +58,12 @@ public class NetworkManagerImpl : NetworkManager
         {
             while (true)
             {
+                if (requestQueue.Count <= 0)
+                {
+                    Thread.Sleep(10);
+                    continue;
+                }
+
                 SendAllRequests(requester);
             }
         }
@@ -70,19 +75,10 @@ public class NetworkManagerImpl : NetworkManager
 
         var address = string.Format(">tcp://{0}:{1}", serverIp, serverPort);
 
-        using (var requester = new RequestSocket(address))
+        using (var requester = new DealerSocket(address))
         {
             while (true)
             {
-                if (requestQueue.Count <= 0)
-                {
-                    Thread.Sleep(100);
-                    continue;
-                }
-
-                // Request
-                requester.SendFrame(requestQueue.Dequeue());
-
                 // Receive
                 var reply = requester.ReceiveFrameBytes();
 
@@ -95,11 +91,9 @@ public class NetworkManagerImpl : NetworkManager
 
     private void SendAllRequests(DealerSocket client)
     {
-        foreach (var packet in requestQueue)
-        {
-            {
-                client.SendFrame(packet);
-            }
+        Debug.Log("Sending " + requestQueue.Count + " packets");
+        while (requestQueue.Count > 0) {
+            client.SendFrame(requestQueue.Dequeue());
         }
     }
 
@@ -126,6 +120,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue = new Queue<byte[]>();
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
+        EventBus.instance.onBuildingComplete += SendBuildingEvent;
 
         StartZeroMQCommunicationThread();
     }
@@ -157,6 +152,12 @@ public class NetworkManagerImpl : NetworkManager
         };
 
         return mapRequest.ToByteArray();
+    }
+
+    private void SendBuildingEvent(BuildItem bulding) {
+        Debug.Log("Sending build event to server");
+
+        //var buildingEvent = new Buildi
     }
 
     public void SendEvent(Event eventObject)

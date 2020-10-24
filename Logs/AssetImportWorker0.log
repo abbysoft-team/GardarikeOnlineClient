@@ -1,368 +1,220 @@
 Using pre-set license
-Built from '2020.2/staging' branch; Version is '2020.2.0b6 (24a0f8b56f72) revision 2400504'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10  (10.0.0) 64bit' Language: 'ru' Physical Memory: 7976 MB
-BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+Desktop is 1920 x 1080 @ 60 Hz
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.2.0b6\Editor\Unity.exe
+Unity
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Artem/Documents/Project/ProjectXClient
+/home/artem/Documents/GithubProjects/ProjectXClient
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52407
-Successfully changed project path to: C:/Users/Artem/Documents/Project/ProjectXClient
-C:/Users/Artem/Documents/Project/ProjectXClient
+44263
+Successfully changed project path to: /home/artem/Documents/GithubProjects/ProjectXClient
+/home/artem/Documents/GithubProjects/ProjectXClient
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 69.22 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 31,39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Initialize engine version: 2020.2.0b6 (24a0f8b56f72)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Artem/Documents/Project/ProjectXClient/Assets
-GfxDevice: creating device client; threaded=0
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) UHD Graphics (ID=0x9b41)
-    Vendor:   
-    VRAM:     3988 MB
-    Driver:   26.20.100.7262
+[Subsystems] Discovering subsystems at path /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /home/artem/Documents/GithubProjects/ProjectXClient/Assets
+GLX Extensions: GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_create_context_robustness GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_buffer_age GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_import_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_INTEL_swap_event GLX_MESA_copy_sub_buffer GLX_MESA_query_renderer GLX_MESA_swap_control GLX_OML_swap_method GLX_OML_sync_control GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read GLX_SGI_swap_control GLX_SGI_video_sync 
+Renderer: Mesa DRI Intel(R) UHD Graphics (CML GT2)
+Vendor:   Intel Open Source Technology Center
+Version:  4.6 (Core Profile) Mesa 20.0.8
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_depth_clamp_separate GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_APPLE_object_purgeable GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_stat
+e_access GL_ARB_draw_buffers GL_ARB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_fragment_shader_interlock GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_
+coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_
+rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ATI_blend_equation_separate GL_ATI_texture_flo
+at GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_demote_to_helper_invocation GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM
+_multimode_draw_arrays GL_INTEL_conservative_rasterization GL_INTEL_performance_query GL_INTEL_shader_atomic_float_minmax GL_INTEL_shader_integer_functions2 GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_depth_clamp GL_NV_fragment_shader_interlock GL_NV_packed_depth_stencil GL_NV_texture_barrier GL_OES_EGL_image GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle 1941646672
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56396
+Mono path[0] = '/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/Managed'
+Mono path[1] = '/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56229
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002350 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 56.81 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000929 seconds.
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 26,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.319 seconds
+- Completed reload, in  1,271 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007102 seconds.
+Registered in 0,002238 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.46 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 DisplayProgressbar: Restoring NuGet Packages
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.519 seconds
+- Completed reload, in  0,841 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.37 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Unloading 1128 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.8 MB.
-System memory in use after: 76.7 MB.
+System memory in use before: 70,3 MB.
+System memory in use after: 70,0 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 1578.
-Total: 2.158500 ms (FindLiveObjects: 0.333200 ms CreateObjectMapping: 0.053900 ms MarkObjects: 1.538600 ms  DeleteObjects: 0.231700 ms)
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 1574.
+Total: 2,881240 ms (FindLiveObjects: 0,288193 ms CreateObjectMapping: 0,042357 ms MarkObjects: 2,115175 ms  DeleteObjects: 0,433512 ms)
 
 ========================================================================
 Received Import Request.
+  path: Assets/folder.png
+  artifactKey: Guid(41f598a37d4676143a2e3f6bf1924b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/folder.png using Guid(41f598a37d4676143a2e3f6bf1924b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0335b19b59dfc1a2d57f66dbbf6f2dee') in 0,068171 seconds
+  Import took 0,072118 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000198 seconds.
+  path: Assets/save.png
+  artifactKey: Guid(81b54effce7944d47857f4a13e39e573) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/save.png using Guid(81b54effce7944d47857f4a13e39e573) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edaf7459606e3c94c24b53782b432f20') in 0,005819 seconds
+  Import took 0,008016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000158 seconds.
   path: Assets/NetworkManagerImpl.cs
   artifactKey: Guid(8196eac8b74bb684c8f9fea66b2ce1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NetworkManagerImpl.cs using Guid(8196eac8b74bb684c8f9fea66b2ce1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a39b4728e439f63c713a9159d92f5812') in 0.024683 seconds
-  Import took 0.028645 seconds .
+Start importing Assets/NetworkManagerImpl.cs using Guid(8196eac8b74bb684c8f9fea66b2ce1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdb84c41d2f540a6bd06d6479e8bdf66') in 0,000516 seconds
+  Import took 0,002879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000170 seconds.
+  path: Assets/hut.png
+  artifactKey: Guid(aa20160c6f376a34bab36354344a114b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/hut.png using Guid(aa20160c6f376a34bab36354344a114b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ca1251b03cafb5851b85ad3a1b3f7ef') in 0,007853 seconds
+  Import took 0,010104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000165 seconds.
+  path: Assets/real-estate.png
+  artifactKey: Guid(546e9fce8bf1b284d8fd2d09f8419226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/real-estate.png using Guid(546e9fce8bf1b284d8fd2d09f8419226) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e76fdee06e0c3108195b212ed196293') in 0,010119 seconds
+  Import took 0,012295 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000147 seconds.
+  path: Assets/PessoCoin2.png
+  artifactKey: Guid(af9f910f81499404fbd151e251280732) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PessoCoin2.png using Guid(af9f910f81499404fbd151e251280732) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8994aac2beaf39724d686365d4079953') in 0,006921 seconds
+  Import took 0,009113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,000196 seconds.
+  path: Assets/user (2).png
+  artifactKey: Guid(0b0a59eee88e5294baae91eb0b805440) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/user (2).png using Guid(0b0a59eee88e5294baae91eb0b805440) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17663053ac5d3274f4cd6e402a9c1ea2') in 0,007904 seconds
+  Import took 0,010234 seconds .
 
 ========================================================================
 Received Prepare
 Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006034 seconds.
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 122.52 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000860 seconds.
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+./Editor/Platform/Linux/TempStubs.cpp:PlatformImageForIconForExtension
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 34,20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.027 seconds
+- Completed reload, in  1,061 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.018035 seconds.
+Registered in 0,002327 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.014 seconds
+- Completed reload, in  1,011 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 0,32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 66.2 MB.
-System memory in use after: 66.1 MB.
+System memory in use before: 60,9 MB.
+System memory in use after: 60,6 MB.
 
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1590.
-Total: 6.802000 ms (FindLiveObjects: 0.362800 ms CreateObjectMapping: 0.059800 ms MarkObjects: 5.046200 ms  DeleteObjects: 1.329100 ms)
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005609 seconds.
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 131.29 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.366 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.015415 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.214 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.03 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 77.3 MB.
-System memory in use after: 77.2 MB.
-
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1602.
-Total: 5.701700 ms (FindLiveObjects: 0.731400 ms CreateObjectMapping: 0.097100 ms MarkObjects: 4.469200 ms  DeleteObjects: 0.398700 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1592.
+Total: 3,427263 ms (FindLiveObjects: 0,557358 ms CreateObjectMapping: 0,096359 ms MarkObjects: 2,446705 ms  DeleteObjects: 0,324985 ms)
 
 ========================================================================
 Received Prepare
 Reloading mono domain
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006735 seconds.
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 110.01 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000905 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 27,49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.517 seconds
+- Completed reload, in  1,028 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.015177 seconds.
+Registered in 0,002817 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.02 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.452 seconds
+- Completed reload, in  1,031 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.56 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 0,35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 88.2 MB.
-System memory in use after: 88.1 MB.
+System memory in use before: 72,0 MB.
+System memory in use after: 71,7 MB.
 
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1614.
-Total: 4.366900 ms (FindLiveObjects: 0.395500 ms CreateObjectMapping: 0.136300 ms MarkObjects: 3.327200 ms  DeleteObjects: 0.501500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 5470.583910 seconds.
-  path: Assets/Packs/Polytope Studio/Lowpoly Medieval Characters/Sources/Animations/Anim_controllers
-  artifactKey: Guid(4b56d4fa0ed597a4ca3ec42d8d4e451a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Polytope Studio/Lowpoly Medieval Characters/Sources/Animations/Anim_controllers using Guid(4b56d4fa0ed597a4ca3ec42d8d4e451a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9706723030ee0d327601d2f6f91158f') in 0.021332 seconds
-  Import took 0.028149 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000667 seconds.
-  path: Assets/Packs/Village Asset/Models/Buildings/Coal_Mine.fbx
-  artifactKey: Guid(14b20297b323282419b811cdfc2a9c0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Buildings/Coal_Mine.fbx using Guid(14b20297b323282419b811cdfc2a9c0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'badaaebd929fe358e86b09e2d2c44ce1') in 0.342682 seconds
-  Import took 0.348027 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000387 seconds.
-  path: Assets/Packs/Village Asset/Models/Coliders/Coal_Mine_colider.fbx
-  artifactKey: Guid(7b26022fc7d36bb419cb4389c348b652) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Coliders/Coal_Mine_colider.fbx using Guid(7b26022fc7d36bb419cb4389c348b652) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34df3e59de9cbf6ef5a84e6230deec02') in 0.061122 seconds
-  Import took 0.067330 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000331 seconds.
-  path: Assets/Packs/Village Asset/Models/Coliders/Melter_colider.fbx
-  artifactKey: Guid(cc7cc7d9f5b77e344b4f59367a12384c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Coliders/Melter_colider.fbx using Guid(cc7cc7d9f5b77e344b4f59367a12384c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09d02571d75891898950bdd7d6ac5319') in 0.066089 seconds
-  Import took 0.070624 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000310 seconds.
-  path: Assets/Packs/Village Asset/Models/Buildings/Weaponsmith_WarAxe_Shield.fbx
-  artifactKey: Guid(4b6d9afb71df20e4cbca127405198afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Buildings/Weaponsmith_WarAxe_Shield.fbx using Guid(4b6d9afb71df20e4cbca127405198afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c24d9bcb3eb186c9ac96629cb9ecc4c') in 0.063710 seconds
-  Import took 0.069535 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000377 seconds.
-  path: Assets/Packs/Polytope Studio/Lowpoly Medieval Characters/Sources/Animations
-  artifactKey: Guid(733e960621c8f3a40874e28203579d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Polytope Studio/Lowpoly Medieval Characters/Sources/Animations using Guid(733e960621c8f3a40874e28203579d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65ef2d54cae2258920ecd510877babbb') in 0.011524 seconds
-  Import took 0.017334 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000248 seconds.
-  path: Assets/Packs/Village Asset/Models/Buildings/Weaponsmith_bow.fbx
-  artifactKey: Guid(275d2b53e43253947ba78c07ab04c1d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Buildings/Weaponsmith_bow.fbx using Guid(275d2b53e43253947ba78c07ab04c1d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc830952a25578f89a79651c1a870da2') in 0.051463 seconds
-  Import took 0.056385 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000473 seconds.
-  path: Assets/Packs/Polytope Studio/Lowpoly Medieval Characters/Sources/Animations
-  artifactKey: Guid(733e960621c8f3a40874e28203579d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Polytope Studio/Lowpoly Medieval Characters/Sources/Animations using Guid(733e960621c8f3a40874e28203579d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65ef2d54cae2258920ecd510877babbb') in 0.003466 seconds
-  Import took 0.007236 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000282 seconds.
-  path: Assets/Packs/Village Asset/Models/Buildings/Weaponsmith_bow.fbx
-  artifactKey: Guid(275d2b53e43253947ba78c07ab04c1d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Buildings/Weaponsmith_bow.fbx using Guid(275d2b53e43253947ba78c07ab04c1d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc830952a25578f89a79651c1a870da2') in 0.023949 seconds
-  Import took 0.026689 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000279 seconds.
-  path: Assets/Packs/Village Asset/Models/Buildings/Blacksmith.fbx
-  artifactKey: Guid(e5dc630ced3aadb4f9cb92cfb7c4cb09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Buildings/Blacksmith.fbx using Guid(e5dc630ced3aadb4f9cb92cfb7c4cb09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48e31e495f3f7dd7c2dd0bc6a718c4df') in 0.083299 seconds
-  Import took 0.088688 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000469 seconds.
-  path: Assets/Packs/Village Asset/Models/Buildings/Melter.fbx
-  artifactKey: Guid(359062255db081a4f9f5bd2d0721a6ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Buildings/Melter.fbx using Guid(359062255db081a4f9f5bd2d0721a6ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cd375a6e63f8d7f9bed35b70f5e16af') in 0.082100 seconds
-  Import took 0.089163 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000934 seconds.
-  path: Assets/Packs/Village Asset/Models/Coliders/Blacksmith_colider.fbx
-  artifactKey: Guid(c2349286b56288049b0600e38bc46673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Coliders/Blacksmith_colider.fbx using Guid(c2349286b56288049b0600e38bc46673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b66de83bb9ea5bd9ddf971c159119fb') in 0.055984 seconds
-  Import took 0.061056 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000270 seconds.
-  path: Assets/Packs/Village Asset/Prefabs/Tools and weapons/Arrow.prefab
-  artifactKey: Guid(492faa32bd761204a9d6b22790604c2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Prefabs/Tools and weapons/Arrow.prefab using Guid(492faa32bd761204a9d6b22790604c2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9055d259392bbdbd34475967905065c5') in 0.249782 seconds
-  Import took 0.254946 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000519 seconds.
-  path: Assets/Packs/Village Asset/Models/Coliders/Blacksmith_colider.fbx
-  artifactKey: Guid(c2349286b56288049b0600e38bc46673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Coliders/Blacksmith_colider.fbx using Guid(c2349286b56288049b0600e38bc46673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b66de83bb9ea5bd9ddf971c159119fb') in 0.035812 seconds
-  Import took 0.041097 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000574 seconds.
-  path: Assets/Packs/Village Asset/Models/Tools and Weapons/Arrow.fbx
-  artifactKey: Guid(4013f3d06bac2304bb894742504c5d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Tools and Weapons/Arrow.fbx using Guid(4013f3d06bac2304bb894742504c5d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a893ed2defe1a3bd08f3ac3894b3ca') in 0.073382 seconds
-  Import took 0.080300 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.047855 seconds.
-  path: Assets/Packs/Village Asset/Models/Tools and Weapons/Arrow.fbx
-  artifactKey: Guid(4013f3d06bac2304bb894742504c5d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Village Asset/Models/Tools and Weapons/Arrow.fbx using Guid(4013f3d06bac2304bb894742504c5d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a893ed2defe1a3bd08f3ac3894b3ca') in 0.028041 seconds
-  Import took 0.034000 seconds .
-
-========================================================================
-Received Prepare
-Reloading mono domain
-Begin MonoManager ReloadAssembly
-Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.0b6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003343 seconds.
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 103.37 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.958 seconds
-Platform modules already initialized, skipping
-Registering precompiled user dll's ...
-Registered in 0.009550 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\Artem\Documents\Project\ProjectXClient\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.63 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.823 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 103.1 MB.
-System memory in use after: 103.0 MB.
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1638.
-Total: 2.399800 ms (FindLiveObjects: 0.349500 ms CreateObjectMapping: 0.059400 ms MarkObjects: 1.752300 ms  DeleteObjects: 0.237300 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1604.
+Total: 2,612408 ms (FindLiveObjects: 0,296417 ms CreateObjectMapping: 0,043833 ms MarkObjects: 1,936894 ms  DeleteObjects: 0,333281 ms)
 

@@ -26,3 +26,6 @@ see Projects for more info. Currently we're trying to apply some Scrum methodolo
 <h2><i>WE NEED GAME DESIGNERS AND ARTISTS</i></h2>
 
 please, send your mails to contact@abbysoft.org or add me on Telegram (@apopovofficial)
+
+<b> LICENSE NOTICE </b>
+Feel free to use this code for non-profit goals. If you wan't to use it as part of commercial product contact us via contact@abbysoft.org. Usage without our (maintainers of this repo) permission is prohibited.

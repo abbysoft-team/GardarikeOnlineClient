@@ -182,7 +182,7 @@ public class NetworkManagerImpl : NetworkManager
 
         var buildingEvent = new Request {
             PlaceBuildingRequest = new PlaceBuildingRequest {
-                BuildingID = 0,
+                BuildingID = 1,
                 SessionID = PlayerPrefs.GetString("sessionId"),
                 Location = building.Location()
             }

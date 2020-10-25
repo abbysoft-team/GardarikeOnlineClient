@@ -1,8 +1,7 @@
 # Gardarike Online client
 made by Unity Engine
 
-<img src="https://sun9-33.userapi.com/Q2nX0_NP6-5VXzCm8bDogEC5udnutJYWZd2_zg/ciWIxX0LSjo.jpg"/>
-<img src="https://sun9-20.userapi.com/jcn8ZYb7Zwf9ykwmf0hHDmW0eVwHA1sWwjrhzQ/72JFmJbiQGw.jpg"/>
+<img height="500" src="https://sun9-4.userapi.com/LLqUVr0Zx4XgODjR0idWAxpQyBQZlRCUzz2ofw/qP7oa3AteVs.jpg"/>
 
 This is Unity frontend for https://github.com/abbysoft-team/GardarikeOnlineServer
 

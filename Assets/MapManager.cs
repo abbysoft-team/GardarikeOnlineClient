@@ -10,14 +10,14 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onLoginComplete += SendMapRequest;
+        EventBus.instance.onCharacterSelected += SendMapRequest;
         EventBus.instance.onMapObjectsLoadingComplete += PlaceMapObjects;
     }
 
-    private void SendMapRequest(string sessionId, RepeatedField<Character> character) {
+    private void SendMapRequest() {
         Debug.Log("Start loading map");
 
-        EventBus.instance.LoadMap(sessionId);
+        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
     }
 
     private void PlaceMapObjects(RepeatedField<Building> buildings) {
@@ -30,6 +30,7 @@ public class MapManager : MonoBehaviour
     private BuildItem ToBuildingItem(Building building) {
         var item = new BuildItem();
         item.position = ProtoConverter.ToUnityVector(building.Location);
+       // item.position = Utility.GetGroundedPoint(item.position);
 
         return item;
     }

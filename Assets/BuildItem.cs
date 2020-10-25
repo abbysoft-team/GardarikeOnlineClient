@@ -45,6 +45,7 @@ public class BuildItem : MonoBehaviour
         {
             position = model.transform.position;
             lossyScale = model.transform.lossyScale;
+            EventBus.instance.BuildingComplete(this);
             EventBus.instance.RegisterBuilding(this);
         }
     }

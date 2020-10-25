@@ -11,13 +11,16 @@ public class EventBus : MonoBehaviour
     public static EventBus instance;
 
     public event Action<BuildItem> onBuildingRegistrationEvent;
+    public event Action<BuildItem> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<int, int, float[,]> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onLoginRequest;
+    public event Action<Character> onSelectCharacterRequest;
     public event Action<string> onMapLoadRequest;
+    public event Action onCharacterSelected;
 
     private void Awake()
     {
@@ -27,6 +30,11 @@ public class EventBus : MonoBehaviour
     public void RegisterBuilding(BuildItem building)
     {
         onBuildingRegistrationEvent?.Invoke(building);
+    }
+
+    public void BuildingComplete(BuildItem building)
+    {
+        onBulidingComplete?.Invoke(building);
     }
 
     public void TerrainGenerationFinished(float[,] heights)
@@ -57,7 +65,16 @@ public class EventBus : MonoBehaviour
         onLoginRequest?.Invoke(username, password);
     }
 
+    public void SelectCharacterRequest(Character character)
+     {
+        onSelectCharacterRequest?.Invoke(character);
+    }
+
     public void LoadMap(string sessionId) {
         onMapLoadRequest?.Invoke(sessionId);
+    }
+
+    public void CharacterSelectionConfirmed() {
+        onCharacterSelected?.Invoke();
     }
 }

@@ -11,14 +11,6 @@ public class GameManager : MonoBehaviour
         //PlayerPrefs.SetInt("Gold", 1000);
         //PlayerPrefs.SetInt("Population", 0);
 
-        var array = new float[2, 2];
-        array[0, 0] = 0;
-        array[0, 1] = 1;
-        array[1, 0] = 10;
-        array[1, 1] = 11;
-
-        Debug.Log(Utility.FloatArrayToString(array));
-
         //EventBus.instance.onBuildingComplete += AddMaxPopulation;
 
         NetworkManagerFactory.GetManager().Init("89.108.99.2", 27015);

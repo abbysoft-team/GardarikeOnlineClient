@@ -51,6 +51,10 @@ public class NetworkParser : MonoBehaviour
                 case Response.DataOneofCase.PlaceBuildingResponse:
                     Debug.Log("Building response arrived: " + packet.PlaceBuildingResponse);
                     break;
+                case Response.DataOneofCase.SelectCharacterResponse:
+                    Debug.Log("Character 0 selection confirmed");
+                    EventBus.instance.CharacterSelectionConfirmed();
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;

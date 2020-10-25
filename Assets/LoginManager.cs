@@ -26,6 +26,8 @@ public class LoginManager : MonoBehaviour
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
     {
         Debug.Log("Login complete. Welcome, " + sessionID);
+        Debug.Log("Defaulting character to 0 " + characters[0]);
+        EventBus.instance.SelectCharacterRequest(characters[0]);
         gameObject.SetActive(false);
         this.sessionID = sessionID;
         PlayerPrefs.SetString("sessionId", sessionID);

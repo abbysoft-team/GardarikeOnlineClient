@@ -50,7 +50,7 @@ public class NetworkManagerImpl : NetworkManager
 
     private void ClientTask()
     {
-        Debug.Log("Start response thread");
+        Debug.Log("Start network thread");
 
         var address = string.Format(">tcp://{0}:{1}", serverIp, serverPort);
 
@@ -97,18 +97,14 @@ public class NetworkManagerImpl : NetworkManager
 
     private void SendAllRequests(NetMQSocket client)
     {
-        Debug.Log("Sending " + requestQueue.Count + " packets");
         while (requestQueue.Count > 0) {
             client.TrySendFrame(requestQueue.Dequeue());
-            Debug.Log("Sent packets");
         }
     }
 
     private void SendNextRequest(NetMQSocket client)
     {
-        Debug.Log("Sending " + requestQueue.Count + " packets");
         bool success = client.TrySendFrame(requestQueue.Dequeue());
-        Debug.Log("Sent packets with success = " + success);
     }
 
     private void EnqueueResponse(byte[] rawResponse)
@@ -116,7 +112,6 @@ public class NetworkManagerImpl : NetworkManager
         try
         {
             var response = Response.Parser.ParseFrom(rawResponse);
-            Debug.Log("Received server packet " + response);
             responseQueue.Enqueue(response);
         }
         catch
@@ -134,10 +129,26 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue = new Queue<byte[]>();
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
+        EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
         EventBus.instance.onMapLoadRequest += SendMapRequest;
-        EventBus.instance.onBuildingRegistrationEvent += SendBuildingEvent;
+        EventBus.instance.onBulidingComplete += SendBuildingEvent;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendCharacterSelectionRequest(Character character) {
+        Debug.Log("Send character selection event");
+
+        var charSelectRequest = new Request
+        {
+            SelectCharacterRequest = new SelectCharacterRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                CharacterID = character.Id
+            }
+        };
+
+        requestQueue.Enqueue(charSelectRequest.ToByteArray());
     }
 
     private void SendLoginRequest(string username, string password)
@@ -152,14 +163,12 @@ public class NetworkManagerImpl : NetworkManager
             }
         };
 
-        Debug.Log("Sending " + BitConverter.ToString(loginRequest.ToByteArray()));
         requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
     private void SendMapRequest(string sessionId)
     {
         Debug.Log("Trying to request map information ");
-
 
         var mapRequest = new Request
         {

@@ -1,2 +1,0 @@
-
-someTextSomeText

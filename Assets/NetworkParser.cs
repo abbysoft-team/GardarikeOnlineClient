@@ -68,10 +68,12 @@ public class NetworkParser : MonoBehaviour
     private void ProcessMapReply(GetMapResponse getMapResponse)
     {
         Debug.Log("Received map reply: " + getMapResponse);
+        Debug.Log("Buildings on the map: " + getMapResponse.Map.Buildings.Count);
         var width = getMapResponse.Map.Width;
         var height = getMapResponse.Map.Height;
         var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
         EventBus.instance.TerrainLoaded(width, height, heights);
+        EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings);
     }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {

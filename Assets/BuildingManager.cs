@@ -15,7 +15,7 @@ public class BuildingManager : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onBuildingComplete += RegisterBuilding;
+        EventBus.instance.onBuildingRegistrationEvent += RegisterBuilding;
     }
 
     private void RegisterBuilding(BuildItem building)

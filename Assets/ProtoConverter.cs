@@ -21,4 +21,8 @@ public class ProtoConverter
 
         return heights;
     }
+
+    public static UnityEngine.Vector3 ToUnityVector(Gardarike.Vector3D vector) {
+        return new UnityEngine.Vector3(vector.X, vector.Y, vector.Z);
+    }
 }

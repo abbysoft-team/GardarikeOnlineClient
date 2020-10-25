@@ -10,9 +10,10 @@ public class EventBus : MonoBehaviour
     public const string NEW_BUILDING_EVENT = "NEW_BUILDING";
     public static EventBus instance;
 
-    public event Action<BuildItem> onBuildingComplete;
+    public event Action<BuildItem> onBuildingRegistrationEvent;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<int, int, float[,]> onTerrainLoadingComplete;
+    public event Action<RepeatedField<Building>> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onLoginRequest;
@@ -23,9 +24,9 @@ public class EventBus : MonoBehaviour
         instance = this;
     }
 
-    public void buildingComplete(BuildItem building)
+    public void RegisterBuilding(BuildItem building)
     {
-        onBuildingComplete?.Invoke(building);
+        onBuildingRegistrationEvent?.Invoke(building);
     }
 
     public void TerrainGenerationFinished(float[,] heights)
@@ -36,6 +37,10 @@ public class EventBus : MonoBehaviour
     public void TerrainLoaded(int width, int height, float[,] heights)
     {
         onTerrainLoadingComplete?.Invoke(width, height, heights);
+    }
+
+    public void MapObjectsLoaded(RepeatedField<Building> buildings) {
+        onMapObjectsLoadingComplete?.Invoke(buildings);
     }
 
     public void LoginComplete(string sessionId, RepeatedField<Character> characters) {

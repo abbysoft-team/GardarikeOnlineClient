@@ -47,33 +47,27 @@ namespace Gardarike {
             "bnNlEg0KBXBhcnRzGAEgASgDIkwKDUxvZ2luUmVzcG9uc2USEQoJc2Vzc2lv",
             "bklEGAEgASgJEigKCmNoYXJhY3RlcnMYAiADKAsyFC5HYXJkYXJpa2UuQ2hh",
             "cmFjdGVyIi4KDUVycm9yUmVzcG9uc2USDwoHbWVzc2FnZRgBIAEoCRIMCgRj",
-            "b2RlGAIgASgDIhkKF1NlbGVjdENoYXJhY3RlclJlc3BvbnNlIrQBCgVFdmVu",
-            "dBI0CgxvYmplY3RQbGFjZWQYASABKAsyHC5HYXJkYXJpa2UuT2JqZWN0UGxh",
-            "Y2VkRXZlbnRIABI2Cg1vYmplY3RSZW1vdmVkGAIgASgLMh0uR2FyZGFyaWtl",
-            "Lk9iamVjdFJlbW92ZWRFdmVudEgAEjIKC3BsYXllck1vdmVkGAMgASgLMhsu",
-            "R2FyZGFyaWtlLlBsYXllck1vdmVkRXZlbnRIAEIJCgdwYXlsb2FkIjYKEU9i",
-            "amVjdFBsYWNlZEV2ZW50EiEKBm9iamVjdBgBIAEoCzIRLkdhcmRhcmlrZS5P",
-            "YmplY3QiIAoST2JqZWN0UmVtb3ZlZEV2ZW50EgoKAmlkGAEgASgDIksKEFBs",
-            "YXllck1vdmVkRXZlbnQSEAoIcGxheWVySUQYASABKAMSJQoIbG9jYXRpb24Y",
-            "AiABKAsyEy5HYXJkYXJpa2UuVmVjdG9yM0QiWgoGT2JqZWN0EgoKAmlkGAEg",
-            "ASgDEg8KB293bmVySUQYAiABKAMSDAoEbmFtZRgDIAEoCRIlCghsb2NhdGlv",
-            "bhgEIAEoCzITLkdhcmRhcmlrZS5WZWN0b3IzRCIrCghWZWN0b3IzRBIJCgF4",
-            "GAEgASgCEgkKAXkYAiABKAISCQoBehgDIAEoAiJcCgNNYXASDQoFd2lkdGgY",
-            "ASABKAUSDgoGaGVpZ2h0GAIgASgFEg4KBnBvaW50cxgDIAMoAhImCglidWls",
-            "ZGluZ3MYBCADKAsyEy5HYXJkYXJpa2UuQnVpbGRpbmciTgoIQnVpbGRpbmcS",
-            "CgoCaWQYASABKAMSDwoHb3duZXJJRBgDIAEoAxIlCghsb2NhdGlvbhgEIAEo",
-            "CzITLkdhcmRhcmlrZS5WZWN0b3IzRCItCg5HZXRNYXBSZXNwb25zZRIbCgNt",
-            "YXAYASABKAsyDi5HYXJkYXJpa2UuTWFwIgoKCE1hcENodW5rIgkKB1ZlY3Rv",
-            "cjMiLAoJSGFuZHNoYWtlEg0KBWxvZ2luGAEgASgJEhAKCHBhc3N3b3JkGAIg",
-            "ASgJIjMKCUNoYXJhY3RlchIKCgJpZBgBIAEoBRIMCgRuYW1lGAIgASgJEgwK",
-            "BGdvbGQYAyABKAQyuQIKCkdhbWVTZXJ2ZXISQQoKR2V0TmVhck1hcBIYLkdh",
-            "cmRhcmlrZS5HZXRNYXBSZXF1ZXN0GhkuR2FyZGFyaWtlLkdldE1hcFJlc3Bv",
-            "bnNlEjoKBUxvZ2luEhcuR2FyZGFyaWtlLkxvZ2luUmVxdWVzdBoYLkdhcmRh",
-            "cmlrZS5Mb2dpblJlc3BvbnNlElgKD1NlbGVjdENoYXJhY3RlchIhLkdhcmRh",
-            "cmlrZS5TZWxlY3RDaGFyYWN0ZXJSZXF1ZXN0GiIuR2FyZGFyaWtlLlNlbGVj",
-            "dENoYXJhY3RlclJlc3BvbnNlElIKDVBsYWNlQnVpbGRpbmcSHy5HYXJkYXJp",
-            "a2UuUGxhY2VCdWlsZGluZ1JlcXVlc3QaIC5HYXJkYXJpa2UuUGxhY2VCdWls",
-            "ZGluZ1Jlc3BvbnNlQgdaBS47cnBjYgZwcm90bzM="));
+            "b2RlGAIgASgDIhkKF1NlbGVjdENoYXJhY3RlclJlc3BvbnNlIlEKBUV2ZW50",
+            "Ej0KE2J1aWxkaW5nUGxhY2VkRXZlbnQYASABKAsyHi5HYXJkYXJpa2UuQnVp",
+            "bGRpbmdQbGFjZWRFdmVudEgAQgkKB3BheWxvYWQiYQoTQnVpbGRpbmdQbGFj",
+            "ZWRFdmVudBISCgpidWlsZGluZ0lEGAEgASgDEg8KB293bmVySUQYAiABKAMS",
+            "JQoIbG9jYXRpb24YAyABKAsyEy5HYXJkYXJpa2UuVmVjdG9yM0QiKwoIVmVj",
+            "dG9yM0QSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiXAoDTWFw",
+            "Eg0KBXdpZHRoGAEgASgFEg4KBmhlaWdodBgCIAEoBRIOCgZwb2ludHMYAyAD",
+            "KAISJgoJYnVpbGRpbmdzGAQgAygLMhMuR2FyZGFyaWtlLkJ1aWxkaW5nIk4K",
+            "CEJ1aWxkaW5nEgoKAmlkGAEgASgDEg8KB293bmVySUQYAyABKAMSJQoIbG9j",
+            "YXRpb24YBCABKAsyEy5HYXJkYXJpa2UuVmVjdG9yM0QiLQoOR2V0TWFwUmVz",
+            "cG9uc2USGwoDbWFwGAEgASgLMg4uR2FyZGFyaWtlLk1hcCIKCghNYXBDaHVu",
+            "ayIJCgdWZWN0b3IzIiwKCUhhbmRzaGFrZRINCgVsb2dpbhgBIAEoCRIQCghw",
+            "YXNzd29yZBgCIAEoCSIzCglDaGFyYWN0ZXISCgoCaWQYASABKAUSDAoEbmFt",
+            "ZRgCIAEoCRIMCgRnb2xkGAMgASgEMrkCCgpHYW1lU2VydmVyEkEKCkdldE5l",
+            "YXJNYXASGC5HYXJkYXJpa2UuR2V0TWFwUmVxdWVzdBoZLkdhcmRhcmlrZS5H",
+            "ZXRNYXBSZXNwb25zZRI6CgVMb2dpbhIXLkdhcmRhcmlrZS5Mb2dpblJlcXVl",
+            "c3QaGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZRJYCg9TZWxlY3RDaGFyYWN0",
+            "ZXISIS5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVxdWVzdBoiLkdhcmRh",
+            "cmlrZS5TZWxlY3RDaGFyYWN0ZXJSZXNwb25zZRJSCg1QbGFjZUJ1aWxkaW5n",
+            "Eh8uR2FyZGFyaWtlLlBsYWNlQnVpbGRpbmdSZXF1ZXN0GiAuR2FyZGFyaWtl",
+            "LlBsYWNlQnVpbGRpbmdSZXNwb25zZUIHWgUuO3JwY2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -88,11 +82,8 @@ namespace Gardarike {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.LoginResponse), global::Gardarike.LoginResponse.Parser, new[]{ "SessionID", "Characters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ErrorResponse), global::Gardarike.ErrorResponse.Parser, new[]{ "Message", "Code" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.SelectCharacterResponse), global::Gardarike.SelectCharacterResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Event), global::Gardarike.Event.Parser, new[]{ "ObjectPlaced", "ObjectRemoved", "PlayerMoved" }, new[]{ "Payload" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ObjectPlacedEvent), global::Gardarike.ObjectPlacedEvent.Parser, new[]{ "Object" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ObjectRemovedEvent), global::Gardarike.ObjectRemovedEvent.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.PlayerMovedEvent), global::Gardarike.PlayerMovedEvent.Parser, new[]{ "PlayerID", "Location" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Object), global::Gardarike.Object.Parser, new[]{ "Id", "OwnerID", "Name", "Location" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Event), global::Gardarike.Event.Parser, new[]{ "BuildingPlacedEvent" }, new[]{ "Payload" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.BuildingPlacedEvent), global::Gardarike.BuildingPlacedEvent.Parser, new[]{ "BuildingID", "OwnerID", "Location" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Vector3D), global::Gardarike.Vector3D.Parser, new[]{ "X", "Y", "Z" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Map), global::Gardarike.Map.Parser, new[]{ "Width", "Height", "Points", "Buildings" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Building), global::Gardarike.Building.Parser, new[]{ "Id", "OwnerID", "Location" }, null, null, null),
@@ -1928,14 +1919,8 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Event(Event other) : this() {
       switch (other.PayloadCase) {
-        case PayloadOneofCase.ObjectPlaced:
-          ObjectPlaced = other.ObjectPlaced.Clone();
-          break;
-        case PayloadOneofCase.ObjectRemoved:
-          ObjectRemoved = other.ObjectRemoved.Clone();
-          break;
-        case PayloadOneofCase.PlayerMoved:
-          PlayerMoved = other.PlayerMoved.Clone();
+        case PayloadOneofCase.BuildingPlacedEvent:
+          BuildingPlacedEvent = other.BuildingPlacedEvent.Clone();
           break;
       }
 
@@ -1946,36 +1931,14 @@ namespace Gardarike {
       return new Event(this);
     }
 
-    /// <summary>Field number for the "objectPlaced" field.</summary>
-    public const int ObjectPlacedFieldNumber = 1;
+    /// <summary>Field number for the "buildingPlacedEvent" field.</summary>
+    public const int BuildingPlacedEventFieldNumber = 1;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Gardarike.ObjectPlacedEvent ObjectPlaced {
-      get { return payloadCase_ == PayloadOneofCase.ObjectPlaced ? (global::Gardarike.ObjectPlacedEvent) payload_ : null; }
+    public global::Gardarike.BuildingPlacedEvent BuildingPlacedEvent {
+      get { return payloadCase_ == PayloadOneofCase.BuildingPlacedEvent ? (global::Gardarike.BuildingPlacedEvent) payload_ : null; }
       set {
         payload_ = value;
-        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.ObjectPlaced;
-      }
-    }
-
-    /// <summary>Field number for the "objectRemoved" field.</summary>
-    public const int ObjectRemovedFieldNumber = 2;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Gardarike.ObjectRemovedEvent ObjectRemoved {
-      get { return payloadCase_ == PayloadOneofCase.ObjectRemoved ? (global::Gardarike.ObjectRemovedEvent) payload_ : null; }
-      set {
-        payload_ = value;
-        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.ObjectRemoved;
-      }
-    }
-
-    /// <summary>Field number for the "playerMoved" field.</summary>
-    public const int PlayerMovedFieldNumber = 3;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Gardarike.PlayerMovedEvent PlayerMoved {
-      get { return payloadCase_ == PayloadOneofCase.PlayerMoved ? (global::Gardarike.PlayerMovedEvent) payload_ : null; }
-      set {
-        payload_ = value;
-        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.PlayerMoved;
+        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.BuildingPlacedEvent;
       }
     }
 
@@ -1983,9 +1946,7 @@ namespace Gardarike {
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
       None = 0,
-      ObjectPlaced = 1,
-      ObjectRemoved = 2,
-      PlayerMoved = 3,
+      BuildingPlacedEvent = 1,
     }
     private PayloadOneofCase payloadCase_ = PayloadOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2012,9 +1973,7 @@ namespace Gardarike {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ObjectPlaced, other.ObjectPlaced)) return false;
-      if (!object.Equals(ObjectRemoved, other.ObjectRemoved)) return false;
-      if (!object.Equals(PlayerMoved, other.PlayerMoved)) return false;
+      if (!object.Equals(BuildingPlacedEvent, other.BuildingPlacedEvent)) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return true;
     }
@@ -2022,9 +1981,7 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (payloadCase_ == PayloadOneofCase.ObjectPlaced) hash ^= ObjectPlaced.GetHashCode();
-      if (payloadCase_ == PayloadOneofCase.ObjectRemoved) hash ^= ObjectRemoved.GetHashCode();
-      if (payloadCase_ == PayloadOneofCase.PlayerMoved) hash ^= PlayerMoved.GetHashCode();
+      if (payloadCase_ == PayloadOneofCase.BuildingPlacedEvent) hash ^= BuildingPlacedEvent.GetHashCode();
       hash ^= (int) payloadCase_;
       return hash;
     }
@@ -2036,31 +1993,17 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (payloadCase_ == PayloadOneofCase.ObjectPlaced) {
+      if (payloadCase_ == PayloadOneofCase.BuildingPlacedEvent) {
         output.WriteRawTag(10);
-        output.WriteMessage(ObjectPlaced);
-      }
-      if (payloadCase_ == PayloadOneofCase.ObjectRemoved) {
-        output.WriteRawTag(18);
-        output.WriteMessage(ObjectRemoved);
-      }
-      if (payloadCase_ == PayloadOneofCase.PlayerMoved) {
-        output.WriteRawTag(26);
-        output.WriteMessage(PlayerMoved);
+        output.WriteMessage(BuildingPlacedEvent);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (payloadCase_ == PayloadOneofCase.ObjectPlaced) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ObjectPlaced);
-      }
-      if (payloadCase_ == PayloadOneofCase.ObjectRemoved) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ObjectRemoved);
-      }
-      if (payloadCase_ == PayloadOneofCase.PlayerMoved) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerMoved);
+      if (payloadCase_ == PayloadOneofCase.BuildingPlacedEvent) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BuildingPlacedEvent);
       }
       return size;
     }
@@ -2071,14 +2014,8 @@ namespace Gardarike {
         return;
       }
       switch (other.PayloadCase) {
-        case PayloadOneofCase.ObjectPlaced:
-          ObjectPlaced = other.ObjectPlaced;
-          break;
-        case PayloadOneofCase.ObjectRemoved:
-          ObjectRemoved = other.ObjectRemoved;
-          break;
-        case PayloadOneofCase.PlayerMoved:
-          PlayerMoved = other.PlayerMoved;
+        case PayloadOneofCase.BuildingPlacedEvent:
+          BuildingPlacedEvent = other.BuildingPlacedEvent;
           break;
       }
 
@@ -2093,30 +2030,12 @@ namespace Gardarike {
             input.SkipLastField();
             break;
           case 10: {
-            global::Gardarike.ObjectPlacedEvent subBuilder = new global::Gardarike.ObjectPlacedEvent();
-            if (payloadCase_ == PayloadOneofCase.ObjectPlaced) {
-              subBuilder.MergeFrom(ObjectPlaced);
+            global::Gardarike.BuildingPlacedEvent subBuilder = new global::Gardarike.BuildingPlacedEvent();
+            if (payloadCase_ == PayloadOneofCase.BuildingPlacedEvent) {
+              subBuilder.MergeFrom(BuildingPlacedEvent);
             }
             input.ReadMessage(subBuilder);
-            ObjectPlaced = subBuilder;
-            break;
-          }
-          case 18: {
-            global::Gardarike.ObjectRemovedEvent subBuilder = new global::Gardarike.ObjectRemovedEvent();
-            if (payloadCase_ == PayloadOneofCase.ObjectRemoved) {
-              subBuilder.MergeFrom(ObjectRemoved);
-            }
-            input.ReadMessage(subBuilder);
-            ObjectRemoved = subBuilder;
-            break;
-          }
-          case 26: {
-            global::Gardarike.PlayerMovedEvent subBuilder = new global::Gardarike.PlayerMovedEvent();
-            if (payloadCase_ == PayloadOneofCase.PlayerMoved) {
-              subBuilder.MergeFrom(PlayerMoved);
-            }
-            input.ReadMessage(subBuilder);
-            PlayerMoved = subBuilder;
+            BuildingPlacedEvent = subBuilder;
             break;
           }
         }
@@ -2125,10 +2044,10 @@ namespace Gardarike {
 
   }
 
-  public sealed partial class ObjectPlacedEvent : pb::IMessage<ObjectPlacedEvent> {
-    private static readonly pb::MessageParser<ObjectPlacedEvent> _parser = new pb::MessageParser<ObjectPlacedEvent>(() => new ObjectPlacedEvent());
+  public sealed partial class BuildingPlacedEvent : pb::IMessage<BuildingPlacedEvent> {
+    private static readonly pb::MessageParser<BuildingPlacedEvent> _parser = new pb::MessageParser<BuildingPlacedEvent>(() => new BuildingPlacedEvent());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ObjectPlacedEvent> Parser { get { return _parser; } }
+    public static pb::MessageParser<BuildingPlacedEvent> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2141,424 +2060,32 @@ namespace Gardarike {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ObjectPlacedEvent() {
+    public BuildingPlacedEvent() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ObjectPlacedEvent(ObjectPlacedEvent other) : this() {
-      Object = other.object_ != null ? other.Object.Clone() : null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ObjectPlacedEvent Clone() {
-      return new ObjectPlacedEvent(this);
-    }
-
-    /// <summary>Field number for the "object" field.</summary>
-    public const int ObjectFieldNumber = 1;
-    private global::Gardarike.Object object_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Gardarike.Object Object {
-      get { return object_; }
-      set {
-        object_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ObjectPlacedEvent);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ObjectPlacedEvent other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Object, other.Object)) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (object_ != null) hash ^= Object.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (object_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Object);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (object_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Object);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ObjectPlacedEvent other) {
-      if (other == null) {
-        return;
-      }
-      if (other.object_ != null) {
-        if (object_ == null) {
-          object_ = new global::Gardarike.Object();
-        }
-        Object.MergeFrom(other.Object);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            if (object_ == null) {
-              object_ = new global::Gardarike.Object();
-            }
-            input.ReadMessage(object_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class ObjectRemovedEvent : pb::IMessage<ObjectRemovedEvent> {
-    private static readonly pb::MessageParser<ObjectRemovedEvent> _parser = new pb::MessageParser<ObjectRemovedEvent>(() => new ObjectRemovedEvent());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ObjectRemovedEvent> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[13]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ObjectRemovedEvent() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ObjectRemovedEvent(ObjectRemovedEvent other) : this() {
-      id_ = other.id_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ObjectRemovedEvent Clone() {
-      return new ObjectRemovedEvent(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private long id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ObjectRemovedEvent);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ObjectRemovedEvent other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Id);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ObjectRemovedEvent other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Id != 0L) {
-        Id = other.Id;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Id = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class PlayerMovedEvent : pb::IMessage<PlayerMovedEvent> {
-    private static readonly pb::MessageParser<PlayerMovedEvent> _parser = new pb::MessageParser<PlayerMovedEvent>(() => new PlayerMovedEvent());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PlayerMovedEvent> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[14]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerMovedEvent() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerMovedEvent(PlayerMovedEvent other) : this() {
-      playerID_ = other.playerID_;
-      Location = other.location_ != null ? other.Location.Clone() : null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerMovedEvent Clone() {
-      return new PlayerMovedEvent(this);
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 1;
-    private long playerID_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "location" field.</summary>
-    public const int LocationFieldNumber = 2;
-    private global::Gardarike.Vector3D location_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Gardarike.Vector3D Location {
-      get { return location_; }
-      set {
-        location_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as PlayerMovedEvent);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PlayerMovedEvent other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PlayerID != other.PlayerID) return false;
-      if (!object.Equals(Location, other.Location)) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (PlayerID != 0L) hash ^= PlayerID.GetHashCode();
-      if (location_ != null) hash ^= Location.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (PlayerID != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(PlayerID);
-      }
-      if (location_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Location);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (PlayerID != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PlayerID);
-      }
-      if (location_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Location);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PlayerMovedEvent other) {
-      if (other == null) {
-        return;
-      }
-      if (other.PlayerID != 0L) {
-        PlayerID = other.PlayerID;
-      }
-      if (other.location_ != null) {
-        if (location_ == null) {
-          location_ = new global::Gardarike.Vector3D();
-        }
-        Location.MergeFrom(other.Location);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            PlayerID = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            if (location_ == null) {
-              location_ = new global::Gardarike.Vector3D();
-            }
-            input.ReadMessage(location_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class Object : pb::IMessage<Object> {
-    private static readonly pb::MessageParser<Object> _parser = new pb::MessageParser<Object>(() => new Object());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Object> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[15]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Object() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Object(Object other) : this() {
-      id_ = other.id_;
+    public BuildingPlacedEvent(BuildingPlacedEvent other) : this() {
+      buildingID_ = other.buildingID_;
       ownerID_ = other.ownerID_;
-      name_ = other.name_;
       Location = other.location_ != null ? other.Location.Clone() : null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Object Clone() {
-      return new Object(this);
+    public BuildingPlacedEvent Clone() {
+      return new BuildingPlacedEvent(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private long id_;
+    /// <summary>Field number for the "buildingID" field.</summary>
+    public const int BuildingIDFieldNumber = 1;
+    private long buildingID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Id {
-      get { return id_; }
+    public long BuildingID {
+      get { return buildingID_; }
       set {
-        id_ = value;
+        buildingID_ = value;
       }
     }
 
@@ -2573,19 +2100,8 @@ namespace Gardarike {
       }
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 3;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "location" field.</summary>
-    public const int LocationFieldNumber = 4;
+    public const int LocationFieldNumber = 3;
     private global::Gardarike.Vector3D location_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Gardarike.Vector3D Location {
@@ -2597,20 +2113,19 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Object);
+      return Equals(other as BuildingPlacedEvent);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Object other) {
+    public bool Equals(BuildingPlacedEvent other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
+      if (BuildingID != other.BuildingID) return false;
       if (OwnerID != other.OwnerID) return false;
-      if (Name != other.Name) return false;
       if (!object.Equals(Location, other.Location)) return false;
       return true;
     }
@@ -2618,9 +2133,8 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0L) hash ^= Id.GetHashCode();
+      if (BuildingID != 0L) hash ^= BuildingID.GetHashCode();
       if (OwnerID != 0L) hash ^= OwnerID.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (location_ != null) hash ^= Location.GetHashCode();
       return hash;
     }
@@ -2632,20 +2146,16 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0L) {
+      if (BuildingID != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt64(Id);
+        output.WriteInt64(BuildingID);
       }
       if (OwnerID != 0L) {
         output.WriteRawTag(16);
         output.WriteInt64(OwnerID);
       }
-      if (Name.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Name);
-      }
       if (location_ != null) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteMessage(Location);
       }
     }
@@ -2653,14 +2163,11 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
+      if (BuildingID != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(BuildingID);
       }
       if (OwnerID != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(OwnerID);
-      }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
       if (location_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Location);
@@ -2669,18 +2176,15 @@ namespace Gardarike {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Object other) {
+    public void MergeFrom(BuildingPlacedEvent other) {
       if (other == null) {
         return;
       }
-      if (other.Id != 0L) {
-        Id = other.Id;
+      if (other.BuildingID != 0L) {
+        BuildingID = other.BuildingID;
       }
       if (other.OwnerID != 0L) {
         OwnerID = other.OwnerID;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
       }
       if (other.location_ != null) {
         if (location_ == null) {
@@ -2699,7 +2203,7 @@ namespace Gardarike {
             input.SkipLastField();
             break;
           case 8: {
-            Id = input.ReadInt64();
+            BuildingID = input.ReadInt64();
             break;
           }
           case 16: {
@@ -2707,10 +2211,6 @@ namespace Gardarike {
             break;
           }
           case 26: {
-            Name = input.ReadString();
-            break;
-          }
-          case 34: {
             if (location_ == null) {
               location_ = new global::Gardarike.Vector3D();
             }
@@ -2730,7 +2230,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2906,7 +2406,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3092,7 +2592,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3271,7 +2771,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3394,7 +2894,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3483,7 +2983,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3572,7 +3072,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3717,7 +3217,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

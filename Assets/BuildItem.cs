@@ -8,6 +8,8 @@ public class BuildItem : MonoBehaviour
 {
     public int priceGold;
     public GameObject model;
+    public UnityEngine.Vector3 position;
+    public UnityEngine.Vector3 lossyScale;
 
     void Start()
     {
@@ -41,7 +43,9 @@ public class BuildItem : MonoBehaviour
         var buildPlaceChosen = model.activeSelf && Input.GetMouseButton(0);
         if (buildPlaceChosen)
         {
-            EventBus.instance.buildingComplete(this);
+            position = model.transform.position;
+            lossyScale = model.transform.lossyScale;
+            EventBus.instance.RegisterBuilding(this);
         }
     }
 

@@ -135,7 +135,7 @@ public class NetworkManagerImpl : NetworkManager
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
         EventBus.instance.onMapLoadRequest += SendMapRequest;
-        EventBus.instance.onBuildingComplete += SendBuildingEvent;
+        EventBus.instance.onBuildingRegistrationEvent += SendBuildingEvent;
 
         StartZeroMQCommunicationThread();
     }

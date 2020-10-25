@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(Utility.FloatArrayToString(array));
 
-        EventBus.instance.onBuildingComplete += AddMaxPopulation;
+        //EventBus.instance.onBuildingComplete += AddMaxPopulation;
 
         NetworkManagerFactory.GetManager().Init("89.108.99.2", 27015);
     }

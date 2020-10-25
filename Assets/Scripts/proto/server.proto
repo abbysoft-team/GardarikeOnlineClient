@@ -82,30 +82,14 @@ message SelectCharacterResponse {
 
 message Event {
   oneof payload {
-    ObjectPlacedEvent objectPlaced = 1;
-    ObjectRemovedEvent objectRemoved = 2;
-    PlayerMovedEvent playerMoved = 3;
+    BuildingPlacedEvent buildingPlacedEvent = 1;
   }
 }
 
-message ObjectPlacedEvent {
-  Object object = 1;
-}
-
-message ObjectRemovedEvent {
-  int64 id = 1;
-}
-
-message PlayerMovedEvent {
-  int64 playerID = 1;
-  Vector3D location = 2;
-}
-
-message Object {
-  int64 id = 1;
+message BuildingPlacedEvent {
+  int64 buildingID = 1;
   int64 ownerID = 2;
-  string name = 3;
-  Vector3D location = 4;
+  Vector3D location = 3;
 }
 
 message Vector3D {

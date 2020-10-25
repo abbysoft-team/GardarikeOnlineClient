@@ -21,11 +21,13 @@ public class BuildingManager : MonoBehaviour
     private void RegisterBuilding(BuildItem building)
     {
         var buildingObject = Instantiate(model);
-        buildingObject.transform.position = model.transform.position;
+        buildingObject.transform.position = building.position;
         buildingObject.transform.localScale = model.transform.lossyScale;
         buildingObject.transform.parent = transform;
         buildingObject.tag = GlobalConstants.BUILDING_TAG;
         model.SetActive(false);
+
+        buildingObject.SetActive(true);
 
         buildings.Add(building);
     }

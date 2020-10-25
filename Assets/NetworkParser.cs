@@ -17,17 +17,21 @@ public class NetworkParser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get all buffered packets
-        var packets = networkManager.GetEventQueue();
+        // Get all buffered packets and events
+        var packets = networkManager.GetResponseQueue();
+        var events = networkManager.GetEventQueue();
         // Nothing to process this tick
-        if (packets.Count == 0) return;
+        if (events.Count == 0 && packets.Count == 0) return;
 
         Debug.Log(string.Format("Dispatchering {0} packets", packets.Count));
+        Debug.Log(string.Format("Dispatchering {0} events", events.Count));
 
         DispatchPackets(packets);
+        DispatchEvents(events);
 
         // Clear buffer
         packets.Clear();
+        events.Clear();
     }
 
     private void DispatchPackets(Queue<Response> packets)
@@ -62,6 +66,23 @@ public class NetworkParser : MonoBehaviour
         }
     }
 
+    private void DispatchEvents(Queue<Gardarike.Event> events)
+    {
+        foreach (Gardarike.Event eventItem in events)
+        {
+            ProcessBuildingEvent(eventItem.BuildingPlacedEvent);
+        }
+    }
+
+    private void ProcessBuildingEvent(BuildingPlacedEvent buildingEvent) {
+        // Filter current user events 
+        if (buildingEvent.OwnerID == PlayerPrefs.GetInt("userId")) {
+            return;
+        }
+
+        Debug.Log(string.Format("User {0} placed building at {1}", buildingEvent.OwnerID, buildingEvent.Location));
+        EventBus.instance.RegisterBuilding(BuildItem.FromProtoBuilding(buildingEvent.Location));
+    }
 
     private void ProcessMultipart(MultipartResponse response)
     {

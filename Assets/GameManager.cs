@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
         //EventBus.instance.onBuildingComplete += AddMaxPopulation;
 
-        NetworkManagerFactory.GetManager().Init("", 27015);
+        NetworkManagerFactory.GetManager().Init(Private.ipAddress, Private.requestSockPort, Private.eventSockPort);
     }
 
     private void AddMaxPopulation(BuildItem item)

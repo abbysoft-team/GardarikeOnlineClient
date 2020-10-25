@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Gardarike;
 public interface NetworkManager
 {
-    void Init(string serverUrl, int port);
-    void SendEvent(Event eventObject);
-    Queue<Response> GetEventQueue();
+    void Init(string serverUrl, int requestPort, int eventPort);
+    Queue<Response> GetResponseQueue();
+    Queue<Gardarike.Event> GetEventQueue();
 }

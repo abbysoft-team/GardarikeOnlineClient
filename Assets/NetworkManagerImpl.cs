@@ -15,8 +15,10 @@ using Gardarike;
 public class NetworkManagerImpl : NetworkManager
 {
     private string serverIp;
-    private int serverPort;
+    private int requestPort;
+    private int eventPort;
     private Queue<Response> responseQueue;
+    private Queue<Gardarike.Event> eventQueue;
     private Queue<byte[]> requestQueue;
 
     private void StartZeroMQCommunicationThread()
@@ -25,11 +27,11 @@ public class NetworkManagerImpl : NetworkManager
         {
             try
             {
-                //ServerTask();
+                EventTask();
             }
             catch (System.Exception e)
             {
-                Debug.LogError("Error occured in network thread: " + e);
+                Debug.LogError("Error occured in event thread: " + e);
                 EventBus.instance.ShowError("Could not connect to server.\nTry again later");
             }
         });
@@ -48,11 +50,28 @@ public class NetworkManagerImpl : NetworkManager
         });
     }
 
+    private void EventTask()
+    {
+        Debug.Log("Start event thread");
+
+        var address = string.Format(">tcp://{0}:{1}", serverIp, eventPort);
+        using (var subscriber = new SubscriberSocket(address))
+        {
+            // Listen to all topics
+            subscriber.Subscribe("");
+            while (true) {
+                var eventPacket = subscriber.ReceiveFrameBytes();
+
+                EnqueueEvent(eventPacket);
+            }
+        }
+    }
+
     private void ClientTask()
     {
         Debug.Log("Start network thread");
 
-        var address = string.Format(">tcp://{0}:{1}", serverIp, serverPort);
+        var address = string.Format(">tcp://{0}:{1}", serverIp, requestPort);
 
         using (var requester = new RequestSocket(address))
         {
@@ -69,26 +88,6 @@ public class NetworkManagerImpl : NetworkManager
                 var reply = requester.ReceiveFrameBytes();
 
                 Debug.Log("Received response from server: " + reply.Length);
-
-                EnqueueResponse(reply);
-            }
-        }
-    }
-
-    private void ServerTask()
-    {
-        Debug.Log("Start listening thread");
-
-        var address = string.Format(">tcp://{0}:{1}", serverIp, serverPort);
-
-        using (var requester = new DealerSocket(address))
-        {
-            while (true)
-            {
-                // Receive
-                var reply = requester.ReceiveFrameBytes();
-
-                Debug.Log("RECEIVED RAW PACKET " + reply.Length);
 
                 EnqueueResponse(reply);
             }
@@ -116,18 +115,35 @@ public class NetworkManagerImpl : NetworkManager
         }
         catch
         {
-            Debug.LogError("Cannot parse packet: " + rawResponse);
+            Debug.LogError("Cannot parse packet: " + BitConverter.ToString(rawResponse));
         }
     }
 
-    public void Init(string ipAddress, int port)
+    private void EnqueueEvent(byte[] eventBytes) 
+    {
+        try 
+        {
+            var eventItem = Gardarike.Event.Parser.ParseFrom(eventBytes);
+            eventQueue.Enqueue(eventItem);
+        }
+        catch
+        {
+            Debug.LogError("Cannot parse event: " + BitConverter.ToString(eventBytes));
+        }
+    }
+
+    public void Init(string ipAddress, int requestPort, int eventPort)
     {
         PlayerPrefs.DeleteKey("sessionId");
+        PlayerPrefs.DeleteKey("userId");
+        
         serverIp = ipAddress;
-        serverPort = port;
+        this.requestPort = requestPort;
+        this.eventPort = eventPort;
 
         responseQueue = new Queue<Response>();
         requestQueue = new Queue<byte[]>();
+        eventQueue = new Queue<Gardarike.Event>();
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
         EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
@@ -137,7 +153,8 @@ public class NetworkManagerImpl : NetworkManager
         StartZeroMQCommunicationThread();
     }
 
-    private void SendCharacterSelectionRequest(Character character) {
+    private void SendCharacterSelectionRequest(Character character)
+    {
         Debug.Log("Send character selection event");
 
         var charSelectRequest = new Request
@@ -187,7 +204,8 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
-    private void SendBuildingEvent(BuildItem building) {
+    private void SendBuildingEvent(BuildItem building)
+    {
         Debug.Log("Sending build event to server");
 
         var buildingEvent = new Request {
@@ -201,12 +219,13 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(buildingEvent.ToByteArray());
     }
 
-    public void SendEvent(Event eventObject)
-    {
-    }
-
-    public Queue<Response> GetEventQueue()
+    public Queue<Response> GetResponseQueue()
     {
         return responseQueue;
+    }
+
+    public Queue<Gardarike.Event> GetEventQueue() 
+    {
+        return eventQueue;
     }
 }

@@ -56,6 +56,14 @@ public class BuildItem : MonoBehaviour
         model.SetActive(true);
     }
 
+    public static BuildItem FromProtoBuilding(Vector3D location) {
+        var item = new BuildItem();
+        item.lossyScale = new UnityEngine.Vector3(1.33f, 1.33f, 1.33f);
+        item.position = ProtoConverter.ToUnityVector(location);
+
+        return item;
+    }
+
     public Vector3D Location() {
         return new Vector3D {X = model.transform.position.x, Y = model.transform.position.y, Z = model.transform.position.z};
     }

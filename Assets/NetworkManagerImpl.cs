@@ -122,6 +122,7 @@ public class NetworkManagerImpl : NetworkManager
 
     public void Init(string ipAddress, int port)
     {
+        PlayerPrefs.DeleteKey("sessionId");
         serverIp = ipAddress;
         serverPort = port;
 

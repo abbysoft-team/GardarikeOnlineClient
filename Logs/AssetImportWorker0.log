@@ -537,3 +537,81 @@ System memory in use after: 168,6 MB.
 Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1710.
 Total: 3,684791 ms (FindLiveObjects: 0,935801 ms CreateObjectMapping: 0,078449 ms MarkObjects: 2,285506 ms  DeleteObjects: 0,380539 ms)
 
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b8/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000903 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 30,81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,329 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002125 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,174 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 179,6 MB.
+System memory in use after: 179,4 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1722.
+Total: 3,053796 ms (FindLiveObjects: 0,644421 ms CreateObjectMapping: 0,049116 ms MarkObjects: 2,021004 ms  DeleteObjects: 0,337106 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/artem/Unity/Hub/Editor/2020.2.0b8/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,000926 seconds.
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 33,34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,380 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0,002182 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /home/artem/Documents/GithubProjects/ProjectXClient/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1,281 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,47 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 190,4 MB.
+System memory in use after: 190,2 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1734.
+Total: 2,752975 ms (FindLiveObjects: 0,350122 ms CreateObjectMapping: 0,045845 ms MarkObjects: 1,997191 ms  DeleteObjects: 0,357825 ms)
+

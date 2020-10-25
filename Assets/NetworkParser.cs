@@ -83,10 +83,12 @@ public class NetworkParser : MonoBehaviour
     private void ProcessServerErrorReply(ErrorResponse errorResponse)
     {
         Debug.LogError("Server replied with error: " + errorResponse.Message);
+        EventBus.instance.ShowError(errorResponse.Message);
     }
 
     private void ProcessInvalidReply(Response response)
     {
         Debug.LogError("Server responded with invalid reponse " + response);
+        EventBus.instance.ShowError("Server sent invalid response");
     }
 }

@@ -23,6 +23,8 @@ public class EventBus : MonoBehaviour
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
     public event Action<string> onMapLoadRequest;
     public event Action onCharacterSelected;
+    public event Action<ChatMessage> onNewMessageArrived;
+    public event Action<string> onChatMessagePublishRequest;
 
     private void Awake()
     {
@@ -86,5 +88,13 @@ public class EventBus : MonoBehaviour
 
     public void ChatHistoryLoaded(RepeatedField<ChatMessage> chatMessages) {
         onChatHistoryLoaded?.Invoke(chatMessages);
+    }
+
+    public void NewMessageArrived(ChatMessage chatMessage) {
+        onNewMessageArrived?.Invoke(chatMessage);
+    }
+
+    public void SendChatMessage(string text) {
+        onChatMessagePublishRequest?.Invoke(text);
     }
 }

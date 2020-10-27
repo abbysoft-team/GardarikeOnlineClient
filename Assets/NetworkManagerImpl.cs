@@ -150,6 +150,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onMapLoadRequest += SendMapRequest;
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
+        EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
 
         StartZeroMQCommunicationThread();
     }
@@ -226,13 +227,27 @@ public class NetworkManagerImpl : NetworkManager
 
         var chatRequest = new Request {
             GetChatHistoryRequest = new GetChatHistoryRequest {
-                SessionID = PlayerPrefs.GetString("sessionId")
-                // default count = 10
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Count = ChatComponent.MAX_MESSAGES_DISPLAYED
                 // null lastMessId
             }
         };
 
         requestQueue.Enqueue(chatRequest.ToByteArray());
+    }
+
+    private void PublishChatMessage(string text) 
+    {
+        Debug.Log("Sending message to the server");
+
+        var publishRequest = new Request {
+            SendChatMessageRequest = new SendChatMessageRequest {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Text = text
+            }
+        };
+
+        requestQueue.Enqueue(publishRequest.ToByteArray());
     }
 
     public Queue<Response> GetResponseQueue()

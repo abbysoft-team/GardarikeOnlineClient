@@ -72,9 +72,18 @@ public class NetworkParser : MonoBehaviour
 
     private void DispatchEvents(Queue<Gardarike.Event> events)
     {
-        foreach (Gardarike.Event eventItem in events)
+        foreach (var eventItem in events)
         {
-            ProcessBuildingEvent(eventItem.BuildingPlacedEvent);
+            switch (eventItem.PayloadCase) 
+            {
+                case Gardarike.Event.PayloadOneofCase.BuildingPlacedEvent:
+                    ProcessBuildingEvent(eventItem.BuildingPlacedEvent);
+                    break;
+                case Gardarike.Event.PayloadOneofCase.ChatMessageEvent:
+                    Debug.Log("New chat message");
+                    EventBus.instance.NewMessageArrived(eventItem.ChatMessageEvent.Message);
+                    break;
+            }
         }
     }
 

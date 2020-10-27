@@ -149,6 +149,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
         EventBus.instance.onMapLoadRequest += SendMapRequest;
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
+        EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
 
         StartZeroMQCommunicationThread();
     }
@@ -217,6 +218,21 @@ public class NetworkManagerImpl : NetworkManager
         };
 
         requestQueue.Enqueue(buildingEvent.ToByteArray());
+    }
+
+    private void SendLoadChatHistoryRequest()
+    {
+        Debug.Log("Sending chat history request");
+
+        var chatRequest = new Request {
+            GetChatHistoryRequest = new GetChatHistoryRequest {
+                SessionID = PlayerPrefs.GetString("sessionId")
+                // default count = 10
+                // null lastMessId
+            }
+        };
+
+        requestQueue.Enqueue(chatRequest.ToByteArray());
     }
 
     public Queue<Response> GetResponseQueue()

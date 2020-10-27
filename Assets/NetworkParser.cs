@@ -59,6 +59,10 @@ public class NetworkParser : MonoBehaviour
                     Debug.Log("Character 0 selection confirmed");
                     EventBus.instance.CharacterSelectionConfirmed();
                     break;
+                case Response.DataOneofCase.GetChatHistoryResponse:
+                    Debug.Log("Received chat history");
+                    EventBus.instance.ChatHistoryLoaded(packet.GetChatHistoryResponse.Messages);
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;

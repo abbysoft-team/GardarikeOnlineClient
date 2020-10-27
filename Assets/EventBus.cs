@@ -19,6 +19,8 @@ public class EventBus : MonoBehaviour
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onLoginRequest;
     public event Action<Character> onSelectCharacterRequest;
+    public event Action onLoadChatHistoryRequest;
+    public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
     public event Action<string> onMapLoadRequest;
     public event Action onCharacterSelected;
 
@@ -76,5 +78,13 @@ public class EventBus : MonoBehaviour
 
     public void CharacterSelectionConfirmed() {
         onCharacterSelected?.Invoke();
+    }
+
+    public void LoadChatHistory() {
+        onLoadChatHistoryRequest?.Invoke();
+    }
+
+    public void ChatHistoryLoaded(RepeatedField<ChatMessage> chatMessages) {
+        onChatHistoryLoaded?.Invoke(chatMessages);
     }
 }

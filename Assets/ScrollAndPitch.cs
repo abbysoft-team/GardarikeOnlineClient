@@ -16,9 +16,12 @@ class ScrollAndPitch : MonoBehaviour
     private void Update()
     {
 
+        Vector3 pos1b = Vector3.zero;
         //Update Plane
-        if (Input.touchCount >= 1)
+        if (Input.touchCount >= 1) {
             Plane.SetNormalAndPosition(transform.up, transform.position);
+            pos1b = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
+        }
 
         var Delta1 = Vector3.zero;
         var Delta2 = Vector3.zero;
@@ -28,7 +31,6 @@ class ScrollAndPitch : MonoBehaviour
         {
             var pos1 = PlanePosition(Input.GetTouch(0).position);
             var pos2 = PlanePosition(Input.GetTouch(1).position);
-            var pos1b = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
             var pos2b = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
 
             //calc zoom
@@ -40,7 +42,7 @@ class ScrollAndPitch : MonoBehaviour
                 return;
 
             //Move cam amount the mid ray
-            camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
+            camera.transform.position = Vector3.LerpUnclamped((pos1 + pos2) / 2, camera.transform.position, 1 / zoom);
 
             if (Rotate && pos2b != pos2)
                 camera.transform.RotateAround(pos1, Plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal));

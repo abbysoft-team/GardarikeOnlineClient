@@ -63,6 +63,8 @@ public class NetworkParser : MonoBehaviour
                     Debug.Log("Received chat history");
                     EventBus.instance.ChatHistoryLoaded(packet.GetChatHistoryResponse.Messages);
                     break;
+                case Response.DataOneofCase.SendChatMessageResponse:
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;

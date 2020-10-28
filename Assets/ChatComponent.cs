@@ -9,7 +9,7 @@ using Gardarike;
 
 public class ChatComponent : MonoBehaviour
 {
-    public static int MAX_MESSAGES_DISPLAYED = 5;
+    public static int MAX_MESSAGES_DISPLAYED = 4;
 
     public Text textArea;
     public InputField input;
@@ -22,10 +22,14 @@ public class ChatComponent : MonoBehaviour
         EventBus.instance.onChatHistoryLoaded += UpdateChatText;
         EventBus.instance.onNewMessageArrived += ShowNewMessage;
 
+        displayedMessages = new RepeatedField<ChatMessage>();
+        displayedMessages.Add(new ChatMessage {Owner = "Gardarike", Text = "Welcome to Bugaga server"});
+
         input.onEndEdit.AddListener(delegate {PostMessage();});
     }
 
     private void PostMessage() {
+        Debug.Log("posting: " + input.text);
         if (input.text.Trim() == "") return;
 
         ChatMessage message = new ChatMessage {
@@ -33,9 +37,11 @@ public class ChatComponent : MonoBehaviour
             Owner = PlayerPrefs.GetString("currentCharName") 
         };
 
-        ShowNewMessage(message);
+        //ShowNewMessage(message);
 
         EventBus.instance.SendChatMessage(input.text);
+
+        input.text = "";
     }
 
     private void LoadChatHistory() {
@@ -54,10 +60,14 @@ public class ChatComponent : MonoBehaviour
         }
 
         textArea.text = builder.ToString();
+
+        displayedMessages = chatMessages;
     }
 
     private void ShowNewMessage(ChatMessage newMessage) {
-        displayedMessages.RemoveAt(0);
+        if (displayedMessages.Count >= MAX_MESSAGES_DISPLAYED) {
+            displayedMessages.RemoveAt(0);
+        }
         displayedMessages.Add(newMessage);
 
         UpdateChatText(displayedMessages);

@@ -17,6 +17,8 @@ class ScrollAndPitch : MonoBehaviour
     {
 
         Vector3 pos1b = Vector3.zero;
+        Vector3 pos1 = Vector3.zero;
+
         //Update Plane
         if (Input.touchCount >= 1) {
             Plane.SetNormalAndPosition(transform.up, transform.position);
@@ -29,23 +31,27 @@ class ScrollAndPitch : MonoBehaviour
         //Pinch
         if (Input.touchCount >= 2)
         {
-            var pos1 = PlanePosition(Input.GetTouch(0).position);
+            pos1 = PlanePosition(Input.GetTouch(0).position);
             var pos2 = PlanePosition(Input.GetTouch(1).position);
             var pos2b = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
+
+            var midPoint = (pos1b + pos2) / 2;
+
+            if (Rotate && pos2b != pos2) {
+                camera.transform.RotateAround(midPoint, Plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal));
+                return;
+            }
 
             //calc zoom
             var zoom = Vector3.Distance(pos1, pos2) /
                        Vector3.Distance(pos1b, pos2b);
 
             //edge case
-            if (zoom == 0 || zoom > 10)
-                return;
+            //if (zoom <= 3 || zoom > 5)
+            //    return;
 
             //Move cam amount the mid ray
-            camera.transform.position = Vector3.LerpUnclamped((pos1 + pos2) / 2, camera.transform.position, 1 / zoom);
-
-            if (Rotate && pos2b != pos2)
-                camera.transform.RotateAround(pos1, Plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal));
+            camera.transform.position = Vector3.LerpUnclamped(midPoint, camera.transform.position, 1 / zoom);
 
             return;
         }
@@ -54,6 +60,8 @@ class ScrollAndPitch : MonoBehaviour
         if (Input.touchCount >= 1)
         {
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
+            Delta1 /= Vector3.Distance(pos1, camera.transform.position);
+            Delta1 *= 12;
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 camera.transform.Translate(Delta1, Space.World);
         }

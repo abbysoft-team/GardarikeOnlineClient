@@ -16,6 +16,12 @@ class ScrollAndPitch : MonoBehaviour
     private void Update()
     {
 
+        // Produce sound
+        if (Input.GetTouch(0).phase.Equals(TouchPhase.Began))
+        {
+            SoundManager.instance.PlaySound("click");
+        }
+
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 

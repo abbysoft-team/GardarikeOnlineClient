@@ -34,6 +34,8 @@ public class LoginManager : MonoBehaviour
         UpdateCharacterInfo(characters[0]);
 
         EventBus.instance.SelectCharacterRequest(characters[0]);
+        EventBus.instance.CloseLoadingDialog();
+        
         gameObject.SetActive(false);
         this.sessionID = sessionID;
     }
@@ -61,6 +63,7 @@ public class LoginManager : MonoBehaviour
         }
 
         EventBus.instance.LoginRequest(usernameField.text, passwordField.text);
+        EventBus.instance.OpenLoadingDialog();
     }
 
     private bool ValidateFields()

@@ -26,6 +26,7 @@ public class EventBus : MonoBehaviour
     public event Action<ChatMessage> onNewMessageArrived;
     public event Action<string> onChatMessagePublishRequest;
     public event Action<Character> onCharacterUpdateArrived;
+    public event Action<bool> onOpenOrCloseLoadingDialog;
 
     private void Awake()
     {
@@ -102,5 +103,14 @@ public class EventBus : MonoBehaviour
     public void CharacterUpdateArrived(Character newState)
     {
         onCharacterUpdateArrived?.Invoke(newState);
+    }
+
+    public void OpenLoadingDialog()
+    {
+        onOpenOrCloseLoadingDialog?.Invoke(true);
+    }
+    public void CloseLoadingDialog()
+    {
+        onOpenOrCloseLoadingDialog?.Invoke(false);
     }
 }

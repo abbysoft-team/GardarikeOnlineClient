@@ -5,10 +5,12 @@ using UnityEngine;
 public class ErrorDialogs : MonoBehaviour
 {
     public Dialog errorDialog;
+    public Dialog loadingDialog;
 
     private void Start()
     {
         EventBus.instance.onErrorShowRequest += ShowError;
+        EventBus.instance.onOpenOrCloseLoadingDialog += UpdateLoadingDialogState;
         gameObject.SetActive(false);
     }
 
@@ -33,5 +35,11 @@ public class ErrorDialogs : MonoBehaviour
     {
         errorDialog.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
+    }
+
+    private void UpdateLoadingDialogState(bool visibility)
+    {
+        loadingDialog.gameObject.SetActive(visibility);
+        this.gameObject.SetActive(visibility);
     }
 }

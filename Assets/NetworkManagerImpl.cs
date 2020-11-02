@@ -103,7 +103,7 @@ public class NetworkManagerImpl : NetworkManager
 
     private void SendNextRequest(NetMQSocket client)
     {
-        bool success = client.TrySendFrame(requestQueue.Dequeue());
+        bool success = client.TrySendFrame(TimeSpan.FromSeconds(5), requestQueue.Dequeue());
     }
 
     private void EnqueueResponse(byte[] rawResponse)

@@ -18,12 +18,13 @@ public class ChatComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventBus.instance.onCharacterSelected += LoadChatHistory;
+        // Don't load chat history
+        //EventBus.instance.onCharacterSelected += LoadChatHistory;
         EventBus.instance.onChatHistoryLoaded += UpdateChatText;
         EventBus.instance.onNewMessageArrived += ShowNewMessage;
 
         displayedMessages = new RepeatedField<ChatMessage>();
-        displayedMessages.Add(new ChatMessage {Owner = "Gardarike", Text = "Welcome to Bugaga server"});
+        displayedMessages.Add(new ChatMessage {Sender = "Gardarike", Text = "Welcome to Bugaga server"});
 
         input.onEndEdit.AddListener(delegate {PostMessage();});
     }
@@ -34,7 +35,7 @@ public class ChatComponent : MonoBehaviour
 
         ChatMessage message = new ChatMessage {
             Text = input.text,
-            Owner = PlayerPrefs.GetString("currentCharName") 
+            Sender = PlayerPrefs.GetString("currentCharName") 
         };
 
         //ShowNewMessage(message);
@@ -53,7 +54,7 @@ public class ChatComponent : MonoBehaviour
 
         StringBuilder builder = new StringBuilder();
         foreach (var message in chatMessages) {
-            builder.Append(message.Owner);
+            builder.Append(message.Sender);
             builder.Append(" | ");
             builder.Append(message.Text);
             builder.Append("\n");

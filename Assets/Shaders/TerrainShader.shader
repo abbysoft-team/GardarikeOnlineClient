@@ -4,7 +4,8 @@
         _RTex("rock texture", 2D) = "white" {}
         _HTex("heightMap texture", 2D) = "white" {}
     }
-        SubShader{
+
+    SubShader{
             Tags { "RenderType" = "Opaque" }
             LOD 2048
 

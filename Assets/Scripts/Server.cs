@@ -31,70 +31,70 @@ namespace Gardarike {
             "ABJDChZzZW5kQ2hhdE1lc3NhZ2VSZXF1ZXN0GAUgASgLMiEuR2FyZGFyaWtl",
             "LlNlbmRDaGF0TWVzc2FnZVJlcXVlc3RIABJBChVnZXRDaGF0SGlzdG9yeVJl",
             "cXVlc3QYBiABKAsyIC5HYXJkYXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXF1ZXN0",
-            "SABCBgoEZGF0YSJQChVHZXRDaGF0SGlzdG9yeVJlcXVlc3QSEQoJc2Vzc2lv",
-            "bklEGAEgASgJEhUKDWxhc3RNZXNzYWdlSUQYAiABKAMSDQoFY291bnQYAyAB",
-            "KAMiOQoWU2VuZENoYXRNZXNzYWdlUmVxdWVzdBIRCglzZXNzaW9uSUQYASAB",
-            "KAkSDAoEdGV4dBgCIAEoCSJkChRQbGFjZUJ1aWxkaW5nUmVxdWVzdBIRCglz",
-            "ZXNzaW9uSUQYASABKAkSEgoKYnVpbGRpbmdJRBgCIAEoAxIlCghsb2NhdGlv",
-            "bhgDIAEoCzITLkdhcmRhcmlrZS5WZWN0b3IzRCJJCg1HZXRNYXBSZXF1ZXN0",
-            "EhEKCXNlc3Npb25JRBgBIAEoCRIlCghsb2NhdGlvbhgCIAEoCzITLkdhcmRh",
-            "cmlrZS5WZWN0b3IzRCIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASAB",
-            "KAkSEAoIcGFzc3dvcmQYAiABKAkiQAoWU2VsZWN0Q2hhcmFjdGVyUmVxdWVz",
-            "dBIRCglzZXNzaW9uSUQYASABKAkSEwoLY2hhcmFjdGVySUQYAiABKAUiywQK",
-            "CFJlc3BvbnNlEjEKDWVycm9yUmVzcG9uc2UYASABKAsyGC5HYXJkYXJpa2Uu",
-            "RXJyb3JSZXNwb25zZUgAEjMKDmdldE1hcFJlc3BvbnNlGAIgASgLMhkuR2Fy",
-            "ZGFyaWtlLkdldE1hcFJlc3BvbnNlSAASMQoNbG9naW5SZXNwb25zZRgDIAEo",
-            "CzIYLkdhcmRhcmlrZS5Mb2dpblJlc3BvbnNlSAASOQoRbXVsdGlwYXJ0UmVz",
-            "cG9uc2UYBCABKAsyHC5HYXJkYXJpa2UuTXVsdGlwYXJ0UmVzcG9uc2VIABJF",
-            "ChdzZWxlY3RDaGFyYWN0ZXJSZXNwb25zZRgFIAEoCzIiLkdhcmRhcmlrZS5T",
-            "ZWxlY3RDaGFyYWN0ZXJSZXNwb25zZUgAEkEKFXBsYWNlQnVpbGRpbmdSZXNw",
-            "b25zZRgGIAEoCzIgLkdhcmRhcmlrZS5QbGFjZUJ1aWxkaW5nUmVzcG9uc2VI",
-            "ABJFChdzZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZRgHIAEoCzIiLkdhcmRhcmlr",
-            "ZS5TZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZUgAEkMKFmdldENoYXRIaXN0b3J5",
-            "UmVzcG9uc2UYCCABKAsyIS5HYXJkYXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXNw",
-            "b25zZUgAEksKGmNoYXRNZXNzYWdlUHVibGlzaFJlc3BvbnNlGAkgASgLMiUu",
-            "R2FyZGFyaWtlLkNoYXRNZXNzYWdlUHVibGlzaFJlc3BvbnNlSABCBgoEZGF0",
-            "YSIcChpDaGF0TWVzc2FnZVB1Ymxpc2hSZXNwb25zZSJCChZHZXRDaGF0SGlz",
-            "dG9yeVJlc3BvbnNlEigKCG1lc3NhZ2VzGAEgAygLMhYuR2FyZGFyaWtlLkNo",
-            "YXRNZXNzYWdlIiwKF1NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlEhEKCW1lc3Nh",
-            "Z2VJRBgBIAEoAyIXChVQbGFjZUJ1aWxkaW5nUmVzcG9uc2UiIgoRTXVsdGlw",
-            "YXJ0UmVzcG9uc2USDQoFcGFydHMYASABKAMiTAoNTG9naW5SZXNwb25zZRIR",
-            "CglzZXNzaW9uSUQYASABKAkSKAoKY2hhcmFjdGVycxgCIAMoCzIULkdhcmRh",
-            "cmlrZS5DaGFyYWN0ZXIiLgoNRXJyb3JSZXNwb25zZRIPCgdtZXNzYWdlGAEg",
-            "ASgJEgwKBGNvZGUYAiABKAMiGQoXU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2Ui",
-            "NgoLQ2hhdE1lc3NhZ2USCgoCaWQYASABKAMSDQoFb3duZXIYAiABKAkSDAoE",
-            "dGV4dBgDIAEoCSKNAQoFRXZlbnQSPQoTYnVpbGRpbmdQbGFjZWRFdmVudBgB",
-            "IAEoCzIeLkdhcmRhcmlrZS5CdWlsZGluZ1BsYWNlZEV2ZW50SAASOgoQY2hh",
-            "dE1lc3NhZ2VFdmVudBgCIAEoCzIeLkdhcmRhcmlrZS5OZXdDaGF0TWVzc2Fn",
-            "ZUV2ZW50SABCCQoHcGF5bG9hZCJhChNCdWlsZGluZ1BsYWNlZEV2ZW50EhIK",
-            "CmJ1aWxkaW5nSUQYASABKAMSDwoHb3duZXJJRBgCIAEoAxIlCghsb2NhdGlv",
-            "bhgDIAEoCzITLkdhcmRhcmlrZS5WZWN0b3IzRCI+ChNOZXdDaGF0TWVzc2Fn",
-            "ZUV2ZW50EicKB21lc3NhZ2UYASABKAsyFi5HYXJkYXJpa2UuQ2hhdE1lc3Nh",
-            "Z2UiKwoIVmVjdG9yM0QSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyAB",
-            "KAIiXAoDTWFwEg0KBXdpZHRoGAEgASgFEg4KBmhlaWdodBgCIAEoBRIOCgZw",
-            "b2ludHMYAyADKAISJgoJYnVpbGRpbmdzGAQgAygLMhMuR2FyZGFyaWtlLkJ1",
-            "aWxkaW5nIk4KCEJ1aWxkaW5nEgoKAmlkGAEgASgDEg8KB293bmVySUQYAyAB",
-            "KAMSJQoIbG9jYXRpb24YBCABKAsyEy5HYXJkYXJpa2UuVmVjdG9yM0QiLQoO",
-            "R2V0TWFwUmVzcG9uc2USGwoDbWFwGAEgASgLMg4uR2FyZGFyaWtlLk1hcCIK",
-            "CghNYXBDaHVuayIJCgdWZWN0b3IzIiwKCUhhbmRzaGFrZRINCgVsb2dpbhgB",
-            "IAEoCRIQCghwYXNzd29yZBgCIAEoCSIzCglDaGFyYWN0ZXISCgoCaWQYASAB",
-            "KAUSDAoEbmFtZRgCIAEoCRIMCgRnb2xkGAMgASgEMuoDCgpHYW1lU2VydmVy",
-            "EkEKCkdldE5lYXJNYXASGC5HYXJkYXJpa2UuR2V0TWFwUmVxdWVzdBoZLkdh",
-            "cmRhcmlrZS5HZXRNYXBSZXNwb25zZRI6CgVMb2dpbhIXLkdhcmRhcmlrZS5M",
-            "b2dpblJlcXVlc3QaGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZRJYCg9TZWxl",
-            "Y3RDaGFyYWN0ZXISIS5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVxdWVz",
-            "dBoiLkdhcmRhcmlrZS5TZWxlY3RDaGFyYWN0ZXJSZXNwb25zZRJSCg1QbGFj",
-            "ZUJ1aWxkaW5nEh8uR2FyZGFyaWtlLlBsYWNlQnVpbGRpbmdSZXF1ZXN0GiAu",
-            "R2FyZGFyaWtlLlBsYWNlQnVpbGRpbmdSZXNwb25zZRJYCg9TZW5kQ2hhdE1l",
-            "c3NhZ2USIS5HYXJkYXJpa2UuU2VuZENoYXRNZXNzYWdlUmVxdWVzdBoiLkdh",
-            "cmRhcmlrZS5TZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZRJVCg5HZXRDaGF0SGlz",
-            "dG9yeRIgLkdhcmRhcmlrZS5HZXRDaGF0SGlzdG9yeVJlcXVlc3QaIS5HYXJk",
-            "YXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXNwb25zZUIHWgUuO3JwY2IGcHJvdG8z"));
+            "SABCBgoEZGF0YSJJChVHZXRDaGF0SGlzdG9yeVJlcXVlc3QSEQoJc2Vzc2lv",
+            "bklEGAEgASgJEg4KBm9mZnNldBgCIAEoAxINCgVjb3VudBgDIAEoAyI5ChZT",
+            "ZW5kQ2hhdE1lc3NhZ2VSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEoCRIMCgR0",
+            "ZXh0GAIgASgJImQKFFBsYWNlQnVpbGRpbmdSZXF1ZXN0EhEKCXNlc3Npb25J",
+            "RBgBIAEoCRISCgpidWlsZGluZ0lEGAIgASgDEiUKCGxvY2F0aW9uGAMgASgL",
+            "MhMuR2FyZGFyaWtlLlZlY3RvcjNEIkkKDUdldE1hcFJlcXVlc3QSEQoJc2Vz",
+            "c2lvbklEGAEgASgJEiUKCGxvY2F0aW9uGAIgASgLMhMuR2FyZGFyaWtlLlZl",
+            "Y3RvcjNEIjIKDExvZ2luUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRIQCghw",
+            "YXNzd29yZBgCIAEoCSJAChZTZWxlY3RDaGFyYWN0ZXJSZXF1ZXN0EhEKCXNl",
+            "c3Npb25JRBgBIAEoCRITCgtjaGFyYWN0ZXJJRBgCIAEoBSLLBAoIUmVzcG9u",
+            "c2USMQoNZXJyb3JSZXNwb25zZRgBIAEoCzIYLkdhcmRhcmlrZS5FcnJvclJl",
+            "c3BvbnNlSAASMwoOZ2V0TWFwUmVzcG9uc2UYAiABKAsyGS5HYXJkYXJpa2Uu",
+            "R2V0TWFwUmVzcG9uc2VIABIxCg1sb2dpblJlc3BvbnNlGAMgASgLMhguR2Fy",
+            "ZGFyaWtlLkxvZ2luUmVzcG9uc2VIABI5ChFtdWx0aXBhcnRSZXNwb25zZRgE",
+            "IAEoCzIcLkdhcmRhcmlrZS5NdWx0aXBhcnRSZXNwb25zZUgAEkUKF3NlbGVj",
+            "dENoYXJhY3RlclJlc3BvbnNlGAUgASgLMiIuR2FyZGFyaWtlLlNlbGVjdENo",
+            "YXJhY3RlclJlc3BvbnNlSAASQQoVcGxhY2VCdWlsZGluZ1Jlc3BvbnNlGAYg",
+            "ASgLMiAuR2FyZGFyaWtlLlBsYWNlQnVpbGRpbmdSZXNwb25zZUgAEkUKF3Nl",
+            "bmRDaGF0TWVzc2FnZVJlc3BvbnNlGAcgASgLMiIuR2FyZGFyaWtlLlNlbmRD",
+            "aGF0TWVzc2FnZVJlc3BvbnNlSAASQwoWZ2V0Q2hhdEhpc3RvcnlSZXNwb25z",
+            "ZRgIIAEoCzIhLkdhcmRhcmlrZS5HZXRDaGF0SGlzdG9yeVJlc3BvbnNlSAAS",
+            "SwoaY2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2UYCSABKAsyJS5HYXJkYXJp",
+            "a2UuQ2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2VIAEIGCgRkYXRhIhwKGkNo",
+            "YXRNZXNzYWdlUHVibGlzaFJlc3BvbnNlIkIKFkdldENoYXRIaXN0b3J5UmVz",
+            "cG9uc2USKAoIbWVzc2FnZXMYASADKAsyFi5HYXJkYXJpa2UuQ2hhdE1lc3Nh",
+            "Z2UiLAoXU2VuZENoYXRNZXNzYWdlUmVzcG9uc2USEQoJbWVzc2FnZUlEGAEg",
+            "ASgDIhcKFVBsYWNlQnVpbGRpbmdSZXNwb25zZSIiChFNdWx0aXBhcnRSZXNw",
+            "b25zZRINCgVwYXJ0cxgBIAEoAyJMCg1Mb2dpblJlc3BvbnNlEhEKCXNlc3Np",
+            "b25JRBgBIAEoCRIoCgpjaGFyYWN0ZXJzGAIgAygLMhQuR2FyZGFyaWtlLkNo",
+            "YXJhY3RlciIuCg1FcnJvclJlc3BvbnNlEg8KB21lc3NhZ2UYASABKAkSDAoE",
+            "Y29kZRgCIAEoAyIZChdTZWxlY3RDaGFyYWN0ZXJSZXNwb25zZSI3CgtDaGF0",
+            "TWVzc2FnZRIKCgJpZBgBIAEoAxIOCgZzZW5kZXIYAiABKAkSDAoEdGV4dBgD",
+            "IAEoCSKNAQoFRXZlbnQSPQoTYnVpbGRpbmdQbGFjZWRFdmVudBgBIAEoCzIe",
+            "LkdhcmRhcmlrZS5CdWlsZGluZ1BsYWNlZEV2ZW50SAASOgoQY2hhdE1lc3Nh",
+            "Z2VFdmVudBgCIAEoCzIeLkdhcmRhcmlrZS5OZXdDaGF0TWVzc2FnZUV2ZW50",
+            "SABCCQoHcGF5bG9hZCJhChNCdWlsZGluZ1BsYWNlZEV2ZW50EhIKCmJ1aWxk",
+            "aW5nSUQYASABKAMSDwoHb3duZXJJRBgCIAEoAxIlCghsb2NhdGlvbhgDIAEo",
+            "CzITLkdhcmRhcmlrZS5WZWN0b3IzRCI+ChNOZXdDaGF0TWVzc2FnZUV2ZW50",
+            "EicKB21lc3NhZ2UYASABKAsyFi5HYXJkYXJpa2UuQ2hhdE1lc3NhZ2UiKwoI",
+            "VmVjdG9yM0QSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiXAoD",
+            "TWFwEg0KBXdpZHRoGAEgASgFEg4KBmhlaWdodBgCIAEoBRIOCgZwb2ludHMY",
+            "AyADKAISJgoJYnVpbGRpbmdzGAQgAygLMhMuR2FyZGFyaWtlLkJ1aWxkaW5n",
+            "Ik4KCEJ1aWxkaW5nEgoKAmlkGAEgASgDEg8KB293bmVySUQYAyABKAMSJQoI",
+            "bG9jYXRpb24YBCABKAsyEy5HYXJkYXJpa2UuVmVjdG9yM0QiLQoOR2V0TWFw",
+            "UmVzcG9uc2USGwoDbWFwGAEgASgLMg4uR2FyZGFyaWtlLk1hcCIKCghNYXBD",
+            "aHVuayIJCgdWZWN0b3IzIiwKCUhhbmRzaGFrZRINCgVsb2dpbhgBIAEoCRIQ",
+            "CghwYXNzd29yZBgCIAEoCSIzCglDaGFyYWN0ZXISCgoCaWQYASABKAUSDAoE",
+            "bmFtZRgCIAEoCRIMCgRnb2xkGAMgASgEMuoDCgpHYW1lU2VydmVyEkEKCkdl",
+            "dE5lYXJNYXASGC5HYXJkYXJpa2UuR2V0TWFwUmVxdWVzdBoZLkdhcmRhcmlr",
+            "ZS5HZXRNYXBSZXNwb25zZRI6CgVMb2dpbhIXLkdhcmRhcmlrZS5Mb2dpblJl",
+            "cXVlc3QaGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZRJYCg9TZWxlY3RDaGFy",
+            "YWN0ZXISIS5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVxdWVzdBoiLkdh",
+            "cmRhcmlrZS5TZWxlY3RDaGFyYWN0ZXJSZXNwb25zZRJSCg1QbGFjZUJ1aWxk",
+            "aW5nEh8uR2FyZGFyaWtlLlBsYWNlQnVpbGRpbmdSZXF1ZXN0GiAuR2FyZGFy",
+            "aWtlLlBsYWNlQnVpbGRpbmdSZXNwb25zZRJYCg9TZW5kQ2hhdE1lc3NhZ2US",
+            "IS5HYXJkYXJpa2UuU2VuZENoYXRNZXNzYWdlUmVxdWVzdBoiLkdhcmRhcmlr",
+            "ZS5TZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZRJVCg5HZXRDaGF0SGlzdG9yeRIg",
+            "LkdhcmRhcmlrZS5HZXRDaGF0SGlzdG9yeVJlcXVlc3QaIS5HYXJkYXJpa2Uu",
+            "R2V0Q2hhdEhpc3RvcnlSZXNwb25zZUIHWgUuO3JwY2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Request), global::Gardarike.Request.Parser, new[]{ "GetMapRequest", "LoginRequest", "SelectCharacterRequest", "PlaceBuildingRequest", "SendChatMessageRequest", "GetChatHistoryRequest" }, new[]{ "Data" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetChatHistoryRequest), global::Gardarike.GetChatHistoryRequest.Parser, new[]{ "SessionID", "LastMessageID", "Count" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetChatHistoryRequest), global::Gardarike.GetChatHistoryRequest.Parser, new[]{ "SessionID", "Offset", "Count" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.SendChatMessageRequest), global::Gardarike.SendChatMessageRequest.Parser, new[]{ "SessionID", "Text" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.PlaceBuildingRequest), global::Gardarike.PlaceBuildingRequest.Parser, new[]{ "SessionID", "BuildingID", "Location" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetMapRequest), global::Gardarike.GetMapRequest.Parser, new[]{ "SessionID", "Location" }, null, null, null),
@@ -109,7 +109,7 @@ namespace Gardarike {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.LoginResponse), global::Gardarike.LoginResponse.Parser, new[]{ "SessionID", "Characters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ErrorResponse), global::Gardarike.ErrorResponse.Parser, new[]{ "Message", "Code" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.SelectCharacterResponse), global::Gardarike.SelectCharacterResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ChatMessage), global::Gardarike.ChatMessage.Parser, new[]{ "Id", "Owner", "Text" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ChatMessage), global::Gardarike.ChatMessage.Parser, new[]{ "Id", "Sender", "Text" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Event), global::Gardarike.Event.Parser, new[]{ "BuildingPlacedEvent", "ChatMessageEvent" }, new[]{ "Payload" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.BuildingPlacedEvent), global::Gardarike.BuildingPlacedEvent.Parser, new[]{ "BuildingID", "OwnerID", "Location" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.NewChatMessageEvent), global::Gardarike.NewChatMessageEvent.Parser, new[]{ "Message" }, null, null, null),
@@ -489,7 +489,7 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetChatHistoryRequest(GetChatHistoryRequest other) : this() {
       sessionID_ = other.sessionID_;
-      lastMessageID_ = other.lastMessageID_;
+      offset_ = other.offset_;
       count_ = other.count_;
     }
 
@@ -509,14 +509,14 @@ namespace Gardarike {
       }
     }
 
-    /// <summary>Field number for the "lastMessageID" field.</summary>
-    public const int LastMessageIDFieldNumber = 2;
-    private long lastMessageID_;
+    /// <summary>Field number for the "offset" field.</summary>
+    public const int OffsetFieldNumber = 2;
+    private long offset_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long LastMessageID {
-      get { return lastMessageID_; }
+    public long Offset {
+      get { return offset_; }
       set {
-        lastMessageID_ = value;
+        offset_ = value;
       }
     }
 
@@ -545,7 +545,7 @@ namespace Gardarike {
         return true;
       }
       if (SessionID != other.SessionID) return false;
-      if (LastMessageID != other.LastMessageID) return false;
+      if (Offset != other.Offset) return false;
       if (Count != other.Count) return false;
       return true;
     }
@@ -554,7 +554,7 @@ namespace Gardarike {
     public override int GetHashCode() {
       int hash = 1;
       if (SessionID.Length != 0) hash ^= SessionID.GetHashCode();
-      if (LastMessageID != 0L) hash ^= LastMessageID.GetHashCode();
+      if (Offset != 0L) hash ^= Offset.GetHashCode();
       if (Count != 0L) hash ^= Count.GetHashCode();
       return hash;
     }
@@ -570,9 +570,9 @@ namespace Gardarike {
         output.WriteRawTag(10);
         output.WriteString(SessionID);
       }
-      if (LastMessageID != 0L) {
+      if (Offset != 0L) {
         output.WriteRawTag(16);
-        output.WriteInt64(LastMessageID);
+        output.WriteInt64(Offset);
       }
       if (Count != 0L) {
         output.WriteRawTag(24);
@@ -586,8 +586,8 @@ namespace Gardarike {
       if (SessionID.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SessionID);
       }
-      if (LastMessageID != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(LastMessageID);
+      if (Offset != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Offset);
       }
       if (Count != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Count);
@@ -603,8 +603,8 @@ namespace Gardarike {
       if (other.SessionID.Length != 0) {
         SessionID = other.SessionID;
       }
-      if (other.LastMessageID != 0L) {
-        LastMessageID = other.LastMessageID;
+      if (other.Offset != 0L) {
+        Offset = other.Offset;
       }
       if (other.Count != 0L) {
         Count = other.Count;
@@ -624,7 +624,7 @@ namespace Gardarike {
             break;
           }
           case 16: {
-            LastMessageID = input.ReadInt64();
+            Offset = input.ReadInt64();
             break;
           }
           case 24: {
@@ -2765,7 +2765,7 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ChatMessage(ChatMessage other) : this() {
       id_ = other.id_;
-      owner_ = other.owner_;
+      sender_ = other.sender_;
       text_ = other.text_;
     }
 
@@ -2785,14 +2785,14 @@ namespace Gardarike {
       }
     }
 
-    /// <summary>Field number for the "owner" field.</summary>
-    public const int OwnerFieldNumber = 2;
-    private string owner_ = "";
+    /// <summary>Field number for the "sender" field.</summary>
+    public const int SenderFieldNumber = 2;
+    private string sender_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Owner {
-      get { return owner_; }
+    public string Sender {
+      get { return sender_; }
       set {
-        owner_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        sender_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -2821,7 +2821,7 @@ namespace Gardarike {
         return true;
       }
       if (Id != other.Id) return false;
-      if (Owner != other.Owner) return false;
+      if (Sender != other.Sender) return false;
       if (Text != other.Text) return false;
       return true;
     }
@@ -2830,7 +2830,7 @@ namespace Gardarike {
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0L) hash ^= Id.GetHashCode();
-      if (Owner.Length != 0) hash ^= Owner.GetHashCode();
+      if (Sender.Length != 0) hash ^= Sender.GetHashCode();
       if (Text.Length != 0) hash ^= Text.GetHashCode();
       return hash;
     }
@@ -2846,9 +2846,9 @@ namespace Gardarike {
         output.WriteRawTag(8);
         output.WriteInt64(Id);
       }
-      if (Owner.Length != 0) {
+      if (Sender.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Owner);
+        output.WriteString(Sender);
       }
       if (Text.Length != 0) {
         output.WriteRawTag(26);
@@ -2862,8 +2862,8 @@ namespace Gardarike {
       if (Id != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
-      if (Owner.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Owner);
+      if (Sender.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Sender);
       }
       if (Text.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
@@ -2879,8 +2879,8 @@ namespace Gardarike {
       if (other.Id != 0L) {
         Id = other.Id;
       }
-      if (other.Owner.Length != 0) {
-        Owner = other.Owner;
+      if (other.Sender.Length != 0) {
+        Sender = other.Sender;
       }
       if (other.Text.Length != 0) {
         Text = other.Text;
@@ -2900,7 +2900,7 @@ namespace Gardarike {
             break;
           }
           case 18: {
-            Owner = input.ReadString();
+            Sender = input.ReadString();
             break;
           }
           case 26: {

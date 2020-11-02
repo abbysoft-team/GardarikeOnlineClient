@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using Google.Protobuf;
+using Google.Protobuf.Collections;
 using System.Threading.Tasks;
 using NetMQ.Sockets;
 using NetMQ;
@@ -27,30 +28,34 @@ public class NetworkManagerImpl : NetworkManager
         {
             try
             {
-                EventTask();
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError("Error occured in event thread: " + e);
-                EventBus.instance.ShowError("Could not connect to server.\nTry again later");
-            }
-        });
-
-        Task.Run(() =>
-        {
-            try
-            {
                 ClientTask();
             }
             catch (System.Exception e)
             {
                 Debug.LogError("Error occured in network thread: " + e);
+                EventBus.instance.CloseLoadingDialog();
                 EventBus.instance.ShowError("Could not connect to server.\nTry again later");
             }
         });
     }
 
-    private void EventTask()
+    private void RunEventTask(string sessionId, RepeatedField<Character> characters) {
+        Task.Run(() =>
+        {
+            try
+            {
+                EventTask(sessionId);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error occured in event thread: " + e);
+                EventBus.instance.CloseLoadingDialog();
+                EventBus.instance.ShowError("Could not connect to server.\nTry again later");
+            }
+        });
+    }
+
+    private void EventTask(string sessionID)
     {
         Debug.Log("Start event thread");
 
@@ -104,6 +109,10 @@ public class NetworkManagerImpl : NetworkManager
     private void SendNextRequest(NetMQSocket client)
     {
         bool success = client.TrySendFrame(TimeSpan.FromSeconds(5), requestQueue.Dequeue());
+        if (success == false)
+        {
+            throw new FaultException();
+        }
     }
 
     private void EnqueueResponse(byte[] rawResponse)
@@ -151,6 +160,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
+        EventBus.instance.onLoginComplete += RunEventTask;
 
         StartZeroMQCommunicationThread();
     }

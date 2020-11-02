@@ -22,7 +22,7 @@ public class MapManager : MonoBehaviour
 
     private void PlaceMapObjects(RepeatedField<Building> buildings) {
         foreach (var building in buildings) {
-            Debug.Log("Register building: " + building);
+            //Debug.Log("Register building: " + building);
             EventBus.instance.RegisterBuilding(ToBuildingItem(building));
         }
     }

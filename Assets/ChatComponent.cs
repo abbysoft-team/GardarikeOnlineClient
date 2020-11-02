@@ -26,6 +26,8 @@ public class ChatComponent : MonoBehaviour
         displayedMessages = new RepeatedField<ChatMessage>();
         displayedMessages.Add(new ChatMessage {Sender = "Gardarike", Text = "Welcome to Bugaga server"});
 
+        UpdateChatText(displayedMessages);
+
         input.onEndEdit.AddListener(delegate {PostMessage();});
     }
 

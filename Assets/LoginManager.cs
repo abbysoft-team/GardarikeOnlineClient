@@ -42,6 +42,7 @@ public class LoginManager : MonoBehaviour
 
     private void UpdateCharacterInfo(Character character) 
     {
+        Debug.Log("update character: " + character);
         PlayerPrefs.SetInt("userId", character.Id);
         PlayerPrefs.SetString("currentCharName", character.Name);
         PlayerPrefs.SetInt("Gold", (int) character.Gold);

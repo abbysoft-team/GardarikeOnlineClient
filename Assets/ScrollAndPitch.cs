@@ -15,13 +15,6 @@ class ScrollAndPitch : MonoBehaviour
 
     private void Update()
     {
-
-        // Produce sound
-        if (Input.GetTouch(0).phase.Equals(TouchPhase.Began))
-        {
-            SoundManager.instance.PlaySound("click");
-        }
-
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
@@ -70,6 +63,8 @@ class ScrollAndPitch : MonoBehaviour
             Delta1 *= 12;
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 camera.transform.Translate(Delta1, Space.World);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+                SoundManager.instance.PlaySound("click");
         }
 
     }

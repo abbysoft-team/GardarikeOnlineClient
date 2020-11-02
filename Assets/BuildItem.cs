@@ -30,9 +30,9 @@ public class BuildItem : MonoBehaviour
     {
         DisableIfNotEnoughMaterials();
 
-        if (model.activeSelf)
+        if (model.activeSelf && Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            model.transform.position = Utility.GetPositionOnTheGround(Input.mousePosition);
+            model.transform.position = Utility.GetPositionOnTheGround(Input.GetTouch(0).position);
         }
 
         checkBuildingPlaceChosen();
@@ -40,7 +40,7 @@ public class BuildItem : MonoBehaviour
 
     private void checkBuildingPlaceChosen()
     {
-        var buildPlaceChosen = model.activeSelf && Input.GetMouseButton(0);
+        var buildPlaceChosen = model.activeSelf && Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began;
         if (buildPlaceChosen)
         {
             position = model.transform.position;
@@ -48,10 +48,12 @@ public class BuildItem : MonoBehaviour
             EventBus.instance.BuildingComplete(this);
             EventBus.instance.RegisterBuilding(this);
         }
+
     }
 
     public void StartBuilding()
     {
+        Debug.Log("Start building");
         Utility.AddToIntProperty("Gold", priceGold * -1);
         model.SetActive(true);
     }

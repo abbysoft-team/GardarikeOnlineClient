@@ -21,21 +21,30 @@ public class LoginManager : MonoBehaviour
     void Start()
     {
         EventBus.instance.onLoginComplete += LoginComplete;
+        EventBus.instance.onCharacterUpdateArrived += UpdateCharacterInfo;
     }
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
     {
         Debug.Log("Login complete. Welcome, " + sessionID);
         Debug.Log("Defaulting character to 0 " + characters[0]);
-        
+
         PlayerPrefs.SetString("sessionId", sessionID);
-        PlayerPrefs.SetInt("userId", characters[0].Id);
-        PlayerPrefs.SetString("currentCharName", characters[0].Name);
-        PlayerPrefs.SetInt("Gold", (int) characters[0].Gold);
+
+        UpdateCharacterInfo(characters[0]);
 
         EventBus.instance.SelectCharacterRequest(characters[0]);
         gameObject.SetActive(false);
         this.sessionID = sessionID;
+    }
+
+    private void UpdateCharacterInfo(Character character) 
+    {
+        PlayerPrefs.SetInt("userId", character.Id);
+        PlayerPrefs.SetString("currentCharName", character.Name);
+        PlayerPrefs.SetInt("Gold", (int) character.Gold);
+        PlayerPrefs.SetInt("Population", (int) character.CurrentPopulation);
+        PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
     }
 
     // Update is called once per frame

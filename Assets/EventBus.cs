@@ -25,6 +25,7 @@ public class EventBus : MonoBehaviour
     public event Action onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
     public event Action<string> onChatMessagePublishRequest;
+    public event Action<Character> onCharacterUpdateArrived;
 
     private void Awake()
     {
@@ -96,5 +97,10 @@ public class EventBus : MonoBehaviour
 
     public void SendChatMessage(string text) {
         onChatMessagePublishRequest?.Invoke(text);
+    }
+
+    public void CharacterUpdateArrived(Character newState)
+    {
+        onCharacterUpdateArrived?.Invoke(newState);
     }
 }

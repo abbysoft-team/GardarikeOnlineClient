@@ -85,6 +85,9 @@ public class NetworkParser : MonoBehaviour
                     Debug.Log("New chat message");
                     EventBus.instance.NewMessageArrived(eventItem.ChatMessageEvent.Message);
                     break;
+                case Gardarike.Event.PayloadOneofCase.CharacterUpdatedEvent:
+                    EventBus.instance.CharacterUpdateArrived(eventItem.CharacterUpdatedEvent.NewState);
+                    break;
             }
         }
     }

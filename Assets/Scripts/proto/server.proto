@@ -121,7 +121,12 @@ message Event {
   oneof payload {
     BuildingPlacedEvent buildingPlacedEvent = 1;
     NewChatMessageEvent chatMessageEvent = 2;
+    CharacterUpdatedEvent characterUpdatedEvent = 3;
   }
+}
+
+message CharacterUpdatedEvent {
+  Character newState = 1;
 }
 
 message BuildingPlacedEvent {
@@ -174,4 +179,6 @@ message Character {
   int32 id = 1;
   string name = 2;
   uint64 gold = 3;
+  uint64 maxPopulation = 4;
+  uint64 currentPopulation = 5;
 }

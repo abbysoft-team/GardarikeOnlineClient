@@ -23,20 +23,11 @@ public class PeopleController : MonoBehaviour
         SetRandomAction();
         SetRandomDeathAge();
 
-        Utility.AddToIntProperty(GlobalConstants.PEOPLE_COUNT, 1);
         Debug.Log("Spawned a man with death age " + deathAge + " years");
     }
 
     private void SetRandomAction()
     {
-        // not enough gold, looking 4 a job
-        if (gold <= 0)
-        {
-            currentAction = Action.LOOKING_4_JOB;
-            FindAvailableJob();
-            return;
-        }
-
         // Indices 0 to 2 is random
         currentAction = (Action) Random.Range(0, 2);
         if (currentAction == Action.IDLE)
@@ -52,7 +43,7 @@ public class PeopleController : MonoBehaviour
             patrolPathLength = Vector3.Distance(startPoint2d, patrolPoint2d);
         }
 
-        Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
+        //Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
     }
 
     private void FindAvailableJob()
@@ -122,7 +113,7 @@ public class PeopleController : MonoBehaviour
     {
         if (gold == 0) return;
         var taxesToPay = GlobalConstants.TAXES_PER_SECOND * Time.deltaTime + 1;
-        Utility.AddToIntProperty(GlobalConstants.GOLD, (int) taxesToPay);
+        //Utility.AddToIntProperty(GlobalConstants.GOLD, (int) taxesToPay);
         gold -= (int) taxesToPay;
     }
 

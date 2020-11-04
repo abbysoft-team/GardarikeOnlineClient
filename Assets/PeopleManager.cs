@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class PeopleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject referenceMan;
+
+    void Start() 
     {
-        
+        referenceMan = transform.GetChild(0).gameObject;
+
+        EventBus.instance.onCharacterSelected += SpawnAfterLogin;
+        EventBus.instance.onPeopleCountIncreased += SpawnPeople;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnAfterLogin()
     {
-        //var buildings = FindAllBuildings();
+        var peopleCount = PlayerPrefs.GetInt("Population");
+        SpawnPeople(peopleCount);
     }
 
-    private List<GameObject> FindAllBuildings()
+    private void SpawnPeople(int count)
     {
-        List<GameObject> children = new List<GameObject>(transform.parent.childCount);
-        foreach (Transform transform in transform.parent)
+        Debug.Log("Spawning " + count + " mans");
+
+        for (int i = 0; i < count; i++)
         {
-            if (transform.tag == GlobalConstants.BUILDING_TAG)
-            {
-                children.Add(transform.gameObject);
-            }
+            InstanciateMan();
         }
+    }
 
-        return children;
+    private void InstanciateMan()
+    {
+        var newMan = Instantiate(referenceMan);
+        newMan.AddComponent<PeopleController>();
+        newMan.transform.parent = transform;
+        newMan.SetActive(true);
     }
 }

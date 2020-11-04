@@ -37,6 +37,20 @@ public class NetworkManagerImpl : NetworkManager
                 EventBus.instance.ShowError("Could not connect to server.\nTry again later");
             }
         });
+
+        Task.Run(() =>
+        {
+            try
+            {
+                EventTask("GLOBAL");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error occured in network thread: " + e);
+                EventBus.instance.CloseLoadingDialog();
+                EventBus.instance.ShowError("Could not connect to server.\nTry again later");
+            }
+        });
     }
 
     private void RunEventTask(string sessionId, RepeatedField<Character> characters) {
@@ -55,15 +69,15 @@ public class NetworkManagerImpl : NetworkManager
         });
     }
 
-    private void EventTask(string sessionID)
+    private void EventTask(string channel)
     {
-        Debug.Log("Start event thread");
+        Debug.Log("Start event thread on chanel " + channel);
 
         var address = string.Format(">tcp://{0}:{1}", serverIp, eventPort);
         using (var subscriber = new SubscriberSocket(address))
         {
             // Listen to all topics
-            subscriber.Subscribe("");
+            subscriber.Subscribe(channel);
             while (true) {
                 var eventPacket = subscriber.ReceiveFrameBytes();
 

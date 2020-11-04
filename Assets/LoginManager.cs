@@ -43,6 +43,13 @@ public class LoginManager : MonoBehaviour
     private void UpdateCharacterInfo(Character character) 
     {
         Debug.Log("update character: " + character);
+
+        var newPeople = (int) character.CurrentPopulation - PlayerPrefs.GetInt("Population");
+        if (newPeople > 0)
+        {
+            EventBus.instance.PeopleCountIncreased(newPeople);
+        }
+
         PlayerPrefs.SetInt("userId", character.Id);
         PlayerPrefs.SetString("currentCharName", character.Name);
         PlayerPrefs.SetInt("Gold", (int) character.Gold);

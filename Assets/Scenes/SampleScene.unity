@@ -1922,7 +1922,6 @@ GameObject:
   m_Component:
   - component: {fileID: 333006092}
   - component: {fileID: 333006091}
-  - component: {fileID: 333006093}
   m_Layer: 0
   m_Name: PeopleManager
   m_TagString: Untagged
@@ -1957,22 +1956,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &333006093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333006090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318d5eef05d81254a98718c620889a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fieldsToSave: []
-  component: PeopleManager
-  propertiesToSave: []
-  saveableName: PeopleManager
 --- !u!1 &339593110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8068532171942546910, guid: 7579ec7c669ef6143a8bbd425525f768,
@@ -3495,7 +3478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveables:
-  - {fileID: 333006093}
+  - {fileID: 0}
   - {fileID: 356432209}
   - {fileID: 1822716898}
   - {fileID: 2080824081}
@@ -3555,7 +3538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 308.33337, y: -135}
+  m_AnchoredPosition: {x: 308, y: -135}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817026178
@@ -8584,7 +8567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 308.3333, y: -135}
+  m_AnchoredPosition: {x: 308, y: -135}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873192581

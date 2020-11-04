@@ -44,6 +44,7 @@
      <Compile Include="Assets\PeopleController.cs" />
      <Compile Include="Assets\GlobalConstants.cs" />
      <Compile Include="Assets\JobManager.cs" />
+     <Compile Include="Assets\Sound.cs" />
      <Compile Include="Assets\ChatComponent.cs" />
      <Compile Include="Assets\MusicManager.cs" />
      <Compile Include="Assets\TerrainGenerator.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets\Private.cs" />
      <Compile Include="Assets\PropertyLabel.cs" />
      <Compile Include="Assets\CustomLogic.cs" />
+     <Compile Include="Assets\SoundManager.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\ObjectManager.cs" />
      <Compile Include="Assets\ObjectType.cs" />
@@ -81,8 +83,6 @@
      <Compile Include="Assets\BuildingLogic.cs" />
      <Compile Include="Assets\ObjectMana.cs" />
      <Compile Include="Assets\Event.cs" />
-     <Compile Include="Assets\SoundManager.cs" />
-     <Compile Include="Assets\Sound.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

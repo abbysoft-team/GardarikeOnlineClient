@@ -25,6 +25,9 @@ public class MapManager : MonoBehaviour
             //Debug.Log("Register building: " + building);
             EventBus.instance.RegisterBuilding(ToBuildingItem(building));
         }
+
+        // place trees
+        EventBus.instance.SpawnTrees(100);
     }
 
     private BuildItem ToBuildingItem(Building building) {

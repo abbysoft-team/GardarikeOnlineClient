@@ -4,53 +4,24 @@ using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
 {
-
-    private void GenerateTrees(float[,] heights)
+    private void Start()
     {
-        var dimension = (int)Mathf.Sqrt(heights.Length);
-        var x = Random.Range(0, dimension);
-        var y = Random.Range(0, dimension);
-        var randomHeight = heights[x, y];
-        var randomDelta = GlobalConstants.TREE_GROW_DELTA * randomHeight;
-
-        for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++)
-            {
-                var height = heights[i, j];
-                if (Mathf.Abs(height - randomHeight) <= randomDelta)
-                {
-                    SpawnTree(i, j);
-                }
-            }
-        }
+        EventBus.instance.onSpawnTreesRequest += GenerateTrees;
     }
 
-    private void GenerateTreesNew(float[,] heights)
+    private void GenerateTrees(int count)
     {
-        if (true) return;
-
-        var dimension = (int)Mathf.Sqrt(heights.Length);
-
-        var randomTreeQuantity = Random.Range(GlobalConstants.TREE_MIN_COUNT, GlobalConstants.TREE_MAX_COUNT);
-
-        for (int i = 0; i < randomTreeQuantity; i++)
+        for (int i = 0; i < count; i++)
         {
-            var x = Random.Range(0, dimension);
-            var y = Random.Range(0, dimension);
+            var x = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
+            var y = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
 
-            var point = Utility.GetGroundedPoint(new Vector3(x, 100, y));
-            if (point.y != GlobalConstants.WATER_LEVEL)
-            {
-                SpawnTree(x, y);
-            }
+            SpawnTree(x, y);
         }
     }
 
     private void SpawnTree(float x, float y)
     {
-        x *= GlobalConstants.CHUNK_SIZE;
-        y *= GlobalConstants.CHUNK_SIZE;
-
         var referenceTree = GetRandomChild();
         var newTree = Instantiate(referenceTree);
 
@@ -76,11 +47,6 @@ public class TreeGenerator : MonoBehaviour
         }
 
         throw new UnityException("something wrong with the method");
-    }
-
-    private void Start()
-    {
-        EventBus.instance.onTerrainGenerationFinished += GenerateTreesNew;
     }
 
     // Update is called once per frame

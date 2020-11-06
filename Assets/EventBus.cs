@@ -28,6 +28,7 @@ public class EventBus : MonoBehaviour
     public event Action<Character> onCharacterUpdateArrived;
     public event Action<bool> onOpenOrCloseLoadingDialog;
     public event Action<int> onPeopleCountIncreased;
+    public event Action<int> onSpawnTreesRequest;
 
     private void Awake()
     {
@@ -118,5 +119,10 @@ public class EventBus : MonoBehaviour
     public void PeopleCountIncreased(int newPeople)
     {
         onPeopleCountIncreased?.Invoke(newPeople);
+    }
+
+    public void SpawnTrees(int count)
+    {
+        onSpawnTreesRequest?.Invoke(count);
     }
 }

@@ -28,6 +28,8 @@ public class MapManager : MonoBehaviour
 
         // place trees
         EventBus.instance.SpawnTrees(100);
+
+        EventBus.instance.MapIsReady();
     }
 
     private BuildItemInfo ToBuildingItem(Building building) {

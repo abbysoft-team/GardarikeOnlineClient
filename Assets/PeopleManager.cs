@@ -10,7 +10,7 @@ public class PeopleManager : MonoBehaviour
     {
         referenceMan = transform.GetChild(0).gameObject;
 
-        EventBus.instance.onCharacterSelected += SpawnAfterLogin;
+        EventBus.instance.onMapReady += SpawnAfterLogin;
         EventBus.instance.onPeopleCountIncreased += SpawnPeople;
     }
 

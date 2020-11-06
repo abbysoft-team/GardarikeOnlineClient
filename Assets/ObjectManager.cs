@@ -16,6 +16,8 @@ public class ObjectManager : MonoBehaviour
 
     public static void RegisterObject(GameObject someObject, ObjectType type)
     {
+        //Debug.Log("registered " + type);
+
         if (!instance.objects.ContainsKey(type))
         {
             instance.objects.Add(type, new List<GameObject>());

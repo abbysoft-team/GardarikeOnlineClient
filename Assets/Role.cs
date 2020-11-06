@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 public interface Role
 {
     void Init(PeopleController man);
-    void Update(PeopleController man);
+    void ActionAccomplished(PeopleController man);
 
 }

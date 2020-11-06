@@ -13,11 +13,13 @@ public class PeopleController : MonoBehaviour
     private float patrolPathLength;
     private Action currentAction;
     private int gold;
-
     private Role workingRole;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         birthDate = PlayerPrefs.GetInt(GlobalConstants.GAME_MILLIS);
         SetRandomDeathAge();
         bool unemployed = GetAJob();
@@ -31,17 +33,17 @@ public class PeopleController : MonoBehaviour
     private bool GetAJob()
     {
         var job = JobManager.instance.GetAvailableJob();
+        workingRole = job;
         if (job == null)
         {
             Debug.Log("No job");
-            return false;
+            return true;
         }
-        workingRole = job;
 
         Debug.Log("Got a job " + workingRole);
         workingRole.Init(this);
         
-        return true;
+        return false;
     }
 
     public void SetRandomAction()
@@ -62,20 +64,6 @@ public class PeopleController : MonoBehaviour
         }
 
         Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
-    }
-
-    private void FindAvailableJob()
-    {
-        Role job = JobManager.instance.GetAvailableJob();
-        if (job == null)
-        {
-            ConfigureIdleAction();
-            return;
-        }
-
-        currentAction = Action.WORKING;
-        workingRole = job;
-        workingRole.Init(this);
     }
 
     private void ConfigureIdleAction()
@@ -110,10 +98,24 @@ public class PeopleController : MonoBehaviour
 
         DoAction();
         
-        if (ActionAcomplished())
+        if (!ActionAcomplished())
+        {
+            return;
+        }
+        
+        if (HasJob()) 
+        {
+            workingRole.ActionAccomplished(this);
+        }
+        else
         {
             SetRandomAction();
         }
+    }
+
+    private bool HasJob()
+    {
+        return workingRole != null;
     }
 
     private int GetAge()
@@ -135,6 +137,32 @@ public class PeopleController : MonoBehaviour
         gold -= (int) taxesToPay;
     }
 
+    public void Idle(float seconds)
+    {
+        actionEndTick = (long) (PlayerPrefs.GetInt(GlobalConstants.GAME_MILLIS) + seconds * 1000);
+        currentAction = Action.IDLE;
+    }
+
+    public void LoopSound(string clipName)
+    {
+        var clip = SoundManager.instance.FindClip(clipName);
+
+        audioSource.loop = true;
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayOneShot(string clipName)
+    {
+        var clip = SoundManager.instance.FindClip(clipName);
+
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
+    }
+
     private void DoAction()
     {
         if (currentAction == Action.PATROLING || currentAction == Action.GO_TO_JOB)
@@ -145,10 +173,6 @@ public class PeopleController : MonoBehaviour
 
             newPosition.y = 1000; // in order to raycast to the ground
             transform.position = Utility.GetGroundedPoint(newPosition);
-        }
-        if (currentAction == Action.WORKING)
-        {
-            workingRole.Update(this);
         }
     }
     

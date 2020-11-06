@@ -8,6 +8,7 @@ using UnityEngine;
 public class Lumberjack : Role
 {
     private Tree currentTree;
+    private State state;
 
     public void Init(PeopleController man)
     {
@@ -20,6 +21,7 @@ public class Lumberjack : Role
         }
 
         man.GoTo(currentTree.transform.position);
+        state = State.GO_TO_JOB;
     }
 
     private Tree FindTree(Vector3 manPosition)
@@ -41,7 +43,32 @@ public class Lumberjack : Role
         return nearestTree.GetComponent<Tree>();
     }
 
-    public void Update(PeopleController man)
+    public void ActionAccomplished(PeopleController man)
     {
+        if (state == State.GO_TO_JOB)
+        {
+            Debug.Log("LUMBER: start cutting a tree");
+            // working
+            man.Idle(20);
+            man.LoopSound("cutTree");
+            state = State.WORKING;
+            return;
+        }
+        else if (state == State.WORKING)
+        {
+            Debug.Log("LUMBER: done with the tree, obtain 10 wood");
+            // increase wood
+            Utility.AddToIntProperty("Wood", 10);
+            man.PlayOneShot("breakTree");
+            currentTree.gameObject.SetActive(false);
+            state = State.GO_HOME;
+        }
+    }
+
+    private enum State
+    {
+        GO_TO_JOB,
+        WORKING,
+        GO_HOME
     }
 }

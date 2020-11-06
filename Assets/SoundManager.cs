@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
         source.PlayOneShot(FindClip(clipName));
     }
 
-    private AudioClip FindClip(string name)
+    public AudioClip FindClip(string name)
     {
         foreach (var sound in sounds)
         {

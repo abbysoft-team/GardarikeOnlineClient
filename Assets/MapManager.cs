@@ -30,8 +30,8 @@ public class MapManager : MonoBehaviour
         EventBus.instance.SpawnTrees(100);
     }
 
-    private BuildItem ToBuildingItem(Building building) {
-        var item = new BuildItem();
+    private BuildItemInfo ToBuildingItem(Building building) {
+        var item = new BuildItemInfo();
         item.position = ProtoConverter.ToUnityVector(building.Location);
        // item.position = Utility.GetGroundedPoint(item.position);
 

@@ -16,8 +16,8 @@ public class PeopleManager : MonoBehaviour
 
     private void SpawnAfterLogin()
     {
-        var peopleCount = PlayerPrefs.GetInt("Population");
-        SpawnPeople(peopleCount);
+        //var peopleCount = PlayerPrefs.GetInt("Population");
+        SpawnPeople(1);
     }
 
     private void SpawnPeople(int count)

@@ -12,6 +12,13 @@ public class Lumberjack : Role
     public void Init(PeopleController man)
     {
         currentTree = FindTree(man.transform.position);
+        if (currentTree == null)
+        {
+            Debug.Log("No trees near me");
+            man.SetRandomAction();
+            return;
+        }
+
         man.GoTo(currentTree.transform.position);
     }
 

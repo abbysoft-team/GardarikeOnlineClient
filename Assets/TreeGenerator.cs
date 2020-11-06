@@ -30,7 +30,7 @@ public class TreeGenerator : MonoBehaviour
 
         newTree.transform.parent = transform;
 
-        //ObjectManager.RegisterObject(newTree, typeof(Tree));
+        ObjectManager.RegisterObject(newTree, ObjectType.TREE);
     }
 
     private GameObject GetRandomChild()

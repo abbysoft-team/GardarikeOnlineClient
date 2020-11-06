@@ -19,14 +19,32 @@ public class PeopleController : MonoBehaviour
     void Start()
     {
         birthDate = PlayerPrefs.GetInt(GlobalConstants.GAME_MILLIS);
-        gold = 100;
-        SetRandomAction();
         SetRandomDeathAge();
+        bool unemployed = GetAJob();
+        if (unemployed) {
+            SetRandomAction();
+        }
 
         Debug.Log("Spawned a man with death age " + deathAge + " years");
     }
 
-    private void SetRandomAction()
+    private bool GetAJob()
+    {
+        var job = JobManager.instance.GetAvailableJob();
+        if (job == null)
+        {
+            Debug.Log("No job");
+            return false;
+        }
+        workingRole = job;
+
+        Debug.Log("Got a job " + workingRole);
+        workingRole.Init(this);
+        
+        return true;
+    }
+
+    public void SetRandomAction()
     {
         // Indices 0 to 2 is random
         currentAction = (Action) Random.Range(0, 2);
@@ -43,7 +61,7 @@ public class PeopleController : MonoBehaviour
             patrolPathLength = Vector3.Distance(startPoint2d, patrolPoint2d);
         }
 
-        //Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
+        Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
     }
 
     private void FindAvailableJob()
@@ -156,6 +174,8 @@ public class PeopleController : MonoBehaviour
         currentAction = Action.GO_TO_JOB;
         patrolPoint = target;
         patrolPathLength = Vector3.Distance(patrolPoint, transform.position);
+
+        Debug.Log("Go to " + target);
     }
 
     enum Action

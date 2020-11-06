@@ -47,7 +47,8 @@ public class LoginManager : MonoBehaviour
         var newPeople = (int) character.CurrentPopulation - PlayerPrefs.GetInt("Population");
         if (newPeople > 0)
         {
-            EventBus.instance.PeopleCountIncreased(newPeople);
+            //EventBus.instance.PeopleCountIncreased(newPeople);
+            //EventBus.instance.PeopleCountIncreased(1);
         }
 
         PlayerPrefs.SetInt("userId", character.Id);

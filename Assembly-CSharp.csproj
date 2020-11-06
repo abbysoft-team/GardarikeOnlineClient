@@ -83,6 +83,8 @@
      <Compile Include="Assets\BuildingLogic.cs" />
      <Compile Include="Assets\ObjectMana.cs" />
      <Compile Include="Assets\Event.cs" />
+     <Compile Include="Assets\BuildItemInfo.cs" />
+     <Compile Include="Assets\BuildingInfo.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

@@ -99,7 +99,7 @@ public class NetworkParser : MonoBehaviour
         }
 
         Debug.Log(string.Format("User {0} placed building at {1}", buildingEvent.OwnerID, buildingEvent.Location));
-        EventBus.instance.RegisterBuilding(BuildItem.FromProtoBuilding(buildingEvent.Location));
+        EventBus.instance.RegisterBuilding(BuildItem.FromProtoBuilding(buildingEvent.Location).info);
     }
 
     private void ProcessMultipart(MultipartResponse response)

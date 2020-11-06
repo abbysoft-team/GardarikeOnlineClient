@@ -230,7 +230,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
-    private void SendBuildingEvent(BuildItem building)
+    private void SendBuildingEvent(BuildItemInfo building)
     {
         Debug.Log("Sending build event to server");
 

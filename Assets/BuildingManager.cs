@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager instance;
-    public List<BuildItem> buildings;
+    public List<BuildItemInfo> buildings;
     public GameObject model;
 
     private void Awake()
@@ -16,9 +16,11 @@ public class BuildingManager : MonoBehaviour
     void Start()
     {
         EventBus.instance.onBuildingRegistrationEvent += RegisterBuilding;
+
+        buildings = new List<BuildItemInfo>();
     }
 
-    private void RegisterBuilding(BuildItem building)
+    private void RegisterBuilding(BuildItemInfo building)
     {
         var buildingObject = Instantiate(model);
         buildingObject.transform.position = building.position;

@@ -8,8 +8,7 @@ public class BuildItem : MonoBehaviour
 {
     public int priceGold;
     public GameObject model;
-    public UnityEngine.Vector3 position;
-    public UnityEngine.Vector3 lossyScale;
+    public BuildItemInfo info = new BuildItemInfo();
 
     void Start()
     {
@@ -43,10 +42,10 @@ public class BuildItem : MonoBehaviour
         var buildPlaceChosen = model.activeSelf && Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began;
         if (buildPlaceChosen)
         {
-            position = model.transform.position;
-            lossyScale = model.transform.lossyScale;
-            EventBus.instance.BuildingComplete(this);
-            EventBus.instance.RegisterBuilding(this);
+            info.position = model.transform.position;
+            info.lossyScale = model.transform.lossyScale;
+            EventBus.instance.BuildingComplete(this.info);
+            EventBus.instance.RegisterBuilding(this.info);
         }
 
     }
@@ -60,13 +59,9 @@ public class BuildItem : MonoBehaviour
 
     public static BuildItem FromProtoBuilding(Vector3D location) {
         var item = new BuildItem();
-        item.lossyScale = new UnityEngine.Vector3(1.33f, 1.33f, 1.33f);
-        item.position = ProtoConverter.ToUnityVector(location);
+        item.info.lossyScale = new UnityEngine.Vector3(1.33f, 1.33f, 1.33f);
+        item.info.position = ProtoConverter.ToUnityVector(location);
 
         return item;
-    }
-
-    public Vector3D Location() {
-        return new Vector3D {X = model.transform.position.x, Y = model.transform.position.y, Z = model.transform.position.z};
     }
 }

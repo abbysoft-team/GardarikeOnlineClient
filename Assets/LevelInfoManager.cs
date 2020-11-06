@@ -220,4 +220,9 @@ public class LevelInfoManager : MonoBehaviour
 
         SetSaveableInfo(instance, info);
     }
+
+    public void ReloadMap()
+    {
+        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
+    }
 }

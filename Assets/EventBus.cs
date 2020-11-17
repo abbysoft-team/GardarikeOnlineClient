@@ -14,7 +14,7 @@ public class EventBus : MonoBehaviour
     public event Action<BuildItemInfo> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<int, int, float[,]> onTerrainLoadingComplete;
-    public event Action<RepeatedField<Building>> onMapObjectsLoadingComplete;
+    public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onLoginRequest;
@@ -30,6 +30,7 @@ public class EventBus : MonoBehaviour
     public event Action<int> onPeopleCountIncreased;
     public event Action<int> onSpawnTreesRequest;
     public event Action onMapReady;
+    public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
 
     private void Awake()
     {
@@ -56,8 +57,8 @@ public class EventBus : MonoBehaviour
         onTerrainLoadingComplete?.Invoke(width, height, heights);
     }
 
-    public void MapObjectsLoaded(RepeatedField<Building> buildings) {
-        onMapObjectsLoadingComplete?.Invoke(buildings);
+    public void MapObjectsLoaded(RepeatedField<Building> buildings, int treesCount) {
+        onMapObjectsLoadingComplete?.Invoke(buildings, treesCount);
     }
 
     public void LoginComplete(string sessionId, RepeatedField<Character> characters) {
@@ -130,5 +131,9 @@ public class EventBus : MonoBehaviour
     public void MapIsReady()
     {
         onMapReady?.Invoke();
+    }
+
+    public void UpdateResources(ResourceUpdatedEvent update) {
+        onResourceUpdateArrived?.Invoke(update);
     }
 }

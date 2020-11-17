@@ -88,6 +88,10 @@ public class NetworkParser : MonoBehaviour
                 case Gardarike.Event.PayloadOneofCase.CharacterUpdatedEvent:
                     EventBus.instance.CharacterUpdateArrived(eventItem.CharacterUpdatedEvent.NewState);
                     break;
+                case Gardarike.Event.PayloadOneofCase.ResourceUpdatedEvent:
+                    Debug.Log("Resource update: " + eventItem.ResourceUpdatedEvent);
+                    EventBus.instance.UpdateResources(eventItem.ResourceUpdatedEvent);
+                    break;
             }
         }
     }
@@ -117,7 +121,7 @@ public class NetworkParser : MonoBehaviour
         var height = getMapResponse.Map.Height;
         var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
         EventBus.instance.TerrainLoaded(width, height, heights);
-        EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, getMapResponse.Map.TreesCount);
+        EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
     }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {

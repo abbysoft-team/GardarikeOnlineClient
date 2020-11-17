@@ -112,11 +112,12 @@ public class NetworkParser : MonoBehaviour
     {
         Debug.Log("Received map reply: " + getMapResponse);
         Debug.Log("Buildings on the map: " + getMapResponse.Map.Buildings.Count);
+        Debug.Log("Trees on map: " + getMapResponse.Map.TreesCount);
         var width = getMapResponse.Map.Width;
         var height = getMapResponse.Map.Height;
         var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
         EventBus.instance.TerrainLoaded(width, height, heights);
-        EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings);
+        EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, getMapResponse.Map.TreesCount);
     }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {

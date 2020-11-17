@@ -23,7 +23,12 @@ message Request {
     PlaceBuildingRequest placeBuildingRequest = 4;
     SendChatMessageRequest sendChatMessageRequest = 5;
     GetChatHistoryRequest getChatHistoryRequest = 6;
+    GetWorkDistributionRequest getWorkDistributionRequest = 7;
   }
+}
+
+message GetWorkDistributionRequest {
+  string sessionID = 1;
 }
 
 // Get 'count' chat messages starting from some message 'lastMessageID'
@@ -72,7 +77,13 @@ message Response {
     SendChatMessageResponse sendChatMessageResponse = 7;
     GetChatHistoryResponse getChatHistoryResponse = 8;
     ChatMessagePublishResponse chatMessagePublishResponse = 9;
+    GetWorkDistributionResponse getWorkDistributionResponse = 10;
   }
+}
+
+message GetWorkDistributionResponse {
+  int64 idleCount = 1;
+  int64 woodcutterCount = 2;
 }
 
 message ChatMessagePublishResponse {
@@ -122,7 +133,12 @@ message Event {
     BuildingPlacedEvent buildingPlacedEvent = 1;
     NewChatMessageEvent chatMessageEvent = 2;
     CharacterUpdatedEvent characterUpdatedEvent = 3;
+    ResourceUpdatedEvent resourceUpdatedEvent = 4;
   }
+}
+
+message ResourceUpdatedEvent {
+  int64 treesCount = 1;
 }
 
 message CharacterUpdatedEvent {
@@ -151,6 +167,7 @@ message Map {
   int32 height = 2;
   repeated float points = 3;
   repeated Building buildings = 4;
+  int64 treesCount = 5;
 }
 
 message Building {

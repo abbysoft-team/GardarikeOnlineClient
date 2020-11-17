@@ -20,14 +20,13 @@ public class MapManager : MonoBehaviour
         EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
     }
 
-    private void PlaceMapObjects(RepeatedField<Building> buildings) {
+    private void PlaceMapObjects(RepeatedField<Building> buildings, int treesCount) {
         foreach (var building in buildings) {
-            //Debug.Log("Register building: " + building);
             EventBus.instance.RegisterBuilding(ToBuildingItem(building));
         }
 
         // place trees
-        EventBus.instance.SpawnTrees(100);
+        EventBus.instance.SpawnTrees(treesCount);
 
         EventBus.instance.MapIsReady();
     }

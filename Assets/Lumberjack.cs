@@ -15,11 +15,12 @@ public class Lumberjack : Role
         currentTree = FindTree(man.transform.position);
         if (currentTree == null)
         {
-            Debug.Log("No trees near me");
+            //Debug.Log("No trees near me");
             man.SetRandomAction();
             return;
         }
 
+        currentTree.RegisterWorker();
         man.GoTo(currentTree.transform.position);
         state = State.GO_TO_JOB;
     }
@@ -32,6 +33,9 @@ public class Lumberjack : Role
         var minDistance = Vector3.Distance(nearestTree.transform.position, manPosition);
         foreach (var tree in trees)
         {
+            var treeComponent = tree.GetComponent<Tree>();
+            if (!treeComponent.CanBeMoreWorkers()) continue;
+
             var distance = Vector3.Distance(tree.transform.position, manPosition);
             if (distance < minDistance)
             {
@@ -47,7 +51,7 @@ public class Lumberjack : Role
     {
         if (state == State.GO_TO_JOB)
         {
-            Debug.Log("LUMBER: start cutting a tree");
+            //Debug.Log("LUMBER: start cutting a tree");
             // working
             man.Idle(20);
             man.LoopSound("cutTree");
@@ -56,12 +60,14 @@ public class Lumberjack : Role
         }
         else if (state == State.WORKING)
         {
-            Debug.Log("LUMBER: done with the tree, obtain 10 wood");
+            //Debug.Log("LUMBER: done with the tree, obtain 10 wood");
             // increase wood
             Utility.AddToIntProperty("Wood", 10);
             man.PlayOneShot("breakTree");
+            ObjectManager.UnregisterObject(currentTree.gameObject, ObjectType.TREE);
             currentTree.gameObject.SetActive(false);
-            state = State.GO_HOME;
+            
+            Init(man);
         }
     }
 

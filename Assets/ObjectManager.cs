@@ -28,6 +28,16 @@ public class ObjectManager : MonoBehaviour
         instance.objects[type].Add(someObject);
     }
 
+    public static void UnregisterObject(GameObject someObject, ObjectType type)
+    {
+        if (!instance.objects.ContainsKey(type))
+        {
+            return;
+        }
+
+        instance.objects[type].Remove(someObject);
+    }
+
     public static List<GameObject> GetObjects(ObjectType type)
     {
         return instance.objects[type];

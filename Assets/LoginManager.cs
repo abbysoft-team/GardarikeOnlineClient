@@ -32,6 +32,7 @@ public class LoginManager : MonoBehaviour
         PlayerPrefs.SetString("sessionId", sessionID);
 
         UpdateCharacterInfo(characters[0]);
+        //SpawnNewPeople(characters[0]);
 
         EventBus.instance.SelectCharacterRequest(characters[0]);
         EventBus.instance.CloseLoadingDialog();
@@ -43,13 +44,6 @@ public class LoginManager : MonoBehaviour
     private void UpdateCharacterInfo(Character character) 
     {
         Debug.Log("update character: " + character);
-
-        var newPeople = (int) character.CurrentPopulation - PlayerPrefs.GetInt("Population");
-        if (newPeople > 0)
-        {
-            //EventBus.instance.PeopleCountIncreased(newPeople);
-            //EventBus.instance.PeopleCountIncreased(1);
-        }
 
         PlayerPrefs.SetInt("userId", character.Id);
         PlayerPrefs.SetString("currentCharName", character.Name);

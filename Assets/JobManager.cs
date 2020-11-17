@@ -21,7 +21,13 @@ public class JobManager : MonoBehaviour
         {
             if (job.Value > 0)
             {
-                return GetJobRole(job.Key);
+                var role = GetJobRole(job.Key);
+                if (role != null)
+                {
+                    availableJobs[job.Key] = availableJobs[job.Key] - 1;
+                }
+
+                return role;
             }   
         }
 

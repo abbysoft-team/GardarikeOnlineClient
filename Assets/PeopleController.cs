@@ -27,7 +27,7 @@ public class PeopleController : MonoBehaviour
             SetRandomAction();
         }
 
-        Debug.Log("Spawned a man with death age " + deathAge + " years");
+        Debug.Log("Spawned a man " + this + " with death age " + deathAge + " years");
     }
 
     private bool GetAJob()
@@ -63,7 +63,7 @@ public class PeopleController : MonoBehaviour
             patrolPathLength = Vector3.Distance(startPoint2d, patrolPoint2d);
         }
 
-        Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
+        //Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
     }
 
     private void ConfigureIdleAction()
@@ -199,7 +199,7 @@ public class PeopleController : MonoBehaviour
         patrolPoint = target;
         patrolPathLength = Vector3.Distance(patrolPoint, transform.position);
 
-        Debug.Log("Go to " + target);
+        //Debug.Log("Go to " + target);
     }
 
     enum Action

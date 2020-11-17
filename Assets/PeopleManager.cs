@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Gardarike;
+
 public class PeopleManager : MonoBehaviour
 {
     private GameObject referenceMan;
@@ -16,8 +18,17 @@ public class PeopleManager : MonoBehaviour
 
     private void SpawnAfterLogin()
     {
-        //var peopleCount = PlayerPrefs.GetInt("Population");
-        SpawnPeople(1);
+        var peopleCount = PlayerPrefs.GetInt("Population");
+        SpawnPeople(peopleCount);
+    }
+
+    private void SpawnNewPeople(Character character)
+    {
+        var newPeople = (int) character.CurrentPopulation - PlayerPrefs.GetInt("Population");
+        if (newPeople > 0)
+        {
+            SpawnPeople(newPeople);
+        }
     }
 
     private void SpawnPeople(int count)

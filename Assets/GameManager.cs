@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
         //ConnectToServer(LOGIN, PASSWORD);
         // Give free gold
         //PlayerPrefs.SetInt("Gold", 1000);
-        //PlayerPrefs.SetInt("Population", 0);
+        
+        PlayerPrefs.SetInt("Population", 0);
 
         //EventBus.instance.onBuildingComplete += AddMaxPopulation;
 

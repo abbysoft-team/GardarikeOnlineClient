@@ -31,6 +31,7 @@ public class EventBus : MonoBehaviour
     public event Action<int> onSpawnTreesRequest;
     public event Action onMapReady;
     public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
+    public event Action onJobMarketLoadingRequest;
 
     private void Awake()
     {
@@ -135,5 +136,9 @@ public class EventBus : MonoBehaviour
 
     public void UpdateResources(ResourceUpdatedEvent update) {
         onResourceUpdateArrived?.Invoke(update);
+    }
+
+    public void RequestJobMarketInfo() {
+        onJobMarketLoadingRequest?.Invoke();
     }
 }

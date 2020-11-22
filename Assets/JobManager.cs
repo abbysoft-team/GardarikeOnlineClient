@@ -11,8 +11,13 @@ public class JobManager : MonoBehaviour
     {
         instance = this;
         availableJobs = new Dictionary<Job, int>();
+        
+        EventBus.instance.onCharacterSelected += LoadJobInfo;
+        EventBus.instance.onJobMarketInfoArrived += UpdateJobsInfo;
+    }
 
-        availableJobs.Add(Job.LUMBERJACK, 10);
+    private void LoadJobInfo() {
+        EventBus.instance.RequestJobMarketInfo();
     }
 
     public Role GetAvailableJob()

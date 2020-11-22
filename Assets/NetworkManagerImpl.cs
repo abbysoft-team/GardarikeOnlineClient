@@ -175,6 +175,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
         EventBus.instance.onLoginComplete += RunEventTask;
+        EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
     }
@@ -272,6 +273,19 @@ public class NetworkManagerImpl : NetworkManager
         };
 
         requestQueue.Enqueue(publishRequest.ToByteArray());
+    }
+
+    private void SendWorkInfoRequest()
+    {
+        Debug.Log("Request info about job market");
+
+        var jobRequest = new Request {
+            GetWorkDistributionRequest = new GetWorkDistributionRequest {
+                SessionID = PlayerPrefs.GetString("sessionId")
+            }
+        };
+
+        requestQueue.Enqueue(jobRequest.ToByteArray());
     }
 
     public Queue<Response> GetResponseQueue()

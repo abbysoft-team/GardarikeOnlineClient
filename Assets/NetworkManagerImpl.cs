@@ -175,7 +175,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
         EventBus.instance.onLoginComplete += RunEventTask;
-        EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
+        //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
     }

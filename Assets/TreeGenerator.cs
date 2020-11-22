@@ -11,13 +11,28 @@ public class TreeGenerator : MonoBehaviour
 
     private void GenerateTrees(int count)
     {
-        for (int i = 0; i < count; i++)
+        // * 2 to compensate loss of trees spawned on water
+        for (int i = 0; i < count * 2; i++)
         {
             var x = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
             var y = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
 
-            SpawnTree(x, y);
+            if (NotOnWater(x, y)) {
+                SpawnTree(x, y);
+            }
         }
+    }
+
+    private bool NotOnWater(float x, float y) {
+        Ray toGround = new Ray(new Vector3(x, 10000, y), new Vector3(0, -1, 0));
+        RaycastHit hit = new RaycastHit();
+        bool hitOccured = Physics.Raycast(toGround, out hit);
+
+        if (hitOccured && hit.collider.name == "Waterlevel") {
+            return false;
+        }
+
+        return true;
     }
 
     private void SpawnTree(float x, float y)
@@ -25,7 +40,7 @@ public class TreeGenerator : MonoBehaviour
         var referenceTree = GetRandomChild();
         var newTree = Instantiate(referenceTree);
 
-        newTree.transform.position = Utility.GetGroundedPoint(new Vector3(x, 100, y));
+        newTree.transform.position = Utility.GetGroundedPoint(new Vector3(x, 5000, y));
         newTree.SetActive(true);
 
         newTree.transform.parent = transform;

@@ -32,7 +32,7 @@ public class TerrainGenerator : MonoBehaviour
 
 	private void OnTerrainLoaded(int width, int height, float[,] heights)
 	{
-		terrain.terrainData.size = new Vector3(width * 5, height, width * 5);
+		terrain.terrainData.size = new Vector3(width * 100, height * 13, width * 100);
 		terrain.terrainData.heightmapResolution = width;
 		terrain.terrainData.SetHeights(0, 0, heights);
 

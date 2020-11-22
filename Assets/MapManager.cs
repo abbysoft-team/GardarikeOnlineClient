@@ -21,12 +21,12 @@ public class MapManager : MonoBehaviour
     }
 
     private void PlaceMapObjects(RepeatedField<Building> buildings, int treesCount) {
-        foreach (var building in buildings) {
-            EventBus.instance.RegisterBuilding(ToBuildingItem(building));
-        }
+        // foreach (var building in buildings) {
+        //     EventBus.instance.RegisterBuilding(ToBuildingItem(building));
+        // }
 
         // place trees
-        EventBus.instance.SpawnTrees(treesCount);
+        EventBus.instance.SpawnTrees(200);
 
         EventBus.instance.MapIsReady();
     }

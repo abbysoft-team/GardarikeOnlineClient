@@ -28,7 +28,7 @@ public class GlobalConstants
 
     public const float TREE_GROW_DELTA = 0.05f;
 
-    public const float CHUNK_SIZE = 500f;
+    public const float CHUNK_SIZE = 10000f;
 
     public const float WATER_LEVEL = -18.7f;
 

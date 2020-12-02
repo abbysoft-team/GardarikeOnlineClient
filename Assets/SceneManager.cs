@@ -22,7 +22,7 @@ public class SceneManager : MonoBehaviour
             return;
         }
 
-        EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, Strings.ENTER_THE_NAME);
+        EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, Strings.ENTER_COUNTRY_NAME);
     }
 
     // Update is called once per frame

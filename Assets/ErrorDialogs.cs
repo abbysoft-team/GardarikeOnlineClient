@@ -6,12 +6,23 @@ public class ErrorDialogs : MonoBehaviour
 {
     public Dialog errorDialog;
     public Dialog loadingDialog;
+    public InputDialog inputDialog;
 
     private void Start()
     {
         EventBus.instance.onErrorShowRequest += ShowError;
         EventBus.instance.onOpenOrCloseLoadingDialog += UpdateLoadingDialogState;
+        EventBus.instance.onInputDialogShowRequest += ShowInputDialog;
         gameObject.SetActive(false);
+    }
+
+    private void ShowInputDialog(string title, string bodyMessage, string property)
+    {
+        Debug.Log("Input dialog show " + title);
+
+        inputDialog.SetTitle(title);
+        inputDialog.SetBody(bodyMessage);
+        inputDialog.property = property;
     }
 
     private void ShowError(string message)

@@ -18,11 +18,15 @@ public class SceneManager : MonoBehaviour
     }
 
     private void ShowTutorialIfNeed() {
-        if (PlayerPrefs.GetInt("tutorialComplete") == 1) {
+        if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) == 2) {
             return;
         }
 
-        EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, Strings.ENTER_COUNTRY_NAME);
+        Debug.Log("Showing tutorial message");
+
+        EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, GlobalConstants.COUNTRY_NAME_PROPERTY);
+
+        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 1);
     }
 
     // Update is called once per frame

@@ -17,6 +17,7 @@ public class EventBus : MonoBehaviour
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
+    public event Action<string, string> onInfoMessageShowRequest;
     public event Action<string, string, string> onInputDialogShowRequest;
     public event Action<string, string> onLoginRequest;
     public event Action<Character> onSelectCharacterRequest;
@@ -70,6 +71,11 @@ public class EventBus : MonoBehaviour
     public void ShowError(string error)
     {
         onErrorShowRequest?.Invoke(error);
+    }
+
+    public void ShowInfo(string title, string message)
+    {
+        onInfoMessageShowRequest?.Invoke(title, message);
     }
 
     public void ShowInputDialog(string title, string bodyMessage, string property)

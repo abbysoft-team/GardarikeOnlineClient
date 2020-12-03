@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   errorDialog: {fileID: 817026178}
   loadingDialog: {fileID: 1873192584}
-  inputDialog: {fileID: 0}
+  inputDialog: {fileID: 883629607}
 --- !u!1001 &549439518
 PrefabInstance:
   m_ObjectHideFlags: 0

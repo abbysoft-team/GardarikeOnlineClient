@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ErrorDialogs : MonoBehaviour
 {
-    public Dialog errorDialog;
+    public Dialog messageDialog;
     public Dialog loadingDialog;
     public InputDialog inputDialog;
 
@@ -13,6 +13,7 @@ public class ErrorDialogs : MonoBehaviour
         EventBus.instance.onErrorShowRequest += ShowError;
         EventBus.instance.onOpenOrCloseLoadingDialog += UpdateLoadingDialogState;
         EventBus.instance.onInputDialogShowRequest += ShowInputDialog;
+        EventBus.instance.onInfoMessageShowRequest += ShowInfoDialog;
         gameObject.SetActive(false);
     }
 
@@ -23,6 +24,9 @@ public class ErrorDialogs : MonoBehaviour
         inputDialog.SetTitle(title);
         inputDialog.SetBody(bodyMessage);
         inputDialog.property = property;
+
+        inputDialog.gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     private void ShowError(string message)
@@ -30,9 +34,19 @@ public class ErrorDialogs : MonoBehaviour
         // TODO maybe extract to separate consumer
         Debug.LogError(message);
 
-        errorDialog.SetBody(message);
+        messageDialog.SetBody(message);
+        messageDialog.SetTitle("Warning");
 
-        errorDialog.gameObject.SetActive(true);
+        messageDialog.gameObject.SetActive(true);
+        gameObject.SetActive(true);
+    }
+
+    private void ShowInfoDialog(string title, string message) {
+        Debug.Log("Showing info dialog");
+        messageDialog.SetTitle("Info");
+        messageDialog.SetBody(message);
+    
+        messageDialog.gameObject.SetActive(true);
         gameObject.SetActive(true);
     }
 
@@ -44,7 +58,7 @@ public class ErrorDialogs : MonoBehaviour
 
     public void DialogFinished()
     {
-        errorDialog.gameObject.SetActive(false);
+        messageDialog.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
     }
 

@@ -9,6 +9,7 @@ public class LoginManager : MonoBehaviour
 {
     public InputField usernameField;
     public InputField passwordField;
+    public GameObject registrationScreen;
     public string sessionID;
 
     public static LoginManager instance;
@@ -88,5 +89,11 @@ public class LoginManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void SignUp()
+    {
+        Debug.Log("Open registration form");
+        registrationScreen.SetActive(true);
     }
 }

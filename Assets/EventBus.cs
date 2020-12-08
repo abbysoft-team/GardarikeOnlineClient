@@ -34,6 +34,7 @@ public class EventBus : MonoBehaviour
     public event Action onMapReady;
     public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
+    public event Action<string, string, string> onRegistrationRequest;
 
     private void Awake()
     {
@@ -152,5 +153,10 @@ public class EventBus : MonoBehaviour
 
     public void RequestJobMarketInfo() {
         onJobMarketLoadingRequest?.Invoke();
+    }
+
+    public void SendRegistrationRequest(string user, string password, string email)
+    {
+        onRegistrationRequest?.Invoke(user, password, email);
     }
 }

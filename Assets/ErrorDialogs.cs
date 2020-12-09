@@ -7,23 +7,57 @@ public class ErrorDialogs : MonoBehaviour
     public Dialog messageDialog;
     public Dialog loadingDialog;
     public InputDialog inputDialog;
+    public Queue<DialogInfo> dialogQueue = new Queue<DialogInfo>();
+    public DialogInfo current;
 
     private void Start()
     {
         EventBus.instance.onErrorShowRequest += ShowError;
         EventBus.instance.onOpenOrCloseLoadingDialog += UpdateLoadingDialogState;
-        EventBus.instance.onInputDialogShowRequest += ShowInputDialog;
-        EventBus.instance.onInfoMessageShowRequest += ShowInfoDialog;
+        EventBus.instance.onInputDialogShowRequest += (title, message, property) => AddToQueue(title, message, property, DialogType.INPUT);
+        EventBus.instance.onInfoMessageShowRequest += (title, message) => AddToQueue(title, message, null, DialogType.INFO);
         gameObject.SetActive(false);
     }
 
-    private void ShowInputDialog(string title, string bodyMessage, string property)
+    private void AddToQueue(string title, string message, string inputProperty, DialogType type)
     {
-        Debug.Log("Input dialog show " + title);
+        var info = new DialogInfo(title, message, inputProperty, type);
+        dialogQueue.Enqueue(info);
 
-        inputDialog.SetTitle(title);
-        inputDialog.SetBody(bodyMessage);
-        inputDialog.property = property;
+        if (current == null)
+        {
+            ShowNext();
+        }
+    }
+
+    public void ShowNext()
+    {
+        if (dialogQueue.Count == 0)
+        {
+            current = null;
+            return;
+        }
+
+        current = dialogQueue.Dequeue();
+
+        if (current.type == DialogType.INPUT)
+        {
+            ShowInputDialog(current);
+        }
+        else if (current.type == DialogType.INFO)
+        {
+            ShowInfoDialog(current.title, current.message);
+        }
+    }
+
+    private void ShowInputDialog(DialogInfo info)
+    {
+        Debug.Log("Input dialog show " + info.title);
+
+        inputDialog.input.text = "";
+        inputDialog.SetTitle(info.title);
+        inputDialog.SetBody(info.message);
+        inputDialog.property = info.inputProperty;
 
         inputDialog.gameObject.SetActive(true);
         gameObject.SetActive(true);

@@ -36,9 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\DialogListener.cs" />
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\FoodGenerator.cs" />
      <Compile Include="Assets\Scripts\Server.cs" />
+     <Compile Include="Assets\DialogResult.cs" />
      <Compile Include="Assets\NetworkManagerFactory.cs" />
      <Compile Include="Assets\TreeGenerator.cs" />
      <Compile Include="Assets\PeopleController.cs" />
@@ -57,6 +59,8 @@
      <Compile Include="Assets\Job.cs" />
      <Compile Include="Assets\ErrorDialogs.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\GameActionType.cs" />
+     <Compile Include="Assets\DialogInfo.cs" />
      <Compile Include="Assets\RegistrationScreen.cs" />
      <Compile Include="Assets\Role.cs" />
      <Compile Include="Assets\ScrollAndPitch.cs" />
@@ -75,8 +79,9 @@
      <Compile Include="Assets\CustomLogic.cs" />
      <Compile Include="Assets\SceneManager.cs" />
      <Compile Include="Assets\SoundManager.cs" />
-     <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\DialogType.cs" />
      <Compile Include="Assets\BuildItemInfo.cs" />
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\ObjectManager.cs" />
      <Compile Include="Assets\ObjectType.cs" />
      <Compile Include="Assets\BuildManager.cs" />
@@ -89,6 +94,7 @@
      <Compile Include="Assets\BuildingLogic.cs" />
      <Compile Include="Assets\ObjectMana.cs" />
      <Compile Include="Assets\Event.cs" />
+     <Compile Include="Assets\GameAction.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

@@ -35,7 +35,8 @@ public class EventBus : MonoBehaviour
     public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
-
+    public event Action<DialogResult> onDialogResulted;
+    
     private void Awake()
     {
         instance = this;
@@ -159,4 +160,10 @@ public class EventBus : MonoBehaviour
     {
         onRegistrationRequest?.Invoke(user, password, email);
     }
+
+    public void NotifyDialogResulted(DialogResult result)
+    {
+        onDialogResulted?.Invoke(result);
+    }
+
 }

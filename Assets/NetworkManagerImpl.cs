@@ -175,9 +175,26 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
         EventBus.instance.onLoginComplete += RunEventTask;
+        EventBus.instance.onRegistrationRequest += SendRegistrationEvent;
         //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendRegistrationEvent(string username, string password, string email)
+    {
+        Debug.Log("Send registration event");
+
+        var registrationEvent = new Request
+        {
+            CreateAccountRequest = new CreateAccountRequest
+            {
+                Login = username,
+                Password = password
+            }
+        };
+
+        requestQueue.Enqueue(registrationEvent.ToByteArray());
     }
 
     private void SendCharacterSelectionRequest(Character character)
@@ -215,50 +232,50 @@ public class NetworkManagerImpl : NetworkManager
     {
         Debug.Log("Trying to request map information ");
 
-        var mapRequest = new Request
-        {
-            GetMapRequest = new GetMapRequest {
-                Location = new Vector3D
-                {
-                    X = 0,
-                    Y = 0,
-                    Z = 0
-                },
-                SessionID = sessionId
-            }
-        };
+        // var mapRequest = new Request
+        // {
+        //     GetMapRequest = new GetMapRequest {
+        //         Location = new Vector3D
+        //         {
+        //             X = 0,
+        //             Y = 0,
+        //             Z = 0
+        //         },
+        //         SessionID = sessionId
+        //     }
+        // };
 
-        requestQueue.Enqueue(mapRequest.ToByteArray());
+        // requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
     private void SendBuildingEvent(BuildItemInfo building)
     {
         Debug.Log("Sending build event to server");
 
-        var buildingEvent = new Request {
-            PlaceBuildingRequest = new PlaceBuildingRequest {
-                BuildingID = 1,
-                SessionID = PlayerPrefs.GetString("sessionId"),
-                Location = building.Location()
-            }
-        };
+        // var buildingEvent = new Request {
+        //     PlaceBuildingRequest = new PlaceBuildingRequest {
+        //         BuildingID = 1,
+        //         SessionID = PlayerPrefs.GetString("sessionId"),
+        //         Location = building.Location()
+        //     }
+        // };
 
-        requestQueue.Enqueue(buildingEvent.ToByteArray());
+        // requestQueue.Enqueue(buildingEvent.ToByteArray());
     }
 
     private void SendLoadChatHistoryRequest()
     {
         Debug.Log("Sending chat history request");
 
-        var chatRequest = new Request {
-            GetChatHistoryRequest = new GetChatHistoryRequest {
-                SessionID = PlayerPrefs.GetString("sessionId"),
-                Count = ChatComponent.MAX_MESSAGES_DISPLAYED
-                // null lastMessId
-            }
-        };
+        // var chatRequest = new Request {
+        //     GetChatHistoryRequest = new GetChatHistoryRequest {
+        //         SessionID = PlayerPrefs.GetString("sessionId"),
+        //         Count = ChatComponent.MAX_MESSAGES_DISPLAYED
+        //         // null lastMessId
+        //     }
+        // };
 
-        requestQueue.Enqueue(chatRequest.ToByteArray());
+        // requestQueue.Enqueue(chatRequest.ToByteArray());
     }
 
     private void PublishChatMessage(string text) 

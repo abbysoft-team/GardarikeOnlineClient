@@ -43,18 +43,18 @@ public class NetworkParser : MonoBehaviour
                 case Response.DataOneofCase.MultipartResponse:
                     ProcessMultipart(packet.MultipartResponse);
                     break;
-                case Response.DataOneofCase.GetMapResponse:
-                    ProcessMapReply(packet.GetMapResponse);
-                    break;
+                // case Response.DataOneofCase.GetMapResponse:
+                //     ProcessMapReply(packet.GetMapResponse);
+                //     break;
                 case Response.DataOneofCase.ErrorResponse:
                     ProcessServerErrorReply(packet.ErrorResponse);
                     break;
                 case Response.DataOneofCase.LoginResponse:
                     ProcessLoginResponse(packet.LoginResponse);
                     break;
-                case Response.DataOneofCase.PlaceBuildingResponse:
-                    Debug.Log("Building response arrived: " + packet.PlaceBuildingResponse);
-                    break;
+                // case Response.DataOneofCase.PlaceBuildingResponse:
+                //     Debug.Log("Building response arrived: " + packet.PlaceBuildingResponse);
+                //     break;
                 case Response.DataOneofCase.SelectCharacterResponse:
                     Debug.Log("Character 0 selection confirmed");
                     EventBus.instance.CharacterSelectionConfirmed();
@@ -64,6 +64,10 @@ public class NetworkParser : MonoBehaviour
                     EventBus.instance.ChatHistoryLoaded(packet.GetChatHistoryResponse.Messages);
                     break;
                 case Response.DataOneofCase.SendChatMessageResponse:
+                    break;
+                case Response.DataOneofCase.CreateAccountResponse:
+                    Debug.Log("Account created");
+                    EventBus.instance.NotifyRegistrationComplete();
                     break;
                 default:
                     ProcessInvalidReply(packet);
@@ -78,33 +82,33 @@ public class NetworkParser : MonoBehaviour
         {
             switch (eventItem.PayloadCase) 
             {
-                case Gardarike.Event.PayloadOneofCase.BuildingPlacedEvent:
-                    ProcessBuildingEvent(eventItem.BuildingPlacedEvent);
-                    break;
+                // case Gardarike.Event.PayloadOneofCase.BuildingPlacedEvent:
+                //     ProcessBuildingEvent(eventItem.BuildingPlacedEvent);
+                //     break;
                 case Gardarike.Event.PayloadOneofCase.ChatMessageEvent:
                     Debug.Log("New chat message");
                     EventBus.instance.NewMessageArrived(eventItem.ChatMessageEvent.Message);
                     break;
-                case Gardarike.Event.PayloadOneofCase.CharacterUpdatedEvent:
-                    EventBus.instance.CharacterUpdateArrived(eventItem.CharacterUpdatedEvent.NewState);
-                    break;
-                case Gardarike.Event.PayloadOneofCase.ResourceUpdatedEvent:
-                    Debug.Log("Resource update: " + eventItem.ResourceUpdatedEvent);
-                    EventBus.instance.UpdateResources(eventItem.ResourceUpdatedEvent);
-                    break;
+                // case Gardarike.Event.PayloadOneofCase.CharacterUpdatedEvent:
+                //     EventBus.instance.CharacterUpdateArrived(eventItem.CharacterUpdatedEvent.NewState);
+                //     break;
+                // case Gardarike.Event.PayloadOneofCase.ResourceUpdatedEvent:
+                //     Debug.Log("Resource update: " + eventItem.ResourceUpdatedEvent);
+                //     EventBus.instance.UpdateResources(eventItem.ResourceUpdatedEvent);
+                //     break;
             }
         }
     }
 
-    private void ProcessBuildingEvent(BuildingPlacedEvent buildingEvent) {
-        // Filter current user events 
-        if (buildingEvent.OwnerID == PlayerPrefs.GetInt("userId")) {
-            return;
-        }
+    // private void ProcessBuildingEvent(BuildingPlacedEvent buildingEvent) {
+    //     // Filter current user events 
+    //     if (buildingEvent.OwnerID == PlayerPrefs.GetInt("userId")) {
+    //         return;
+    //     }
 
-        Debug.Log(string.Format("User {0} placed building at {1}", buildingEvent.OwnerID, buildingEvent.Location));
-        EventBus.instance.RegisterBuilding(BuildItem.FromProtoBuilding(buildingEvent.Location).info);
-    }
+    //     Debug.Log(string.Format("User {0} placed building at {1}", buildingEvent.OwnerID, buildingEvent.Location));
+    //     EventBus.instance.RegisterBuilding(BuildItem.FromProtoBuilding(buildingEvent.Location).info);
+    // }
 
     private void ProcessMultipart(MultipartResponse response)
     {
@@ -112,17 +116,17 @@ public class NetworkParser : MonoBehaviour
         Debug.Log("But client can't work with this type of message =( ");
     }
 
-    private void ProcessMapReply(GetMapResponse getMapResponse)
-    {
-        Debug.Log("Received map reply: " + getMapResponse);
-        Debug.Log("Buildings on the map: " + getMapResponse.Map.Buildings.Count);
-        Debug.Log("Trees on map: " + getMapResponse.Map.TreesCount);
-        var width = getMapResponse.Map.Width;
-        var height = getMapResponse.Map.Height;
-        var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
-        EventBus.instance.TerrainLoaded(width, height, heights);
-        EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
-    }
+    // private void ProcessMapReply(GetMapResponse getMapResponse)
+    // {
+    //     Debug.Log("Received map reply: " + getMapResponse);
+    //     Debug.Log("Buildings on the map: " + getMapResponse.Map.Buildings.Count);
+    //     Debug.Log("Trees on map: " + getMapResponse.Map.TreesCount);
+    //     var width = getMapResponse.Map.Width;
+    //     var height = getMapResponse.Map.Height;
+    //     var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
+    //     EventBus.instance.TerrainLoaded(width, height, heights);
+    //     EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
+    // }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {
         Debug.Log("Received login response: " + loginResponse);

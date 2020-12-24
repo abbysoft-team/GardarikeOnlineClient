@@ -12,13 +12,20 @@ public class RegistrationScreen : MonoBehaviour
 
     void Awake()
     {
-        //EventBus.instance.onRegistrationFailed();
+        EventBus.instance.onRegistrationComplete += CompleteRegistration;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void CompleteRegistration()
+    {
+        EventBus.instance.CloseLoadingDialog();
+        gameObject.SetActive(false);
+        EventBus.instance.ShowInfo("Registration", "Registration complete");
     }
 
     public void Register()
@@ -32,11 +39,10 @@ public class RegistrationScreen : MonoBehaviour
         var password = passwordField.text;
         var email = emailField.text;
 
-        EventBus.instance.SendRegistrationRequest(user, password, email);
+        EventBus.instance.onErrorShowRequest += SetError;
 
-        EventBus.instance.ShowInfo("Registration", "Registration complete");
-        
-        gameObject.SetActive(false);
+        EventBus.instance.SendRegistrationRequest(user, password, email);
+        EventBus.instance.OpenLoadingDialog();
     }
 
     private bool ValidateFields()

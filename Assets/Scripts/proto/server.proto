@@ -6,10 +6,11 @@ package Gardarike;
 
 service GameServer {
   // Returns the map around the specific location
-  rpc GetNearMap(GetMapRequest) returns (GetMapResponse);
+  rpc GetWorldMap(GetWorldMapRequest) returns (GetWorldMapResponse);
+  rpc GetLocalMap(GetLocalMapRequest) returns (GetLocalMapRequest);
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc SelectCharacter(SelectCharacterRequest) returns (SelectCharacterResponse);
-  rpc PlaceBuilding(PlaceBuildingRequest) returns (PlaceBuildingResponse);
+  rpc PlaceTown(PlaceTownRequest) returns (PlaceTownResponse);
   rpc SendChatMessage(SendChatMessageRequest) returns (SendChatMessageResponse);
   rpc GetChatHistory(GetChatHistoryRequest) returns (GetChatHistoryResponse);
 }
@@ -17,14 +18,27 @@ service GameServer {
 // Requests
 message Request {
   oneof data {
-    GetMapRequest getMapRequest = 1;
-    LoginRequest loginRequest = 2;
-    SelectCharacterRequest selectCharacterRequest = 3;
-    PlaceBuildingRequest placeBuildingRequest = 4;
-    SendChatMessageRequest sendChatMessageRequest = 5;
-    GetChatHistoryRequest getChatHistoryRequest = 6;
-    GetWorkDistributionRequest getWorkDistributionRequest = 7;
+    GetLocalMapRequest getLocalMapRequest = 1;
+    GetWorldMapRequest GetWorldMapRequest = 2;
+    LoginRequest loginRequest = 3;
+    SelectCharacterRequest selectCharacterRequest = 4;
+    PlaceTownRequest placeTownRequest = 5;
+    SendChatMessageRequest sendChatMessageRequest = 6;
+    GetChatHistoryRequest getChatHistoryRequest = 7;
+    GetWorkDistributionRequest getWorkDistributionRequest = 8;
+    CreateAccountRequest createAccountRequest = 9;
   }
+}
+
+message CreateAccountRequest {
+  string login = 2;
+  string password = 3;
+}
+
+message PlaceTownRequest {
+  string sessionID = 1;
+  Vector2D location = 2;
+  string name = 3;
 }
 
 message GetWorkDistributionRequest {
@@ -35,8 +49,8 @@ message GetWorkDistributionRequest {
 // Messages are sorted from newest to oldest
 message GetChatHistoryRequest {
   string sessionID = 1;
-  int64 offset = 2;
-  int64 count = 3;
+  uint64 offset = 2;
+  uint64 count = 3;
 }
 
 message SendChatMessageRequest {
@@ -44,15 +58,13 @@ message SendChatMessageRequest {
   string text = 2;
 }
 
-message PlaceBuildingRequest {
-  string sessionID = 1;
-  int64 buildingID = 2;
-  Vector3D location = 3;
-}
-
-message GetMapRequest {
+message GetWorldMapRequest {
   string sessionID = 1;
   Vector3D location = 2;
+}
+
+message GetLocalMapRequest {
+  string sessionID = 1;
 }
 
 message LoginRequest {
@@ -62,28 +74,34 @@ message LoginRequest {
 
 message SelectCharacterRequest {
   string sessionID = 1;
-  int32 characterID = 2;
+  int64 characterID = 2;
 }
 
 // Responses
 message Response {
   oneof data {
     ErrorResponse errorResponse = 1;
-    GetMapResponse getMapResponse = 2;
-    LoginResponse loginResponse = 3;
-    MultipartResponse multipartResponse = 4;
-    SelectCharacterResponse selectCharacterResponse = 5;
-    PlaceBuildingResponse placeBuildingResponse = 6;
-    SendChatMessageResponse sendChatMessageResponse = 7;
-    GetChatHistoryResponse getChatHistoryResponse = 8;
-    ChatMessagePublishResponse chatMessagePublishResponse = 9;
-    GetWorkDistributionResponse getWorkDistributionResponse = 10;
+    GetLocalMapResponse getLocalMapResponse = 2;
+    GetWorldMapResponse getWorldMapResponse = 3;
+    LoginResponse loginResponse = 4;
+    MultipartResponse multipartResponse = 5;
+    SelectCharacterResponse selectCharacterResponse = 6;
+    PlaceTownResponse placeTownResponse = 7;
+    SendChatMessageResponse sendChatMessageResponse = 8;
+    GetChatHistoryResponse getChatHistoryResponse = 9;
+    ChatMessagePublishResponse chatMessagePublishResponse = 10;
+    GetWorkDistributionResponse getWorkDistributionResponse = 11;
+    CreateAccountResponse createAccountResponse = 12;
   }
 }
 
+message CreateAccountResponse {
+  int32 id = 1;
+}
+
 message GetWorkDistributionResponse {
-  int64 idleCount = 1;
-  int64 woodcutterCount = 2;
+  uint64 idleCount = 1;
+  uint64 woodcutterCount = 2;
 }
 
 message ChatMessagePublishResponse {
@@ -97,7 +115,7 @@ message SendChatMessageResponse {
   int64 messageID = 1;
 }
 
-message PlaceBuildingResponse {
+message PlaceTownResponse {
 
 }
 
@@ -115,7 +133,7 @@ message LoginResponse {
 
 message ErrorResponse {
   string message = 1;
-  int64 code = 2;
+  Error code = 2;
 }
 
 message SelectCharacterResponse {
@@ -130,25 +148,8 @@ message ChatMessage {
 
 message Event {
   oneof payload {
-    BuildingPlacedEvent buildingPlacedEvent = 1;
-    NewChatMessageEvent chatMessageEvent = 2;
-    CharacterUpdatedEvent characterUpdatedEvent = 3;
-    ResourceUpdatedEvent resourceUpdatedEvent = 4;
+    NewChatMessageEvent chatMessageEvent = 1;
   }
-}
-
-message ResourceUpdatedEvent {
-  int64 treesCount = 1;
-}
-
-message CharacterUpdatedEvent {
-  Character newState = 1;
-}
-
-message BuildingPlacedEvent {
-  int64 buildingID = 1;
-  int64 ownerID = 2;
-  Vector3D location = 3;
 }
 
 message NewChatMessageEvent {
@@ -161,30 +162,50 @@ message Vector3D {
   float z = 3;
 }
 
-// Map represents the game map. Map consists of 3D points.
-message Map {
-  int32 width = 1;
-  int32 height = 2;
-  repeated float points = 3;
+message Vector2D {
+  int64 x = 1;
+  int64 y = 2;
+}
+
+// Local map is a map of a concrete village
+message LocalMap {
   repeated Building buildings = 4;
-  int64 treesCount = 5;
+}
+
+message WorldMapChunk {
+  int64 x = 1;
+  int64 y = 2;
+  int32 width = 3;
+  int32 height = 4;
+  repeated float data = 5;
+  repeated Town towns = 6;
+
+  // Chunk resources
+  uint64 trees = 7;
+  uint64 stones = 8;
+  uint64 animals = 9;
+  uint64 plants = 10;
+}
+
+message Town {
+  int64 x = 1;
+  int64 y = 2;
+  string name = 3;
+  string ownerName = 4;
+  uint64 population = 5;
 }
 
 message Building {
   int64 id = 1;
-  int64 ownerID = 3;
-  Vector3D location = 4;
+  Vector3D location = 2;
 }
 
-message GetMapResponse {
-  Map map = 1;
+message GetLocalMapResponse {
+  LocalMap map = 1;
 }
 
-message MapChunk {
-
-}
-
-message Vector3 {
+message GetWorldMapResponse {
+  WorldMapChunk map = 1;
 }
 
 message Handshake {
@@ -193,9 +214,20 @@ message Handshake {
 }
 
 message Character {
-  int32 id = 1;
+  int64 id = 1;
   string name = 2;
-  uint64 gold = 3;
-  uint64 maxPopulation = 4;
-  uint64 currentPopulation = 5;
+  uint64 maxPopulation = 3;
+  uint64 currentPopulation = 4;
+}
+
+enum Error {
+  UNKNOWN = 0;
+  INTERNAL_SERVER_ERROR = 1;
+  INVALID_PASSWORD = 2;
+  NOT_AUTHORIZED = 3;
+  CHARACTER_NOT_FOUND = 4;
+  BAD_REQUEST = 5;
+  CHARACTER_NOT_SELECTED = 6;
+  MESSAGE_TOO_LONG = 7;
+  USERNAME_IS_ALREADY_TAKEN = 8;
 }

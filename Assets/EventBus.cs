@@ -32,10 +32,11 @@ public class EventBus : MonoBehaviour
     public event Action<int> onPeopleCountIncreased;
     public event Action<int> onSpawnTreesRequest;
     public event Action onMapReady;
-    public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
+    //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
     public event Action<DialogResult> onDialogResulted;
+    public event Action onRegistrationComplete;
     
     private void Awake()
     {
@@ -148,9 +149,9 @@ public class EventBus : MonoBehaviour
         onMapReady?.Invoke();
     }
 
-    public void UpdateResources(ResourceUpdatedEvent update) {
-        onResourceUpdateArrived?.Invoke(update);
-    }
+    // public void UpdateResources(ResourceUpdatedEvent update) {
+    //     onResourceUpdateArrived?.Invoke(update);
+    // }
 
     public void RequestJobMarketInfo() {
         onJobMarketLoadingRequest?.Invoke();
@@ -165,5 +166,9 @@ public class EventBus : MonoBehaviour
     {
         onDialogResulted?.Invoke(result);
     }
-
+    
+    public void NotifyRegistrationComplete()
+    {
+        onRegistrationComplete?.Invoke();
+    }
 }

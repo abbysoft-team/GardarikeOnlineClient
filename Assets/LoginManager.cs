@@ -21,42 +21,12 @@ public class LoginManager : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onLoginComplete += LoginComplete;
-        EventBus.instance.onCharacterUpdateArrived += UpdateCharacterInfo;
-        EventBus.instance.onResourceUpdateArrived += UpdateResourceCount;
+        //EventBus.instance.onResourceUpdateArrived += UpdateResourceCount;
     }
 
-    private void LoginComplete(string sessionID, RepeatedField<Character> characters)
-    {
-        Debug.Log("Login complete. Welcome, " + sessionID);
-        Debug.Log("Defaulting character to 0 " + characters[0]);
-
-        PlayerPrefs.SetString("sessionId", sessionID);
-
-        UpdateCharacterInfo(characters[0]);
-        //SpawnNewPeople(characters[0]);
-
-        EventBus.instance.SelectCharacterRequest(characters[0]);
-        EventBus.instance.CloseLoadingDialog();
-        
-        gameObject.SetActive(false);
-        this.sessionID = sessionID;
-    }
-
-    private void UpdateCharacterInfo(Character character) 
-    {
-        Debug.Log("update character: " + character);
-
-        PlayerPrefs.SetInt("userId", character.Id);
-        PlayerPrefs.SetString("currentCharName", character.Name);
-        PlayerPrefs.SetInt("Gold", (int) character.Gold);
-        PlayerPrefs.SetInt("Population", (int) character.CurrentPopulation);
-        PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
-    }
-
-    private void UpdateResourceCount(ResourceUpdatedEvent resourceUpdate) {
-        PlayerPrefs.SetInt("TreesCount", (int) resourceUpdate.TreesCount);
-    }
+    // private void UpdateResourceCount(ResourceUpdatedEvent resourceUpdate) {
+    //     PlayerPrefs.SetInt("TreesCount", (int) resourceUpdate.TreesCount);
+    // }
 
     // Update is called once per frame
     void Update()

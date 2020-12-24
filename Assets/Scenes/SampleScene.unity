@@ -379,8 +379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0, y: -0.0000038147}
+  m_AnchoredPosition: {x: 5, y: 0}
+  m_SizeDelta: {x: -10, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54315114
 MonoBehaviour:
@@ -409,7 +409,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 104541812}
   - component: {fileID: 104541811}
   m_Layer: 5
-  m_Name: LoginButton
+  m_Name: RegistrationButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -713,9 +713,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1837664059}
-        m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
-        m_MethodName: Login
+      - m_Target: {fileID: 1837664063}
+        m_TargetAssemblyTypeName: RegistrationScreen, Assembly-CSharp
+        m_MethodName: Register
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -918,8 +918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 552.026, y: -49.15805}
-  m_SizeDelta: {x: 107.0974, y: 36.6839}
+  m_AnchoredPosition: {x: 455.36597, y: -49.15805}
+  m_SizeDelta: {x: 67.2578, y: 36.6839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131272855
 MonoBehaviour:
@@ -965,10 +965,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1837664059}
-        m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
-        m_MethodName: Login
-        m_Mode: 1
+      - m_Target: {fileID: 1837664057}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3477,8 +3477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 259.50653, y: -257.5}
-  m_SizeDelta: {x: 605.5747, y: 67.5}
+  m_AnchoredPosition: {x: 265.0883, y: -257.5}
+  m_SizeDelta: {x: 528.8345, y: 67.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449398991
 MonoBehaviour:
@@ -3870,7 +3870,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 605.5747, y: 67.5}
+  m_SizeDelta: {x: 529.6337, y: 67.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509628125
 MonoBehaviour:
@@ -5141,8 +5141,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 764874817}
   m_TextComponent: {fileID: 1876448607}
   m_Placeholder: {fileID: 1232806387}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -7336,17 +7336,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 942583450}
-        m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
-        m_MethodName: Login
-        m_Mode: 1
+      - m_Target: {fileID: 1837664057}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1040329458
 MonoBehaviour:
@@ -7469,13 +7469,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1042489251}
   m_TextComponent: {fileID: 54315114}
   m_Placeholder: {fileID: 1325408017}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -8291,6 +8291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0ebf230cd132974a762d83616f21b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loginScreen: {fileID: 0}
 --- !u!4 &1184910597
 Transform:
   m_ObjectHideFlags: 0
@@ -12659,7 +12660,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 150, y: -144.98708}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 296.9893, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799371472
 MonoBehaviour:
@@ -12879,7 +12880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 259.50653, y: -115}
+  m_AnchoredPosition: {x: 265.0883, y: -115}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1832322426
@@ -13174,10 +13175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73237dad45c5094e9888b5c37f096da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailField: {fileID: 0}
-  userField: {fileID: 0}
-  passwordField: {fileID: 0}
-  errorLabel: {fileID: 0}
+  emailField: {fileID: 1042489250}
+  userField: {fileID: 270560563}
+  passwordField: {fileID: 764874815}
+  errorLabel: {fileID: 1799371472}
 --- !u!1001 &1852121106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13898,6 +13899,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2003f337f78df4b92228f8ccea997b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  population: {fileID: 0}
+  name: {fileID: 0}
+  empireName: {fileID: 0}
 --- !u!1 &1902479177
 GameObject:
   m_ObjectHideFlags: 0

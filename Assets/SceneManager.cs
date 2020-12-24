@@ -8,10 +8,59 @@ using Gardarike;
 
 public class SceneManager : MonoBehaviour
 {
+
+    public GameObject loginScreen;
+
     // Start is called before the first frame update
     void Awake() 
     {
         EventBus.instance.onMapObjectsLoadingComplete += MapLoadingComplete;
+        EventBus.instance.onLoginComplete += LoginComplete;
+    }
+
+
+    private void LoginComplete(string sessionID, RepeatedField<Character> characters)
+    {
+        PlayerPrefs.SetString("sessionId", sessionID);
+        loginScreen.SetActive(false);
+        EventBus.instance.CloseLoadingDialog();
+
+        if (characters.Count == 0) {
+            ShowCreateNewEmpireScreen();
+            return;
+        }
+
+        ShowTutorialIfNeed();
+        
+        // already has characters, proceed
+        SelectCharacter(characters[0]);
+    }
+
+    private void ShowCreateNewEmpireScreen()
+    {
+
+    }
+
+    private void SelectCharacter(Character character)
+    {
+        Debug.Log("Login complete. Welcome, " + character.Name);
+        Debug.Log("Selecting character to 0 " + character);
+
+        UpdateCharacterInfo(character);
+        //SpawnNewPeople(characters[0]);
+
+        EventBus.instance.SelectCharacterRequest(character);
+    }
+
+    private void UpdateCharacterInfo(Character character) 
+    {
+        Debug.Log("update character: " + character);
+
+        PlayerPrefs.SetInt("userId", (int) character.Id);
+        PlayerPrefs.SetString("currentCharName", character.Name);
+       // PlayerPrefs.SetInt("Gold", (int) character.Gold);
+        PlayerPrefs.SetInt("Population", (int) character.CurrentPopulation);
+        PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
     }
 
     private void MapLoadingComplete(RepeatedField<Building> buildings, int treeCount) {

@@ -14,33 +14,29 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake() 
     {
-        EventBus.instance.onMapObjectsLoadingComplete += MapLoadingComplete;
         EventBus.instance.onLoginComplete += LoginComplete;
     }
 
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
     {
+        Debug.Log("Login complete, selecting character");
+
         PlayerPrefs.SetString("sessionId", sessionID);
+    
         loginScreen.SetActive(false);
         EventBus.instance.CloseLoadingDialog();
 
         if (characters.Count == 0) {
-            ShowCreateNewEmpireScreen();
+            Debug.Log("No characters on the account, show create new empire screen");
+            ShowTutorial();
             return;
         }
-
-        ShowTutorialIfNeed();
-        
+                
         // already has characters, proceed
         SelectCharacter(characters[0]);
     }
-
-    private void ShowCreateNewEmpireScreen()
-    {
-
-    }
-
+    
     private void SelectCharacter(Character character)
     {
         Debug.Log("Login complete. Welcome, " + character.Name);
@@ -63,11 +59,7 @@ public class SceneManager : MonoBehaviour
         PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
     }
 
-    private void MapLoadingComplete(RepeatedField<Building> buildings, int treeCount) {
-        ShowTutorialIfNeed();
-    }
-
-    private void ShowTutorialIfNeed() {
+    private void ShowTutorial() {
         if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) == 2) {
             return;
         }

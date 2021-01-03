@@ -18,7 +18,7 @@ public class EventBus : MonoBehaviour
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onInfoMessageShowRequest;
-    public event Action<string, string, string> onInputDialogShowRequest;
+    public event Action<long, string, string, string> onInputDialogShowRequest;
     public event Action<string, string> onLoginRequest;
     public event Action<Character> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
@@ -35,8 +35,9 @@ public class EventBus : MonoBehaviour
     //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
-    public event Action<DialogResult> onDialogResulted;
+    public event Action<long, DialogResult> onDialogResulted;
     public event Action onRegistrationComplete;
+    public event Action<Vector2D, String> onNewTownRequest;
     
     private void Awake()
     {
@@ -81,9 +82,17 @@ public class EventBus : MonoBehaviour
         onInfoMessageShowRequest?.Invoke(title, message);
     }
 
-    public void ShowInputDialog(string title, string bodyMessage, string property)
+    /**
+    Return dialog id, you can use complete callback for this dialog using provided id
+    */
+    public long ShowInputDialog(string title, string bodyMessage, string property)
     {
-        onInputDialogShowRequest?.Invoke(title, bodyMessage, property);
+        // TODO maybe bad generation and not the right place for it
+        var randomId = UnityEngine.Random.Range(0, 9999999);
+
+        onInputDialogShowRequest?.Invoke(randomId, title, bodyMessage, property);
+
+        return randomId;
     }
 
     public void LoginRequest(string username, string password)
@@ -162,13 +171,18 @@ public class EventBus : MonoBehaviour
         onRegistrationRequest?.Invoke(user, password, email);
     }
 
-    public void NotifyDialogResulted(DialogResult result)
+    public void NotifyDialogResulted(long dialogId, DialogResult result)
     {
-        onDialogResulted?.Invoke(result);
+        onDialogResulted?.Invoke(dialogId, result);
     }
     
     public void NotifyRegistrationComplete()
     {
         onRegistrationComplete?.Invoke();
+    }
+
+    public void SendNewTownRequest(Vector2D location, String name)
+    {
+        onNewTownRequest?.Invoke(location, name);
     }
 }

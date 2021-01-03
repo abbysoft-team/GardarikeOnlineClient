@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ErrorDialogs : MonoBehaviour
+public class DialogManager : MonoBehaviour
 {
     public Dialog messageDialog;
     public Dialog loadingDialog;
@@ -14,14 +14,14 @@ public class ErrorDialogs : MonoBehaviour
     {
         EventBus.instance.onErrorShowRequest += ShowError;
         EventBus.instance.onOpenOrCloseLoadingDialog += UpdateLoadingDialogState;
-        EventBus.instance.onInputDialogShowRequest += (title, message, property) => AddToQueue(title, message, property, DialogType.INPUT);
-        EventBus.instance.onInfoMessageShowRequest += (title, message) => AddToQueue(title, message, null, DialogType.INFO);
+        EventBus.instance.onInputDialogShowRequest += (id, title, message, property) => AddToQueue(id, title, message, property, DialogType.INPUT);
+        EventBus.instance.onInfoMessageShowRequest += (title, message) => AddToQueue(-1L, title, message, null, DialogType.INFO);
         gameObject.SetActive(false);
     }
 
-    private void AddToQueue(string title, string message, string inputProperty, DialogType type)
+    private void AddToQueue(long id, string title, string message, string inputProperty, DialogType type)
     {
-        var info = new DialogInfo(title, message, inputProperty, type);
+        var info = new DialogInfo(id, title, message, inputProperty, type);
         dialogQueue.Enqueue(info);
 
         if (current == null)
@@ -94,6 +94,8 @@ public class ErrorDialogs : MonoBehaviour
     {
         messageDialog.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
+
+        EventBus.instance.NotifyDialogResulted(current.id, DialogResult.SUCCESS);
     }
 
     private void UpdateLoadingDialogState(bool visibility)

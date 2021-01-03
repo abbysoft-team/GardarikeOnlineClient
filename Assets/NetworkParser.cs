@@ -69,6 +69,12 @@ public class NetworkParser : MonoBehaviour
                     Debug.Log("Account created");
                     EventBus.instance.NotifyRegistrationComplete();
                     break;
+                case Response.DataOneofCase.CreateCharacterResponse:
+                    Debug.Log("Character " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + "created");
+                    break;
+                case Response.DataOneofCase.PlaceTownResponse:
+                    Debug.Log("Town placed");
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;

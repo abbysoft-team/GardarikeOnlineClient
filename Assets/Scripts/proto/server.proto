@@ -13,6 +13,8 @@ service GameServer {
   rpc PlaceTown(PlaceTownRequest) returns (PlaceTownResponse);
   rpc SendChatMessage(SendChatMessageRequest) returns (SendChatMessageResponse);
   rpc GetChatHistory(GetChatHistoryRequest) returns (GetChatHistoryResponse);
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+  rpc CreateEmpire(CreateCharacterRequest) returns (CreateCharacterResponse);
 }
 
 // Requests
@@ -21,13 +23,19 @@ message Request {
     GetLocalMapRequest getLocalMapRequest = 1;
     GetWorldMapRequest GetWorldMapRequest = 2;
     LoginRequest loginRequest = 3;
-    SelectCharacterRequest selectCharacterRequest = 4;
+    SelectCharacterRequest SelectCharacterRequest = 4;
     PlaceTownRequest placeTownRequest = 5;
     SendChatMessageRequest sendChatMessageRequest = 6;
     GetChatHistoryRequest getChatHistoryRequest = 7;
     GetWorkDistributionRequest getWorkDistributionRequest = 8;
     CreateAccountRequest createAccountRequest = 9;
+    CreateCharacterRequest createCharacterRequest = 10;
   }
+}
+
+message CreateCharacterRequest {
+  string sessionID = 1;
+  string name = 2;
 }
 
 message CreateAccountRequest {
@@ -85,18 +93,23 @@ message Response {
     GetWorldMapResponse getWorldMapResponse = 3;
     LoginResponse loginResponse = 4;
     MultipartResponse multipartResponse = 5;
-    SelectCharacterResponse selectCharacterResponse = 6;
+    SelectCharacterResponse SelectCharacterResponse = 6;
     PlaceTownResponse placeTownResponse = 7;
     SendChatMessageResponse sendChatMessageResponse = 8;
     GetChatHistoryResponse getChatHistoryResponse = 9;
     ChatMessagePublishResponse chatMessagePublishResponse = 10;
     GetWorkDistributionResponse getWorkDistributionResponse = 11;
     CreateAccountResponse createAccountResponse = 12;
+    CreateCharacterResponse createCharacterResponse = 13;
   }
 }
 
+message CreateCharacterResponse {
+  int64 id = 1;
+}
+
 message CreateAccountResponse {
-  int32 id = 1;
+  int64 id = 1;
 }
 
 message GetWorkDistributionResponse {
@@ -137,7 +150,7 @@ message ErrorResponse {
 }
 
 message SelectCharacterResponse {
-
+  repeated Town towns = 1;
 }
 
 message ChatMessage {
@@ -208,11 +221,6 @@ message GetWorldMapResponse {
   WorldMapChunk map = 1;
 }
 
-message Handshake {
-  string login = 1;
-  string password = 2;
-}
-
 message Character {
   int64 id = 1;
   string name = 2;
@@ -230,4 +238,5 @@ enum Error {
   CHARACTER_NOT_SELECTED = 6;
   MESSAGE_TOO_LONG = 7;
   USERNAME_IS_ALREADY_TAKEN = 8;
+  FORBIDDEN = 9;
 }

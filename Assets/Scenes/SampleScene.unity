@@ -2392,10 +2392,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 546596697}
-        m_TargetAssemblyTypeName: ErrorDialogs, Assembly-CSharp
-        m_MethodName: DialogFinished
-        m_Mode: 1
+      - m_Target: {fileID: 817026176}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2405,8 +2405,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 546596697}
-        m_TargetAssemblyTypeName: ErrorDialogs, Assembly-CSharp
-        m_MethodName: ShowNext
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: DialogFinished
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4526,7 +4526,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 546596692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b092885f0cb63a1409966e848331c3b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 11055851e28d325f1ac82aa8cc2f5dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   messageDialog: {fileID: 817026178}
@@ -11808,8 +11808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 76.48461, y: 0}
-  m_SizeDelta: {x: -152.6506, y: 37.1375}
+  m_AnchoredPosition: {x: 60.24402, y: 0}
+  m_SizeDelta: {x: -120.1388, y: 37.1375}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1578449240
 MonoBehaviour:
@@ -12524,8 +12524,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 546596697}
-        m_TargetAssemblyTypeName: ErrorDialogs, Assembly-CSharp
-        m_MethodName: ShowNext
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: DialogFinished
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -38,6 +38,7 @@ public class EventBus : MonoBehaviour
     public event Action<long, DialogResult> onDialogResulted;
     public event Action onRegistrationComplete;
     public event Action<Vector2D, String> onNewTownRequest;
+    public event Action<String> onNewCharacterRequest;
     
     private void Awake()
     {
@@ -184,5 +185,10 @@ public class EventBus : MonoBehaviour
     public void SendNewTownRequest(Vector2D location, String name)
     {
         onNewTownRequest?.Invoke(location, name);
+    }
+
+    public void SendNewCharacterRequest(string name)
+    {
+        onNewCharacterRequest?.Invoke(name);
     }
 }

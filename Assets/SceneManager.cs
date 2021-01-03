@@ -66,9 +66,9 @@ public class SceneManager : MonoBehaviour
 
         Debug.Log("Showing tutorial message");
         // TODO extract messages to Strings.cs
-        EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, GlobalConstants.COUNTRY_NAME_PROPERTY);
+        var dialogId = EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, GlobalConstants.COUNTRY_NAME_PROPERTY);
         //EventBus.instance.ShowInfo("Info", "New empire " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " now exist on the world map!");
-        var dialogId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
+        dialogId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
         EventBus.instance.onDialogResulted += (id, result) => {
             if (id == dialogId) 
                 SendCapitalFoundationRequest();
@@ -79,10 +79,12 @@ public class SceneManager : MonoBehaviour
 
         PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 1);
     }
-
-    private void SendCapitalFoundationRequest() {
+    private void SendCapitalFoundationRequest()
+    {
         Vector2D location = null;
+        var character = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
 
+        EventBus.instance.SendNewCharacterRequest(character);
         EventBus.instance.SendNewTownRequest(location, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
     }
 

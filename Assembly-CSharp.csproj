@@ -69,6 +69,7 @@
      <Compile Include="Assets\ProtoConverter.cs" />
      <Compile Include="Assets\Private.cs" />
      <Compile Include="Assets\EventBus.cs" />
+     <Compile Include="Assets\DialogManager.cs" />
      <Compile Include="Assets\MapManager.cs" />
      <Compile Include="Assets\Saveable.cs" />
      <Compile Include="Assets\ActivateObjectScript.cs" />
@@ -95,7 +96,6 @@
      <Compile Include="Assets\ObjectMana.cs" />
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
-     <Compile Include="Assets\DialogManager.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

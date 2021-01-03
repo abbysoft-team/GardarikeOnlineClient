@@ -176,10 +176,27 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
         EventBus.instance.onLoginComplete += RunEventTask;
         EventBus.instance.onRegistrationRequest += SendRegistrationEvent;
+        EventBus.instance.onNewCharacterRequest += SendNewCharacterRequest;
         EventBus.instance.onNewTownRequest += SendNewTownRequest;
         //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendNewCharacterRequest(string name)
+    {
+        Debug.Log("Send new character request");
+
+        var newCharacterRequest = new Request
+        {
+            CreateCharacterRequest = new CreateCharacterRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Name = name
+            }
+        };
+
+        requestQueue.Enqueue(newCharacterRequest.ToByteArray());
     }
 
     private void SendNewTownRequest(Vector2D location, string name)

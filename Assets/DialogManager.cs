@@ -96,6 +96,8 @@ public class DialogManager : MonoBehaviour
         this.gameObject.SetActive(false);
 
         EventBus.instance.NotifyDialogResulted(current.id, DialogResult.SUCCESS);
+
+        ShowNext();
     }
 
     private void UpdateLoadingDialogState(bool visibility)

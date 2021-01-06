@@ -56,7 +56,7 @@ public class SceneManager : MonoBehaviour
         UpdateCharacterInfo(character);
         //SpawnNewPeople(characters[0]);
 
-        EventBus.instance.SelectCharacterRequest(character);
+        EventBus.instance.SelectCharacterRequest(character.Id);
     }
 
     private void UpdateCharacterInfo(Character character) 
@@ -114,7 +114,8 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.TerrainLoaded(width, height, heights);
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
 
-        treeGenerator.GenerateTrees((int) chunkInfo.Map.Trees);
+        // world map is just some model, so don't draw all trees on the chunk
+        treeGenerator.GenerateTrees((int) (chunkInfo.Map.Trees / 100));
         townsManager.InitTowns(chunkInfo.Map.Towns);
     }
 

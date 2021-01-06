@@ -50,21 +50,37 @@ class ScrollAndPitch : MonoBehaviour
             //    return;
 
             //Move cam amount the mid ray
+            var beforeZoom = camera.transform.position;
             camera.transform.position = Vector3.LerpUnclamped(midPoint, camera.transform.position, 1 / zoom);
+            ApplyCameraBorders(beforeZoom);
 
             return;
         }
 
         //Scroll
-        if (Input.touchCount >= 1)
+        if (Input.touchCount == 1)
         {
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
-            Delta1 /= Vector3.Distance(pos1, camera.transform.position);
-            Delta1 *= 12;
+            //Delta1 /= Vector3.Distance(pos1, camera.transform.position);
+            //Delta1 *= 10;
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 camera.transform.Translate(Delta1, Space.World);
             if (Input.GetTouch(0).phase == TouchPhase.Began)
                 SoundManager.instance.PlaySound("click");
+        }
+
+    }
+
+    private void ApplyCameraBorders(Vector3 beforeZoom)
+    {
+        var minY = Utility.GetGroundedPoint(transform.position).y + GlobalConstants.MIN_CAMERA_Y;
+
+        if (camera.transform.position.y < minY)
+        {
+            camera.transform.position = beforeZoom;
+        } else if (camera.transform.position.y > GlobalConstants.MAX_CAMERA_Y)
+        {
+            camera.transform.position = beforeZoom;
         }
 
     }

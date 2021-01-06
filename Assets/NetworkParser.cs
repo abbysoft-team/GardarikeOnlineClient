@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Google.Protobuf.Collections;
+using System;
 
 using Gardarike;
 
@@ -23,8 +24,8 @@ public class NetworkParser : MonoBehaviour
         // Nothing to process this tick
         if (events.Count == 0 && packets.Count == 0) return;
 
-        Debug.Log(string.Format("Dispatchering {0} packets", packets.Count));
-        Debug.Log(string.Format("Dispatchering {0} events", events.Count));
+        //Debug.Log(string.Format("Dispatchering {0} packets", packets.Count));
+        //Debug.Log(string.Format("Dispatchering {0} events", events.Count));
 
         DispatchPackets(packets);
         DispatchEvents(events);
@@ -38,24 +39,36 @@ public class NetworkParser : MonoBehaviour
     {
         foreach (var packet in packets)
         {
-            switch (packet.DataCase)
+            try {
+                DispatchPacket(packet);
+            } catch (Exception e)
             {
-                case Response.DataOneofCase.MultipartResponse:
-                    ProcessMultipart(packet.MultipartResponse);
-                    break;
-                case Response.DataOneofCase.GetWorldMapResponse:
-                    ProcessWorldMapReply(packet.GetWorldMapResponse);
-                    break;
-                case Response.DataOneofCase.ErrorResponse:
-                    ProcessServerErrorReply(packet.ErrorResponse);
-                    break;
-                case Response.DataOneofCase.LoginResponse:
-                    ProcessLoginResponse(packet.LoginResponse);
-                    break;
+                Debug.LogError("Error while process packet: " + e);
+                Debug.LogError("Packet: " + packet);
+            }
+        }
+    }
+
+    private void DispatchPacket(Response packet)
+    {
+        switch (packet.DataCase)
+        {
+            case Response.DataOneofCase.MultipartResponse:
+                ProcessMultipart(packet.MultipartResponse);
+                break;
+            case Response.DataOneofCase.GetWorldMapResponse:
+                ProcessWorldMapReply(packet.GetWorldMapResponse);
+                break;
+            case Response.DataOneofCase.ErrorResponse:
+                ProcessServerErrorReply(packet.ErrorResponse);
+                break;
+            case Response.DataOneofCase.LoginResponse:
+                ProcessLoginResponse(packet.LoginResponse);
+                break;
                 // case Response.DataOneofCase.PlaceBuildingResponse:
                 //     Debug.Log("Building response arrived: " + packet.PlaceBuildingResponse);
                 //     break;
-                case Response.DataOneofCase.SelectCharacterResponse:
+            case Response.DataOneofCase.SelectCharacterResponse:
                     Debug.Log("Character 0 selection confirmed");
                     EventBus.instance.CharacterSelectionConfirmed(packet.SelectCharacterResponse.Towns);
                     break;
@@ -71,6 +84,8 @@ public class NetworkParser : MonoBehaviour
                     break;
                 case Response.DataOneofCase.CreateCharacterResponse:
                     Debug.Log("Character " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + "created");
+                    // select new character
+                    EventBus.instance.SelectCharacterRequest(packet.CreateCharacterResponse.Id);
                     break;
                 case Response.DataOneofCase.PlaceTownResponse:
                     Debug.Log("Town placed");
@@ -79,7 +94,6 @@ public class NetworkParser : MonoBehaviour
                     ProcessInvalidReply(packet);
                     break;
             }
-        }
     }
 
     private void DispatchEvents(Queue<Gardarike.Event> events)

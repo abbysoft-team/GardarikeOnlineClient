@@ -20,7 +20,7 @@ public class EventBus : MonoBehaviour
     public event Action<string, string> onInfoMessageShowRequest;
     public event Action<long, string, string, string> onInputDialogShowRequest;
     public event Action<string, string> onLoginRequest;
-    public event Action<Character> onSelectCharacterRequest;
+    public event Action<long> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
     public event Action<string> onMapLoadRequest;
@@ -102,9 +102,9 @@ public class EventBus : MonoBehaviour
         onLoginRequest?.Invoke(username, password);
     }
 
-    public void SelectCharacterRequest(Character character)
+    public void SelectCharacterRequest(long charId)
      {
-        onSelectCharacterRequest?.Invoke(character);
+        onSelectCharacterRequest?.Invoke(charId);
     }
 
     public void LoadMap(string sessionId) {

@@ -232,7 +232,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(registrationEvent.ToByteArray());
     }
 
-    private void SendCharacterSelectionRequest(Character character)
+    private void SendCharacterSelectionRequest(long charId)
     {
         Debug.Log("Send character selection event");
 
@@ -241,7 +241,7 @@ public class NetworkManagerImpl : NetworkManager
             SelectCharacterRequest = new SelectCharacterRequest
             {
                 SessionID = PlayerPrefs.GetString("sessionId"),
-                CharacterID = character.Id
+                CharacterID = charId
             }
         };
 

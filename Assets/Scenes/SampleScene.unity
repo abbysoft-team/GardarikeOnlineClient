@@ -7182,8 +7182,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 10000
-  field of view: 26.991467
+  far clip plane: 25000
+  field of view: 25.4
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7209,7 +7209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -2848, y: -901, z: -3178}
+  m_LocalPosition: {x: -1284, y: 1660, z: -4567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2080824079}
@@ -8857,6 +8857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loginScreen: {fileID: 942583445}
+  townsManager: {fileID: 1611242019}
+  treeGenerator: {fileID: 1651080708}
 --- !u!4 &1184910597
 Transform:
   m_ObjectHideFlags: 0
@@ -11808,7 +11810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 60.24402, y: 0}
+  m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: -120.1388, y: 37.1375}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1578449240
@@ -12216,6 +12218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1611242018}
+  - component: {fileID: 1611242019}
   m_Layer: 0
   m_Name: Towns
   m_TagString: Untagged
@@ -12238,6 +12241,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1611242019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611242017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87b40e0ec493c7bba06973c0dee5a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceTown: {fileID: 1900760559}
 --- !u!1 &1615917457
 GameObject:
   m_ObjectHideFlags: 0

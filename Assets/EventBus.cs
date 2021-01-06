@@ -24,7 +24,7 @@ public class EventBus : MonoBehaviour
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
     public event Action<string> onMapLoadRequest;
-    public event Action onCharacterSelected;
+    public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
     public event Action<string> onChatMessagePublishRequest;
     public event Action<Character> onCharacterUpdateArrived;
@@ -32,6 +32,7 @@ public class EventBus : MonoBehaviour
     public event Action<int> onPeopleCountIncreased;
     public event Action<int> onSpawnTreesRequest;
     public event Action onMapReady;
+    public event Action<GetWorldMapResponse> onWorldMapChunkLoaded;
     //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
@@ -110,8 +111,8 @@ public class EventBus : MonoBehaviour
         onMapLoadRequest?.Invoke(sessionId);
     }
 
-    public void CharacterSelectionConfirmed() {
-        onCharacterSelected?.Invoke();
+    public void CharacterSelectionConfirmed(RepeatedField<Gardarike.Town> town) {
+        onCharacterSelected?.Invoke(town);
     }
 
     public void LoadChatHistory() {
@@ -190,5 +191,10 @@ public class EventBus : MonoBehaviour
     public void SendNewCharacterRequest(string name)
     {
         onNewCharacterRequest?.Invoke(name);
+    }
+
+    public void WorldMapChunkLoaded(GetWorldMapResponse chunkInfo)
+    {
+        onWorldMapChunkLoaded?.Invoke(chunkInfo);
     }
 }

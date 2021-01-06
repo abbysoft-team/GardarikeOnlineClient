@@ -9,7 +9,7 @@ public class TreeGenerator : MonoBehaviour
         EventBus.instance.onSpawnTreesRequest += GenerateTrees;
     }
 
-    private void GenerateTrees(int count)
+    public void GenerateTrees(int count)
     {
         // * 2 to compensate loss of trees spawned on water
         for (int i = 0; i < count * 2; i++)

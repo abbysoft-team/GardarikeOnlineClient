@@ -170,7 +170,7 @@ public class NetworkManagerImpl : NetworkManager
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
         EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
-        EventBus.instance.onMapLoadRequest += SendMapRequest;
+        EventBus.instance.onMapLoadRequest += SendWorldMapRequest;
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
@@ -263,24 +263,24 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
-    private void SendMapRequest(string sessionId)
+    private void SendWorldMapRequest(string sessionId)
     {
-        Debug.Log("Trying to request map information ");
+        Debug.Log("Trying to request world map information ");
 
-        // var mapRequest = new Request
-        // {
-        //     GetMapRequest = new GetMapRequest {
-        //         Location = new Vector3D
-        //         {
-        //             X = 0,
-        //             Y = 0,
-        //             Z = 0
-        //         },
-        //         SessionID = sessionId
-        //     }
-        // };
+        var mapRequest = new Request
+        {
+            GetWorldMapRequest = new GetWorldMapRequest {
+                Location = new Vector3D
+                {
+                    X = 0,
+                    Y = 0,
+                    Z = 0
+                },
+                SessionID = sessionId
+            }
+        };
 
-        // requestQueue.Enqueue(mapRequest.ToByteArray());
+        requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
     private void SendBuildingEvent(BuildItemInfo building)

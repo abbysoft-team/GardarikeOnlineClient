@@ -10,14 +10,7 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onCharacterSelected += SendMapRequest;
         EventBus.instance.onMapObjectsLoadingComplete += PlaceMapObjects;
-    }
-
-    private void SendMapRequest() {
-        Debug.Log("Start loading map");
-
-        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
     }
 
     private void PlaceMapObjects(RepeatedField<Building> buildings, int treesCount) {
@@ -27,7 +20,6 @@ public class MapManager : MonoBehaviour
 
         // place trees
         EventBus.instance.SpawnTrees(200);
-
         EventBus.instance.MapIsReady();
     }
 

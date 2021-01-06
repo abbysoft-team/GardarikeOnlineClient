@@ -15,7 +15,7 @@ public class JobManager : MonoBehaviour
         availableJobs = new Dictionary<Job, int>();
         //availableJobs[Job.LUMBERJACK] = 
         
-        EventBus.instance.onCharacterSelected += LoadJobInfo;
+        //EventBus.instance.onCharacterSelected += LoadJobInfo;
         //EventBus.instance.onJobMarketInfoArrived += UpdateJobsInfo;
     }
 

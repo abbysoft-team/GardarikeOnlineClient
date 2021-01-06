@@ -94,6 +94,9 @@ public class DialogManager : MonoBehaviour
     {
         messageDialog.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
+        
+        // error dialog are not in the queue
+        if (current == null) return;
 
         EventBus.instance.NotifyDialogResulted(current.id, DialogResult.SUCCESS);
 

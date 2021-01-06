@@ -43,9 +43,9 @@ public class NetworkParser : MonoBehaviour
                 case Response.DataOneofCase.MultipartResponse:
                     ProcessMultipart(packet.MultipartResponse);
                     break;
-                // case Response.DataOneofCase.GetMapResponse:
-                //     ProcessMapReply(packet.GetMapResponse);
-                //     break;
+                case Response.DataOneofCase.GetWorldMapResponse:
+                    ProcessWorldMapReply(packet.GetWorldMapResponse);
+                    break;
                 case Response.DataOneofCase.ErrorResponse:
                     ProcessServerErrorReply(packet.ErrorResponse);
                     break;
@@ -57,7 +57,7 @@ public class NetworkParser : MonoBehaviour
                 //     break;
                 case Response.DataOneofCase.SelectCharacterResponse:
                     Debug.Log("Character 0 selection confirmed");
-                    EventBus.instance.CharacterSelectionConfirmed();
+                    EventBus.instance.CharacterSelectionConfirmed(packet.SelectCharacterResponse.Towns);
                     break;
                 case Response.DataOneofCase.GetChatHistoryResponse:
                     Debug.Log("Received chat history");
@@ -122,17 +122,12 @@ public class NetworkParser : MonoBehaviour
         Debug.Log("But client can't work with this type of message =( ");
     }
 
-    // private void ProcessMapReply(GetMapResponse getMapResponse)
-    // {
-    //     Debug.Log("Received map reply: " + getMapResponse);
-    //     Debug.Log("Buildings on the map: " + getMapResponse.Map.Buildings.Count);
-    //     Debug.Log("Trees on map: " + getMapResponse.Map.TreesCount);
-    //     var width = getMapResponse.Map.Width;
-    //     var height = getMapResponse.Map.Height;
-    //     var heights = ProtoConverter.ToHeightsFromProto(getMapResponse.Map.Points, width, height);
-    //     EventBus.instance.TerrainLoaded(width, height, heights);
-    //     EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
-    // }
+    private void ProcessWorldMapReply(GetWorldMapResponse getMapResponse)
+    {
+        Debug.Log("Received map reply: " + getMapResponse);
+
+        EventBus.instance.WorldMapChunkLoaded(getMapResponse);
+    }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {
         Debug.Log("Received login response: " + loginResponse);

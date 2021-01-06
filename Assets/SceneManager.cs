@@ -8,15 +8,26 @@ using Gardarike;
 
 public class SceneManager : MonoBehaviour
 {
-
     public GameObject loginScreen;
+    public TownsManager townsManager;
+    public TreeGenerator treeGenerator;
 
     // Start is called before the first frame update
     void Awake() 
     {
         EventBus.instance.onLoginComplete += LoginComplete;
+        EventBus.instance.onCharacterSelected += TownsLoaded;
+        EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
     }
 
+    private void TownsLoaded(RepeatedField<Gardarike.Town> towns) {
+        Debug.Log("Character selected");
+
+        // We've got towns from getMap request, so this one is obsolete
+        //townsManager.InitTowns(towns);
+
+        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
+    }
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
     {
@@ -86,6 +97,25 @@ public class SceneManager : MonoBehaviour
 
         EventBus.instance.SendNewCharacterRequest(character);
         EventBus.instance.SendNewTownRequest(location, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
+    }
+
+    private void ProcessMapChunk(GetWorldMapResponse chunkInfo)
+    {
+        Debug.Log("Processing map chunk...");
+
+        Debug.Log("Towns on the chunk: " + chunkInfo.Map.Towns.Count);
+        Debug.Log("Trees on chank: " + chunkInfo.Map.Trees);
+        Debug.Log("Plants on chank: " + chunkInfo.Map.Plants);
+        Debug.Log("Stones on chank: " + chunkInfo.Map.Stones);
+
+        var width = chunkInfo.Map.Width;
+        var height = chunkInfo.Map.Height;
+        var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data, width, height);
+        EventBus.instance.TerrainLoaded(width, height, heights);
+        //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
+
+        treeGenerator.GenerateTrees((int) chunkInfo.Map.Trees);
+        townsManager.InitTowns(chunkInfo.Map.Towns);
     }
 
     // Update is called once per frame

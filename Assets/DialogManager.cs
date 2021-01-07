@@ -15,11 +15,11 @@ public class DialogManager : MonoBehaviour
         EventBus.instance.onErrorShowRequest += ShowError;
         EventBus.instance.onOpenOrCloseLoadingDialog += UpdateLoadingDialogState;
         EventBus.instance.onInputDialogShowRequest += (id, title, message, property) => AddToQueue(id, title, message, property, DialogType.INPUT);
-        EventBus.instance.onInfoMessageShowRequest += (title, message) => AddToQueue(-1L, title, message, null, DialogType.INFO);
+        EventBus.instance.onInfoMessageShowRequest += (title, message) => AddToQueue(-1, title, message, null, DialogType.INFO);
         gameObject.SetActive(false);
     }
 
-    private void AddToQueue(long id, string title, string message, string inputProperty, DialogType type)
+    private void AddToQueue(int id, string title, string message, string inputProperty, DialogType type)
     {
         var info = new DialogInfo(id, title, message, inputProperty, type);
         dialogQueue.Enqueue(info);
@@ -98,7 +98,7 @@ public class DialogManager : MonoBehaviour
         // error dialog are not in the queue
         if (current == null) return;
 
-        EventBus.instance.NotifyDialogResulted(current.id, DialogResult.SUCCESS);
+        EventBus.instance.NotifyEventFinished(current.id, DialogResult.SUCCESS);
 
         ShowNext();
     }

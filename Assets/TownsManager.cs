@@ -49,4 +49,24 @@ public class TownsManager : MonoBehaviour
         component.name.text = townParameters.Name;
         component.population.text = "" + townParameters.Population;
     }
+
+    public void InitiateTownBuilding()
+    {
+        var actionId = EventBus.instance.ChooseLocationForBuilding(referenceTown);
+        EventBus.instance.onEventFinished += (id, location) => {
+            if (id == actionId) BuildTown((Vector3) location);
+        };
+    }
+
+    private void BuildTown(Vector3 location)
+    {
+        var newTown = new Gardarike.Town();
+        newTown.OwnerName = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
+        newTown.Name = "New town " + Random.Range(0, 999);
+        newTown.Population = 0;
+        newTown.X = (long) location.x;
+        newTown.Y = (long) location.z;
+
+        InitTown(newTown);
+    }
 }

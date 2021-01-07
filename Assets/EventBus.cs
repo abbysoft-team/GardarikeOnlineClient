@@ -18,7 +18,7 @@ public class EventBus : MonoBehaviour
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
     public event Action<string, string> onInfoMessageShowRequest;
-    public event Action<long, string, string, string> onInputDialogShowRequest;
+    public event Action<int, string, string, string> onInputDialogShowRequest;
     public event Action<string, string> onLoginRequest;
     public event Action<long> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
@@ -36,10 +36,11 @@ public class EventBus : MonoBehaviour
     //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
-    public event Action<long, DialogResult> onDialogResulted;
+    public event Action<int, System.Object> onEventFinished;
     public event Action onRegistrationComplete;
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
+    public event Action<int, GameObject> onChooseLocationForBuilding;
     
     private void Awake()
     {
@@ -87,7 +88,7 @@ public class EventBus : MonoBehaviour
     /**
     Return dialog id, you can use complete callback for this dialog using provided id
     */
-    public long ShowInputDialog(string title, string bodyMessage, string property)
+    public int ShowInputDialog(string title, string bodyMessage, string property)
     {
         // TODO maybe bad generation and not the right place for it
         var randomId = UnityEngine.Random.Range(0, 9999999);
@@ -173,9 +174,9 @@ public class EventBus : MonoBehaviour
         onRegistrationRequest?.Invoke(user, password, email);
     }
 
-    public void NotifyDialogResulted(long dialogId, DialogResult result)
+    public void NotifyEventFinished(int eventId, System.Object result)
     {
-        onDialogResulted?.Invoke(dialogId, result);
+        onEventFinished?.Invoke(eventId, result);
     }
     
     public void NotifyRegistrationComplete()
@@ -196,5 +197,13 @@ public class EventBus : MonoBehaviour
     public void WorldMapChunkLoaded(GetWorldMapResponse chunkInfo)
     {
         onWorldMapChunkLoaded?.Invoke(chunkInfo);
+    }
+
+    public int ChooseLocationForBuilding(GameObject reference)
+    {
+        var eventId = UnityEngine.Random.Range(0, 9999999);
+        onChooseLocationForBuilding?.Invoke(eventId, reference);
+
+        return eventId;
     }
 }

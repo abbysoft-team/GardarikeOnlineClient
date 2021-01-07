@@ -110,4 +110,18 @@ class Utility
 
         return ray.origin;
     }
+
+    public static void SetMaterialForAllChildren(GameObject parent, Material material)
+    {
+        var childrenMeshes = parent.GetComponentsInChildren<MeshRenderer>(true);
+        foreach (var child in childrenMeshes)
+        {
+            child.material = material;   
+        }
+    }
+
+    public static Vector3 GetPointOnTheGroundInFrontOfCamera()
+    {
+        return GetPositionOnTheGround(new Vector2(Screen.width / 2, Screen.height / 2));
+    }
 }

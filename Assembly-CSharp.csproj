@@ -62,6 +62,7 @@
      <Compile Include="Assets\GameActionType.cs" />
      <Compile Include="Assets\DialogInfo.cs" />
      <Compile Include="Assets\RegistrationScreen.cs" />
+     <Compile Include="Assets\TownsManager.cs" />
      <Compile Include="Assets\Role.cs" />
      <Compile Include="Assets\ScrollAndPitch.cs" />
      <Compile Include="Assets\NetworkManagerImpl.cs" />
@@ -96,7 +97,6 @@
      <Compile Include="Assets\ObjectMana.cs" />
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
-     <Compile Include="Assets\TownsManager.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

@@ -48,6 +48,8 @@ public class TownsManager : MonoBehaviour
         component.empireName.text = townParameters.OwnerName;
         component.name.text = townParameters.Name;
         component.population.text = "" + townParameters.Population;
+
+        component.headerUI.SetActive(true);
     }
 
     public void InitiateTownBuilding()

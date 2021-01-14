@@ -9,6 +9,8 @@ public class Town : MonoBehaviour
     public Text name;
     public Text empireName;
 
+    public GameObject headerUI;
+
     // Start is called before the first frame update
     void Start()
     {

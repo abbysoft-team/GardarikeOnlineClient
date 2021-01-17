@@ -9,7 +9,8 @@ class ScrollAndPitch : MonoBehaviour
     public GameObject camera;
     public bool Rotate;
     protected Plane Plane;
-    private static ScrollAndPitch instance;
+    public static ScrollAndPitch instance;
+    private float rotationDegrees;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ class ScrollAndPitch : MonoBehaviour
 
     private void Update()
     {
+        rotationDegrees = 0;
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
@@ -42,8 +44,10 @@ class ScrollAndPitch : MonoBehaviour
 
             var midPoint = (pos1b + pos2) / 2;
 
+            rotationDegrees = Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal);
+
             if (Rotate && pos2b != pos2) {
-                camera.transform.RotateAround(midPoint, Plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal));
+                camera.transform.RotateAround(midPoint, Plane.normal, rotationDegrees);
                 return;
             }
 
@@ -133,6 +137,10 @@ class ScrollAndPitch : MonoBehaviour
         return raycastResults.Count > 0 && raycastResults[0].gameObject.layer == LayerMask.NameToLayer("WorldUI");
     }
 
+    public static float GetRotationDegrees()
+    {
+        return instance.rotationDegrees;
+    }
 
 #endif
 }

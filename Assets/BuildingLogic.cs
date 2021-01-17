@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingLogic : MonoBehaviour
 {
     private const float UI_PROTOTYPE_HEIGHT = 620.0f;
     private BuildingState state;
     public Material prototypeMaterial;
+    public Material invalidMaterial;
     private GameObject building;
     public GameObject prototypingUI;
+    public Button applyButton;
+    public Button rotationButton;
     private int callbackId;
+    private bool rotationMode;
 
     void Start()
     {
@@ -22,6 +27,7 @@ public class BuildingLogic : MonoBehaviour
     {
         Debug.Log("start building");
         
+        rotationMode = false;
         callbackId = eventId;
         state = BuildingState.LOCATION_CHOOSE;
 
@@ -31,6 +37,7 @@ public class BuildingLogic : MonoBehaviour
         building.SetActive(true);
 
         ConfigurePrototypingUI();
+        CheckPlacementRestrictions(building);
     }
 
     private void ConfigurePrototypingUI()
@@ -44,13 +51,35 @@ public class BuildingLogic : MonoBehaviour
     {
         if (state != BuildingState.LOCATION_CHOOSE) return;
         
-        var touchHappen = Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary;
+        var touchHappen = Input.touchCount == 1 &&
+        Input.GetTouch(0).phase == TouchPhase.Stationary &&
+        !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
 
-        touchHappen = Input.GetMouseButton(0) && !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
-        if (!touchHappen) return;
+        if (Input.touchCount == 2 && rotationMode)
+        {
+            var rotationDegrees = ScrollAndPitch.GetRotationDegrees();
+            building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
+        } else if (!rotationMode && touchHappen) {
+            building.transform.position = Utility.GetPositionOnTheGround(Input.GetTouch(0).position);
 
-        building.transform.position = Utility.GetPositionOnTheGround(Input.mousePosition);
+            CheckPlacementRestrictions(building);
+        }
+
         StickUIToPrototype();
+    }
+
+    private void CheckPlacementRestrictions(GameObject buildingPrototype)
+    {
+        // in further releases, must check if building allowed to be built on the water
+        var invalid = Utility.IsOnWater(buildingPrototype);
+        if (!invalid) {
+            Utility.SetMaterialForAllChildren(buildingPrototype, prototypeMaterial);
+            applyButton.enabled = true;
+            return;
+        }
+        // Invalid place
+        Utility.SetMaterialForAllChildren(buildingPrototype, invalidMaterial);
+        applyButton.enabled = false;
     }
 
     private void StickUIToPrototype()
@@ -75,9 +104,18 @@ public class BuildingLogic : MonoBehaviour
         prototypingUI.SetActive(false);
     }
 
-    public void EnterRotationMode()
+    public void ToggleRotationMode()
     {
+        rotationMode = !rotationMode;
 
+        ScrollAndPitch.instance.Rotate = !rotationMode;
+        if (rotationMode)
+        {
+            rotationButton.GetComponent<Image>().color = Color.green;
+        } else 
+        {
+            rotationButton.GetComponent<Image>().color = Color.white;
+        }
     }
 
     private enum BuildingState {

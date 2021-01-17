@@ -42,15 +42,15 @@ public class BuildingLogic : MonoBehaviour
 
     void Update()
     {
-        //var touchHappen = Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary;
-        var touchHappen = Input.GetMouseButton(0);
+        if (state != BuildingState.LOCATION_CHOOSE) return;
+        
+        var touchHappen = Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary;
+
+        touchHappen = Input.GetMouseButton(0) && !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
         if (!touchHappen) return;
 
-        if (state == BuildingState.LOCATION_CHOOSE)
-        {
-            building.transform.position = Utility.GetPositionOnTheGround(Input.mousePosition);
-            StickUIToPrototype();
-        }
+        building.transform.position = Utility.GetPositionOnTheGround(Input.mousePosition);
+        StickUIToPrototype();
     }
 
     private void StickUIToPrototype()
@@ -69,7 +69,10 @@ public class BuildingLogic : MonoBehaviour
 
     public void CancelBuilding()
     {
+        Debug.Log("Building canceled");
         this.state = BuildingState.READY_FOR_BUILDING;
+        building.SetActive(false);
+        prototypingUI.SetActive(false);
     }
 
     public void EnterRotationMode()

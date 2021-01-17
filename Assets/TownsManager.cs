@@ -44,7 +44,9 @@ public class TownsManager : MonoBehaviour
 
     private void ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters)
     {
-        var component = townObject.AddComponent<Town>();
+        //var component = townObject.AddComponent<Town>();
+        var component = townObject.GetComponent<Town>();
+
         component.empireName.text = townParameters.OwnerName;
         component.name.text = townParameters.Name;
         component.population.text = "" + townParameters.Population;

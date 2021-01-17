@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+
+using System.Collections.Generic;
 
 class ScrollAndPitch : MonoBehaviour
 {
@@ -6,11 +9,14 @@ class ScrollAndPitch : MonoBehaviour
     public GameObject camera;
     public bool Rotate;
     protected Plane Plane;
+    private static ScrollAndPitch instance;
 
     private void Awake()
     {
         if (camera == null)
             camera = Camera.main.gameObject;
+
+        instance = this;
     }
 
     private void Update()
@@ -115,5 +121,18 @@ class ScrollAndPitch : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, transform.position + transform.up);
     }
+
+    public static bool IsClickedOnSomeWorldspaceUI()
+    {
+        var pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Input.mousePosition;
+
+        var raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        return raycastResults.Count > 0 && raycastResults[0].gameObject.layer == LayerMask.NameToLayer("WorldUI");
+    }
+
+
 #endif
 }

@@ -44,4 +44,6 @@ public class GlobalConstants
     public const int MIN_CAMERA_Y = 1600;
     public const int MAX_CAMERA_Y = 6000;
 
+    public const bool DEBUG_MODE = true;
+
 }

@@ -1912,7 +1912,7 @@ GameObject:
   - component: {fileID: 230281963}
   - component: {fileID: 230281965}
   - component: {fileID: 230281964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2083,7 +2083,7 @@ GameObject:
   - component: {fileID: 240890595}
   - component: {fileID: 240890597}
   - component: {fileID: 240890596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5307,7 +5307,7 @@ GameObject:
   - component: {fileID: 634324276}
   - component: {fileID: 634324275}
   - component: {fileID: 634324274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Apply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6050,7 +6050,7 @@ GameObject:
   - component: {fileID: 758922104}
   - component: {fileID: 758922106}
   - component: {fileID: 758922105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6118,6 +6118,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758922103}
   m_CullTransparentMesh: 1
+--- !u!1 &761209447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6728920068862043612, guid: b14762d0a34b028b8bbfe87ceb7890d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6728920068838840420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &764874814
 GameObject:
   m_ObjectHideFlags: 0
@@ -7802,7 +7808,7 @@ GameObject:
   - component: {fileID: 936341646}
   - component: {fileID: 936341645}
   - component: {fileID: 936341644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10503,7 +10509,7 @@ GameObject:
   - component: {fileID: 1276735485}
   - component: {fileID: 1276735484}
   - component: {fileID: 1276735483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11751,7 +11757,7 @@ GameObject:
   - component: {fileID: 1388204500}
   - component: {fileID: 1388204499}
   - component: {fileID: 1388204498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14111,7 +14117,7 @@ GameObject:
   - component: {fileID: 1616193309}
   - component: {fileID: 1616193308}
   - component: {fileID: 1616193307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14215,7 +14221,7 @@ GameObject:
   - component: {fileID: 1626897314}
   - component: {fileID: 1626897313}
   - component: {fileID: 1626897316}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14821,7 +14827,7 @@ GameObject:
   - component: {fileID: 1655234389}
   - component: {fileID: 1655234388}
   - component: {fileID: 1655234387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PrototypingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14920,7 +14926,7 @@ GameObject:
   - component: {fileID: 1664443224}
   - component: {fileID: 1664443227}
   - component: {fileID: 1664443226}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16753,7 +16759,7 @@ GameObject:
   - component: {fileID: 1860409344}
   - component: {fileID: 1860409346}
   - component: {fileID: 1860409345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18271,7 +18277,7 @@ GameObject:
   - component: {fileID: 2043975171}
   - component: {fileID: 2043975170}
   - component: {fileID: 2043975169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19611,6 +19617,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6728920069095134613, guid: b14762d0a34b028b8bbfe87ceb7890d8,
+        type: 3}
+      propertyPath: headerUI
+      value: 
+      objectReference: {fileID: 761209447}
     - target: {fileID: 6728920069829627999, guid: b14762d0a34b028b8bbfe87ceb7890d8,
         type: 3}
       propertyPath: m_AnchorMax.y

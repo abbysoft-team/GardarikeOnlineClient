@@ -111,6 +111,21 @@ class Utility
         return ray.origin;
     }
 
+    public static GameObject GetColliderFromTouch(Vector2 pointOnTheScreen)
+    {
+        var ray = Camera.main.ScreenPointToRay(pointOnTheScreen);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider.name);
+            return hit.rigidbody.gameObject;
+        }
+
+        Debug.LogError("Raycasting position failed");
+
+        return null;
+    }
+
     public static void SetMaterialForAllChildren(GameObject parent, Material material)
     {
         var childrenMeshes = parent.GetComponentsInChildren<MeshRenderer>(true);

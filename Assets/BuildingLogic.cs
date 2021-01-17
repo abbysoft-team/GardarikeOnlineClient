@@ -79,7 +79,7 @@ public class BuildingLogic : MonoBehaviour
         }
         // Invalid place
         Utility.SetMaterialForAllChildren(buildingPrototype, invalidMaterial);
-        applyButton.enabled = false;
+        //applyButton.enabled = false;
     }
 
     private void StickUIToPrototype()
@@ -93,7 +93,7 @@ public class BuildingLogic : MonoBehaviour
     {
         building.SetActive(false);
         prototypingUI.SetActive(false);
-        EventBus.instance.NotifyEventFinished(callbackId, building.transform.position);
+        EventBus.instance.NotifyEventFinished(callbackId, building.transform);
     }
 
     public void CancelBuilding()

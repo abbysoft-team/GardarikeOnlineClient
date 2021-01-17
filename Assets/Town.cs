@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class Town : MonoBehaviour
 {
     public Text population;
-    public Text name;
+    public InputField name;
     public Text empireName;
-
     public GameObject headerUI;
 
     // Start is called before the first frame update

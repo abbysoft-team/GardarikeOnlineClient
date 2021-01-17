@@ -27,18 +27,19 @@ public class TownsManager : MonoBehaviour
 
         foreach (var town in towns)
         {
-            InitTown(town);
+            InitTown(town, new Quaternion());
         }
 
         Debug.Log("All towns initialized");
     }
 
-    private void InitTown(Gardarike.Town town)
+    private void InitTown(Gardarike.Town town, Quaternion rotation)
     {
         var townObject = Instantiate(referenceTown);
         townObject.transform.position = Utility.GetGroundedPoint(new Vector3(town.X, 5000,town.Y));
         ConfigureTownComponent(townObject, town);
         townObject.transform.parent = this.transform;
+        townObject.transform.rotation = rotation;
         townObject.SetActive(true);
     }
 
@@ -58,19 +59,25 @@ public class TownsManager : MonoBehaviour
     {
         var actionId = EventBus.instance.ChooseLocationForBuilding(referenceTown);
         EventBus.instance.onEventFinished += (id, location) => {
-            if (id == actionId) BuildTown((Vector3) location);
+            if (id == actionId) BuildTown((Transform) location);
         };
     }
 
-    private void BuildTown(Vector3 location)
+    private void BuildTown(Transform transform)
     {
         var newTown = new Gardarike.Town();
         newTown.OwnerName = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
         newTown.Name = "New town " + Random.Range(0, 999);
         newTown.Population = 0;
-        newTown.X = (long) location.x;
-        newTown.Y = (long) location.z;
+        newTown.X = (long) transform.position.x;
+        newTown.Y = (long) transform.position.z;
 
-        InitTown(newTown);
+        InitTown(newTown, transform.localRotation);
+
+        var vector = new Vector2D();
+        vector.X = newTown.X;
+        vector.Y = newTown.Y;
+
+        EventBus.instance.SendNewTownRequest(vector, newTown.Name);
     }
 }

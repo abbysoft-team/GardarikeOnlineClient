@@ -55,8 +55,10 @@ class ScrollAndPitch : MonoBehaviour
             var zoom = Vector3.Distance(pos1, pos2) /
                        Vector3.Distance(pos1b, pos2b);
 
-            //edge case
-            //if (zoom <= 3 || zoom > 5)
+
+
+            // //edge case
+            // if (zoom <= 3 || zoom > 5)
             //    return;
 
             //Move cam amount the mid ray
@@ -83,7 +85,10 @@ class ScrollAndPitch : MonoBehaviour
 
     private void ApplyCameraBorders(Vector3 beforeZoom)
     {
-        var minY = Utility.GetGroundedPoint(transform.position).y + GlobalConstants.MIN_CAMERA_Y;
+        var minY = Utility.GetGroundedPoint(camera.transform.position).y + GlobalConstants.MIN_CAMERA_Y;
+
+        Debug.Log("minY");
+        Debug.Log(camera.transform.position);
 
         if (camera.transform.position.y < minY)
         {

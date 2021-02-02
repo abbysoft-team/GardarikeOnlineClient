@@ -41,7 +41,7 @@ public class GlobalConstants
     public const string TUTORIAL_COMPLETE_PROPERTY = "tutorial_complete";
     public const string CAPITAL_NAME_PROPERTY = "capital_name";
 
-    public const int MIN_CAMERA_Y = 1600;
+    public const int MIN_CAMERA_Y = 2000;
     public const int MAX_CAMERA_Y = 6000;
 
     public const bool DEBUG_MODE = true;

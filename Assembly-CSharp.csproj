@@ -90,6 +90,7 @@
      <Compile Include="Assets\BuildItem.cs" />
      <Compile Include="Assets\Strings.cs" />
      <Compile Include="Assets\LoginManager.cs" />
+     <Compile Include="Assets\IngameUI.cs" />
      <Compile Include="Assets\NetworkManager.cs" />
      <Compile Include="Assets\CarouselItem.cs" />
      <Compile Include="Assets\BuildingManager.cs" />
@@ -97,7 +98,7 @@
      <Compile Include="Assets\ObjectMana.cs" />
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
-     <Compile Include="Assets\IngameUI.cs" />
+     <Compile Include="Assets\ResourceManager.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

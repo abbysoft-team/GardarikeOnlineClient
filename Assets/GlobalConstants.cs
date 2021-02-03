@@ -46,4 +46,8 @@ public class GlobalConstants
 
     public const bool DEBUG_MODE = true;
 
+    public const string STONE = "Stone";
+    public const string WOOD = "Wood";
+    public const string LEATHER = "Leather";
+    public const string FOOD = "Food";
 }

@@ -16,15 +16,18 @@ public class SceneManager : MonoBehaviour
     void Awake() 
     {
         EventBus.instance.onLoginComplete += LoginComplete;
-        EventBus.instance.onCharacterSelected += TownsLoaded;
+        EventBus.instance.onCharacterSelected += CharacterSelected;
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
     }
 
-    private void TownsLoaded(RepeatedField<Gardarike.Town> towns) {
+    private void CharacterSelected(RepeatedField<Gardarike.Town> towns) {
         Debug.Log("Character selected");
 
         // We've got towns from getMap request, so this one is obsolete
         //townsManager.InitTowns(towns);
+
+        // Update info about resource count
+        EventBus.instance.SendResourceUpdateRequest();
 
         EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
     }
@@ -65,7 +68,6 @@ public class SceneManager : MonoBehaviour
 
         PlayerPrefs.SetInt("userId", (int) character.Id);
         PlayerPrefs.SetString("currentCharName", character.Name);
-       // PlayerPrefs.SetInt("Gold", (int) character.Gold);
         PlayerPrefs.SetInt("Population", (int) character.CurrentPopulation);
         PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
     }

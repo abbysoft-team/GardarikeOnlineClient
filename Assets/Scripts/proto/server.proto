@@ -21,16 +21,21 @@ service GameServer {
 message Request {
   oneof data {
     GetLocalMapRequest getLocalMapRequest = 1;
-    GetWorldMapRequest GetWorldMapRequest = 2;
+    GetWorldMapRequest getWorldMapRequest = 2;
     LoginRequest loginRequest = 3;
-    SelectCharacterRequest SelectCharacterRequest = 4;
+    SelectCharacterRequest selectCharacterRequest = 4;
     PlaceTownRequest placeTownRequest = 5;
     SendChatMessageRequest sendChatMessageRequest = 6;
     GetChatHistoryRequest getChatHistoryRequest = 7;
     GetWorkDistributionRequest getWorkDistributionRequest = 8;
     CreateAccountRequest createAccountRequest = 9;
     CreateCharacterRequest createCharacterRequest = 10;
+    GetResourcesRequest getResourcesRequest = 11;
   }
+}
+
+message GetResourcesRequest {
+  string sessionID = 1;
 }
 
 message CreateCharacterRequest {
@@ -43,6 +48,8 @@ message CreateAccountRequest {
   string password = 3;
 }
 
+// Place town at specific location.
+// First town of the character (capital) will be placed at a random location
 message PlaceTownRequest {
   string sessionID = 1;
   Vector2D location = 2;
@@ -101,7 +108,19 @@ message Response {
     GetWorkDistributionResponse getWorkDistributionResponse = 11;
     CreateAccountResponse createAccountResponse = 12;
     CreateCharacterResponse createCharacterResponse = 13;
+    GetResourcesResponse getResourcesResponse = 14;
   }
+}
+
+message Resources {
+  uint64 wood = 1;
+  uint64 stone = 2;
+  uint64 food = 3;
+  uint64 leather = 4;
+}
+
+message GetResourcesResponse {
+  Resources resources = 1;
 }
 
 message CreateCharacterResponse {
@@ -128,8 +147,9 @@ message SendChatMessageResponse {
   int64 messageID = 1;
 }
 
+// location will be filled with random value on the first town placing
 message PlaceTownResponse {
-
+  Vector2D location = 1;
 }
 
 // Response indicating start of the multipart response
@@ -176,8 +196,8 @@ message Vector3D {
 }
 
 message Vector2D {
-  int64 x = 1;
-  int64 y = 2;
+  float x = 1;
+  float y = 2;
 }
 
 // Local map is a map of a concrete village

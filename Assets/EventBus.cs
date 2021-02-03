@@ -41,7 +41,9 @@ public class EventBus : MonoBehaviour
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
     public event Action<int, GameObject> onChooseLocationForBuilding;
-    
+    public event Action onResourceUpdateRequest;
+    public event Action<Gardarike.Resources> onResourceUpdateArrived;
+
     private void Awake()
     {
         instance = this;
@@ -206,4 +208,15 @@ public class EventBus : MonoBehaviour
 
         return eventId;
     }
+
+    public void SendResourceUpdateRequest()
+    {
+        onResourceUpdateRequest?.Invoke();
+    }
+
+    public void ResourceUpdateReceived(Gardarike.Resources resources)
+    {
+        onResourceUpdateArrived?.Invoke(resources);
+    }
+
 }

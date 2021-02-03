@@ -22,11 +22,11 @@ namespace Gardarike {
     static ServerReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxzZXJ2ZXIucHJvdG8SCUdhcmRhcmlrZSKVBQoHUmVxdWVzdBI7ChJnZXRM",
+            "CgxzZXJ2ZXIucHJvdG8SCUdhcmRhcmlrZSLUBQoHUmVxdWVzdBI7ChJnZXRM",
             "b2NhbE1hcFJlcXVlc3QYASABKAsyHS5HYXJkYXJpa2UuR2V0TG9jYWxNYXBS",
-            "ZXF1ZXN0SAASOwoSR2V0V29ybGRNYXBSZXF1ZXN0GAIgASgLMh0uR2FyZGFy",
+            "ZXF1ZXN0SAASOwoSZ2V0V29ybGRNYXBSZXF1ZXN0GAIgASgLMh0uR2FyZGFy",
             "aWtlLkdldFdvcmxkTWFwUmVxdWVzdEgAEi8KDGxvZ2luUmVxdWVzdBgDIAEo",
-            "CzIXLkdhcmRhcmlrZS5Mb2dpblJlcXVlc3RIABJDChZTZWxlY3RDaGFyYWN0",
+            "CzIXLkdhcmRhcmlrZS5Mb2dpblJlcXVlc3RIABJDChZzZWxlY3RDaGFyYWN0",
             "ZXJSZXF1ZXN0GAQgASgLMiEuR2FyZGFyaWtlLlNlbGVjdENoYXJhY3RlclJl",
             "cXVlc3RIABI3ChBwbGFjZVRvd25SZXF1ZXN0GAUgASgLMhsuR2FyZGFyaWtl",
             "LlBsYWNlVG93blJlcXVlc3RIABJDChZzZW5kQ2hhdE1lc3NhZ2VSZXF1ZXN0",
@@ -37,98 +37,106 @@ namespace Gardarike {
             "cXVlc3RIABI/ChRjcmVhdGVBY2NvdW50UmVxdWVzdBgJIAEoCzIfLkdhcmRh",
             "cmlrZS5DcmVhdGVBY2NvdW50UmVxdWVzdEgAEkMKFmNyZWF0ZUNoYXJhY3Rl",
             "clJlcXVlc3QYCiABKAsyIS5HYXJkYXJpa2UuQ3JlYXRlQ2hhcmFjdGVyUmVx",
-            "dWVzdEgAQgYKBGRhdGEiOQoWQ3JlYXRlQ2hhcmFjdGVyUmVxdWVzdBIRCglz",
-            "ZXNzaW9uSUQYASABKAkSDAoEbmFtZRgCIAEoCSI3ChRDcmVhdGVBY2NvdW50",
-            "UmVxdWVzdBINCgVsb2dpbhgCIAEoCRIQCghwYXNzd29yZBgDIAEoCSJaChBQ",
-            "bGFjZVRvd25SZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEoCRIlCghsb2NhdGlv",
-            "bhgCIAEoCzITLkdhcmRhcmlrZS5WZWN0b3IyRBIMCgRuYW1lGAMgASgJIi8K",
-            "GkdldFdvcmtEaXN0cmlidXRpb25SZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEo",
-            "CSJJChVHZXRDaGF0SGlzdG9yeVJlcXVlc3QSEQoJc2Vzc2lvbklEGAEgASgJ",
-            "Eg4KBm9mZnNldBgCIAEoBBINCgVjb3VudBgDIAEoBCI5ChZTZW5kQ2hhdE1l",
-            "c3NhZ2VSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEoCRIMCgR0ZXh0GAIgASgJ",
-            "Ik4KEkdldFdvcmxkTWFwUmVxdWVzdBIRCglzZXNzaW9uSUQYASABKAkSJQoI",
-            "bG9jYXRpb24YAiABKAsyEy5HYXJkYXJpa2UuVmVjdG9yM0QiJwoSR2V0TG9j",
-            "YWxNYXBSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEoCSIyCgxMb2dpblJlcXVl",
-            "c3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dvcmQYAiABKAkiQAoWU2Vs",
-            "ZWN0Q2hhcmFjdGVyUmVxdWVzdBIRCglzZXNzaW9uSUQYASABKAkSEwoLY2hh",
-            "cmFjdGVySUQYAiABKAMi5QYKCFJlc3BvbnNlEjEKDWVycm9yUmVzcG9uc2UY",
-            "ASABKAsyGC5HYXJkYXJpa2UuRXJyb3JSZXNwb25zZUgAEj0KE2dldExvY2Fs",
-            "TWFwUmVzcG9uc2UYAiABKAsyHi5HYXJkYXJpa2UuR2V0TG9jYWxNYXBSZXNw",
-            "b25zZUgAEj0KE2dldFdvcmxkTWFwUmVzcG9uc2UYAyABKAsyHi5HYXJkYXJp",
-            "a2UuR2V0V29ybGRNYXBSZXNwb25zZUgAEjEKDWxvZ2luUmVzcG9uc2UYBCAB",
-            "KAsyGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZUgAEjkKEW11bHRpcGFydFJl",
-            "c3BvbnNlGAUgASgLMhwuR2FyZGFyaWtlLk11bHRpcGFydFJlc3BvbnNlSAAS",
-            "RQoXU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2UYBiABKAsyIi5HYXJkYXJpa2Uu",
-            "U2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2VIABI5ChFwbGFjZVRvd25SZXNwb25z",
-            "ZRgHIAEoCzIcLkdhcmRhcmlrZS5QbGFjZVRvd25SZXNwb25zZUgAEkUKF3Nl",
-            "bmRDaGF0TWVzc2FnZVJlc3BvbnNlGAggASgLMiIuR2FyZGFyaWtlLlNlbmRD",
-            "aGF0TWVzc2FnZVJlc3BvbnNlSAASQwoWZ2V0Q2hhdEhpc3RvcnlSZXNwb25z",
-            "ZRgJIAEoCzIhLkdhcmRhcmlrZS5HZXRDaGF0SGlzdG9yeVJlc3BvbnNlSAAS",
-            "SwoaY2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2UYCiABKAsyJS5HYXJkYXJp",
-            "a2UuQ2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2VIABJNChtnZXRXb3JrRGlz",
-            "dHJpYnV0aW9uUmVzcG9uc2UYCyABKAsyJi5HYXJkYXJpa2UuR2V0V29ya0Rp",
-            "c3RyaWJ1dGlvblJlc3BvbnNlSAASQQoVY3JlYXRlQWNjb3VudFJlc3BvbnNl",
-            "GAwgASgLMiAuR2FyZGFyaWtlLkNyZWF0ZUFjY291bnRSZXNwb25zZUgAEkUK",
-            "F2NyZWF0ZUNoYXJhY3RlclJlc3BvbnNlGA0gASgLMiIuR2FyZGFyaWtlLkNy",
-            "ZWF0ZUNoYXJhY3RlclJlc3BvbnNlSABCBgoEZGF0YSIlChdDcmVhdGVDaGFy",
-            "YWN0ZXJSZXNwb25zZRIKCgJpZBgBIAEoAyIjChVDcmVhdGVBY2NvdW50UmVz",
-            "cG9uc2USCgoCaWQYASABKAMiSQobR2V0V29ya0Rpc3RyaWJ1dGlvblJlc3Bv",
-            "bnNlEhEKCWlkbGVDb3VudBgBIAEoBBIXCg93b29kY3V0dGVyQ291bnQYAiAB",
-            "KAQiHAoaQ2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2UiQgoWR2V0Q2hhdEhp",
-            "c3RvcnlSZXNwb25zZRIoCghtZXNzYWdlcxgBIAMoCzIWLkdhcmRhcmlrZS5D",
-            "aGF0TWVzc2FnZSIsChdTZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZRIRCgltZXNz",
-            "YWdlSUQYASABKAMiEwoRUGxhY2VUb3duUmVzcG9uc2UiIgoRTXVsdGlwYXJ0",
-            "UmVzcG9uc2USDQoFcGFydHMYASABKAMiTAoNTG9naW5SZXNwb25zZRIRCglz",
-            "ZXNzaW9uSUQYASABKAkSKAoKY2hhcmFjdGVycxgCIAMoCzIULkdhcmRhcmlr",
-            "ZS5DaGFyYWN0ZXIiQAoNRXJyb3JSZXNwb25zZRIPCgdtZXNzYWdlGAEgASgJ",
-            "Eh4KBGNvZGUYAiABKA4yEC5HYXJkYXJpa2UuRXJyb3IiOQoXU2VsZWN0Q2hh",
-            "cmFjdGVyUmVzcG9uc2USHgoFdG93bnMYASADKAsyDy5HYXJkYXJpa2UuVG93",
-            "biI3CgtDaGF0TWVzc2FnZRIKCgJpZBgBIAEoAxIOCgZzZW5kZXIYAiABKAkS",
-            "DAoEdGV4dBgDIAEoCSJOCgVFdmVudBI6ChBjaGF0TWVzc2FnZUV2ZW50GAEg",
-            "ASgLMh4uR2FyZGFyaWtlLk5ld0NoYXRNZXNzYWdlRXZlbnRIAEIJCgdwYXls",
-            "b2FkIj4KE05ld0NoYXRNZXNzYWdlRXZlbnQSJwoHbWVzc2FnZRgBIAEoCzIW",
-            "LkdhcmRhcmlrZS5DaGF0TWVzc2FnZSIrCghWZWN0b3IzRBIJCgF4GAEgASgC",
-            "EgkKAXkYAiABKAISCQoBehgDIAEoAiIgCghWZWN0b3IyRBIJCgF4GAEgASgD",
-            "EgkKAXkYAiABKAMiMgoITG9jYWxNYXASJgoJYnVpbGRpbmdzGAQgAygLMhMu",
-            "R2FyZGFyaWtlLkJ1aWxkaW5nIrIBCg1Xb3JsZE1hcENodW5rEgkKAXgYASAB",
-            "KAMSCQoBeRgCIAEoAxINCgV3aWR0aBgDIAEoBRIOCgZoZWlnaHQYBCABKAUS",
-            "DAoEZGF0YRgFIAMoAhIeCgV0b3ducxgGIAMoCzIPLkdhcmRhcmlrZS5Ub3du",
-            "Eg0KBXRyZWVzGAcgASgEEg4KBnN0b25lcxgIIAEoBBIPCgdhbmltYWxzGAkg",
-            "ASgEEg4KBnBsYW50cxgKIAEoBCJRCgRUb3duEgkKAXgYASABKAMSCQoBeRgC",
-            "IAEoAxIMCgRuYW1lGAMgASgJEhEKCW93bmVyTmFtZRgEIAEoCRISCgpwb3B1",
-            "bGF0aW9uGAUgASgEIj0KCEJ1aWxkaW5nEgoKAmlkGAEgASgDEiUKCGxvY2F0",
-            "aW9uGAIgASgLMhMuR2FyZGFyaWtlLlZlY3RvcjNEIjcKE0dldExvY2FsTWFw",
-            "UmVzcG9uc2USIAoDbWFwGAEgASgLMhMuR2FyZGFyaWtlLkxvY2FsTWFwIjwK",
-            "E0dldFdvcmxkTWFwUmVzcG9uc2USJQoDbWFwGAEgASgLMhguR2FyZGFyaWtl",
-            "LldvcmxkTWFwQ2h1bmsiVwoJQ2hhcmFjdGVyEgoKAmlkGAEgASgDEgwKBG5h",
-            "bWUYAiABKAkSFQoNbWF4UG9wdWxhdGlvbhgDIAEoBBIZChFjdXJyZW50UG9w",
-            "dWxhdGlvbhgEIAEoBCrjAQoFRXJyb3ISCwoHVU5LTk9XThAAEhkKFUlOVEVS",
-            "TkFMX1NFUlZFUl9FUlJPUhABEhQKEElOVkFMSURfUEFTU1dPUkQQAhISCg5O",
-            "T1RfQVVUSE9SSVpFRBADEhcKE0NIQVJBQ1RFUl9OT1RfRk9VTkQQBBIPCgtC",
-            "QURfUkVRVUVTVBAFEhoKFkNIQVJBQ1RFUl9OT1RfU0VMRUNURUQQBhIUChBN",
-            "RVNTQUdFX1RPT19MT05HEAcSHQoZVVNFUk5BTUVfSVNfQUxSRUFEWV9UQUtF",
-            "ThAIEg0KCUZPUkJJRERFThAJMuEFCgpHYW1lU2VydmVyEkwKC0dldFdvcmxk",
-            "TWFwEh0uR2FyZGFyaWtlLkdldFdvcmxkTWFwUmVxdWVzdBoeLkdhcmRhcmlr",
-            "ZS5HZXRXb3JsZE1hcFJlc3BvbnNlEksKC0dldExvY2FsTWFwEh0uR2FyZGFy",
-            "aWtlLkdldExvY2FsTWFwUmVxdWVzdBodLkdhcmRhcmlrZS5HZXRMb2NhbE1h",
-            "cFJlcXVlc3QSOgoFTG9naW4SFy5HYXJkYXJpa2UuTG9naW5SZXF1ZXN0Ghgu",
-            "R2FyZGFyaWtlLkxvZ2luUmVzcG9uc2USWAoPU2VsZWN0Q2hhcmFjdGVyEiEu",
-            "R2FyZGFyaWtlLlNlbGVjdENoYXJhY3RlclJlcXVlc3QaIi5HYXJkYXJpa2Uu",
-            "U2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2USRgoJUGxhY2VUb3duEhsuR2FyZGFy",
-            "aWtlLlBsYWNlVG93blJlcXVlc3QaHC5HYXJkYXJpa2UuUGxhY2VUb3duUmVz",
-            "cG9uc2USWAoPU2VuZENoYXRNZXNzYWdlEiEuR2FyZGFyaWtlLlNlbmRDaGF0",
-            "TWVzc2FnZVJlcXVlc3QaIi5HYXJkYXJpa2UuU2VuZENoYXRNZXNzYWdlUmVz",
-            "cG9uc2USVQoOR2V0Q2hhdEhpc3RvcnkSIC5HYXJkYXJpa2UuR2V0Q2hhdEhp",
-            "c3RvcnlSZXF1ZXN0GiEuR2FyZGFyaWtlLkdldENoYXRIaXN0b3J5UmVzcG9u",
-            "c2USUgoNQ3JlYXRlQWNjb3VudBIfLkdhcmRhcmlrZS5DcmVhdGVBY2NvdW50",
-            "UmVxdWVzdBogLkdhcmRhcmlrZS5DcmVhdGVBY2NvdW50UmVzcG9uc2USVQoM",
-            "Q3JlYXRlRW1waXJlEiEuR2FyZGFyaWtlLkNyZWF0ZUNoYXJhY3RlclJlcXVl",
-            "c3QaIi5HYXJkYXJpa2UuQ3JlYXRlQ2hhcmFjdGVyUmVzcG9uc2VCB1oFLjty",
-            "cGNiBnByb3RvMw=="));
+            "dWVzdEgAEj0KE2dldFJlc291cmNlc1JlcXVlc3QYCyABKAsyHi5HYXJkYXJp",
+            "a2UuR2V0UmVzb3VyY2VzUmVxdWVzdEgAQgYKBGRhdGEiKAoTR2V0UmVzb3Vy",
+            "Y2VzUmVxdWVzdBIRCglzZXNzaW9uSUQYASABKAkiOQoWQ3JlYXRlQ2hhcmFj",
+            "dGVyUmVxdWVzdBIRCglzZXNzaW9uSUQYASABKAkSDAoEbmFtZRgCIAEoCSI3",
+            "ChRDcmVhdGVBY2NvdW50UmVxdWVzdBINCgVsb2dpbhgCIAEoCRIQCghwYXNz",
+            "d29yZBgDIAEoCSJaChBQbGFjZVRvd25SZXF1ZXN0EhEKCXNlc3Npb25JRBgB",
+            "IAEoCRIlCghsb2NhdGlvbhgCIAEoCzITLkdhcmRhcmlrZS5WZWN0b3IyRBIM",
+            "CgRuYW1lGAMgASgJIi8KGkdldFdvcmtEaXN0cmlidXRpb25SZXF1ZXN0EhEK",
+            "CXNlc3Npb25JRBgBIAEoCSJJChVHZXRDaGF0SGlzdG9yeVJlcXVlc3QSEQoJ",
+            "c2Vzc2lvbklEGAEgASgJEg4KBm9mZnNldBgCIAEoBBINCgVjb3VudBgDIAEo",
+            "BCI5ChZTZW5kQ2hhdE1lc3NhZ2VSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEo",
+            "CRIMCgR0ZXh0GAIgASgJIk4KEkdldFdvcmxkTWFwUmVxdWVzdBIRCglzZXNz",
+            "aW9uSUQYASABKAkSJQoIbG9jYXRpb24YAiABKAsyEy5HYXJkYXJpa2UuVmVj",
+            "dG9yM0QiJwoSR2V0TG9jYWxNYXBSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEo",
+            "CSIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dv",
+            "cmQYAiABKAkiQAoWU2VsZWN0Q2hhcmFjdGVyUmVxdWVzdBIRCglzZXNzaW9u",
+            "SUQYASABKAkSEwoLY2hhcmFjdGVySUQYAiABKAMipgcKCFJlc3BvbnNlEjEK",
+            "DWVycm9yUmVzcG9uc2UYASABKAsyGC5HYXJkYXJpa2UuRXJyb3JSZXNwb25z",
+            "ZUgAEj0KE2dldExvY2FsTWFwUmVzcG9uc2UYAiABKAsyHi5HYXJkYXJpa2Uu",
+            "R2V0TG9jYWxNYXBSZXNwb25zZUgAEj0KE2dldFdvcmxkTWFwUmVzcG9uc2UY",
+            "AyABKAsyHi5HYXJkYXJpa2UuR2V0V29ybGRNYXBSZXNwb25zZUgAEjEKDWxv",
+            "Z2luUmVzcG9uc2UYBCABKAsyGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZUgA",
+            "EjkKEW11bHRpcGFydFJlc3BvbnNlGAUgASgLMhwuR2FyZGFyaWtlLk11bHRp",
+            "cGFydFJlc3BvbnNlSAASRQoXU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2UYBiAB",
+            "KAsyIi5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2VIABI5ChFw",
+            "bGFjZVRvd25SZXNwb25zZRgHIAEoCzIcLkdhcmRhcmlrZS5QbGFjZVRvd25S",
+            "ZXNwb25zZUgAEkUKF3NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlGAggASgLMiIu",
+            "R2FyZGFyaWtlLlNlbmRDaGF0TWVzc2FnZVJlc3BvbnNlSAASQwoWZ2V0Q2hh",
+            "dEhpc3RvcnlSZXNwb25zZRgJIAEoCzIhLkdhcmRhcmlrZS5HZXRDaGF0SGlz",
+            "dG9yeVJlc3BvbnNlSAASSwoaY2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2UY",
+            "CiABKAsyJS5HYXJkYXJpa2UuQ2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2VI",
+            "ABJNChtnZXRXb3JrRGlzdHJpYnV0aW9uUmVzcG9uc2UYCyABKAsyJi5HYXJk",
+            "YXJpa2UuR2V0V29ya0Rpc3RyaWJ1dGlvblJlc3BvbnNlSAASQQoVY3JlYXRl",
+            "QWNjb3VudFJlc3BvbnNlGAwgASgLMiAuR2FyZGFyaWtlLkNyZWF0ZUFjY291",
+            "bnRSZXNwb25zZUgAEkUKF2NyZWF0ZUNoYXJhY3RlclJlc3BvbnNlGA0gASgL",
+            "MiIuR2FyZGFyaWtlLkNyZWF0ZUNoYXJhY3RlclJlc3BvbnNlSAASPwoUZ2V0",
+            "UmVzb3VyY2VzUmVzcG9uc2UYDiABKAsyHy5HYXJkYXJpa2UuR2V0UmVzb3Vy",
+            "Y2VzUmVzcG9uc2VIAEIGCgRkYXRhIkcKCVJlc291cmNlcxIMCgR3b29kGAEg",
+            "ASgEEg0KBXN0b25lGAIgASgEEgwKBGZvb2QYAyABKAQSDwoHbGVhdGhlchgE",
+            "IAEoBCI/ChRHZXRSZXNvdXJjZXNSZXNwb25zZRInCglyZXNvdXJjZXMYASAB",
+            "KAsyFC5HYXJkYXJpa2UuUmVzb3VyY2VzIiUKF0NyZWF0ZUNoYXJhY3RlclJl",
+            "c3BvbnNlEgoKAmlkGAEgASgDIiMKFUNyZWF0ZUFjY291bnRSZXNwb25zZRIK",
+            "CgJpZBgBIAEoAyJJChtHZXRXb3JrRGlzdHJpYnV0aW9uUmVzcG9uc2USEQoJ",
+            "aWRsZUNvdW50GAEgASgEEhcKD3dvb2RjdXR0ZXJDb3VudBgCIAEoBCIcChpD",
+            "aGF0TWVzc2FnZVB1Ymxpc2hSZXNwb25zZSJCChZHZXRDaGF0SGlzdG9yeVJl",
+            "c3BvbnNlEigKCG1lc3NhZ2VzGAEgAygLMhYuR2FyZGFyaWtlLkNoYXRNZXNz",
+            "YWdlIiwKF1NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlEhEKCW1lc3NhZ2VJRBgB",
+            "IAEoAyI6ChFQbGFjZVRvd25SZXNwb25zZRIlCghsb2NhdGlvbhgBIAEoCzIT",
+            "LkdhcmRhcmlrZS5WZWN0b3IyRCIiChFNdWx0aXBhcnRSZXNwb25zZRINCgVw",
+            "YXJ0cxgBIAEoAyJMCg1Mb2dpblJlc3BvbnNlEhEKCXNlc3Npb25JRBgBIAEo",
+            "CRIoCgpjaGFyYWN0ZXJzGAIgAygLMhQuR2FyZGFyaWtlLkNoYXJhY3RlciJA",
+            "Cg1FcnJvclJlc3BvbnNlEg8KB21lc3NhZ2UYASABKAkSHgoEY29kZRgCIAEo",
+            "DjIQLkdhcmRhcmlrZS5FcnJvciI5ChdTZWxlY3RDaGFyYWN0ZXJSZXNwb25z",
+            "ZRIeCgV0b3ducxgBIAMoCzIPLkdhcmRhcmlrZS5Ub3duIjcKC0NoYXRNZXNz",
+            "YWdlEgoKAmlkGAEgASgDEg4KBnNlbmRlchgCIAEoCRIMCgR0ZXh0GAMgASgJ",
+            "Ik4KBUV2ZW50EjoKEGNoYXRNZXNzYWdlRXZlbnQYASABKAsyHi5HYXJkYXJp",
+            "a2UuTmV3Q2hhdE1lc3NhZ2VFdmVudEgAQgkKB3BheWxvYWQiPgoTTmV3Q2hh",
+            "dE1lc3NhZ2VFdmVudBInCgdtZXNzYWdlGAEgASgLMhYuR2FyZGFyaWtlLkNo",
+            "YXRNZXNzYWdlIisKCFZlY3RvcjNEEgkKAXgYASABKAISCQoBeRgCIAEoAhIJ",
+            "CgF6GAMgASgCIiAKCFZlY3RvcjJEEgkKAXgYASABKAISCQoBeRgCIAEoAiIy",
+            "CghMb2NhbE1hcBImCglidWlsZGluZ3MYBCADKAsyEy5HYXJkYXJpa2UuQnVp",
+            "bGRpbmcisgEKDVdvcmxkTWFwQ2h1bmsSCQoBeBgBIAEoAxIJCgF5GAIgASgD",
+            "Eg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgEIAEoBRIMCgRkYXRhGAUgAygC",
+            "Eh4KBXRvd25zGAYgAygLMg8uR2FyZGFyaWtlLlRvd24SDQoFdHJlZXMYByAB",
+            "KAQSDgoGc3RvbmVzGAggASgEEg8KB2FuaW1hbHMYCSABKAQSDgoGcGxhbnRz",
+            "GAogASgEIlEKBFRvd24SCQoBeBgBIAEoAxIJCgF5GAIgASgDEgwKBG5hbWUY",
+            "AyABKAkSEQoJb3duZXJOYW1lGAQgASgJEhIKCnBvcHVsYXRpb24YBSABKAQi",
+            "PQoIQnVpbGRpbmcSCgoCaWQYASABKAMSJQoIbG9jYXRpb24YAiABKAsyEy5H",
+            "YXJkYXJpa2UuVmVjdG9yM0QiNwoTR2V0TG9jYWxNYXBSZXNwb25zZRIgCgNt",
+            "YXAYASABKAsyEy5HYXJkYXJpa2UuTG9jYWxNYXAiPAoTR2V0V29ybGRNYXBS",
+            "ZXNwb25zZRIlCgNtYXAYASABKAsyGC5HYXJkYXJpa2UuV29ybGRNYXBDaHVu",
+            "ayJXCglDaGFyYWN0ZXISCgoCaWQYASABKAMSDAoEbmFtZRgCIAEoCRIVCg1t",
+            "YXhQb3B1bGF0aW9uGAMgASgEEhkKEWN1cnJlbnRQb3B1bGF0aW9uGAQgASgE",
+            "KuMBCgVFcnJvchILCgdVTktOT1dOEAASGQoVSU5URVJOQUxfU0VSVkVSX0VS",
+            "Uk9SEAESFAoQSU5WQUxJRF9QQVNTV09SRBACEhIKDk5PVF9BVVRIT1JJWkVE",
+            "EAMSFwoTQ0hBUkFDVEVSX05PVF9GT1VORBAEEg8KC0JBRF9SRVFVRVNUEAUS",
+            "GgoWQ0hBUkFDVEVSX05PVF9TRUxFQ1RFRBAGEhQKEE1FU1NBR0VfVE9PX0xP",
+            "TkcQBxIdChlVU0VSTkFNRV9JU19BTFJFQURZX1RBS0VOEAgSDQoJRk9SQklE",
+            "REVOEAky4QUKCkdhbWVTZXJ2ZXISTAoLR2V0V29ybGRNYXASHS5HYXJkYXJp",
+            "a2UuR2V0V29ybGRNYXBSZXF1ZXN0Gh4uR2FyZGFyaWtlLkdldFdvcmxkTWFw",
+            "UmVzcG9uc2USSwoLR2V0TG9jYWxNYXASHS5HYXJkYXJpa2UuR2V0TG9jYWxN",
+            "YXBSZXF1ZXN0Gh0uR2FyZGFyaWtlLkdldExvY2FsTWFwUmVxdWVzdBI6CgVM",
+            "b2dpbhIXLkdhcmRhcmlrZS5Mb2dpblJlcXVlc3QaGC5HYXJkYXJpa2UuTG9n",
+            "aW5SZXNwb25zZRJYCg9TZWxlY3RDaGFyYWN0ZXISIS5HYXJkYXJpa2UuU2Vs",
+            "ZWN0Q2hhcmFjdGVyUmVxdWVzdBoiLkdhcmRhcmlrZS5TZWxlY3RDaGFyYWN0",
+            "ZXJSZXNwb25zZRJGCglQbGFjZVRvd24SGy5HYXJkYXJpa2UuUGxhY2VUb3du",
+            "UmVxdWVzdBocLkdhcmRhcmlrZS5QbGFjZVRvd25SZXNwb25zZRJYCg9TZW5k",
+            "Q2hhdE1lc3NhZ2USIS5HYXJkYXJpa2UuU2VuZENoYXRNZXNzYWdlUmVxdWVz",
+            "dBoiLkdhcmRhcmlrZS5TZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZRJVCg5HZXRD",
+            "aGF0SGlzdG9yeRIgLkdhcmRhcmlrZS5HZXRDaGF0SGlzdG9yeVJlcXVlc3Qa",
+            "IS5HYXJkYXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXNwb25zZRJSCg1DcmVhdGVB",
+            "Y2NvdW50Eh8uR2FyZGFyaWtlLkNyZWF0ZUFjY291bnRSZXF1ZXN0GiAuR2Fy",
+            "ZGFyaWtlLkNyZWF0ZUFjY291bnRSZXNwb25zZRJVCgxDcmVhdGVFbXBpcmUS",
+            "IS5HYXJkYXJpa2UuQ3JlYXRlQ2hhcmFjdGVyUmVxdWVzdBoiLkdhcmRhcmlr",
+            "ZS5DcmVhdGVDaGFyYWN0ZXJSZXNwb25zZUIHWgUuO3JwY2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Gardarike.Error), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Request), global::Gardarike.Request.Parser, new[]{ "GetLocalMapRequest", "GetWorldMapRequest", "LoginRequest", "SelectCharacterRequest", "PlaceTownRequest", "SendChatMessageRequest", "GetChatHistoryRequest", "GetWorkDistributionRequest", "CreateAccountRequest", "CreateCharacterRequest" }, new[]{ "Data" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Request), global::Gardarike.Request.Parser, new[]{ "GetLocalMapRequest", "GetWorldMapRequest", "LoginRequest", "SelectCharacterRequest", "PlaceTownRequest", "SendChatMessageRequest", "GetChatHistoryRequest", "GetWorkDistributionRequest", "CreateAccountRequest", "CreateCharacterRequest", "GetResourcesRequest" }, new[]{ "Data" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetResourcesRequest), global::Gardarike.GetResourcesRequest.Parser, new[]{ "SessionID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.CreateCharacterRequest), global::Gardarike.CreateCharacterRequest.Parser, new[]{ "SessionID", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.CreateAccountRequest), global::Gardarike.CreateAccountRequest.Parser, new[]{ "Login", "Password" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.PlaceTownRequest), global::Gardarike.PlaceTownRequest.Parser, new[]{ "SessionID", "Location", "Name" }, null, null, null),
@@ -139,14 +147,16 @@ namespace Gardarike {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetLocalMapRequest), global::Gardarike.GetLocalMapRequest.Parser, new[]{ "SessionID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.LoginRequest), global::Gardarike.LoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.SelectCharacterRequest), global::Gardarike.SelectCharacterRequest.Parser, new[]{ "SessionID", "CharacterID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Response), global::Gardarike.Response.Parser, new[]{ "ErrorResponse", "GetLocalMapResponse", "GetWorldMapResponse", "LoginResponse", "MultipartResponse", "SelectCharacterResponse", "PlaceTownResponse", "SendChatMessageResponse", "GetChatHistoryResponse", "ChatMessagePublishResponse", "GetWorkDistributionResponse", "CreateAccountResponse", "CreateCharacterResponse" }, new[]{ "Data" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Response), global::Gardarike.Response.Parser, new[]{ "ErrorResponse", "GetLocalMapResponse", "GetWorldMapResponse", "LoginResponse", "MultipartResponse", "SelectCharacterResponse", "PlaceTownResponse", "SendChatMessageResponse", "GetChatHistoryResponse", "ChatMessagePublishResponse", "GetWorkDistributionResponse", "CreateAccountResponse", "CreateCharacterResponse", "GetResourcesResponse" }, new[]{ "Data" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Resources), global::Gardarike.Resources.Parser, new[]{ "Wood", "Stone", "Food", "Leather" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetResourcesResponse), global::Gardarike.GetResourcesResponse.Parser, new[]{ "Resources" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.CreateCharacterResponse), global::Gardarike.CreateCharacterResponse.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.CreateAccountResponse), global::Gardarike.CreateAccountResponse.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetWorkDistributionResponse), global::Gardarike.GetWorkDistributionResponse.Parser, new[]{ "IdleCount", "WoodcutterCount" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ChatMessagePublishResponse), global::Gardarike.ChatMessagePublishResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetChatHistoryResponse), global::Gardarike.GetChatHistoryResponse.Parser, new[]{ "Messages" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.SendChatMessageResponse), global::Gardarike.SendChatMessageResponse.Parser, new[]{ "MessageID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.PlaceTownResponse), global::Gardarike.PlaceTownResponse.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.PlaceTownResponse), global::Gardarike.PlaceTownResponse.Parser, new[]{ "Location" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.MultipartResponse), global::Gardarike.MultipartResponse.Parser, new[]{ "Parts" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.LoginResponse), global::Gardarike.LoginResponse.Parser, new[]{ "SessionID", "Characters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ErrorResponse), global::Gardarike.ErrorResponse.Parser, new[]{ "Message", "Code" }, null, null, null),
@@ -243,6 +253,9 @@ namespace Gardarike {
         case DataOneofCase.CreateCharacterRequest:
           CreateCharacterRequest = other.CreateCharacterRequest.Clone();
           break;
+        case DataOneofCase.GetResourcesRequest:
+          GetResourcesRequest = other.GetResourcesRequest.Clone();
+          break;
       }
 
     }
@@ -263,7 +276,7 @@ namespace Gardarike {
       }
     }
 
-    /// <summary>Field number for the "GetWorldMapRequest" field.</summary>
+    /// <summary>Field number for the "getWorldMapRequest" field.</summary>
     public const int GetWorldMapRequestFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Gardarike.GetWorldMapRequest GetWorldMapRequest {
@@ -285,7 +298,7 @@ namespace Gardarike {
       }
     }
 
-    /// <summary>Field number for the "SelectCharacterRequest" field.</summary>
+    /// <summary>Field number for the "selectCharacterRequest" field.</summary>
     public const int SelectCharacterRequestFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Gardarike.SelectCharacterRequest SelectCharacterRequest {
@@ -362,6 +375,17 @@ namespace Gardarike {
       }
     }
 
+    /// <summary>Field number for the "getResourcesRequest" field.</summary>
+    public const int GetResourcesRequestFieldNumber = 11;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Gardarike.GetResourcesRequest GetResourcesRequest {
+      get { return dataCase_ == DataOneofCase.GetResourcesRequest ? (global::Gardarike.GetResourcesRequest) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.GetResourcesRequest;
+      }
+    }
+
     private object data_;
     /// <summary>Enum of possible cases for the "data" oneof.</summary>
     public enum DataOneofCase {
@@ -376,6 +400,7 @@ namespace Gardarike {
       GetWorkDistributionRequest = 8,
       CreateAccountRequest = 9,
       CreateCharacterRequest = 10,
+      GetResourcesRequest = 11,
     }
     private DataOneofCase dataCase_ = DataOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -412,6 +437,7 @@ namespace Gardarike {
       if (!object.Equals(GetWorkDistributionRequest, other.GetWorkDistributionRequest)) return false;
       if (!object.Equals(CreateAccountRequest, other.CreateAccountRequest)) return false;
       if (!object.Equals(CreateCharacterRequest, other.CreateCharacterRequest)) return false;
+      if (!object.Equals(GetResourcesRequest, other.GetResourcesRequest)) return false;
       if (DataCase != other.DataCase) return false;
       return true;
     }
@@ -429,6 +455,7 @@ namespace Gardarike {
       if (dataCase_ == DataOneofCase.GetWorkDistributionRequest) hash ^= GetWorkDistributionRequest.GetHashCode();
       if (dataCase_ == DataOneofCase.CreateAccountRequest) hash ^= CreateAccountRequest.GetHashCode();
       if (dataCase_ == DataOneofCase.CreateCharacterRequest) hash ^= CreateCharacterRequest.GetHashCode();
+      if (dataCase_ == DataOneofCase.GetResourcesRequest) hash ^= GetResourcesRequest.GetHashCode();
       hash ^= (int) dataCase_;
       return hash;
     }
@@ -480,6 +507,10 @@ namespace Gardarike {
         output.WriteRawTag(82);
         output.WriteMessage(CreateCharacterRequest);
       }
+      if (dataCase_ == DataOneofCase.GetResourcesRequest) {
+        output.WriteRawTag(90);
+        output.WriteMessage(GetResourcesRequest);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -514,6 +545,9 @@ namespace Gardarike {
       }
       if (dataCase_ == DataOneofCase.CreateCharacterRequest) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreateCharacterRequest);
+      }
+      if (dataCase_ == DataOneofCase.GetResourcesRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GetResourcesRequest);
       }
       return size;
     }
@@ -553,6 +587,9 @@ namespace Gardarike {
           break;
         case DataOneofCase.CreateCharacterRequest:
           CreateCharacterRequest = other.CreateCharacterRequest;
+          break;
+        case DataOneofCase.GetResourcesRequest:
+          GetResourcesRequest = other.GetResourcesRequest;
           break;
       }
 
@@ -656,6 +693,132 @@ namespace Gardarike {
             CreateCharacterRequest = subBuilder;
             break;
           }
+          case 90: {
+            global::Gardarike.GetResourcesRequest subBuilder = new global::Gardarike.GetResourcesRequest();
+            if (dataCase_ == DataOneofCase.GetResourcesRequest) {
+              subBuilder.MergeFrom(GetResourcesRequest);
+            }
+            input.ReadMessage(subBuilder);
+            GetResourcesRequest = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GetResourcesRequest : pb::IMessage<GetResourcesRequest> {
+    private static readonly pb::MessageParser<GetResourcesRequest> _parser = new pb::MessageParser<GetResourcesRequest>(() => new GetResourcesRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GetResourcesRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetResourcesRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetResourcesRequest(GetResourcesRequest other) : this() {
+      sessionID_ = other.sessionID_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetResourcesRequest Clone() {
+      return new GetResourcesRequest(this);
+    }
+
+    /// <summary>Field number for the "sessionID" field.</summary>
+    public const int SessionIDFieldNumber = 1;
+    private string sessionID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SessionID {
+      get { return sessionID_; }
+      set {
+        sessionID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GetResourcesRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GetResourcesRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SessionID != other.SessionID) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SessionID.Length != 0) hash ^= SessionID.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (SessionID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SessionID);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (SessionID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SessionID);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GetResourcesRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SessionID.Length != 0) {
+        SessionID = other.SessionID;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            SessionID = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -669,7 +832,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -814,7 +977,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -952,6 +1115,10 @@ namespace Gardarike {
 
   }
 
+  /// <summary>
+  ///  Place town at specific location.
+  ///  First town of the character (capital) will be placed at a random location
+  /// </summary>
   public sealed partial class PlaceTownRequest : pb::IMessage<PlaceTownRequest> {
     private static readonly pb::MessageParser<PlaceTownRequest> _parser = new pb::MessageParser<PlaceTownRequest>(() => new PlaceTownRequest());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -959,7 +1126,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1138,7 +1305,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1259,7 +1426,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1432,7 +1599,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1577,7 +1744,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1728,7 +1895,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1845,7 +2012,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1990,7 +2157,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2138,7 +2305,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2194,6 +2361,9 @@ namespace Gardarike {
           break;
         case DataOneofCase.CreateCharacterResponse:
           CreateCharacterResponse = other.CreateCharacterResponse.Clone();
+          break;
+        case DataOneofCase.GetResourcesResponse:
+          GetResourcesResponse = other.GetResourcesResponse.Clone();
           break;
       }
 
@@ -2347,6 +2517,17 @@ namespace Gardarike {
       }
     }
 
+    /// <summary>Field number for the "getResourcesResponse" field.</summary>
+    public const int GetResourcesResponseFieldNumber = 14;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Gardarike.GetResourcesResponse GetResourcesResponse {
+      get { return dataCase_ == DataOneofCase.GetResourcesResponse ? (global::Gardarike.GetResourcesResponse) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.GetResourcesResponse;
+      }
+    }
+
     private object data_;
     /// <summary>Enum of possible cases for the "data" oneof.</summary>
     public enum DataOneofCase {
@@ -2364,6 +2545,7 @@ namespace Gardarike {
       GetWorkDistributionResponse = 11,
       CreateAccountResponse = 12,
       CreateCharacterResponse = 13,
+      GetResourcesResponse = 14,
     }
     private DataOneofCase dataCase_ = DataOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2403,6 +2585,7 @@ namespace Gardarike {
       if (!object.Equals(GetWorkDistributionResponse, other.GetWorkDistributionResponse)) return false;
       if (!object.Equals(CreateAccountResponse, other.CreateAccountResponse)) return false;
       if (!object.Equals(CreateCharacterResponse, other.CreateCharacterResponse)) return false;
+      if (!object.Equals(GetResourcesResponse, other.GetResourcesResponse)) return false;
       if (DataCase != other.DataCase) return false;
       return true;
     }
@@ -2423,6 +2606,7 @@ namespace Gardarike {
       if (dataCase_ == DataOneofCase.GetWorkDistributionResponse) hash ^= GetWorkDistributionResponse.GetHashCode();
       if (dataCase_ == DataOneofCase.CreateAccountResponse) hash ^= CreateAccountResponse.GetHashCode();
       if (dataCase_ == DataOneofCase.CreateCharacterResponse) hash ^= CreateCharacterResponse.GetHashCode();
+      if (dataCase_ == DataOneofCase.GetResourcesResponse) hash ^= GetResourcesResponse.GetHashCode();
       hash ^= (int) dataCase_;
       return hash;
     }
@@ -2486,6 +2670,10 @@ namespace Gardarike {
         output.WriteRawTag(106);
         output.WriteMessage(CreateCharacterResponse);
       }
+      if (dataCase_ == DataOneofCase.GetResourcesResponse) {
+        output.WriteRawTag(114);
+        output.WriteMessage(GetResourcesResponse);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2529,6 +2717,9 @@ namespace Gardarike {
       }
       if (dataCase_ == DataOneofCase.CreateCharacterResponse) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreateCharacterResponse);
+      }
+      if (dataCase_ == DataOneofCase.GetResourcesResponse) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GetResourcesResponse);
       }
       return size;
     }
@@ -2577,6 +2768,9 @@ namespace Gardarike {
           break;
         case DataOneofCase.CreateCharacterResponse:
           CreateCharacterResponse = other.CreateCharacterResponse;
+          break;
+        case DataOneofCase.GetResourcesResponse:
+          GetResourcesResponse = other.GetResourcesResponse;
           break;
       }
 
@@ -2707,6 +2901,339 @@ namespace Gardarike {
             CreateCharacterResponse = subBuilder;
             break;
           }
+          case 114: {
+            global::Gardarike.GetResourcesResponse subBuilder = new global::Gardarike.GetResourcesResponse();
+            if (dataCase_ == DataOneofCase.GetResourcesResponse) {
+              subBuilder.MergeFrom(GetResourcesResponse);
+            }
+            input.ReadMessage(subBuilder);
+            GetResourcesResponse = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Resources : pb::IMessage<Resources> {
+    private static readonly pb::MessageParser<Resources> _parser = new pb::MessageParser<Resources>(() => new Resources());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Resources> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Resources() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Resources(Resources other) : this() {
+      wood_ = other.wood_;
+      stone_ = other.stone_;
+      food_ = other.food_;
+      leather_ = other.leather_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Resources Clone() {
+      return new Resources(this);
+    }
+
+    /// <summary>Field number for the "wood" field.</summary>
+    public const int WoodFieldNumber = 1;
+    private ulong wood_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Wood {
+      get { return wood_; }
+      set {
+        wood_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stone" field.</summary>
+    public const int StoneFieldNumber = 2;
+    private ulong stone_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Stone {
+      get { return stone_; }
+      set {
+        stone_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "food" field.</summary>
+    public const int FoodFieldNumber = 3;
+    private ulong food_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Food {
+      get { return food_; }
+      set {
+        food_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "leather" field.</summary>
+    public const int LeatherFieldNumber = 4;
+    private ulong leather_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Leather {
+      get { return leather_; }
+      set {
+        leather_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Resources);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Resources other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Wood != other.Wood) return false;
+      if (Stone != other.Stone) return false;
+      if (Food != other.Food) return false;
+      if (Leather != other.Leather) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Wood != 0UL) hash ^= Wood.GetHashCode();
+      if (Stone != 0UL) hash ^= Stone.GetHashCode();
+      if (Food != 0UL) hash ^= Food.GetHashCode();
+      if (Leather != 0UL) hash ^= Leather.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Wood != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Wood);
+      }
+      if (Stone != 0UL) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(Stone);
+      }
+      if (Food != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Food);
+      }
+      if (Leather != 0UL) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(Leather);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Wood != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Wood);
+      }
+      if (Stone != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Stone);
+      }
+      if (Food != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Food);
+      }
+      if (Leather != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Leather);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Resources other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Wood != 0UL) {
+        Wood = other.Wood;
+      }
+      if (other.Stone != 0UL) {
+        Stone = other.Stone;
+      }
+      if (other.Food != 0UL) {
+        Food = other.Food;
+      }
+      if (other.Leather != 0UL) {
+        Leather = other.Leather;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Wood = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Stone = input.ReadUInt64();
+            break;
+          }
+          case 24: {
+            Food = input.ReadUInt64();
+            break;
+          }
+          case 32: {
+            Leather = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GetResourcesResponse : pb::IMessage<GetResourcesResponse> {
+    private static readonly pb::MessageParser<GetResourcesResponse> _parser = new pb::MessageParser<GetResourcesResponse>(() => new GetResourcesResponse());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GetResourcesResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetResourcesResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetResourcesResponse(GetResourcesResponse other) : this() {
+      Resources = other.resources_ != null ? other.Resources.Clone() : null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetResourcesResponse Clone() {
+      return new GetResourcesResponse(this);
+    }
+
+    /// <summary>Field number for the "resources" field.</summary>
+    public const int ResourcesFieldNumber = 1;
+    private global::Gardarike.Resources resources_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Gardarike.Resources Resources {
+      get { return resources_; }
+      set {
+        resources_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GetResourcesResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GetResourcesResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Resources, other.Resources)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (resources_ != null) hash ^= Resources.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (resources_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Resources);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (resources_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Resources);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GetResourcesResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.resources_ != null) {
+        if (resources_ == null) {
+          resources_ = new global::Gardarike.Resources();
+        }
+        Resources.MergeFrom(other.Resources);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (resources_ == null) {
+              resources_ = new global::Gardarike.Resources();
+            }
+            input.ReadMessage(resources_);
+            break;
+          }
         }
       }
     }
@@ -2720,7 +3247,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2837,7 +3364,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2954,7 +3481,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3099,7 +3626,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3188,7 +3715,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3297,7 +3824,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3407,6 +3934,9 @@ namespace Gardarike {
 
   }
 
+  /// <summary>
+  ///  location will be filled with random value on the first town placing
+  /// </summary>
   public sealed partial class PlaceTownResponse : pb::IMessage<PlaceTownResponse> {
     private static readonly pb::MessageParser<PlaceTownResponse> _parser = new pb::MessageParser<PlaceTownResponse>(() => new PlaceTownResponse());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3414,7 +3944,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3431,11 +3961,23 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PlaceTownResponse(PlaceTownResponse other) : this() {
+      Location = other.location_ != null ? other.Location.Clone() : null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PlaceTownResponse Clone() {
       return new PlaceTownResponse(this);
+    }
+
+    /// <summary>Field number for the "location" field.</summary>
+    public const int LocationFieldNumber = 1;
+    private global::Gardarike.Vector2D location_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Gardarike.Vector2D Location {
+      get { return location_; }
+      set {
+        location_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3451,12 +3993,14 @@ namespace Gardarike {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Location, other.Location)) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (location_ != null) hash ^= Location.GetHashCode();
       return hash;
     }
 
@@ -3467,11 +4011,18 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (location_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Location);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (location_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Location);
+      }
       return size;
     }
 
@@ -3479,6 +4030,12 @@ namespace Gardarike {
     public void MergeFrom(PlaceTownResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.location_ != null) {
+        if (location_ == null) {
+          location_ = new global::Gardarike.Vector2D();
+        }
+        Location.MergeFrom(other.Location);
       }
     }
 
@@ -3490,6 +4047,13 @@ namespace Gardarike {
           default:
             input.SkipLastField();
             break;
+          case 10: {
+            if (location_ == null) {
+              location_ = new global::Gardarike.Vector2D();
+            }
+            input.ReadMessage(location_);
+            break;
+          }
         }
       }
     }
@@ -3508,7 +4072,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3625,7 +4189,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3762,7 +4326,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3907,7 +4471,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4016,7 +4580,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4189,7 +4753,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4339,7 +4903,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4462,7 +5026,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4635,7 +5199,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4663,9 +5227,9 @@ namespace Gardarike {
 
     /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
-    private long x_;
+    private float x_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long X {
+    public float X {
       get { return x_; }
       set {
         x_ = value;
@@ -4674,9 +5238,9 @@ namespace Gardarike {
 
     /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
-    private long y_;
+    private float y_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Y {
+    public float Y {
       get { return y_; }
       set {
         y_ = value;
@@ -4704,8 +5268,8 @@ namespace Gardarike {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (X != 0L) hash ^= X.GetHashCode();
-      if (Y != 0L) hash ^= Y.GetHashCode();
+      if (X != 0F) hash ^= X.GetHashCode();
+      if (Y != 0F) hash ^= Y.GetHashCode();
       return hash;
     }
 
@@ -4716,24 +5280,24 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (X != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(X);
+      if (X != 0F) {
+        output.WriteRawTag(13);
+        output.WriteFloat(X);
       }
-      if (Y != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Y);
+      if (Y != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Y);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (X != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(X);
+      if (X != 0F) {
+        size += 1 + 4;
       }
-      if (Y != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Y);
+      if (Y != 0F) {
+        size += 1 + 4;
       }
       return size;
     }
@@ -4743,10 +5307,10 @@ namespace Gardarike {
       if (other == null) {
         return;
       }
-      if (other.X != 0L) {
+      if (other.X != 0F) {
         X = other.X;
       }
-      if (other.Y != 0L) {
+      if (other.Y != 0F) {
         Y = other.Y;
       }
     }
@@ -4759,12 +5323,12 @@ namespace Gardarike {
           default:
             input.SkipLastField();
             break;
-          case 8: {
-            X = input.ReadInt64();
+          case 13: {
+            X = input.ReadFloat();
             break;
           }
-          case 16: {
-            Y = input.ReadInt64();
+          case 21: {
+            Y = input.ReadFloat();
             break;
           }
         }
@@ -4783,7 +5347,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4892,7 +5456,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[29]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5249,7 +5813,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[30]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5478,7 +6042,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[31]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5629,7 +6193,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[32]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5752,7 +6316,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[33]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5875,7 +6439,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[34]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

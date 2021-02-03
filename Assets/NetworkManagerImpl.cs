@@ -178,9 +178,25 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onRegistrationRequest += SendRegistrationEvent;
         EventBus.instance.onNewCharacterRequest += SendNewCharacterRequest;
         EventBus.instance.onNewTownRequest += SendNewTownRequest;
+        EventBus.instance.onResourceUpdateRequest += SendResourceRequest;
         //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendResourceRequest()
+    {
+        Debug.Log("Send resource request");
+
+        var resourceRequest = new Request
+        {
+            GetResourcesRequest = new GetResourcesRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+            }
+        };
+
+        requestQueue.Enqueue(resourceRequest.ToByteArray());
     }
 
     private void SendNewCharacterRequest(string name)

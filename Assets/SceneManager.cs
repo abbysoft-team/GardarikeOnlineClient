@@ -80,7 +80,6 @@ public class SceneManager : MonoBehaviour
         Debug.Log("Showing tutorial message");
         // TODO extract messages to Strings.cs
         var dialogId = EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, GlobalConstants.COUNTRY_NAME_PROPERTY);
-        //EventBus.instance.ShowInfo("Info", "New empire " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " now exist on the world map!");
         dialogId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
         EventBus.instance.onEventFinished += (id, result) => {
             if (id == dialogId) 

@@ -9,6 +9,8 @@ public class InputDialog : Dialog
     public Text errorLabel;
     public string property;
 
+    public DialogManager dialogManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,5 +55,6 @@ public class InputDialog : Dialog
 
         PlayerPrefs.SetString(property, input.text);
         gameObject.SetActive(false);
+        dialogManager.DialogFinished();
     }
 }

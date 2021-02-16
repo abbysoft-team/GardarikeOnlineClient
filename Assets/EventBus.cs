@@ -40,7 +40,7 @@ public class EventBus : MonoBehaviour
     public event Action onRegistrationComplete;
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
-    public event Action<int, GameObject> onChooseLocationForBuilding;
+    public event Action<int, GameObject> onBuildingStarted;
     public event Action onResourceUpdateRequest;
     public event Action<Gardarike.Resources> onResourceUpdateArrived;
 
@@ -204,7 +204,7 @@ public class EventBus : MonoBehaviour
     public int ChooseLocationForBuilding(GameObject reference)
     {
         var eventId = UnityEngine.Random.Range(0, 9999999);
-        onChooseLocationForBuilding?.Invoke(eventId, reference);
+        onBuildingStarted?.Invoke(eventId, reference);
 
         return eventId;
     }

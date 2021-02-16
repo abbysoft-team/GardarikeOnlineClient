@@ -12,7 +12,6 @@ public class ResourceManager : MonoBehaviour
 
     private void UpdateResources(Gardarike.Resources resources)
     {
-        Debug.Log("FFLSKDJFLKSJDF:SLKJDF");
         // TODO gold
         //PlayerPrefs.SetInt(GlobalConstants.GOLD, resources.)
         PlayerPrefs.SetInt(GlobalConstants.STONE, (int) resources.Stone);

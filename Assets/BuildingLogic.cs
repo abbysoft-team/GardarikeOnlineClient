@@ -18,7 +18,7 @@ public class BuildingLogic : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onChooseLocationForBuilding += ChooseBuildingLocation;
+        EventBus.instance.onBuildingStarted += ChooseBuildingLocation;
         prototypingUI.SetActive(false);
         state = BuildingState.READY_FOR_BUILDING;
     }

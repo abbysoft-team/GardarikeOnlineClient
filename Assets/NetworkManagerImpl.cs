@@ -22,6 +22,8 @@ public class NetworkManagerImpl : NetworkManager
     private Queue<Gardarike.Event> eventQueue;
     private Queue<byte[]> requestQueue;
 
+    public static bool networkError = false;
+
     private void StartZeroMQCommunicationThread()
     {
         Task.Run(() =>
@@ -33,8 +35,6 @@ public class NetworkManagerImpl : NetworkManager
             catch (System.Exception e)
             {
                 Debug.LogError("Error occured in network thread: " + e);
-                EventBus.instance.CloseLoadingDialog();
-                EventBus.instance.ShowError("Could not connect to server.\nTry again later");
             }
         });
 
@@ -48,7 +48,7 @@ public class NetworkManagerImpl : NetworkManager
             {
                 Debug.LogError("Error occured in network thread: " + e);
                 EventBus.instance.CloseLoadingDialog();
-                EventBus.instance.ShowError("Could not connect to server.\nTry again later");
+                EventBus.instance.ShowError("Could not connect to server.");
             }
         });
     }
@@ -104,11 +104,15 @@ public class NetworkManagerImpl : NetworkManager
 
                 SendNextRequest(requester);
 
-                var reply = requester.ReceiveFrameBytes();
+                var success = requester.TryReceiveFrameBytes(out byte[] bytes);
+                if (!success) {
+                    networkError = true;
+                    continue;
+                }
 
-                Debug.Log("Received response from server: " + reply.Length);
+                Debug.Log("Received response from server: " + bytes.Length);
 
-                EnqueueResponse(reply);
+                EnqueueResponse(bytes);
             }
         }
     }

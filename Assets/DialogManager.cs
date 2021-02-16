@@ -19,6 +19,16 @@ public class DialogManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void Update()
+    {
+        if (NetworkManagerImpl.networkError)
+        {
+            UpdateLoadingDialogState(false);
+            ShowError("Could not connect to server");   
+            NetworkManagerImpl.networkError = false;
+        }
+    }
+
     private void AddToQueue(int id, string title, string message, string inputProperty, DialogType type)
     {
         var info = new DialogInfo(id, title, message, inputProperty, type);
@@ -82,12 +92,6 @@ public class DialogManager : MonoBehaviour
     
         messageDialog.gameObject.SetActive(true);
         gameObject.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void DialogFinished()

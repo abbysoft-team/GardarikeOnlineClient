@@ -90,48 +90,50 @@ namespace Gardarike {
             "CRIoCgpjaGFyYWN0ZXJzGAIgAygLMhQuR2FyZGFyaWtlLkNoYXJhY3RlciJA",
             "Cg1FcnJvclJlc3BvbnNlEg8KB21lc3NhZ2UYASABKAkSHgoEY29kZRgCIAEo",
             "DjIQLkdhcmRhcmlrZS5FcnJvciI5ChdTZWxlY3RDaGFyYWN0ZXJSZXNwb25z",
-            "ZRIeCgV0b3ducxgBIAMoCzIPLkdhcmRhcmlrZS5Ub3duIjcKC0NoYXRNZXNz",
-            "YWdlEgoKAmlkGAEgASgDEg4KBnNlbmRlchgCIAEoCRIMCgR0ZXh0GAMgASgJ",
-            "Ik4KBUV2ZW50EjoKEGNoYXRNZXNzYWdlRXZlbnQYASABKAsyHi5HYXJkYXJp",
-            "a2UuTmV3Q2hhdE1lc3NhZ2VFdmVudEgAQgkKB3BheWxvYWQiPgoTTmV3Q2hh",
-            "dE1lc3NhZ2VFdmVudBInCgdtZXNzYWdlGAEgASgLMhYuR2FyZGFyaWtlLkNo",
-            "YXRNZXNzYWdlIisKCFZlY3RvcjNEEgkKAXgYASABKAISCQoBeRgCIAEoAhIJ",
-            "CgF6GAMgASgCIiAKCFZlY3RvcjJEEgkKAXgYASABKAISCQoBeRgCIAEoAiIy",
-            "CghMb2NhbE1hcBImCglidWlsZGluZ3MYBCADKAsyEy5HYXJkYXJpa2UuQnVp",
-            "bGRpbmcisgEKDVdvcmxkTWFwQ2h1bmsSCQoBeBgBIAEoAxIJCgF5GAIgASgD",
-            "Eg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgEIAEoBRIMCgRkYXRhGAUgAygC",
-            "Eh4KBXRvd25zGAYgAygLMg8uR2FyZGFyaWtlLlRvd24SDQoFdHJlZXMYByAB",
-            "KAQSDgoGc3RvbmVzGAggASgEEg8KB2FuaW1hbHMYCSABKAQSDgoGcGxhbnRz",
-            "GAogASgEIlEKBFRvd24SCQoBeBgBIAEoAxIJCgF5GAIgASgDEgwKBG5hbWUY",
-            "AyABKAkSEQoJb3duZXJOYW1lGAQgASgJEhIKCnBvcHVsYXRpb24YBSABKAQi",
-            "PQoIQnVpbGRpbmcSCgoCaWQYASABKAMSJQoIbG9jYXRpb24YAiABKAsyEy5H",
-            "YXJkYXJpa2UuVmVjdG9yM0QiNwoTR2V0TG9jYWxNYXBSZXNwb25zZRIgCgNt",
-            "YXAYASABKAsyEy5HYXJkYXJpa2UuTG9jYWxNYXAiPAoTR2V0V29ybGRNYXBS",
-            "ZXNwb25zZRIlCgNtYXAYASABKAsyGC5HYXJkYXJpa2UuV29ybGRNYXBDaHVu",
-            "ayJXCglDaGFyYWN0ZXISCgoCaWQYASABKAMSDAoEbmFtZRgCIAEoCRIVCg1t",
-            "YXhQb3B1bGF0aW9uGAMgASgEEhkKEWN1cnJlbnRQb3B1bGF0aW9uGAQgASgE",
-            "KuMBCgVFcnJvchILCgdVTktOT1dOEAASGQoVSU5URVJOQUxfU0VSVkVSX0VS",
-            "Uk9SEAESFAoQSU5WQUxJRF9QQVNTV09SRBACEhIKDk5PVF9BVVRIT1JJWkVE",
-            "EAMSFwoTQ0hBUkFDVEVSX05PVF9GT1VORBAEEg8KC0JBRF9SRVFVRVNUEAUS",
-            "GgoWQ0hBUkFDVEVSX05PVF9TRUxFQ1RFRBAGEhQKEE1FU1NBR0VfVE9PX0xP",
-            "TkcQBxIdChlVU0VSTkFNRV9JU19BTFJFQURZX1RBS0VOEAgSDQoJRk9SQklE",
-            "REVOEAky4QUKCkdhbWVTZXJ2ZXISTAoLR2V0V29ybGRNYXASHS5HYXJkYXJp",
-            "a2UuR2V0V29ybGRNYXBSZXF1ZXN0Gh4uR2FyZGFyaWtlLkdldFdvcmxkTWFw",
-            "UmVzcG9uc2USSwoLR2V0TG9jYWxNYXASHS5HYXJkYXJpa2UuR2V0TG9jYWxN",
-            "YXBSZXF1ZXN0Gh0uR2FyZGFyaWtlLkdldExvY2FsTWFwUmVxdWVzdBI6CgVM",
-            "b2dpbhIXLkdhcmRhcmlrZS5Mb2dpblJlcXVlc3QaGC5HYXJkYXJpa2UuTG9n",
-            "aW5SZXNwb25zZRJYCg9TZWxlY3RDaGFyYWN0ZXISIS5HYXJkYXJpa2UuU2Vs",
-            "ZWN0Q2hhcmFjdGVyUmVxdWVzdBoiLkdhcmRhcmlrZS5TZWxlY3RDaGFyYWN0",
-            "ZXJSZXNwb25zZRJGCglQbGFjZVRvd24SGy5HYXJkYXJpa2UuUGxhY2VUb3du",
-            "UmVxdWVzdBocLkdhcmRhcmlrZS5QbGFjZVRvd25SZXNwb25zZRJYCg9TZW5k",
-            "Q2hhdE1lc3NhZ2USIS5HYXJkYXJpa2UuU2VuZENoYXRNZXNzYWdlUmVxdWVz",
-            "dBoiLkdhcmRhcmlrZS5TZW5kQ2hhdE1lc3NhZ2VSZXNwb25zZRJVCg5HZXRD",
-            "aGF0SGlzdG9yeRIgLkdhcmRhcmlrZS5HZXRDaGF0SGlzdG9yeVJlcXVlc3Qa",
-            "IS5HYXJkYXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXNwb25zZRJSCg1DcmVhdGVB",
-            "Y2NvdW50Eh8uR2FyZGFyaWtlLkNyZWF0ZUFjY291bnRSZXF1ZXN0GiAuR2Fy",
-            "ZGFyaWtlLkNyZWF0ZUFjY291bnRSZXNwb25zZRJVCgxDcmVhdGVFbXBpcmUS",
-            "IS5HYXJkYXJpa2UuQ3JlYXRlQ2hhcmFjdGVyUmVxdWVzdBoiLkdhcmRhcmlr",
-            "ZS5DcmVhdGVDaGFyYWN0ZXJSZXNwb25zZUIHWgUuO3JwY2IGcHJvdG8z"));
+            "ZRIeCgV0b3ducxgBIAMoCzIPLkdhcmRhcmlrZS5Ub3duIoIBCgtDaGF0TWVz",
+            "c2FnZRIKCgJpZBgBIAEoAxIOCgZzZW5kZXIYAiABKAkSDAoEdGV4dBgDIAEo",
+            "CRIpCgR0eXBlGAQgASgOMhsuR2FyZGFyaWtlLkNoYXRNZXNzYWdlLlR5cGUi",
+            "HgoEVHlwZRIKCgZOT1JNQUwQABIKCgZTWVNURU0QASJOCgVFdmVudBI6ChBj",
+            "aGF0TWVzc2FnZUV2ZW50GAEgASgLMh4uR2FyZGFyaWtlLk5ld0NoYXRNZXNz",
+            "YWdlRXZlbnRIAEIJCgdwYXlsb2FkIj4KE05ld0NoYXRNZXNzYWdlRXZlbnQS",
+            "JwoHbWVzc2FnZRgBIAEoCzIWLkdhcmRhcmlrZS5DaGF0TWVzc2FnZSIrCghW",
+            "ZWN0b3IzRBIJCgF4GAEgASgCEgkKAXkYAiABKAISCQoBehgDIAEoAiIgCghW",
+            "ZWN0b3IyRBIJCgF4GAEgASgCEgkKAXkYAiABKAIiMgoITG9jYWxNYXASJgoJ",
+            "YnVpbGRpbmdzGAQgAygLMhMuR2FyZGFyaWtlLkJ1aWxkaW5nIrIBCg1Xb3Js",
+            "ZE1hcENodW5rEgkKAXgYASABKAMSCQoBeRgCIAEoAxINCgV3aWR0aBgDIAEo",
+            "BRIOCgZoZWlnaHQYBCABKAUSDAoEZGF0YRgFIAMoAhIeCgV0b3ducxgGIAMo",
+            "CzIPLkdhcmRhcmlrZS5Ub3duEg0KBXRyZWVzGAcgASgEEg4KBnN0b25lcxgI",
+            "IAEoBBIPCgdhbmltYWxzGAkgASgEEg4KBnBsYW50cxgKIAEoBCJRCgRUb3du",
+            "EgkKAXgYASABKAMSCQoBeRgCIAEoAxIMCgRuYW1lGAMgASgJEhEKCW93bmVy",
+            "TmFtZRgEIAEoCRISCgpwb3B1bGF0aW9uGAUgASgEIj0KCEJ1aWxkaW5nEgoK",
+            "AmlkGAEgASgDEiUKCGxvY2F0aW9uGAIgASgLMhMuR2FyZGFyaWtlLlZlY3Rv",
+            "cjNEIjcKE0dldExvY2FsTWFwUmVzcG9uc2USIAoDbWFwGAEgASgLMhMuR2Fy",
+            "ZGFyaWtlLkxvY2FsTWFwIjwKE0dldFdvcmxkTWFwUmVzcG9uc2USJQoDbWFw",
+            "GAEgASgLMhguR2FyZGFyaWtlLldvcmxkTWFwQ2h1bmsiVwoJQ2hhcmFjdGVy",
+            "EgoKAmlkGAEgASgDEgwKBG5hbWUYAiABKAkSFQoNbWF4UG9wdWxhdGlvbhgD",
+            "IAEoBBIZChFjdXJyZW50UG9wdWxhdGlvbhgEIAEoBCrjAQoFRXJyb3ISCwoH",
+            "VU5LTk9XThAAEhkKFUlOVEVSTkFMX1NFUlZFUl9FUlJPUhABEhQKEElOVkFM",
+            "SURfUEFTU1dPUkQQAhISCg5OT1RfQVVUSE9SSVpFRBADEhcKE0NIQVJBQ1RF",
+            "Ul9OT1RfRk9VTkQQBBIPCgtCQURfUkVRVUVTVBAFEhoKFkNIQVJBQ1RFUl9O",
+            "T1RfU0VMRUNURUQQBhIUChBNRVNTQUdFX1RPT19MT05HEAcSHQoZVVNFUk5B",
+            "TUVfSVNfQUxSRUFEWV9UQUtFThAIEg0KCUZPUkJJRERFThAJMuEFCgpHYW1l",
+            "U2VydmVyEkwKC0dldFdvcmxkTWFwEh0uR2FyZGFyaWtlLkdldFdvcmxkTWFw",
+            "UmVxdWVzdBoeLkdhcmRhcmlrZS5HZXRXb3JsZE1hcFJlc3BvbnNlEksKC0dl",
+            "dExvY2FsTWFwEh0uR2FyZGFyaWtlLkdldExvY2FsTWFwUmVxdWVzdBodLkdh",
+            "cmRhcmlrZS5HZXRMb2NhbE1hcFJlcXVlc3QSOgoFTG9naW4SFy5HYXJkYXJp",
+            "a2UuTG9naW5SZXF1ZXN0GhguR2FyZGFyaWtlLkxvZ2luUmVzcG9uc2USWAoP",
+            "U2VsZWN0Q2hhcmFjdGVyEiEuR2FyZGFyaWtlLlNlbGVjdENoYXJhY3RlclJl",
+            "cXVlc3QaIi5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2USRgoJ",
+            "UGxhY2VUb3duEhsuR2FyZGFyaWtlLlBsYWNlVG93blJlcXVlc3QaHC5HYXJk",
+            "YXJpa2UuUGxhY2VUb3duUmVzcG9uc2USWAoPU2VuZENoYXRNZXNzYWdlEiEu",
+            "R2FyZGFyaWtlLlNlbmRDaGF0TWVzc2FnZVJlcXVlc3QaIi5HYXJkYXJpa2Uu",
+            "U2VuZENoYXRNZXNzYWdlUmVzcG9uc2USVQoOR2V0Q2hhdEhpc3RvcnkSIC5H",
+            "YXJkYXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXF1ZXN0GiEuR2FyZGFyaWtlLkdl",
+            "dENoYXRIaXN0b3J5UmVzcG9uc2USUgoNQ3JlYXRlQWNjb3VudBIfLkdhcmRh",
+            "cmlrZS5DcmVhdGVBY2NvdW50UmVxdWVzdBogLkdhcmRhcmlrZS5DcmVhdGVB",
+            "Y2NvdW50UmVzcG9uc2USVQoMQ3JlYXRlRW1waXJlEiEuR2FyZGFyaWtlLkNy",
+            "ZWF0ZUNoYXJhY3RlclJlcXVlc3QaIi5HYXJkYXJpa2UuQ3JlYXRlQ2hhcmFj",
+            "dGVyUmVzcG9uc2VCB1oFLjtycGNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Gardarike.Error), }, new pbr::GeneratedClrTypeInfo[] {
@@ -161,7 +163,7 @@ namespace Gardarike {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.LoginResponse), global::Gardarike.LoginResponse.Parser, new[]{ "SessionID", "Characters" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ErrorResponse), global::Gardarike.ErrorResponse.Parser, new[]{ "Message", "Code" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.SelectCharacterResponse), global::Gardarike.SelectCharacterResponse.Parser, new[]{ "Towns" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ChatMessage), global::Gardarike.ChatMessage.Parser, new[]{ "Id", "Sender", "Text" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.ChatMessage), global::Gardarike.ChatMessage.Parser, new[]{ "Id", "Sender", "Text", "Type" }, null, new[]{ typeof(global::Gardarike.ChatMessage.Types.Type) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Event), global::Gardarike.Event.Parser, new[]{ "ChatMessageEvent" }, new[]{ "Payload" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.NewChatMessageEvent), global::Gardarike.NewChatMessageEvent.Parser, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Vector3D), global::Gardarike.Vector3D.Parser, new[]{ "X", "Y", "Z" }, null, null, null),
@@ -4600,6 +4602,7 @@ namespace Gardarike {
       id_ = other.id_;
       sender_ = other.sender_;
       text_ = other.text_;
+      type_ = other.type_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4640,6 +4643,17 @@ namespace Gardarike {
       }
     }
 
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 4;
+    private global::Gardarike.ChatMessage.Types.Type type_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Gardarike.ChatMessage.Types.Type Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ChatMessage);
@@ -4656,6 +4670,7 @@ namespace Gardarike {
       if (Id != other.Id) return false;
       if (Sender != other.Sender) return false;
       if (Text != other.Text) return false;
+      if (Type != other.Type) return false;
       return true;
     }
 
@@ -4665,6 +4680,7 @@ namespace Gardarike {
       if (Id != 0L) hash ^= Id.GetHashCode();
       if (Sender.Length != 0) hash ^= Sender.GetHashCode();
       if (Text.Length != 0) hash ^= Text.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
       return hash;
     }
 
@@ -4687,6 +4703,10 @@ namespace Gardarike {
         output.WriteRawTag(26);
         output.WriteString(Text);
       }
+      if (Type != 0) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Type);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4700,6 +4720,9 @@ namespace Gardarike {
       }
       if (Text.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       return size;
     }
@@ -4717,6 +4740,9 @@ namespace Gardarike {
       }
       if (other.Text.Length != 0) {
         Text = other.Text;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
       }
     }
 
@@ -4740,9 +4766,25 @@ namespace Gardarike {
             Text = input.ReadString();
             break;
           }
+          case 32: {
+            type_ = (global::Gardarike.ChatMessage.Types.Type) input.ReadEnum();
+            break;
+          }
         }
       }
     }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the ChatMessage message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum Type {
+        [pbr::OriginalName("NORMAL")] Normal = 0,
+        [pbr::OriginalName("SYSTEM")] System = 1,
+      }
+
+    }
+    #endregion
 
   }
 

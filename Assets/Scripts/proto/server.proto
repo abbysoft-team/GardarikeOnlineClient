@@ -177,6 +177,13 @@ message ChatMessage {
   int64 id = 1;
   string sender = 2;
   string text = 3;
+
+  enum Type {
+    NORMAL = 0;
+    SYSTEM = 1;
+  }
+
+  Type type = 4;
 }
 
 message Event {

@@ -11,20 +11,22 @@ public class ChatComponent : MonoBehaviour
 {
     public static int MAX_MESSAGES_DISPLAYED = 4;
 
-    public Text textArea;
+    private Text[] chatRows;
     public InputField input;
     private RepeatedField<ChatMessage> displayedMessages;
 
     // Start is called before the first frame update
     void Start()
     {
+        chatRows = GetComponentsInChildren<Text>();
+
         // Don't load chat history
         //EventBus.instance.onCharacterSelected += LoadChatHistory;
         EventBus.instance.onChatHistoryLoaded += UpdateChatText;
         EventBus.instance.onNewMessageArrived += ShowNewMessage;
 
         displayedMessages = new RepeatedField<ChatMessage>();
-        displayedMessages.Add(new ChatMessage {Sender = "Gardarike", Text = "Welcome to Bugaga server"});
+        displayedMessages.Add(new ChatMessage {Sender = "Gardarike", Text = "Welcome to Bugaga server", Type = ChatMessage.Types.Type.System});
 
         UpdateChatText(displayedMessages);
 
@@ -52,17 +54,18 @@ public class ChatComponent : MonoBehaviour
     }
 
     private void UpdateChatText(RepeatedField<ChatMessage> chatMessages) {
-        textArea.text = "";
-
-        StringBuilder builder = new StringBuilder();
-        foreach (var message in chatMessages) {
-            builder.Append(message.Sender);
-            builder.Append(" | ");
-            builder.Append(message.Text);
-            builder.Append("\n");
+        for (int i = 0; i < chatRows.Length; i++)
+        {
+            chatRows[i].text = "";
+            chatRows[i].color = Color.black;
         }
 
-        textArea.text = builder.ToString();
+        var index = 0;
+        foreach (var message in chatMessages) {
+            var row = chatRows[index++];
+            row.text = message.Sender + "|" + message.Text;
+            if (message.Type == ChatMessage.Types.Type.System) row.color = Color.yellow;
+        }
 
         displayedMessages = chatMessages;
     }

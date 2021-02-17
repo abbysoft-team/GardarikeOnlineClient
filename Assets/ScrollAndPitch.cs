@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 class ScrollAndPitch : MonoBehaviour
 {
-#if UNITY_IOS || UNITY_ANDROID
+#if true
     public GameObject camera;
     public bool Rotate;
     protected Plane Plane;

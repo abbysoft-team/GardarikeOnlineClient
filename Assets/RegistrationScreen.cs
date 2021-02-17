@@ -49,12 +49,17 @@ public class RegistrationScreen : MonoBehaviour
     {
         if (userField.text.Trim() == "")
         {
-            SetError("User field cannot be empty");
+            SetError("Username field cannot be empty");
             return false;
         }
         if (emailField.text.Trim() == "")
         {
             SetError("Email field cannot be empty");
+            return false;
+        }
+        if (emailField.text.Trim().Length < 4 || !emailField.text.Contains("@"))
+        {
+            SetError("Email is not valid");
             return false;
         }
         if (passwordField.text.Trim() == "")

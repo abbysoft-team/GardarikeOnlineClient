@@ -102,9 +102,11 @@ public class NetworkManagerImpl : NetworkManager
                     continue;
                 }
 
-                SendNextRequest(requester);
+                Debug.Log(serverIp);
 
-                var success = requester.TryReceiveFrameBytes(out byte[] bytes);
+                SendNextRequest(requester);
+                
+                var success = requester.TryReceiveFrameBytes(TimeSpan.FromSeconds(5), out byte[] bytes);
                 if (!success) {
                     networkError = true;
                     continue;

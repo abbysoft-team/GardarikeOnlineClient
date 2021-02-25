@@ -26,8 +26,6 @@ public class SceneManager : MonoBehaviour
 
     private void LocalChunksArrived(GetLocalMapResponse response)
     {
-        PlayerPrefs.SetString("View", "Town");
-
         // TODO use real data about trees and other stuff
         EventBus.instance.MapObjectsLoaded(response.Map.Buildings, 10);
 
@@ -158,6 +156,8 @@ public class SceneManager : MonoBehaviour
 
     public void GoToTownView(Town town) {
        Debug.Log("Open " + town + " town");
+    
+       PlayerPrefs.SetString("View", "Town");
 
        EventBus.instance.ClearMapRequest();
 

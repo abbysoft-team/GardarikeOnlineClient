@@ -14639,11 +14639,13 @@ MonoBehaviour:
   leatherCost: 0
   foodCost: 0
   peopleReq: 0
+  optionName: 
   woodText: {fileID: 2104200717}
   stoneText: {fileID: 509990038}
   leatherText: {fileID: 1884887149}
   foodText: {fileID: 1879217137}
   peopleText: {fileID: 291108662}
+  optionNameText: {fileID: 841634922}
   image: {fileID: 2094940058}
   sprite: {fileID: 0}
 --- !u!1 &1643680874

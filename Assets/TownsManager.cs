@@ -36,7 +36,11 @@ public class TownsManager : MonoBehaviour
 
     private void CheckTownClicked(GameObject collider)
     {
-        if (collider.name != "TownContext" && selectedTown != null) selectedTown.ResetSelection();
+        if (collider == null) return;
+
+        if (collider.name != "TownContext" && selectedTown != null) {
+            selectedTown.ResetSelection();
+        }
         
         if (collider.tag != "TouchDetector") return;
 

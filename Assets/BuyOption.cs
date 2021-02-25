@@ -11,11 +11,14 @@ public class BuyOption : MonoBehaviour
     public int foodCost = 0;
     public int peopleReq = 0;
 
+    public string optionName = "";
+
     public Text woodText;
     public Text stoneText;
     public Text leatherText;
     public Text foodText;
     public Text peopleText;
+    public Text optionNameText;
 
     public Image image;
     public Sprite sprite;
@@ -31,6 +34,8 @@ public class BuyOption : MonoBehaviour
         InitText(foodText, GlobalConstants.FOOD, foodCost);
         InitText(leatherText, GlobalConstants.LEATHER, leatherCost);
         InitText(peopleText, GlobalConstants.PEOPLE_COUNT, peopleReq);
+
+        optionNameText.text = optionName;
     }
 
     private void InitText(Text text, string property, int cost)

@@ -6,7 +6,7 @@ public class ConstructionOptionsView : MonoBehaviour
 {
     private List<BuyOption> options;
 
-    void Start()
+    void Awake()
     {
         var currentView = PlayerPrefs.GetString("View");
         if (currentView == "Global")
@@ -26,6 +26,7 @@ public class ConstructionOptionsView : MonoBehaviour
         var global = new List<BuyOption>();
 
         var town = new BuyOption();
+        town.optionName = "Town";
         town.sprite = ImageManager.GetSprite("town");
         town.peopleReq = 100;
         town.leatherCost = 100;
@@ -43,23 +44,28 @@ public class ConstructionOptionsView : MonoBehaviour
         var townOptions = new List<BuyOption>();
 
         var house = new BuyOption();
+        house.optionName = "House";
         house.sprite = ImageManager.GetSprite("house");
         house.leatherCost = 1;
         house.woodCost = 7;
         house.stoneCost = 3;
 
         var storage = new BuyOption();
+        storage.optionName = "Storage";
         storage.sprite = ImageManager.GetSprite("storage");
         storage.leatherCost = 3;
         storage.woodCost = 7;
         storage.stoneCost = 10;
 
         var quarry = new BuyOption();
+        quarry.optionName = "Quarry";
         quarry.sprite = ImageManager.GetSprite("quarry");
         quarry.woodCost = 15;
         quarry.stoneCost = 10;
 
         townOptions.Add(house);
+        townOptions.Add(storage);
+        townOptions.Add(quarry);
 
         return townOptions;
     }
@@ -85,6 +91,7 @@ public class ConstructionOptionsView : MonoBehaviour
         optionComponent.peopleReq = option.peopleReq;
         optionComponent.leatherCost = option.leatherCost;
         optionComponent.image.sprite = option.sprite;
+        optionComponent.optionName = option.optionName;
 
         newObject.transform.parent = transform;
 

@@ -17,6 +17,8 @@ class ScrollAndPitch : MonoBehaviour
         if (camera == null)
             camera = Camera.main.gameObject;
 
+        camera.transform.position = new Vector3(0, GlobalConstants.MAX_CAMERA_Y, 0);
+
         instance = this;
     }
 
@@ -25,6 +27,12 @@ class ScrollAndPitch : MonoBehaviour
         rotationDegrees = 0;
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
+
+        if (Input.GetMouseButton(0)) {
+                SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+                EventBus.instance.ClickWasMade(collider);
+        }
 
         //Update Plane
         if (Input.touchCount >= 1) {
@@ -77,8 +85,11 @@ class ScrollAndPitch : MonoBehaviour
             //Delta1 *= 10;
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 camera.transform.Translate(Delta1, Space.World);
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(0).phase == TouchPhase.Began) {
                 SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.GetTouch(0).position);
+                EventBus.instance.ClickWasMade(collider);
+            }
         }
 
     }

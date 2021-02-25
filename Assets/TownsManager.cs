@@ -9,10 +9,15 @@ public class TownsManager : MonoBehaviour
 {
     public GameObject referenceTown;
 
+    private Town selectedTown;
+
+    private HashSet<Town> towns = new HashSet<Town>();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        EventBus.instance.onClickWasMade += CheckTownClicked;
+        EventBus.instance.onClearMapRequest += ClearTowns;
     }
 
     // Update is called once per frame
@@ -21,12 +26,31 @@ public class TownsManager : MonoBehaviour
         
     }
 
+    private void ClearTowns()
+    {
+        foreach (Transform town in transform)
+        {
+            Destroy(town.gameObject);
+        }
+    }
+
+    private void CheckTownClicked(GameObject collider)
+    {
+        if (collider.name != "TownContext" && selectedTown != null) selectedTown.ResetSelection();
+        
+        if (collider.tag != "TouchDetector") return;
+
+        selectedTown = collider.GetComponentInParent<Town>();
+        selectedTown.WasClicked();
+    }
+
     public void InitTowns(RepeatedField<Gardarike.Town> towns)
     {
         Debug.Log("Initializing " + towns.Count + " towns...");
 
         foreach (var town in towns)
         {
+            Debug.Log(town);
             InitTown(town, new Quaternion());
         }
 
@@ -36,23 +60,22 @@ public class TownsManager : MonoBehaviour
     private void InitTown(Gardarike.Town town, Quaternion rotation)
     {
         var townObject = Instantiate(referenceTown);
-        townObject.transform.position = Utility.GetGroundedPoint(new Vector3(town.X, 5000,town.Y));
-        ConfigureTownComponent(townObject, town);
+        townObject.transform.position = Utility.FromServerCoords(town.X, town.Y);
+        var townComponent = ConfigureTownComponent(townObject, town);
         townObject.transform.parent = this.transform;
         townObject.transform.rotation = rotation;
         townObject.SetActive(true);
+
+        towns.Add(townComponent);
     }
 
-    private void ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters)
+    private Town ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters)
     {
         //var component = townObject.AddComponent<Town>();
         var component = townObject.GetComponent<Town>();
+        component.Init(townParameters);
 
-        component.empireName.text = townParameters.OwnerName;
-        component.name.text = townParameters.Name;
-        component.population.text = "" + townParameters.Population;
-
-        component.headerUI.SetActive(true);
+        return component;
     }
 
     public void InitiateTownBuilding()
@@ -74,10 +97,6 @@ public class TownsManager : MonoBehaviour
 
         InitTown(newTown, transform.localRotation);
 
-        var vector = new Vector2D();
-        vector.X = newTown.X;
-        vector.Y = newTown.Y;
-
-        EventBus.instance.SendNewTownRequest(vector, newTown.Name);
+        EventBus.instance.SendNewTownRequest(Utility.ToServerCoordinates(transform.position), newTown.Name);
     }
 }

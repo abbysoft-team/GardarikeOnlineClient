@@ -17,6 +17,9 @@ public class BuyOption : MonoBehaviour
     public Text foodText;
     public Text peopleText;
 
+    public Image image;
+    public Sprite sprite;
+
     private Button button;
 
     void Start()

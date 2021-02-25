@@ -59,6 +59,9 @@ public class NetworkParser : MonoBehaviour
             case Response.DataOneofCase.GetWorldMapResponse:
                 ProcessWorldMapReply(packet.GetWorldMapResponse);
                 break;
+            case Response.DataOneofCase.GetLocalMapResponse:
+                ProcessLocalChunksReply(packet.GetLocalMapResponse);
+                break;
             case Response.DataOneofCase.ErrorResponse:
                 ProcessServerErrorReply(packet.ErrorResponse);
                 break;
@@ -145,6 +148,13 @@ public class NetworkParser : MonoBehaviour
         Debug.Log("Received map reply: " + getMapResponse);
 
         EventBus.instance.WorldMapChunkLoaded(getMapResponse);
+    }
+
+    private void ProcessLocalChunksReply(GetLocalMapResponse localChunksResponse)
+    {
+        Debug.Log("Received local chunks reply: " + localChunksResponse);
+
+        EventBus.instance.LocalMapChunksLoaded(localChunksResponse);
     }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {

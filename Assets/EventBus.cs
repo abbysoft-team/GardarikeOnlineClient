@@ -24,6 +24,7 @@ public class EventBus : MonoBehaviour
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
     public event Action<string> onMapLoadRequest;
+    public event Action<Vector2, Vector2> onLocalChunksLoadRequest;
     public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
     public event Action<string> onChatMessagePublishRequest;
@@ -33,6 +34,7 @@ public class EventBus : MonoBehaviour
     public event Action<int> onSpawnTreesRequest;
     public event Action onMapReady;
     public event Action<GetWorldMapResponse> onWorldMapChunkLoaded;
+    public event Action<GetLocalMapResponse> onLocalChunksArrived;
     //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
@@ -43,10 +45,22 @@ public class EventBus : MonoBehaviour
     public event Action<int, GameObject> onBuildingStarted;
     public event Action onResourceUpdateRequest;
     public event Action<Gardarike.Resources> onResourceUpdateArrived;
+    public event Action<GameObject> onClickWasMade;
+    public event Action onClearMapRequest;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void ClearMapRequest()
+    {
+        onClearMapRequest?.Invoke();
+    }
+    
+    public void ClickWasMade(GameObject collider)
+    {
+        onClickWasMade?.Invoke(collider);
     }
 
     public void RegisterBuilding(BuildItemInfo building)
@@ -217,6 +231,16 @@ public class EventBus : MonoBehaviour
     public void ResourceUpdateReceived(Gardarike.Resources resources)
     {
         onResourceUpdateArrived?.Invoke(resources);
+    }
+
+    public void LocalChunksLoadRequest(Vector2 globalMapChunk, Vector2 localOffsetChunks)
+    {
+        onLocalChunksLoadRequest?.Invoke(globalMapChunk, localOffsetChunks);
+    }
+
+    public void LocalMapChunksLoaded(GetLocalMapResponse localChunksReponse)
+    {
+        onLocalChunksArrived?.Invoke(localChunksReponse);
     }
 
 }

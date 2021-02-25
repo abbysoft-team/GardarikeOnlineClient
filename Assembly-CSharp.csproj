@@ -37,10 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\DialogListener.cs" />
+     <Compile Include="Assets\ConstructionOptionsView.cs" />
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\FoodGenerator.cs" />
      <Compile Include="Assets\Scripts\Server.cs" />
      <Compile Include="Assets\DialogResult.cs" />
+     <Compile Include="Assets\UtilityTests.cs" />
      <Compile Include="Assets\NetworkManagerFactory.cs" />
      <Compile Include="Assets\TreeGenerator.cs" />
      <Compile Include="Assets\PeopleController.cs" />
@@ -58,6 +60,7 @@
      <Compile Include="Assets\Lumberjack.cs" />
      <Compile Include="Assets\NetworkParser.cs" />
      <Compile Include="Assets\Job.cs" />
+     <Compile Include="Assets\FlyCamera.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\GameActionType.cs" />
      <Compile Include="Assets\DialogInfo.cs" />
@@ -100,7 +103,7 @@
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
      <Compile Include="Assets\ResourceManager.cs" />
-     <Compile Include="Assets\FlyCamera.cs" />
+     <Compile Include="Assets\ImageManager.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

@@ -177,6 +177,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onLoginRequest += SendLoginRequest;
         EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
         EventBus.instance.onMapLoadRequest += SendWorldMapRequest;
+        EventBus.instance.onLocalChunksLoadRequest += SendLocalMapRequest;
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
@@ -188,6 +189,21 @@ public class NetworkManagerImpl : NetworkManager
         //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendLocalMapRequest(Vector2 globalChunkCoords, Vector2 localOffset)
+    {
+        Debug.Log("Send local map chunk request");
+
+        var localMapRequest = new Request
+        {
+            GetLocalMapRequest = new GetLocalMapRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId")
+            }
+        };
+
+        requestQueue.Enqueue(localMapRequest.ToByteArray());
     }
 
     private void SendResourceRequest()

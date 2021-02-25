@@ -117,8 +117,8 @@ class Utility
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.name);
-            return hit.rigidbody.gameObject;
+            //Debug.Log(hit.collider.name);
+            return hit.collider.gameObject;
         }
 
         Debug.LogError("Raycasting position failed");
@@ -158,5 +158,18 @@ class Utility
         }
 
         return null;
+    }
+
+    public static Gardarike.Vector2D ToServerCoordinates(Vector3 gamePosition)
+    {
+        var vector = new Gardarike.Vector2D();
+        vector.X = gamePosition.x / GlobalConstants.SERVER_COORDS_FACTOR;
+        vector.Y = gamePosition.z / GlobalConstants.SERVER_COORDS_FACTOR;
+        return vector;
+    }
+
+    public static Vector3 FromServerCoords(long x, long y)
+    {
+        return GetGroundedPoint(new Vector3(x * GlobalConstants.SERVER_COORDS_FACTOR, GlobalConstants.CHUNK_HEIGHT * 2, y * GlobalConstants.SERVER_COORDS_FACTOR));
     }
 }

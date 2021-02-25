@@ -12,14 +12,42 @@ public class SceneManager : MonoBehaviour
     public TownsManager townsManager;
     public TreeGenerator treeGenerator;
 
+    public static SceneManager instance;
+
     // Start is called before the first frame update
     void Awake() 
-    {
+    {   
+        instance = this;
         EventBus.instance.onLoginComplete += LoginComplete;
         EventBus.instance.onCharacterSelected += CharacterSelected;
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
+        EventBus.instance.onLocalChunksArrived += LocalChunksArrived;
     }
 
+    private void LocalChunksArrived(GetLocalMapResponse response)
+    {
+        PlayerPrefs.SetString("View", "Town");
+
+        // TODO use real data about trees and other stuff
+        EventBus.instance.MapObjectsLoaded(response.Map.Buildings, 10);
+
+        // Transfer fake heights
+        EventBus.instance.TerrainLoaded(129, 19, GetHeights());
+    }
+
+	private float[,] GetHeights() {
+		var array = new float[129, 129];
+
+		for (int i = 0; i < 129; i++)
+		{
+			for (int j = 0; j < 129; j++)
+			{
+				array[i, j] = 0.6f + 0.001f * i;
+			}
+		}
+
+		return array;
+	}
     private void CharacterSelected(RepeatedField<Gardarike.Town> towns) {
         Debug.Log("Character selected");
 
@@ -109,8 +137,10 @@ public class SceneManager : MonoBehaviour
         Debug.Log("Plants on chank: " + chunkInfo.Map.Plants);
         Debug.Log("Stones on chank: " + chunkInfo.Map.Stones);
 
-        var width = chunkInfo.Map.Width;
-        var height = chunkInfo.Map.Height;
+        PlayerPrefs.SetString("View", "Global");
+
+        var width = (int) Mathf.Sqrt(chunkInfo.Map.Data.Count);
+        var height = width;
         var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data, width, height);
         EventBus.instance.TerrainLoaded(width, height, heights);
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
@@ -124,5 +154,13 @@ public class SceneManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GoToTownView(Town town) {
+       Debug.Log("Open " + town + " town");
+
+       EventBus.instance.ClearMapRequest();
+
+       EventBus.instance.LocalChunksLoadRequest(new Vector2(), new Vector2());
     }
 }

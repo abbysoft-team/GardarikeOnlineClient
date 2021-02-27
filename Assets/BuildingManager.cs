@@ -5,7 +5,8 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager instance;
-    public List<BuildItemInfo> buildings;
+    public List<Building> buildings;
+
     public GameObject model;
 
     private void Awake()
@@ -17,7 +18,7 @@ public class BuildingManager : MonoBehaviour
     {
         EventBus.instance.onBuildingRegistrationEvent += RegisterBuilding;
 
-        buildings = new List<BuildItemInfo>();
+        buildings = new List<Building>();
     }
 
     private void RegisterBuilding(BuildItemInfo building)
@@ -31,7 +32,19 @@ public class BuildingManager : MonoBehaviour
 
         buildingObject.SetActive(true);
 
-        buildings.Add(building);
+        //buildings.Add(building);
+    }
+
+    public void BuildBuilding(GameObject building)
+    {
+        building.transform.parent = transform;
+        building.SetActive(true);
+       
+        var buildingInfo = building.GetComponent<Building>();
+        buildings.Add(buildingInfo);
+
+        
+        EventBus.instance.BuildingComplete(buildingInfo);
     }
 
     // Update is called once per frame

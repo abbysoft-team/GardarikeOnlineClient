@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BuildingLogic : MonoBehaviour
 {
-    private const float UI_PROTOTYPE_HEIGHT = 620.0f;
+    private const float UI_PROTOTYPE_HEIGHT = 5.0f;
     private BuildingState state;
     public Material prototypeMaterial;
     public Material invalidMaterial;
@@ -13,22 +13,31 @@ public class BuildingLogic : MonoBehaviour
     public GameObject prototypingUI;
     public Button applyButton;
     public Button rotationButton;
-    private int callbackId;
     private bool rotationMode;
+
+    private string buildingName;
 
     void Start()
     {
-        EventBus.instance.onBuildingStarted += ChooseBuildingLocation;
+        EventBus.instance.onBuildingInitiated += StartBuildingProcess;
         prototypingUI.SetActive(false);
         state = BuildingState.READY_FOR_BUILDING;
     }
 
-    public void ChooseBuildingLocation(int eventId, GameObject referenceBuilding)
+    private void StartBuildingProcess(object building)
+    {
+        Debug.Log("Start building " + building);
+        buildingName = (string) building;
+        var referenceBuilding = ResourceManager.GetReferenceObject(buildingName);
+
+        ChooseBuildingLocation(referenceBuilding);
+    }
+
+    public void ChooseBuildingLocation(GameObject referenceBuilding)
     {
         Debug.Log("start building");
         
         rotationMode = false;
-        callbackId = eventId;
         state = BuildingState.LOCATION_CHOOSE;
 
         building = Instantiate(referenceBuilding);
@@ -93,7 +102,16 @@ public class BuildingLogic : MonoBehaviour
     {
         building.SetActive(false);
         prototypingUI.SetActive(false);
-        EventBus.instance.NotifyEventFinished(callbackId, building.transform);
+
+        var buildingType = buildingName.Split('.')[1];
+        if (buildingType == "town")
+        {
+            TownsManager.instance.BuildTown(building.transform);
+        }
+        else
+        {
+            BuildingManager.instance.BuildBuilding(building);
+        }
     }
 
     public void CancelBuilding()

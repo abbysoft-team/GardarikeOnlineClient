@@ -121,7 +121,7 @@ class Utility
             return hit.collider.gameObject;
         }
 
-        Debug.LogError("Raycasting position failed");
+        //Debug.LogError("Raycasting position failed");
 
         return null;
     }
@@ -171,5 +171,10 @@ class Utility
     public static Vector3 FromServerCoords(long x, long y)
     {
         return GetGroundedPoint(new Vector3(x * GlobalConstants.SERVER_COORDS_FACTOR, GlobalConstants.CHUNK_HEIGHT * 2, y * GlobalConstants.SERVER_COORDS_FACTOR));
+    }
+
+    public static void DebugChat(string text)
+    {
+        EventBus.instance.SendChatMessage(text);
     }
 }

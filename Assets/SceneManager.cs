@@ -27,7 +27,7 @@ public class SceneManager : MonoBehaviour
     private void LocalChunksArrived(GetLocalMapResponse response)
     {
         // TODO use real data about trees and other stuff
-        EventBus.instance.MapObjectsLoaded(response.Map.Buildings, 10);
+        //EventBus.instance.MapObjectsLoaded(response.Map.Buildings, 10);
 
         // Transfer fake heights
         EventBus.instance.TerrainLoaded(129, 19, GetHeights());

@@ -13,9 +13,13 @@ public class TownsManager : MonoBehaviour
 
     private HashSet<Town> towns = new HashSet<Town>();
 
+    public static TownsManager instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         EventBus.instance.onClickWasMade += CheckTownClicked;
         EventBus.instance.onClearMapRequest += ClearTowns;
     }
@@ -90,7 +94,7 @@ public class TownsManager : MonoBehaviour
         };
     }
 
-    private void BuildTown(Transform transform)
+    public void BuildTown(Transform transform)
     {
         var newTown = new Gardarike.Town();
         newTown.OwnerName = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);

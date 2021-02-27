@@ -25,9 +25,12 @@ public class BuyOption : MonoBehaviour
 
     private Button button;
 
+    public string function;
+
     void Start()
     {
         button = this.GetComponent<Button>();
+        button.onClick.AddListener(() => Buy());
 
         InitText(woodText, GlobalConstants.WOOD, woodCost);
         InitText(stoneText, GlobalConstants.STONE, stoneCost);
@@ -59,6 +62,8 @@ public class BuyOption : MonoBehaviour
         Utility.AddToIntProperty(GlobalConstants.STONE, stoneCost * -1);
         Utility.AddToIntProperty(GlobalConstants.FOOD, foodCost * -1);
         Utility.AddToIntProperty(GlobalConstants.LEATHER, leatherCost * -1);
+
+        EventBus.instance.DispatchGameEvent(function, null);
     }
 
     // Update is called once per frame

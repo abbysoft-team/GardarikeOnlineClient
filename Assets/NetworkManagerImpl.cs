@@ -321,7 +321,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
-    private void SendBuildingEvent(BuildItemInfo building)
+    private void SendBuildingEvent(Building building)
     {
         Debug.Log("Sending build event to server");
 
@@ -333,7 +333,7 @@ public class NetworkManagerImpl : NetworkManager
         //     }
         // };
 
-        // requestQueue.Enqueue(buildingEvent.ToByteArray());
+        //requestQueue.Enqueue(buildingEvent.ToByteArray());
     }
 
     private void SendLoadChatHistoryRequest()

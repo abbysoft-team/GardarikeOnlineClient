@@ -8,3 +8,4 @@ Logs/
 Assets/Scripts/Server.cs
 .*/
 obj/
+Assets/Packages/*

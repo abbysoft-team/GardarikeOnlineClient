@@ -27,12 +27,13 @@ public class ConstructionOptionsView : MonoBehaviour
 
         var town = new BuyOption();
         town.optionName = "Town";
+        town.function = "build.town";
         town.sprite = ImageManager.GetSprite("town");
-        town.peopleReq = 100;
-        town.leatherCost = 100;
-        town.woodCost = 100;
-        town.foodCost = 100;
-        town.stoneCost = 100;
+        town.peopleReq = 0;
+        town.leatherCost = 0;
+        town.woodCost = 0;
+        town.foodCost = 0;
+        town.stoneCost = 0;
 
         global.Add(town);
 
@@ -45,6 +46,7 @@ public class ConstructionOptionsView : MonoBehaviour
 
         var house = new BuyOption();
         house.optionName = "House";
+        house.function = "build.house";
         house.sprite = ImageManager.GetSprite("house");
         house.leatherCost = 1;
         house.woodCost = 7;
@@ -52,6 +54,7 @@ public class ConstructionOptionsView : MonoBehaviour
 
         var storage = new BuyOption();
         storage.optionName = "Storage";
+        storage.function = "build.storage";
         storage.sprite = ImageManager.GetSprite("storage");
         storage.leatherCost = 3;
         storage.woodCost = 7;
@@ -59,6 +62,7 @@ public class ConstructionOptionsView : MonoBehaviour
 
         var quarry = new BuyOption();
         quarry.optionName = "Quarry";
+        quarry.function = "build.quarry";
         quarry.sprite = ImageManager.GetSprite("quarry");
         quarry.woodCost = 15;
         quarry.stoneCost = 10;
@@ -92,6 +96,7 @@ public class ConstructionOptionsView : MonoBehaviour
         optionComponent.leatherCost = option.leatherCost;
         optionComponent.image.sprite = option.sprite;
         optionComponent.optionName = option.optionName;
+        optionComponent.function = option.function;
 
         newObject.transform.parent = transform;
 

@@ -62,7 +62,7 @@ class ScrollAndPitch : MonoBehaviour
             //calc zoom
             var zoom = Vector3.Distance(pos1, pos2) /
                        Vector3.Distance(pos1b, pos2b);
-
+            zoom = 1;
 
 
             // //edge case

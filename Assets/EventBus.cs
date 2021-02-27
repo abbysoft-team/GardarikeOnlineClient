@@ -11,7 +11,7 @@ public class EventBus : MonoBehaviour
     public static EventBus instance;
 
     public event Action<BuildItemInfo> onBuildingRegistrationEvent;
-    public event Action<BuildItemInfo> onBulidingComplete;
+    public event Action<Building> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<int, int, float[,]> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
@@ -43,14 +43,25 @@ public class EventBus : MonoBehaviour
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
     public event Action<int, GameObject> onBuildingStarted;
+    public event Action<object> onBuildingInitiated;
     public event Action onResourceUpdateRequest;
     public event Action<Gardarike.Resources> onResourceUpdateArrived;
     public event Action<GameObject> onClickWasMade;
     public event Action onClearMapRequest;
+    public event Action<string, object> onGameEvent;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void DispatchGameEvent(string eventAddress, object arguments)
+    {
+        if (eventAddress.StartsWith("build"))
+        {
+            var type = eventAddress.Substring(6);
+            onBuildingInitiated?.Invoke(type);
+        }
     }
 
     public void ClearMapRequest()
@@ -68,7 +79,7 @@ public class EventBus : MonoBehaviour
         onBuildingRegistrationEvent?.Invoke(building);
     }
 
-    public void BuildingComplete(BuildItemInfo building)
+    public void BuildingComplete(Building building)
     {
         onBulidingComplete?.Invoke(building);
     }

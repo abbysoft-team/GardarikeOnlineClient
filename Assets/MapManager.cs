@@ -25,7 +25,7 @@ public class MapManager : MonoBehaviour
 
     private BuildItemInfo ToBuildingItem(Building building) {
         var item = new BuildItemInfo();
-        item.position = ProtoConverter.ToUnityVector(building.Location);
+        //item.position = ProtoConverter.ToUnityVector(building.Location);
        // item.position = Utility.GetGroundedPoint(item.position);
 
         return item;

@@ -22,6 +22,7 @@ public class BuildingLogic : MonoBehaviour
         EventBus.instance.onBuildingInitiated += StartBuildingProcess;
         prototypingUI.SetActive(false);
         state = BuildingState.READY_FOR_BUILDING;
+        
     }
 
     private void StartBuildingProcess(object building)

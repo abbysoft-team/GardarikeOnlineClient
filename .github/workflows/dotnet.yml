@@ -42,7 +42,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: bash
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"abbysoft-team_GardarikeOnlineClient" /o:"abbysoft-team" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           export SONAR_SCANNER_VERSION=4.4.0.2170
           export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
           curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip
@@ -55,5 +54,3 @@ jobs:
           -Dsonar.projectKey=abbysoft-team_GardarikeOnlineClient \
           -Dsonar.sources=. \
           -Dsonar.host.url=https://sonarcloud.io
-  
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

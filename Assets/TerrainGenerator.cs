@@ -3,17 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction {
+	LEFT,
+	RIGTH,
+	UP,
+	DOWN,
+	DOWN_LEFT,
+	DOWN_RIGHT,
+	UP_LEFT,
+	UP_RIGHT
+}
+
 public class TerrainGenerator : MonoBehaviour
 {
 	public static TerrainGenerator instance;
 
 	public float[,] heights;
-	private Terrain terrain;
+	private Terrain referenceTerrain;
+
+	private Dictionary<Direction, Terrain> activeChunks = new Dictionary<Direction, Terrain>(3);
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		terrain = FindObjectOfType<Terrain>();
+		referenceTerrain = FindObjectOfType<Terrain>();
 
 		//OnTerrainLoaded(100, 100, GetHeights());
 		//GenerateRandomTerrain();
@@ -33,11 +46,11 @@ public class TerrainGenerator : MonoBehaviour
 		terrainData.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
 		terrainData.size = new Vector3(GlobalConstants.CHUNK_SIZE, GlobalConstants.CHUNK_HEIGHT, GlobalConstants.CHUNK_SIZE);
 		terrainData.SetHeights(0, 0, heights);
-		GetComponent<TerrainCollider>().terrainData = terrainData;
+		referenceTerrain.GetComponent<TerrainCollider>().terrainData = terrainData;
 
 		this.heights = heights;
 
-		terrain.terrainData = terrainData;
+		referenceTerrain.terrainData = terrainData;
 	}
 
 	// Update is called once per frame

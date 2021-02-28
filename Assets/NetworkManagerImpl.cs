@@ -308,11 +308,10 @@ public class NetworkManagerImpl : NetworkManager
         var mapRequest = new Request
         {
             GetWorldMapRequest = new GetWorldMapRequest {
-                Location = new Vector3D
+                Location = new IntVector2D
                 {
                     X = 0,
                     Y = 0,
-                    Z = 0
                 },
                 SessionID = sessionId
             }

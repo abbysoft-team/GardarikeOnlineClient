@@ -16,8 +16,9 @@ class ScrollAndPitch : MonoBehaviour
     {
         if (camera == null)
             camera = Camera.main.gameObject;
-
-        camera.transform.position = new Vector3(0, GlobalConstants.MAX_CAMERA_Y, 0);
+                    PlayerPrefs.SetFloat("cameraX", GlobalConstants.CHUNK_SIZE / 2);
+            PlayerPrefs.SetFloat("cameraZ", GlobalConstants.CHUNK_SIZE / 2);
+        transform.position = new Vector3(PlayerPrefs.GetFloat("cameraX"), (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2, PlayerPrefs.GetFloat("cameraZ"));
 
         instance = this;
     }
@@ -28,11 +29,12 @@ class ScrollAndPitch : MonoBehaviour
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
-        if (Input.GetMouseButton(0)) {
-                SoundManager.instance.PlaySound("click");
-                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-                EventBus.instance.ClickWasMade(collider);
-        }
+        // if (Input.GetMouseButton(0)) {
+        //         SoundManager.instance.PlaySound("click");
+        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+        //         EventBus.instance.ClickWasMade(collider);
+        // }
+
 
         //Update Plane
         if (Input.touchCount >= 1) {
@@ -62,9 +64,7 @@ class ScrollAndPitch : MonoBehaviour
             //calc zoom
             var zoom = Vector3.Distance(pos1, pos2) /
                        Vector3.Distance(pos1b, pos2b);
-            zoom = 1;
-
-
+            
             // //edge case
             // if (zoom <= 3 || zoom > 5)
             //    return;
@@ -73,6 +73,9 @@ class ScrollAndPitch : MonoBehaviour
             var beforeZoom = camera.transform.position;
             camera.transform.position = Vector3.LerpUnclamped(midPoint, camera.transform.position, 1 / zoom);
             ApplyCameraBorders(beforeZoom);
+
+            PlayerPrefs.SetFloat("cameraX", camera.transform.position.x);
+            PlayerPrefs.SetFloat("cameraZ", camera.transform.position.z);
 
             return;
         }
@@ -133,6 +136,7 @@ class ScrollAndPitch : MonoBehaviour
         var rayNow = Camera.main.ScreenPointToRay(screenPos);
         if (Plane.Raycast(rayNow, out var enterNow))
             return rayNow.GetPoint(enterNow);
+
 
         return Vector3.zero;
     }

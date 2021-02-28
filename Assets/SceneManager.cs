@@ -69,6 +69,8 @@ public class SceneManager : MonoBehaviour
 
         if (characters.Count == 0) {
             Debug.Log("No characters on the account, show create new empire screen");
+            PlayerPrefs.SetFloat("cameraX", GlobalConstants.CHUNK_SIZE / 2);
+            PlayerPrefs.SetFloat("cameraZ", GlobalConstants.CHUNK_SIZE / 2);
             ShowTutorial();
             return;
         }

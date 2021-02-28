@@ -175,6 +175,9 @@ class Utility
 
     public static void DebugChat(string text)
     {
-        EventBus.instance.SendChatMessage(text);
+        var message = new Gardarike.ChatMessage();
+        message.Sender = "Debug";
+        message.Text = text;
+        EventBus.instance.NewMessageArrived(message);
     }
 }

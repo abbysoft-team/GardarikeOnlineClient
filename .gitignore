@@ -1,6 +1,7 @@
 Temp/
 Tmp/
 Private.cs
+.VSCodeCounter/
 Assets/Scripts/Server.cs
 # This .gitignore file should be placed at the root of your Unity project directory
 #

@@ -16,18 +16,30 @@ public class ObjectManager : MonoBehaviour
 
     public static void RegisterObject(GameObject someObject, ObjectType type)
     {
-        var objectsOfThatType = instance.objects[type];
-        if (objectsOfThatType == null)
+        //Debug.Log("registered " + type);
+
+        if (!instance.objects.ContainsKey(type))
         {
             instance.objects.Add(type, new List<GameObject>());
         }
 
+        var objectsOfThatType = instance.objects[type];
+
         instance.objects[type].Add(someObject);
+    }
+
+    public static void UnregisterObject(GameObject someObject, ObjectType type)
+    {
+        if (!instance.objects.ContainsKey(type))
+        {
+            return;
+        }
+
+        instance.objects[type].Remove(someObject);
     }
 
     public static List<GameObject> GetObjects(ObjectType type)
     {
-        return null;
-        //return instance.objects[type];
+        return instance.objects[type];
     }
 }

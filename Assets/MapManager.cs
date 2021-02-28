@@ -10,25 +10,21 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onCharacterSelected += SendMapRequest;
         EventBus.instance.onMapObjectsLoadingComplete += PlaceMapObjects;
     }
 
-    private void SendMapRequest() {
-        Debug.Log("Start loading map");
+    private void PlaceMapObjects(RepeatedField<Building> buildings, int treesCount) {
+        // foreach (var building in buildings) {
+        //     EventBus.instance.RegisterBuilding(ToBuildingItem(building));
+        // }
 
-        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
+        // place trees
+        EventBus.instance.SpawnTrees(200);
+        EventBus.instance.MapIsReady();
     }
 
-    private void PlaceMapObjects(RepeatedField<Building> buildings) {
-        foreach (var building in buildings) {
-            Debug.Log("Register building: " + building);
-            EventBus.instance.RegisterBuilding(ToBuildingItem(building));
-        }
-    }
-
-    private BuildItem ToBuildingItem(Building building) {
-        var item = new BuildItem();
+    private BuildItemInfo ToBuildingItem(Building building) {
+        var item = new BuildItemInfo();
         item.position = ProtoConverter.ToUnityVector(building.Location);
        // item.position = Utility.GetGroundedPoint(item.position);
 

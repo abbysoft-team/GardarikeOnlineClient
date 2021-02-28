@@ -110,4 +110,53 @@ class Utility
 
         return ray.origin;
     }
+
+    public static GameObject GetColliderFromTouch(Vector2 pointOnTheScreen)
+    {
+        var ray = Camera.main.ScreenPointToRay(pointOnTheScreen);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider.name);
+            return hit.rigidbody.gameObject;
+        }
+
+        Debug.LogError("Raycasting position failed");
+
+        return null;
+    }
+
+    public static void SetMaterialForAllChildren(GameObject parent, Material material)
+    {
+        var childrenMeshes = parent.GetComponentsInChildren<MeshRenderer>(true);
+        foreach (var child in childrenMeshes)
+        {
+            child.material = material;   
+        }
+    }
+
+    public static Vector3 GetPointOnTheGroundInFrontOfCamera()
+    {
+        return GetPositionOnTheGround(new Vector2(Screen.width / 2, Screen.height / 2));
+    }
+
+    public static bool IsOnWater(GameObject objectToCheck)
+    {
+        var collider = GetGroundCollider(objectToCheck);
+        if (collider == null) return false;
+
+        return collider.tag == "Obstacle";
+    }
+
+    public static GameObject GetGroundCollider(GameObject obj)
+    {
+        var ray = new Ray(obj.transform.position + new Vector3(0, 10, 0), new Vector3(0, -1, 0));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            return hit.collider.gameObject;
+        }
+
+        return null;
+    }
 }

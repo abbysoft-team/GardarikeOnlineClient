@@ -1,24 +1,36 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+
+using System.Collections.Generic;
 
 class ScrollAndPitch : MonoBehaviour
 {
-#if UNITY_IOS || UNITY_ANDROID
+#if true
     public GameObject camera;
     public bool Rotate;
     protected Plane Plane;
+    public static ScrollAndPitch instance;
+    private float rotationDegrees;
 
     private void Awake()
     {
         if (camera == null)
             camera = Camera.main.gameObject;
+
+        instance = this;
     }
 
     private void Update()
     {
+        rotationDegrees = 0;
+        Vector3 pos1b = Vector3.zero;
+        Vector3 pos1 = Vector3.zero;
 
         //Update Plane
-        if (Input.touchCount >= 1)
+        if (Input.touchCount >= 1) {
             Plane.SetNormalAndPosition(transform.up, transform.position);
+            pos1b = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
+        }
 
         var Delta1 = Vector3.zero;
         var Delta2 = Vector3.zero;
@@ -26,34 +38,64 @@ class ScrollAndPitch : MonoBehaviour
         //Pinch
         if (Input.touchCount >= 2)
         {
-            var pos1 = PlanePosition(Input.GetTouch(0).position);
+            pos1 = PlanePosition(Input.GetTouch(0).position);
             var pos2 = PlanePosition(Input.GetTouch(1).position);
-            var pos1b = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
             var pos2b = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
+
+            var midPoint = (pos1b + pos2) / 2;
+
+            rotationDegrees = Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal);
+
+            if (Rotate && pos2b != pos2) {
+                camera.transform.RotateAround(midPoint, Plane.normal, rotationDegrees);
+                return;
+            }
 
             //calc zoom
             var zoom = Vector3.Distance(pos1, pos2) /
                        Vector3.Distance(pos1b, pos2b);
 
-            //edge case
-            if (zoom == 0 || zoom > 10)
-                return;
+
+
+            // //edge case
+            // if (zoom <= 3 || zoom > 5)
+            //    return;
 
             //Move cam amount the mid ray
-            camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
-
-            if (Rotate && pos2b != pos2)
-                camera.transform.RotateAround(pos1, Plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal));
+            var beforeZoom = camera.transform.position;
+            camera.transform.position = Vector3.LerpUnclamped(midPoint, camera.transform.position, 1 / zoom);
+            ApplyCameraBorders(beforeZoom);
 
             return;
         }
 
         //Scroll
-        if (Input.touchCount >= 1)
+        if (Input.touchCount == 1)
         {
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
+            //Delta1 /= Vector3.Distance(pos1, camera.transform.position);
+            //Delta1 *= 10;
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 camera.transform.Translate(Delta1, Space.World);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+                SoundManager.instance.PlaySound("click");
+        }
+
+    }
+
+    private void ApplyCameraBorders(Vector3 beforeZoom)
+    {
+        var minY = Utility.GetGroundedPoint(camera.transform.position).y + GlobalConstants.MIN_CAMERA_Y;
+
+        Debug.Log("minY");
+        Debug.Log(camera.transform.position);
+
+        if (camera.transform.position.y < minY)
+        {
+            camera.transform.position = beforeZoom;
+        } else if (camera.transform.position.y > GlobalConstants.MAX_CAMERA_Y)
+        {
+            camera.transform.position = beforeZoom;
         }
 
     }
@@ -88,5 +130,22 @@ class ScrollAndPitch : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, transform.position + transform.up);
     }
+
+    public static bool IsClickedOnSomeWorldspaceUI()
+    {
+        var pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Input.mousePosition;
+
+        var raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        return raycastResults.Count > 0 && raycastResults[0].gameObject.layer == LayerMask.NameToLayer("WorldUI");
+    }
+
+    public static float GetRotationDegrees()
+    {
+        return instance.rotationDegrees;
+    }
+
 #endif
 }

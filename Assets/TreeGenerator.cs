@@ -4,62 +4,48 @@ using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
 {
-
-    private void GenerateTrees(float[,] heights)
+    private void Start()
     {
-        var dimension = (int)Mathf.Sqrt(heights.Length);
-        var x = Random.Range(0, dimension);
-        var y = Random.Range(0, dimension);
-        var randomHeight = heights[x, y];
-        var randomDelta = GlobalConstants.TREE_GROW_DELTA * randomHeight;
-
-        for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++)
-            {
-                var height = heights[i, j];
-                if (Mathf.Abs(height - randomHeight) <= randomDelta)
-                {
-                    SpawnTree(i, j);
-                }
-            }
-        }
+        EventBus.instance.onSpawnTreesRequest += GenerateTrees;
     }
 
-    private void GenerateTreesNew(float[,] heights)
+    public void GenerateTrees(int count)
     {
-        if (true) return;
-
-        var dimension = (int)Mathf.Sqrt(heights.Length);
-
-        var randomTreeQuantity = Random.Range(GlobalConstants.TREE_MIN_COUNT, GlobalConstants.TREE_MAX_COUNT);
-
-        for (int i = 0; i < randomTreeQuantity; i++)
+        // * 2 to compensate loss of trees spawned on water
+        for (int i = 0; i < count * 2; i++)
         {
-            var x = Random.Range(0, dimension);
-            var y = Random.Range(0, dimension);
+            var x = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
+            var y = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
 
-            var point = Utility.GetGroundedPoint(new Vector3(x, 100, y));
-            if (point.y != GlobalConstants.WATER_LEVEL)
-            {
+            if (NotOnWater(x, y)) {
                 SpawnTree(x, y);
             }
         }
     }
 
+    private bool NotOnWater(float x, float y) {
+        Ray toGround = new Ray(new Vector3(x, 10000, y), new Vector3(0, -1, 0));
+        RaycastHit hit = new RaycastHit();
+        bool hitOccured = Physics.Raycast(toGround, out hit);
+
+        if (hitOccured && hit.collider.name == "Waterlevel") {
+            return false;
+        }
+
+        return true;
+    }
+
     private void SpawnTree(float x, float y)
     {
-        x *= GlobalConstants.CHUNK_SIZE;
-        y *= GlobalConstants.CHUNK_SIZE;
-
         var referenceTree = GetRandomChild();
         var newTree = Instantiate(referenceTree);
 
-        newTree.transform.position = Utility.GetGroundedPoint(new Vector3(x, 100, y));
+        newTree.transform.position = Utility.GetGroundedPoint(new Vector3(x, 5000, y));
         newTree.SetActive(true);
 
         newTree.transform.parent = transform;
 
-        //ObjectManager.RegisterObject(newTree, typeof(Tree));
+        ObjectManager.RegisterObject(newTree, ObjectType.TREE);
     }
 
     private GameObject GetRandomChild()
@@ -76,11 +62,6 @@ public class TreeGenerator : MonoBehaviour
         }
 
         throw new UnityException("something wrong with the method");
-    }
-
-    private void Start()
-    {
-        EventBus.instance.onTerrainGenerationFinished += GenerateTreesNew;
     }
 
     // Update is called once per frame

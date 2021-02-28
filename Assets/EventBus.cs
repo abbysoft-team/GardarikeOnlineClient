@@ -10,29 +10,51 @@ public class EventBus : MonoBehaviour
     public const string NEW_BUILDING_EVENT = "NEW_BUILDING";
     public static EventBus instance;
 
-    public event Action<BuildItem> onBuildingRegistrationEvent;
-    public event Action<BuildItem> onBulidingComplete;
+    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
+    public event Action<BuildItemInfo> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<int, int, float[,]> onTerrainLoadingComplete;
-    public event Action<RepeatedField<Building>> onMapObjectsLoadingComplete;
+    public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
+    public event Action<string, string> onInfoMessageShowRequest;
+    public event Action<int, string, string, string> onInputDialogShowRequest;
     public event Action<string, string> onLoginRequest;
-    public event Action<Character> onSelectCharacterRequest;
+    public event Action<long> onSelectCharacterRequest;
+    public event Action onLoadChatHistoryRequest;
+    public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
     public event Action<string> onMapLoadRequest;
-    public event Action onCharacterSelected;
+    public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
+    public event Action<ChatMessage> onNewMessageArrived;
+    public event Action<string> onChatMessagePublishRequest;
+    public event Action<Character> onCharacterUpdateArrived;
+    public event Action<bool> onOpenOrCloseLoadingDialog;
+    public event Action<int> onPeopleCountIncreased;
+    public event Action<int> onSpawnTreesRequest;
+    public event Action onMapReady;
+    public event Action<GetWorldMapResponse> onWorldMapChunkLoaded;
+    //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
+    public event Action onJobMarketLoadingRequest;
+    public event Action<string, string, string> onRegistrationRequest;
+    public event Action<int, System.Object> onEventFinished;
+    public event Action onRegistrationComplete;
+    public event Action<Vector2D, String> onNewTownRequest;
+    public event Action<String> onNewCharacterRequest;
+    public event Action<int, GameObject> onBuildingStarted;
+    public event Action onResourceUpdateRequest;
+    public event Action<Gardarike.Resources> onResourceUpdateArrived;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void RegisterBuilding(BuildItem building)
+    public void RegisterBuilding(BuildItemInfo building)
     {
         onBuildingRegistrationEvent?.Invoke(building);
     }
 
-    public void BuildingComplete(BuildItem building)
+    public void BuildingComplete(BuildItemInfo building)
     {
         onBulidingComplete?.Invoke(building);
     }
@@ -47,8 +69,8 @@ public class EventBus : MonoBehaviour
         onTerrainLoadingComplete?.Invoke(width, height, heights);
     }
 
-    public void MapObjectsLoaded(RepeatedField<Building> buildings) {
-        onMapObjectsLoadingComplete?.Invoke(buildings);
+    public void MapObjectsLoaded(RepeatedField<Building> buildings, int treesCount) {
+        onMapObjectsLoadingComplete?.Invoke(buildings, treesCount);
     }
 
     public void LoginComplete(string sessionId, RepeatedField<Character> characters) {
@@ -60,21 +82,141 @@ public class EventBus : MonoBehaviour
         onErrorShowRequest?.Invoke(error);
     }
 
+    public void ShowInfo(string title, string message)
+    {
+        onInfoMessageShowRequest?.Invoke(title, message);
+    }
+
+    /**
+    Return dialog id, you can use complete callback for this dialog using provided id
+    */
+    public int ShowInputDialog(string title, string bodyMessage, string property)
+    {
+        // TODO maybe bad generation and not the right place for it
+        var randomId = UnityEngine.Random.Range(0, 9999999);
+
+        onInputDialogShowRequest?.Invoke(randomId, title, bodyMessage, property);
+
+        return randomId;
+    }
+
     public void LoginRequest(string username, string password)
     {
         onLoginRequest?.Invoke(username, password);
     }
 
-    public void SelectCharacterRequest(Character character)
+    public void SelectCharacterRequest(long charId)
      {
-        onSelectCharacterRequest?.Invoke(character);
+        onSelectCharacterRequest?.Invoke(charId);
     }
 
     public void LoadMap(string sessionId) {
         onMapLoadRequest?.Invoke(sessionId);
     }
 
-    public void CharacterSelectionConfirmed() {
-        onCharacterSelected?.Invoke();
+    public void CharacterSelectionConfirmed(RepeatedField<Gardarike.Town> town) {
+        onCharacterSelected?.Invoke(town);
     }
+
+    public void LoadChatHistory() {
+        onLoadChatHistoryRequest?.Invoke();
+    }
+
+    public void ChatHistoryLoaded(RepeatedField<ChatMessage> chatMessages) {
+        onChatHistoryLoaded?.Invoke(chatMessages);
+    }
+
+    public void NewMessageArrived(ChatMessage chatMessage) {
+        onNewMessageArrived?.Invoke(chatMessage);
+    }
+
+    public void SendChatMessage(string text) {
+        onChatMessagePublishRequest?.Invoke(text);
+    }
+
+    public void CharacterUpdateArrived(Character newState)
+    {
+        onCharacterUpdateArrived?.Invoke(newState);
+    }
+
+    public void OpenLoadingDialog()
+    {
+        onOpenOrCloseLoadingDialog?.Invoke(true);
+    }
+    public void CloseLoadingDialog()
+    {
+        onOpenOrCloseLoadingDialog?.Invoke(false);
+    }
+
+    public void PeopleCountIncreased(int newPeople)
+    {
+        onPeopleCountIncreased?.Invoke(newPeople);
+    }
+
+    public void SpawnTrees(int count)
+    {
+        onSpawnTreesRequest?.Invoke(count);
+    }
+
+    public void MapIsReady()
+    {
+        onMapReady?.Invoke();
+    }
+
+    // public void UpdateResources(ResourceUpdatedEvent update) {
+    //     onResourceUpdateArrived?.Invoke(update);
+    // }
+
+    public void RequestJobMarketInfo() {
+        onJobMarketLoadingRequest?.Invoke();
+    }
+
+    public void SendRegistrationRequest(string user, string password, string email)
+    {
+        onRegistrationRequest?.Invoke(user, password, email);
+    }
+
+    public void NotifyEventFinished(int eventId, System.Object result)
+    {
+        onEventFinished?.Invoke(eventId, result);
+    }
+    
+    public void NotifyRegistrationComplete()
+    {
+        onRegistrationComplete?.Invoke();
+    }
+
+    public void SendNewTownRequest(Vector2D location, String name)
+    {
+        onNewTownRequest?.Invoke(location, name);
+    }
+
+    public void SendNewCharacterRequest(string name)
+    {
+        onNewCharacterRequest?.Invoke(name);
+    }
+
+    public void WorldMapChunkLoaded(GetWorldMapResponse chunkInfo)
+    {
+        onWorldMapChunkLoaded?.Invoke(chunkInfo);
+    }
+
+    public int ChooseLocationForBuilding(GameObject reference)
+    {
+        var eventId = UnityEngine.Random.Range(0, 9999999);
+        onBuildingStarted?.Invoke(eventId, reference);
+
+        return eventId;
+    }
+
+    public void SendResourceUpdateRequest()
+    {
+        onResourceUpdateRequest?.Invoke();
+    }
+
+    public void ResourceUpdateReceived(Gardarike.Resources resources)
+    {
+        onResourceUpdateArrived?.Invoke(resources);
+    }
+
 }

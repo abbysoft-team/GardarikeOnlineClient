@@ -3,3 +3,8 @@ Temp/
 Tmp/
 .VSCodeCounter/
 Private.cs
+Logs/
+.vs/
+Assets/Scripts/Server.cs
+.*/
+obj/

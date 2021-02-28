@@ -13,30 +13,41 @@ public class PeopleController : MonoBehaviour
     private float patrolPathLength;
     private Action currentAction;
     private int gold;
-
     private Role workingRole;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         birthDate = PlayerPrefs.GetInt(GlobalConstants.GAME_MILLIS);
-        gold = 100;
-        SetRandomAction();
         SetRandomDeathAge();
-
-        Utility.AddToIntProperty(GlobalConstants.PEOPLE_COUNT, 1);
-        Debug.Log("Spawned a man with death age " + deathAge + " years");
-    }
-
-    private void SetRandomAction()
-    {
-        // not enough gold, looking 4 a job
-        if (gold <= 0)
-        {
-            currentAction = Action.LOOKING_4_JOB;
-            FindAvailableJob();
-            return;
+        bool unemployed = GetAJob();
+        if (unemployed) {
+            SetRandomAction();
         }
 
+        Debug.Log("Spawned a man " + this + " with death age " + deathAge + " years");
+    }
+
+    private bool GetAJob()
+    {
+        var job = JobManager.instance.GetAvailableJob();
+        workingRole = job;
+        if (job == null)
+        {
+            Debug.Log("No job");
+            return true;
+        }
+
+        Debug.Log("Got a job " + workingRole);
+        workingRole.Init(this);
+        
+        return false;
+    }
+
+    public void SetRandomAction()
+    {
         // Indices 0 to 2 is random
         currentAction = (Action) Random.Range(0, 2);
         if (currentAction == Action.IDLE)
@@ -52,21 +63,7 @@ public class PeopleController : MonoBehaviour
             patrolPathLength = Vector3.Distance(startPoint2d, patrolPoint2d);
         }
 
-        Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
-    }
-
-    private void FindAvailableJob()
-    {
-        Role job = JobManager.instance.GetAvailableJob();
-        if (job == null)
-        {
-            ConfigureIdleAction();
-            return;
-        }
-
-        currentAction = Action.WORKING;
-        workingRole = job;
-        workingRole.Init(this);
+        //Debug.Log("Set action " + currentAction + " with patrolPoint " + patrolPoint + " and idleTime " + actionEndTick);
     }
 
     private void ConfigureIdleAction()
@@ -101,10 +98,24 @@ public class PeopleController : MonoBehaviour
 
         DoAction();
         
-        if (ActionAcomplished())
+        if (!ActionAcomplished())
+        {
+            return;
+        }
+        
+        if (HasJob()) 
+        {
+            workingRole.ActionAccomplished(this);
+        }
+        else
         {
             SetRandomAction();
         }
+    }
+
+    private bool HasJob()
+    {
+        return workingRole != null;
     }
 
     private int GetAge()
@@ -122,8 +133,34 @@ public class PeopleController : MonoBehaviour
     {
         if (gold == 0) return;
         var taxesToPay = GlobalConstants.TAXES_PER_SECOND * Time.deltaTime + 1;
-        Utility.AddToIntProperty(GlobalConstants.GOLD, (int) taxesToPay);
+        //Utility.AddToIntProperty(GlobalConstants.GOLD, (int) taxesToPay);
         gold -= (int) taxesToPay;
+    }
+
+    public void Idle(float seconds)
+    {
+        actionEndTick = (long) (PlayerPrefs.GetInt(GlobalConstants.GAME_MILLIS) + seconds * 1000);
+        currentAction = Action.IDLE;
+    }
+
+    public void LoopSound(string clipName)
+    {
+        var clip = SoundManager.instance.FindClip(clipName);
+
+        audioSource.loop = true;
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayOneShot(string clipName)
+    {
+        var clip = SoundManager.instance.FindClip(clipName);
+
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 
     private void DoAction()
@@ -136,10 +173,6 @@ public class PeopleController : MonoBehaviour
 
             newPosition.y = 1000; // in order to raycast to the ground
             transform.position = Utility.GetGroundedPoint(newPosition);
-        }
-        if (currentAction == Action.WORKING)
-        {
-            workingRole.Update(this);
         }
     }
     
@@ -165,6 +198,8 @@ public class PeopleController : MonoBehaviour
         currentAction = Action.GO_TO_JOB;
         patrolPoint = target;
         patrolPathLength = Vector3.Distance(patrolPoint, transform.position);
+
+        //Debug.Log("Go to " + target);
     }
 
     enum Action

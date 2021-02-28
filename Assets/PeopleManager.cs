@@ -2,31 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Gardarike;
+
 public class PeopleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject referenceMan;
+
+    void Start() 
     {
-        
+        referenceMan = transform.GetChild(0).gameObject;
+
+       // EventBus.instance.onMapReady += SpawnAfterLogin;
+        //EventBus.instance.onPeopleCountIncreased += SpawnPeople;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnAfterLogin()
     {
-        //var buildings = FindAllBuildings();
+        var peopleCount = PlayerPrefs.GetInt("Population");
+        SpawnPeople(peopleCount);
     }
 
-    private List<GameObject> FindAllBuildings()
+    private void SpawnNewPeople(Character character)
     {
-        List<GameObject> children = new List<GameObject>(transform.parent.childCount);
-        foreach (Transform transform in transform.parent)
+        var newPeople = (int) character.CurrentPopulation - PlayerPrefs.GetInt("Population");
+        if (newPeople > 0)
         {
-            if (transform.tag == GlobalConstants.BUILDING_TAG)
-            {
-                children.Add(transform.gameObject);
-            }
+            SpawnPeople(newPeople);
         }
+    }
 
-        return children;
+    private void SpawnPeople(int count)
+    {
+        Debug.Log("Spawning " + count + " mans");
+
+        for (int i = 0; i < count; i++)
+        {
+            InstanciateMan();
+        }
+    }
+
+    private void InstanciateMan()
+    {
+        var newMan = Instantiate(referenceMan);
+        newMan.AddComponent<PeopleController>();
+        newMan.transform.parent = transform;
+        newMan.SetActive(true);
     }
 }

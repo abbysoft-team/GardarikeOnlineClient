@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using Google.Protobuf;
+using Google.Protobuf.Collections;
 using System.Threading.Tasks;
 using NetMQ.Sockets;
 using NetMQ;
@@ -21,21 +22,10 @@ public class NetworkManagerImpl : NetworkManager
     private Queue<Gardarike.Event> eventQueue;
     private Queue<byte[]> requestQueue;
 
+    public static bool networkError = false;
+
     private void StartZeroMQCommunicationThread()
     {
-        Task.Run(() =>
-        {
-            try
-            {
-                EventTask();
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError("Error occured in event thread: " + e);
-                EventBus.instance.ShowError("Could not connect to server.\nTry again later");
-            }
-        });
-
         Task.Run(() =>
         {
             try
@@ -45,20 +35,49 @@ public class NetworkManagerImpl : NetworkManager
             catch (System.Exception e)
             {
                 Debug.LogError("Error occured in network thread: " + e);
+            }
+        });
+
+        Task.Run(() =>
+        {
+            try
+            {
+                EventTask("GLOBAL");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error occured in network thread: " + e);
+                EventBus.instance.CloseLoadingDialog();
+                EventBus.instance.ShowError("Could not connect to server.");
+            }
+        });
+    }
+
+    private void RunEventTask(string sessionId, RepeatedField<Character> characters) {
+        Task.Run(() =>
+        {
+            try
+            {
+                EventTask(sessionId);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error occured in event thread: " + e);
+                EventBus.instance.CloseLoadingDialog();
                 EventBus.instance.ShowError("Could not connect to server.\nTry again later");
             }
         });
     }
 
-    private void EventTask()
+    private void EventTask(string channel)
     {
-        Debug.Log("Start event thread");
+        Debug.Log("Start event thread on chanel " + channel);
 
         var address = string.Format(">tcp://{0}:{1}", serverIp, eventPort);
         using (var subscriber = new SubscriberSocket(address))
         {
             // Listen to all topics
-            subscriber.Subscribe("");
+            subscriber.Subscribe(channel);
             while (true) {
                 var eventPacket = subscriber.ReceiveFrameBytes();
 
@@ -83,13 +102,19 @@ public class NetworkManagerImpl : NetworkManager
                     continue;
                 }
 
+                Debug.Log(serverIp);
+
                 SendNextRequest(requester);
+                
+                var success = requester.TryReceiveFrameBytes(TimeSpan.FromSeconds(5), out byte[] bytes);
+                if (!success) {
+                    networkError = true;
+                    continue;
+                }
 
-                var reply = requester.ReceiveFrameBytes();
+                Debug.Log("Received response from server: " + bytes.Length);
 
-                Debug.Log("Received response from server: " + reply.Length);
-
-                EnqueueResponse(reply);
+                EnqueueResponse(bytes);
             }
         }
     }
@@ -103,7 +128,11 @@ public class NetworkManagerImpl : NetworkManager
 
     private void SendNextRequest(NetMQSocket client)
     {
-        bool success = client.TrySendFrame(requestQueue.Dequeue());
+        bool success = client.TrySendFrame(TimeSpan.FromSeconds(5), requestQueue.Dequeue());
+        if (success == false)
+        {
+            throw new FaultException();
+        }
     }
 
     private void EnqueueResponse(byte[] rawResponse)
@@ -147,13 +176,85 @@ public class NetworkManagerImpl : NetworkManager
 
         EventBus.instance.onLoginRequest += SendLoginRequest;
         EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
-        EventBus.instance.onMapLoadRequest += SendMapRequest;
+        EventBus.instance.onMapLoadRequest += SendWorldMapRequest;
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
+        EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
+        EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
+        EventBus.instance.onLoginComplete += RunEventTask;
+        EventBus.instance.onRegistrationRequest += SendRegistrationEvent;
+        EventBus.instance.onNewCharacterRequest += SendNewCharacterRequest;
+        EventBus.instance.onNewTownRequest += SendNewTownRequest;
+        EventBus.instance.onResourceUpdateRequest += SendResourceRequest;
+        //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
     }
 
-    private void SendCharacterSelectionRequest(Character character)
+    private void SendResourceRequest()
+    {
+        Debug.Log("Send resource request");
+
+        var resourceRequest = new Request
+        {
+            GetResourcesRequest = new GetResourcesRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+            }
+        };
+
+        requestQueue.Enqueue(resourceRequest.ToByteArray());
+    }
+
+    private void SendNewCharacterRequest(string name)
+    {
+        Debug.Log("Send new character request");
+
+        var newCharacterRequest = new Request
+        {
+            CreateCharacterRequest = new CreateCharacterRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Name = name
+            }
+        };
+
+        requestQueue.Enqueue(newCharacterRequest.ToByteArray());
+    }
+
+    private void SendNewTownRequest(Vector2D location, string name)
+    {
+        Debug.Log("Send new town request");
+
+        var newTownRequest = new Request
+        {
+            PlaceTownRequest = new PlaceTownRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Location = location,
+                Name = name
+            }
+        };
+
+        requestQueue.Enqueue(newTownRequest.ToByteArray());
+    }
+
+    private void SendRegistrationEvent(string username, string password, string email)
+    {
+        Debug.Log("Send registration event");
+
+        var registrationEvent = new Request
+        {
+            CreateAccountRequest = new CreateAccountRequest
+            {
+                Login = username,
+                Password = password
+            }
+        };
+
+        requestQueue.Enqueue(registrationEvent.ToByteArray());
+    }
+
+    private void SendCharacterSelectionRequest(long charId)
     {
         Debug.Log("Send character selection event");
 
@@ -162,7 +263,7 @@ public class NetworkManagerImpl : NetworkManager
             SelectCharacterRequest = new SelectCharacterRequest
             {
                 SessionID = PlayerPrefs.GetString("sessionId"),
-                CharacterID = character.Id
+                CharacterID = charId
             }
         };
 
@@ -184,13 +285,13 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
-    private void SendMapRequest(string sessionId)
+    private void SendWorldMapRequest(string sessionId)
     {
-        Debug.Log("Trying to request map information ");
+        Debug.Log("Trying to request world map information ");
 
         var mapRequest = new Request
         {
-            GetMapRequest = new GetMapRequest {
+            GetWorldMapRequest = new GetWorldMapRequest {
                 Location = new Vector3D
                 {
                     X = 0,
@@ -204,19 +305,61 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
-    private void SendBuildingEvent(BuildItem building)
+    private void SendBuildingEvent(BuildItemInfo building)
     {
         Debug.Log("Sending build event to server");
 
-        var buildingEvent = new Request {
-            PlaceBuildingRequest = new PlaceBuildingRequest {
-                BuildingID = 1,
+        // var buildingEvent = new Request {
+        //     PlaceBuildingRequest = new PlaceBuildingRequest {
+        //         BuildingID = 1,
+        //         SessionID = PlayerPrefs.GetString("sessionId"),
+        //         Location = building.Location()
+        //     }
+        // };
+
+        // requestQueue.Enqueue(buildingEvent.ToByteArray());
+    }
+
+    private void SendLoadChatHistoryRequest()
+    {
+        Debug.Log("Sending chat history request");
+
+        // var chatRequest = new Request {
+        //     GetChatHistoryRequest = new GetChatHistoryRequest {
+        //         SessionID = PlayerPrefs.GetString("sessionId"),
+        //         Count = ChatComponent.MAX_MESSAGES_DISPLAYED
+        //         // null lastMessId
+        //     }
+        // };
+
+        // requestQueue.Enqueue(chatRequest.ToByteArray());
+    }
+
+    private void PublishChatMessage(string text) 
+    {
+        Debug.Log("Sending message to the server");
+
+        var publishRequest = new Request {
+            SendChatMessageRequest = new SendChatMessageRequest {
                 SessionID = PlayerPrefs.GetString("sessionId"),
-                Location = building.Location()
+                Text = text
             }
         };
 
-        requestQueue.Enqueue(buildingEvent.ToByteArray());
+        requestQueue.Enqueue(publishRequest.ToByteArray());
+    }
+
+    private void SendWorkInfoRequest()
+    {
+        Debug.Log("Request info about job market");
+
+        var jobRequest = new Request {
+            GetWorkDistributionRequest = new GetWorkDistributionRequest {
+                SessionID = PlayerPrefs.GetString("sessionId")
+            }
+        };
+
+        requestQueue.Enqueue(jobRequest.ToByteArray());
     }
 
     public Queue<Response> GetResponseQueue()

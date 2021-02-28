@@ -28,7 +28,7 @@ public class GlobalConstants
 
     public const float TREE_GROW_DELTA = 0.05f;
 
-    public const float CHUNK_SIZE = 1f;
+    public const float CHUNK_SIZE = 10000f;
 
     public const float WATER_LEVEL = -18.7f;
 
@@ -37,5 +37,17 @@ public class GlobalConstants
     public const string SAVE_PREFIX = "Saving_";
     public const string REFERENCE_TAG = "Reference_";
     public const string BUILDING_TAG = "BUILDING";
+    public const string COUNTRY_NAME_PROPERTY = "country_name";
+    public const string TUTORIAL_COMPLETE_PROPERTY = "tutorial_complete";
+    public const string CAPITAL_NAME_PROPERTY = "capital_name";
 
+    public const int MIN_CAMERA_Y = 2000;
+    public const int MAX_CAMERA_Y = 6000;
+
+    public const bool DEBUG_MODE = true;
+
+    public const string STONE = "Stone";
+    public const string WOOD = "Wood";
+    public const string LEATHER = "Leather";
+    public const string FOOD = "Food";
 }

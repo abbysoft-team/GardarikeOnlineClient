@@ -9,6 +9,7 @@ public class LoginManager : MonoBehaviour
 {
     public InputField usernameField;
     public InputField passwordField;
+    public GameObject registrationScreen;
     public string sessionID;
 
     public static LoginManager instance;
@@ -20,21 +21,12 @@ public class LoginManager : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onLoginComplete += LoginComplete;
+        //EventBus.instance.onResourceUpdateArrived += UpdateResourceCount;
     }
 
-    private void LoginComplete(string sessionID, RepeatedField<Character> characters)
-    {
-        Debug.Log("Login complete. Welcome, " + sessionID);
-        Debug.Log("Defaulting character to 0 " + characters[0]);
-        PlayerPrefs.SetString("sessionId", sessionID);
-        PlayerPrefs.SetInt("userId", characters[0].Id);
-
-        EventBus.instance.SelectCharacterRequest(characters[0]);
-        gameObject.SetActive(false);
-        this.sessionID = sessionID;
-        PlayerPrefs.SetInt("Gold", (int) characters[0].Gold);
-    }
+    // private void UpdateResourceCount(ResourceUpdatedEvent resourceUpdate) {
+    //     PlayerPrefs.SetInt("TreesCount", (int) resourceUpdate.TreesCount);
+    // }
 
     // Update is called once per frame
     void Update()
@@ -50,6 +42,7 @@ public class LoginManager : MonoBehaviour
         }
 
         EventBus.instance.LoginRequest(usernameField.text, passwordField.text);
+        EventBus.instance.OpenLoadingDialog();
     }
 
     private bool ValidateFields()
@@ -66,5 +59,11 @@ public class LoginManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void SignUp()
+    {
+        Debug.Log("Open registration form");
+        registrationScreen.SetActive(true);
     }
 }

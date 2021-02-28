@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool devMode;
+
     void Start()
     {
         //ConnectToServer(LOGIN, PASSWORD);
         // Give free gold
         //PlayerPrefs.SetInt("Gold", 1000);
-        //PlayerPrefs.SetInt("Population", 0);
+        
+        PlayerPrefs.SetInt("Population", 0);
 
         //EventBus.instance.onBuildingComplete += AddMaxPopulation;
 
-        NetworkManagerFactory.GetManager().Init(Private.ipAddress, Private.requestSockPort, Private.eventSockPort);
+        var ipAddress = devMode ? "127.0.0.1" : Private.ipAddress;
+        NetworkManagerFactory.GetManager().Init(ipAddress, Private.requestSockPort, Private.eventSockPort);
     }
 
     private void AddMaxPopulation(BuildItem item)

@@ -32,7 +32,7 @@ public class TerrainGenerator : MonoBehaviour
 
 	private void OnTerrainLoaded(int width, int height, float[,] heights)
 	{
-		terrain.terrainData.size = new Vector3(width, height, width);
+		terrain.terrainData.size = new Vector3(width * 100, height * 13, width * 100);
 		terrain.terrainData.heightmapResolution = width;
 		terrain.terrainData.SetHeights(0, 0, heights);
 
@@ -50,7 +50,7 @@ public class TerrainGenerator : MonoBehaviour
 		texture.SetPixels32(colors);
 		texture.Apply();
 
-		material.SetTexture("_HeightTex", texture);
+		//material.SetTexture("_HeightTex", texture);
 
 		float[,] heights = new float[HEIGHT_MAP_RESOLUTION, HEIGHT_MAP_RESOLUTION];
 		for (int i = 0; i < HEIGHT_MAP_RESOLUTION; i++)

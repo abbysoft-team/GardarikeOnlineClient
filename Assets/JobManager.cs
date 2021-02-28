@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Gardarike;
+
 public class JobManager : MonoBehaviour
 {
     public Dictionary<Job, int> availableJobs;
@@ -11,8 +13,20 @@ public class JobManager : MonoBehaviour
     {
         instance = this;
         availableJobs = new Dictionary<Job, int>();
+        //availableJobs[Job.LUMBERJACK] = 
+        
+        //EventBus.instance.onCharacterSelected += LoadJobInfo;
+        //EventBus.instance.onJobMarketInfoArrived += UpdateJobsInfo;
+    }
 
-        availableJobs.Add(Job.LUMBERJACK, 10);
+    private void LoadJobInfo()
+    {
+        EventBus.instance.RequestJobMarketInfo();
+    }
+
+    private void UpdateJobsInfo(GetWorkDistributionResponse workDistribution)
+    {
+        //availableJobs
     }
 
     public Role GetAvailableJob()
@@ -21,7 +35,13 @@ public class JobManager : MonoBehaviour
         {
             if (job.Value > 0)
             {
-                return GetJobRole(job.Key);
+                var role = GetJobRole(job.Key);
+                if (role != null)
+                {
+                    availableJobs[job.Key] = availableJobs[job.Key] - 1;
+                }
+
+                return role;
             }   
         }
 

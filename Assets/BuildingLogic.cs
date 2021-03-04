@@ -22,7 +22,6 @@ public class BuildingLogic : MonoBehaviour
         EventBus.instance.onBuildingInitiated += StartBuildingProcess;
         prototypingUI.SetActive(false);
         state = BuildingState.READY_FOR_BUILDING;
-        
     }
 
     private void StartBuildingProcess(object building)
@@ -61,8 +60,7 @@ public class BuildingLogic : MonoBehaviour
     {
         if (state != BuildingState.LOCATION_CHOOSE) return;
         
-        var touchHappen = Input.touchCount == 1 &&
-        Input.GetTouch(0).phase == TouchPhase.Stationary &&
+        var touchHappen = Input.GetMouseButton(0) && 
         !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
 
         if (Input.touchCount == 2 && rotationMode)
@@ -70,8 +68,12 @@ public class BuildingLogic : MonoBehaviour
             var rotationDegrees = ScrollAndPitch.GetRotationDegrees();
             building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
         } else if (!rotationMode && touchHappen) {
-            building.transform.position = Utility.GetPositionOnTheGround(Input.GetTouch(0).position);
-
+            var hit = Utility.GetHitOnTheGround(Input.mousePosition);
+            if (hit.collider.name == "ClickDetector") {
+                return;
+            }
+            
+            building.transform.position = hit.point;
             CheckPlacementRestrictions(building);
         }
 

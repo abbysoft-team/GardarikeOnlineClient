@@ -28,8 +28,8 @@ public class GlobalConstants
 
     public const float TREE_GROW_DELTA = 0.05f;
 
-    public const float CHUNK_SIZE = 5000f;
-    public const float CHUNK_HEIGHT = 1000f;
+    public const float CHUNK_SIZE = 25000f;
+    public const float CHUNK_HEIGHT = 5000f;
     public const int CHUNK_RESOLUTION = 1025;
     public const float SERVER_COORDS_FACTOR = (GlobalConstants.CHUNK_SIZE / GlobalConstants.CHUNK_RESOLUTION);
 
@@ -45,7 +45,7 @@ public class GlobalConstants
     public const string CAPITAL_NAME_PROPERTY = "capital_name";
 
     public const int MIN_CAMERA_Y = 100;
-    public const int MAX_CAMERA_Y = (int) (GlobalConstants.CHUNK_HEIGHT * 1.1f);
+    public const int MAX_CAMERA_Y = 500;
 
     public const bool DEBUG_MODE = true;
 

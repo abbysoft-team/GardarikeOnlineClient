@@ -108,7 +108,7 @@ class Utility
 
         Debug.LogError("Raycasting position failed");
 
-        return ray.origin;
+        return Vector3.zero;
     }
 
     public static GameObject GetColliderFromTouch(Vector2 pointOnTheScreen)
@@ -124,6 +124,21 @@ class Utility
         //Debug.LogError("Raycasting position failed");
 
         return null;
+    }
+
+    public static RaycastHit GetHitOnTheGround(Vector2 pointOnTheScreen)
+    {
+        var ray = Camera.main.ScreenPointToRay(pointOnTheScreen);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            //Debug.Log(hit.collider.name);
+            return hit;
+        }
+
+        //Debug.LogError("Raycasting position failed");
+
+        return hit;
     }
 
     public static void SetMaterialForAllChildren(GameObject parent, Material material)

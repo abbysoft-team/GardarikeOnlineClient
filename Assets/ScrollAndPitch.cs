@@ -12,13 +12,12 @@ class ScrollAndPitch : MonoBehaviour
     public static ScrollAndPitch instance;
     private float rotationDegrees;
 
+    private float cameraHeight = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2;
+
     private void Awake()
     {
         if (camera == null)
             camera = Camera.main.gameObject;
-                    PlayerPrefs.SetFloat("cameraX", GlobalConstants.CHUNK_SIZE / 2);
-            PlayerPrefs.SetFloat("cameraZ", GlobalConstants.CHUNK_SIZE / 2);
-        transform.position = new Vector3(PlayerPrefs.GetFloat("cameraX"), (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2, PlayerPrefs.GetFloat("cameraZ"));
 
         instance = this;
     }
@@ -34,7 +33,6 @@ class ScrollAndPitch : MonoBehaviour
         //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
         //         EventBus.instance.ClickWasMade(collider);
         // }
-
 
         //Update Plane
         if (Input.touchCount >= 1) {
@@ -72,7 +70,12 @@ class ScrollAndPitch : MonoBehaviour
             //Move cam amount the mid ray
             var beforeZoom = camera.transform.position;
             camera.transform.position = Vector3.LerpUnclamped(midPoint, camera.transform.position, 1 / zoom);
+            //Go up or down, depending on terrain height
+            var groundHeight = Utility.GetGroundedPoint(new Vector3(camera.transform.position.x, GlobalConstants.CHUNK_HEIGHT + 200, camera.transform.position.z)).y;
+            cameraHeight = camera.transform.position.y - groundHeight;
+
             ApplyCameraBorders(beforeZoom);
+
 
             PlayerPrefs.SetFloat("cameraX", camera.transform.position.x);
             PlayerPrefs.SetFloat("cameraZ", camera.transform.position.z);
@@ -86,8 +89,12 @@ class ScrollAndPitch : MonoBehaviour
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
             //Delta1 /= Vector3.Distance(pos1, camera.transform.position);
             //Delta1 *= 10;
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            if (Input.GetTouch(0).phase == TouchPhase.Moved) {
+                var beforeTranslate = camera.transform.position;
                 camera.transform.Translate(Delta1, Space.World);
+                var groundHeight = Utility.GetGroundedPoint(new Vector3(camera.transform.position.x, GlobalConstants.CHUNK_HEIGHT + 200, camera.transform.position.z)).y;
+                camera.transform.position = new Vector3(camera.transform.position.x, groundHeight + cameraHeight, camera.transform.position.z);
+            }
             if (Input.GetTouch(0).phase == TouchPhase.Began) {
                 SoundManager.instance.PlaySound("click");
                 var collider = Utility.GetColliderFromTouch(Input.GetTouch(0).position);
@@ -99,15 +106,13 @@ class ScrollAndPitch : MonoBehaviour
 
     private void ApplyCameraBorders(Vector3 beforeZoom)
     {
-        var minY = Utility.GetGroundedPoint(camera.transform.position).y + GlobalConstants.MIN_CAMERA_Y;
-
         Debug.Log("minY");
         Debug.Log(camera.transform.position);
 
-        if (camera.transform.position.y < minY)
+        if (cameraHeight < GlobalConstants.MIN_CAMERA_Y)
         {
             camera.transform.position = beforeZoom;
-        } else if (camera.transform.position.y > GlobalConstants.MAX_CAMERA_Y)
+        } else if (cameraHeight > GlobalConstants.MAX_CAMERA_Y)
         {
             camera.transform.position = beforeZoom;
         }
@@ -133,12 +138,14 @@ class ScrollAndPitch : MonoBehaviour
     protected Vector3 PlanePosition(Vector2 screenPos)
     {
         //position
-        var rayNow = Camera.main.ScreenPointToRay(screenPos);
-        if (Plane.Raycast(rayNow, out var enterNow))
-            return rayNow.GetPoint(enterNow);
+        // var rayNow = Camera.main.ScreenPointToRay(screenPos);
+        // if (Plane.Raycast(rayNow, out var enterNow))
+        //     return rayNow.GetPoint(enterNow);
+
+        return Utility.GetPositionOnTheGround(screenPos);
 
 
-        return Vector3.zero;
+        //return Vector3.zero;
     }
 
     private void OnDrawGizmos()

@@ -60,7 +60,8 @@ public class BuildingLogic : MonoBehaviour
     {
         if (state != BuildingState.LOCATION_CHOOSE) return;
         
-        var touchHappen = Input.GetMouseButton(0) && 
+        var touchHappen = Input.touchCount == 1 &&
+        Input.GetTouch(0).phase == TouchPhase.Stationary &&
         !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
 
         if (Input.touchCount == 2 && rotationMode)
@@ -68,7 +69,7 @@ public class BuildingLogic : MonoBehaviour
             var rotationDegrees = ScrollAndPitch.GetRotationDegrees();
             building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
         } else if (!rotationMode && touchHappen) {
-            var hit = Utility.GetHitOnTheGround(Input.mousePosition);
+            var hit = Utility.GetHitOnTheGround(Input.GetTouch(0).position);
             if (hit.collider.name == "ClickDetector") {
                 return;
             }
@@ -106,8 +107,7 @@ public class BuildingLogic : MonoBehaviour
         building.SetActive(false);
         prototypingUI.SetActive(false);
 
-        var buildingType = buildingName.Split('.')[1];
-        if (buildingType == "town")
+        if (buildingName == "town")
         {
             TownsManager.instance.BuildTown(building.transform);
         }

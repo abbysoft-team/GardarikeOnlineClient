@@ -40,6 +40,7 @@
      <Compile Include="Assets\ConstructionOptionsView.cs" />
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\FoodGenerator.cs" />
+     <Compile Include="Assets\Scripts\Server.cs" />
      <Compile Include="Assets\DialogResult.cs" />
      <Compile Include="Assets\UtilityTests.cs" />
      <Compile Include="Assets\NetworkManagerFactory.cs" />
@@ -104,7 +105,7 @@
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
      <Compile Include="Assets\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Server.cs" />
+     <Compile Include="Assets\ManagementScreen.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

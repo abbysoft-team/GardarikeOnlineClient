@@ -28,11 +28,11 @@ class ScrollAndPitch : MonoBehaviour
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
-        // if (Input.GetMouseButton(0)) {
-        //         SoundManager.instance.PlaySound("click");
-        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-        //         EventBus.instance.ClickWasMade(collider);
-        // }
+        if (Input.GetMouseButton(0)) {
+                SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+                EventBus.instance.ClickWasMade(collider);
+        }
 
         //Update Plane
         if (Input.touchCount >= 1) {

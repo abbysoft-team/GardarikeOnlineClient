@@ -6,19 +6,34 @@ public class ConstructionOptionsView : MonoBehaviour
 {
     private List<BuyOption> options;
 
-    void Awake()
+    public void Show()
     {
+        ClearOptions();
+        
         var currentView = PlayerPrefs.GetString("View");
+        List<BuyOption> optionsInfo;
         if (currentView == "Global")
         {
-            options = GetGlobalOptions();
+            optionsInfo = GetGlobalOptions();
         }
         else
         {
-           options = GetTownOptions();
+           optionsInfo = GetTownOptions();
         }
 
-        InitGUI(options);
+        options = InitGUI(optionsInfo);
+
+        gameObject.SetActive(true);
+    }
+
+    private void ClearOptions()
+    {
+        if (options == null) return;
+        
+        foreach (BuyOption option in options)
+        {
+            Destroy(option.gameObject);
+        }
     }
 
     private List<BuyOption> GetGlobalOptions()
@@ -74,17 +89,21 @@ public class ConstructionOptionsView : MonoBehaviour
         return townOptions;
     }
 
-    private void InitGUI(List<BuyOption> options)
+    private List<BuyOption> InitGUI(List<BuyOption> options)
     {
         var referenceOption = GetComponentInChildren<BuyOption>(true);
+        var list = new List<BuyOption>();
 
         foreach (var option in options)
         {
-            CreateOption(option, referenceOption.gameObject);
+            var optionToAdd = CreateOption(option, referenceOption.gameObject);
+            list.Add(optionToAdd);
         }
+
+        return list;
     }
 
-    private void CreateOption(BuyOption option, GameObject reference)
+    private BuyOption CreateOption(BuyOption option, GameObject reference)
     {
         var newObject = Instantiate(reference, this.transform, true);
 
@@ -101,6 +120,8 @@ public class ConstructionOptionsView : MonoBehaviour
         newObject.transform.parent = transform;
 
         newObject.SetActive(true);
+
+        return optionComponent;
     }
 
     // Update is called once per frame

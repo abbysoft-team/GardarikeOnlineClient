@@ -19,6 +19,18 @@ class Utility
         return hitOccured ? hit.point : point;
     }
 
+    public static Vector3 GetGroundedPoint(long x, long y)
+    {
+        var point = new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200, y);
+
+        Ray toGround = new Ray(point, new Vector3(0, -1, 0));
+        RaycastHit hit = new RaycastHit();
+        bool hitOccured = Physics.Raycast(toGround, out hit);
+
+        return hitOccured ? hit.point : point;
+    }
+
+
     public static string SquashStringList(List<string> strings)
     {
         var builder = new StringBuilder();

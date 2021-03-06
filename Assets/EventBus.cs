@@ -13,7 +13,7 @@ public class EventBus : MonoBehaviour
     public event Action<BuildItemInfo> onBuildingRegistrationEvent;
     public event Action<Building> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
-    public event Action<int, int, float[,]> onTerrainLoadingComplete;
+    public event Action<float[,], int, int> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
@@ -23,7 +23,7 @@ public class EventBus : MonoBehaviour
     public event Action<long> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
-    public event Action<string> onMapLoadRequest;
+    public event Action<string, int, int> onMapLoadRequest;
     public event Action<Vector2, Vector2> onLocalChunksLoadRequest;
     public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
@@ -89,9 +89,9 @@ public class EventBus : MonoBehaviour
         onTerrainGenerationFinished?.Invoke(heights);
     }
 
-    public void TerrainLoaded(int width, int height, float[,] heights)
+    public void TerrainLoaded(float[,] heights, int x, int y)
     {
-        onTerrainLoadingComplete?.Invoke(width, height, heights);
+        onTerrainLoadingComplete?.Invoke(heights, x, y);
     }
 
     public void MapObjectsLoaded(RepeatedField<Building> buildings, int treesCount) {
@@ -135,8 +135,8 @@ public class EventBus : MonoBehaviour
         onSelectCharacterRequest?.Invoke(charId);
     }
 
-    public void LoadMap(string sessionId) {
-        onMapLoadRequest?.Invoke(sessionId);
+    public void LoadMap(string sessionId, int x, int y) {
+        onMapLoadRequest?.Invoke(sessionId, x, y);
     }
 
     public void CharacterSelectionConfirmed(RepeatedField<Gardarike.Town> town) {

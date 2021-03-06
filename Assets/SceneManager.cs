@@ -30,7 +30,7 @@ public class SceneManager : MonoBehaviour
         //EventBus.instance.MapObjectsLoaded(response.Map.Buildings, 10);
 
         // Transfer fake heights
-        EventBus.instance.TerrainLoaded(129, 19, GetHeights());
+        EventBus.instance.TerrainLoaded(GetHeights(), 0, 0);
     }
 
 	private float[,] GetHeights() {
@@ -55,7 +55,7 @@ public class SceneManager : MonoBehaviour
         // Update info about resource count
         EventBus.instance.SendResourceUpdateRequest();
 
-        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
+        TerrainGenerator.instance.LoadMap();
     }
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
@@ -142,7 +142,7 @@ public class SceneManager : MonoBehaviour
         var width = (int) Mathf.Sqrt(chunkInfo.Map.Data.Count);
         var height = width;
         var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data, width, height);
-        EventBus.instance.TerrainLoaded(width, height, heights);
+        EventBus.instance.TerrainLoaded(heights, chunkInfo.Map.X, chunkInfo.Map.Y);
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
 
         // world map is just some model, so don't draw all trees on the chunk

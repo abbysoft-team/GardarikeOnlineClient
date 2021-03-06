@@ -35,15 +35,19 @@ public class BuildingManager : MonoBehaviour
         //buildings.Add(building);
     }
 
-    public void BuildBuilding(GameObject building)
+    public void BuildBuilding(string building, Transform info)
     {
-        building.transform.parent = transform;
-        building.SetActive(true);
+        var reference = ResourceManager.GetReferenceObject(building);
+        var copy = Instantiate(reference);
+
+        copy.transform.parent = transform;
+        copy.transform.position = info.position;
+        copy.transform.rotation = info.rotation;
+        copy.gameObject.SetActive(true);
        
-        var buildingInfo = building.GetComponent<Building>();
+        var buildingInfo = reference.GetComponent<Building>();
         buildings.Add(buildingInfo);
 
-        
         EventBus.instance.BuildingComplete(buildingInfo);
     }
 

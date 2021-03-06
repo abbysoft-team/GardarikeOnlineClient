@@ -98,8 +98,9 @@ public class BuildingLogic : MonoBehaviour
     private void StickUIToPrototype()
     {
         var position = building.transform.position;
+        var topPoint = Utility.GetGroundedPoint(new Vector3(position.x, position.y + GlobalConstants.CHUNK_HEIGHT, position.z));
 
-        prototypingUI.transform.position = new Vector3(position.x, position.y + UI_PROTOTYPE_HEIGHT, position.z);
+        prototypingUI.transform.position = new Vector3(position.x,UI_PROTOTYPE_HEIGHT + topPoint.y, position.z);
     }
 
     public void ApplyBuilding()
@@ -113,8 +114,10 @@ public class BuildingLogic : MonoBehaviour
         }
         else
         {
-            BuildingManager.instance.BuildBuilding(building);
+            BuildingManager.instance.BuildBuilding(buildingName, building.transform);
         }
+
+        Destroy(building);
     }
 
     public void CancelBuilding()

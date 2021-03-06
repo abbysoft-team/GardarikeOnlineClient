@@ -301,7 +301,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
-    private void SendWorldMapRequest(string sessionId)
+    private void SendWorldMapRequest(string sessionId, int x, int y)
     {
         Debug.Log("Trying to request world map information ");
 
@@ -310,8 +310,8 @@ public class NetworkManagerImpl : NetworkManager
             GetWorldMapRequest = new GetWorldMapRequest {
                 Location = new IntVector2D
                 {
-                    X = 0,
-                    Y = 0,
+                    X = x,
+                    Y = y,
                 },
                 SessionID = sessionId
             }

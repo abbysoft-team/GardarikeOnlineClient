@@ -22,17 +22,27 @@ class ScrollAndPitch : MonoBehaviour
         instance = this;
     }
 
+    public void InitCameraPosition()
+    {
+        // Set camera at the saved point
+		var x = PlayerPrefs.GetFloat("cameraX");
+		var z = PlayerPrefs.GetFloat("cameraZ");
+		var y = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2 + Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200f, z)).y;
+
+		Camera.main.transform.position = new Vector3(x, y, z);
+    }
+
     private void Update()
     {
         rotationDegrees = 0;
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
-        if (Input.GetMouseButton(0)) {
-                SoundManager.instance.PlaySound("click");
-                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-                EventBus.instance.ClickWasMade(collider);
-        }
+        // if (Input.GetMouseButton(0)) {
+        //         SoundManager.instance.PlaySound("click");
+        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+        //         EventBus.instance.ClickWasMade(collider);
+        // }
 
         //Update Plane
         if (Input.touchCount >= 1) {
@@ -76,7 +86,6 @@ class ScrollAndPitch : MonoBehaviour
 
             ApplyCameraBorders(beforeZoom);
 
-
             PlayerPrefs.SetFloat("cameraX", camera.transform.position.x);
             PlayerPrefs.SetFloat("cameraZ", camera.transform.position.z);
 
@@ -102,6 +111,7 @@ class ScrollAndPitch : MonoBehaviour
             }
         }
 
+        MapManager.CameraMoved(camera.transform.position);
     }
 
     private void ApplyCameraBorders(Vector3 beforeZoom)

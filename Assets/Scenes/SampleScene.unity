@@ -1937,7 +1937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223974226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2144.9111, y: 2573.5972, z: 2691.9016}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1822716895}
@@ -11439,7 +11439,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375160332}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b53860fd1ad0d046800d52242d9d555, type: 3}
   m_Name: 
@@ -11502,10 +11502,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2064362887}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2064362893}
+        m_TargetAssemblyTypeName: ManagementScreen, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16082,7 +16082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822716892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2144.9111, y: -2573.5972, z: -2691.9016}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 223974228}
@@ -17968,7 +17968,7 @@ GameObject:
   - component: {fileID: 2019497786}
   - component: {fileID: 2019497785}
   m_Layer: 5
-  m_Name: New town
+  m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18039,10 +18039,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1303573109}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2064362893}
+        m_TargetAssemblyTypeName: ManagementScreen, Assembly-CSharp
+        m_MethodName: ShowConstructionView
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18484,6 +18484,7 @@ GameObject:
   - component: {fileID: 2064362891}
   - component: {fileID: 2064362890}
   - component: {fileID: 2064362889}
+  - component: {fileID: 2064362893}
   m_Layer: 5
   m_Name: ConstuctOptionsScreen
   m_TagString: Untagged
@@ -18592,6 +18593,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064362887}
   m_CullTransparentMesh: 1
+--- !u!114 &2064362893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064362887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97288a6457cc31c5c9a19cfd3245fcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constructionOptionsView: {fileID: 1303573114}
 --- !u!1 &2068843930
 GameObject:
   m_ObjectHideFlags: 0

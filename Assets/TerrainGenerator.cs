@@ -17,11 +17,9 @@ public enum Direction {
 public class TerrainGenerator : MonoBehaviour
 {
 	public static TerrainGenerator instance;
-
-	public float[,] heights;
 	private Terrain referenceTerrain;
 
-	private Dictionary<Direction, Terrain> activeChunks = new Dictionary<Direction, Terrain>(3);
+	private Dictionary<string, Terrain> activeChunks = new Dictionary<string, Terrain>(10);
 
 	// Start is called before the first frame update
 	void Start()
@@ -39,25 +37,42 @@ public class TerrainGenerator : MonoBehaviour
 		instance = this;
 	}
 
-	private void OnTerrainLoaded(int width, int height, float[,] heights)
+	private void OnTerrainLoaded(float[,] heights, int chunkX, int chunkY)
 	{
 		var terrainData = new TerrainData();
 
 		terrainData.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
 		terrainData.size = new Vector3(GlobalConstants.CHUNK_SIZE, GlobalConstants.CHUNK_HEIGHT, GlobalConstants.CHUNK_SIZE);
 		terrainData.SetHeights(0, 0, heights);
-		referenceTerrain.GetComponent<TerrainCollider>().terrainData = terrainData;
 
-		this.heights = heights;
+		var newTerrainObject = Instantiate(referenceTerrain);
+		newTerrainObject.transform.parent = transform;
+		newTerrainObject.GetComponent<TerrainCollider>().terrainData = terrainData;
+		newTerrainObject.terrainData = terrainData;
+		newTerrainObject.gameObject.SetActive(true);
+		newTerrainObject.transform.position = new Vector3(chunkX * GlobalConstants.CHUNK_SIZE, 0, chunkY * GlobalConstants.CHUNK_SIZE);
 
-		referenceTerrain.terrainData = terrainData;
+		activeChunks.Add("" + chunkX + ";" + chunkY, newTerrainObject);
 
-		// Set camera at the saved point
-		var x = PlayerPrefs.GetFloat("cameraX");
-		var z = PlayerPrefs.GetFloat("cameraZ");
-		var y = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2 + Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200f, z)).y;
+		if (activeChunks.Count == 1)
+		{
+			ScrollAndPitch.instance.InitCameraPosition();
+		} else if (activeChunks.Count >= 9)
+		{
+			EventBus.instance.CloseLoadingDialog();
+		}
+	}
 
-		Camera.main.transform.position = new Vector3(x, y, z);
+	public void LoadMap()
+	{
+		EventBus.instance.OpenLoadingDialog();
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), i, j);
+			}
+		}
 	}
 
 	// Update is called once per frame

@@ -8,8 +8,11 @@ public class MapManager : MonoBehaviour
 {
     public TerrainGenerator terrainGenerator;
 
+    public static MapManager instance;
+
     void Start()
     {
+        instance = this;
         EventBus.instance.onMapObjectsLoadingComplete += PlaceMapObjects;
     }
 
@@ -29,6 +32,11 @@ public class MapManager : MonoBehaviour
        // item.position = Utility.GetGroundedPoint(item.position);
 
         return item;
+    }
+
+    public static void CameraMoved(Vector3 position)
+    {   
+
     }
 
     // Update is called once per frame

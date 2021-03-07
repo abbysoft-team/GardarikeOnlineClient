@@ -140,7 +140,9 @@ public class NetworkManagerImpl : NetworkManager
         try
         {
             var response = Response.Parser.ParseFrom(rawResponse);
+            Debug.Log("Parsed: " + response);
             responseQueue.Enqueue(response);
+            Debug.Log("Enqued, " + responseQueue.Count);
         }
         catch
         {

@@ -32,10 +32,11 @@ public class MapCache : MonoBehaviour
     {
         if (ChunkIsMissing(x, y, true)) 
         {
-            Debug.Log("Chunk cache miss");
+            Debug.Log("Chunk cache miss for chunk " + x + ";" + y);
             EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), x, y);
         } else 
         {
+            Debug.Log("Loading " + x + ";" + y + " from cache");
             EventBus.instance.WorldMapChunkLoaded(Deserialize(x, y));
         }
     }

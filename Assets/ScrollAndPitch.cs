@@ -111,7 +111,7 @@ class ScrollAndPitch : MonoBehaviour
             }
         }
 
-        MapManager.CameraMoved(camera.transform.position);
+        TerrainGenerator.instance.CameraMoved(camera.transform.position);
     }
 
     private void ApplyCameraBorders(Vector3 beforeZoom)

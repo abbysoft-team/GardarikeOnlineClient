@@ -21,6 +21,10 @@ public class TerrainGenerator : MonoBehaviour
 
 	private Dictionary<string, Terrain> activeChunks = new Dictionary<string, Terrain>(10);
 
+	private Vector2Int cameraCell;
+
+	private List<Vector2Int> chunksToLoad = new List<Vector2Int>(GlobalConstants.MAX_ACTIVE_CHUNKS);
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -37,8 +41,14 @@ public class TerrainGenerator : MonoBehaviour
 		instance = this;
 	}
 
+	// TODO Implement chunk pool to reduce instantiation count
 	private void OnTerrainLoaded(float[,] heights, int chunkX, int chunkY)
 	{
+		if (activeChunks.Count >= GlobalConstants.MAX_ACTIVE_CHUNKS)
+		{
+			UnloadFarthestChunk(chunkX, chunkY);
+		}
+
 		var terrainData = new TerrainData();
 
 		terrainData.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
@@ -52,10 +62,11 @@ public class TerrainGenerator : MonoBehaviour
 		newTerrainObject.gameObject.SetActive(true);
 		newTerrainObject.transform.position = new Vector3(chunkX * GlobalConstants.CHUNK_SIZE, 0, chunkY * GlobalConstants.CHUNK_SIZE);
 
-		activeChunks.Add("" + chunkX + ";" + chunkY, newTerrainObject);
+		activeChunks.Add(GetChunkKey(chunkX, chunkY), newTerrainObject);
 
 		if (activeChunks.Count == 1)
 		{
+			cameraCell = new Vector2Int(0, 0);
 			ScrollAndPitch.instance.InitCameraPosition();
 		} else if (activeChunks.Count >= 9)
 		{
@@ -63,12 +74,42 @@ public class TerrainGenerator : MonoBehaviour
 		}
 	}
 
+	private void UnloadFarthestChunk(int chunkX, int chunkY)
+	{
+		Debug.LogFormat("Unload chunk {0};{1}", chunkX, chunkY);
+		var farthestX = 0;
+		var farthestY = 0;
+		var maxDistance = 0.0;
+		foreach (var chunk in activeChunks)
+		{
+			var x = int.Parse(chunk.Key.Split(';')[0]);
+			var y = int.Parse(chunk.Key.Split(';')[1]);
+
+			var dx = Math.Abs(x - chunkX);
+			var dy = Math.Abs(y - chunkY);
+
+			var distance = Math.Sqrt(dx * dx + dy * dy);
+
+			if (distance > maxDistance)
+			{
+				maxDistance = distance;
+				farthestX = x;
+				farthestY = y;
+			}
+		}
+
+		var farthestChunk = activeChunks[GetChunkKey(farthestX, farthestY)];
+		activeChunks.Remove(GetChunkKey(farthestX, farthestY));
+
+		farthestChunk.gameObject.SetActive(false);
+	}
+
 	public void LoadMap()
 	{
 		EventBus.instance.OpenLoadingDialog();
-		for (int i = 0; i < 3; i++)
+		for (int i = -1; i < 2; i++)
 		{
-			for (int j = 0; j < 3; j++)
+			for (int j = -1; j < 2; j++)
 			{
 				MapCache.LoadGlobalChunk(i, j);
 			}
@@ -79,6 +120,48 @@ public class TerrainGenerator : MonoBehaviour
 	void Update()
 	{
 
+	}
+    public void CameraMoved(Vector3 position)
+    {   
+		if (activeChunks.Count < 1) return;
+
+		var x = position.x;
+		var y = position.z;
+
+		if (x < 0) x-= GlobalConstants.CHUNK_SIZE;
+		if (y < 0) y-= GlobalConstants.CHUNK_SIZE;
+
+		int chunkX = (int) (x / GlobalConstants.CHUNK_SIZE);
+		int chunkY = (int) (y / GlobalConstants.CHUNK_SIZE);
+
+		int diffX = cameraCell.x - chunkX;
+		int diffY = cameraCell.y - chunkY;
+
+		if (diffX == 0 && diffY == 0) return;
+
+		chunksToLoad.Clear();
+
+		for (int i = -1; i < 2; i++)
+		{
+			for (int j = -1; j < 2; j++)
+			{
+				if (ChunkIsActive(chunkX + i, chunkY + j)) continue;
+
+				MapCache.LoadGlobalChunk(chunkX + i, chunkY + j);
+			}
+		}
+
+		cameraCell = new Vector2Int(chunkX, chunkY);
+    }
+
+	private bool ChunkIsActive(int x, int y)
+	{
+		return activeChunks.ContainsKey(GetChunkKey(x, y));
+	}
+
+	private string GetChunkKey(int x, int y)
+	{
+		return x + ";" + y;
 	}
 
 	// public void UpdateTerrain()

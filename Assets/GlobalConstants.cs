@@ -55,4 +55,6 @@ public class GlobalConstants
     public const string FOOD = "Food";
 
     public const double TOWN_CLICK_DELTA = 400d;
+
+    public const int MAX_ACTIVE_CHUNKS = 25;
 }

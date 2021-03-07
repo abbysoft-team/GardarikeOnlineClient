@@ -34,11 +34,6 @@ public class MapManager : MonoBehaviour
         return item;
     }
 
-    public static void CameraMoved(Vector3 position)
-    {   
-
-    }
-
     // Update is called once per frame
     void Update()
     {

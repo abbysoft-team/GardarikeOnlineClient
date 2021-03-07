@@ -31,15 +31,17 @@ public class NetworkParser : MonoBehaviour
         DispatchEvents(events);
 
         // Clear buffer
-        packets.Clear();
         events.Clear();
     }
 
-    private void DispatchPackets(Queue<Response> packets)
+    private void DispatchPackets(Queue<Response> queue)
     {
+        var packets = queue.ToArray();
+        queue.Clear();
         foreach (var packet in packets)
         {
             try {
+                Debug.Log("Dispatching: " + packet);
                 DispatchPacket(packet);
             } catch (Exception e)
             {

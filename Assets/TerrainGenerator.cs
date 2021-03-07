@@ -70,7 +70,7 @@ public class TerrainGenerator : MonoBehaviour
 		{
 			for (int j = 0; j < 3; j++)
 			{
-				EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), i, j);
+				MapCache.LoadGlobalChunk(i, j);
 			}
 		}
 	}

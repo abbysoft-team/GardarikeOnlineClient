@@ -37,8 +37,9 @@ public class NetworkParser : MonoBehaviour
 
     private void DispatchPackets(Queue<Response> packets)
     {
-        foreach (var packet in packets)
+        for (int i = 0; i < packets.Count; i++)
         {
+            var packet = packets.Dequeue();
             try {
                 DispatchPacket(packet);
             } catch (Exception e)

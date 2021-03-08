@@ -49,6 +49,12 @@ public class SceneManager : MonoBehaviour
     private void CharacterSelected(RepeatedField<Gardarike.Town> towns) {
         Debug.Log("Character selected");
 
+        if (towns.Count == 0)
+        {
+            // build first town
+            EventBus.instance.SendNewTownRequest(null, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
+        }
+
         // We've got towns from getMap request, so this one is obsolete
         //townsManager.InitTowns(towns);
 
@@ -121,11 +127,10 @@ public class SceneManager : MonoBehaviour
     }
     private void SendCapitalFoundationRequest()
     {
-        Vector2D location = null;
         var character = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
 
         EventBus.instance.SendNewCharacterRequest(character);
-        EventBus.instance.SendNewTownRequest(location, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
+        //EventBus.instance.SelectCharacterRequest(0);
     }
 
     private void ProcessMapChunk(GetWorldMapResponse chunkInfo)

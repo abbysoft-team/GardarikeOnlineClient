@@ -30,7 +30,7 @@ public class GlobalConstants
 
     public const float CHUNK_SIZE = 25000f;
     public const float CHUNK_HEIGHT = 5000f;
-    public const int CHUNK_RESOLUTION = 1025;
+    public const int CHUNK_RESOLUTION = 257;
     public const float SERVER_COORDS_FACTOR = (GlobalConstants.CHUNK_SIZE / GlobalConstants.CHUNK_RESOLUTION);
 
     public const float WATER_LEVEL = -18.7f;

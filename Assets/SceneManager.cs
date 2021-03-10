@@ -151,7 +151,9 @@ public class SceneManager : MonoBehaviour
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
 
         // world map is just some model, so don't draw all trees on the chunk
-        treeGenerator.GenerateTrees((int) (chunkInfo.Map.Trees));
+        var treeCount = (int) chunkInfo.Map.Trees;
+        treeCount = Math.Min(200, treeCount);
+        treeGenerator.GenerateTrees(treeCount);
         townsManager.InitTowns(chunkInfo.Map.Towns);
     }
 

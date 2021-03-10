@@ -43,6 +43,7 @@ public class BuildingLogic : MonoBehaviour
         building = Instantiate(referenceBuilding);
         Utility.SetMaterialForAllChildren(building, prototypeMaterial);
         building.transform.position = Utility.GetPointOnTheGroundInFrontOfCamera();
+        building.transform.position = Utility.GetGroundedPointForBuildings((long) building.transform.position.x, (long) building.transform.position.z);
         building.SetActive(true);
 
         ConfigurePrototypingUI();
@@ -73,6 +74,8 @@ public class BuildingLogic : MonoBehaviour
             if (hit.collider.name == "ClickDetector") {
                 return;
             }
+
+            var buildingPosition = new Vector3(hit.point.x, hit.point.y + GlobalConstants.BUILDING_Y_OFFSET, hit.point.z);
             
             building.transform.position = hit.point;
             CheckPlacementRestrictions(building);
@@ -92,7 +95,7 @@ public class BuildingLogic : MonoBehaviour
         }
         // Invalid place
         Utility.SetMaterialForAllChildren(buildingPrototype, invalidMaterial);
-        //applyButton.enabled = false;
+        applyButton.enabled = false;
     }
 
     private void StickUIToPrototype()

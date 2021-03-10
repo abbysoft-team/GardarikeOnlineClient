@@ -49,6 +49,8 @@ public class EventBus : MonoBehaviour
     public event Action<GameObject> onClickWasMade;
     public event Action onClearMapRequest;
     public event Action<string, object> onGameEvent;
+    public event Action onRequestTopEmpires;
+    public event Action onTopEmpiresStatisticReceived;
 
     private void Awake()
     {
@@ -254,4 +256,13 @@ public class EventBus : MonoBehaviour
         onLocalChunksArrived?.Invoke(localChunksReponse);
     }
 
+    public void RequestTopEmpires()
+    {
+        onRequestTopEmpires?.Invoke();
+    }
+
+    public void TopEmpiresStatisticReceived()
+    {
+        onTopEmpiresStatisticReceived?.Invoke();
+    }
 }

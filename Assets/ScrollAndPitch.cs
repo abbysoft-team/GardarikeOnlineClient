@@ -34,9 +34,15 @@ class ScrollAndPitch : MonoBehaviour
 
     private void Update()
     {
-        rotationDegrees = 0;
+        instance.rotationDegrees = 0;
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
+
+        // if (Input.GetMouseButton(2))
+        // {
+        //     instance.rotationDegrees = 10;
+        //     Debug.Log("rotated 10 degrees");
+        // }
 
         // if (Input.GetMouseButton(0)) {
         //         SoundManager.instance.PlaySound("click");
@@ -62,7 +68,7 @@ class ScrollAndPitch : MonoBehaviour
 
             var midPoint = (pos1b + pos2) / 2;
 
-            rotationDegrees = Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal);
+            instance.rotationDegrees = Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal);
 
             if (Rotate && pos2b != pos2) {
                 camera.transform.RotateAround(midPoint, Plane.normal, rotationDegrees);

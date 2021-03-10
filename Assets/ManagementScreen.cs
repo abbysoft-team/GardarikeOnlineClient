@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ManagementScreen : MonoBehaviour
 {
     public ConstructionOptionsView constructionOptionsView; 
+    public StatisticsScreen statisticsView;
 
 
     public void Show()
@@ -17,6 +18,13 @@ public class ManagementScreen : MonoBehaviour
     public void ShowConstructionView()
     {
         constructionOptionsView.Show();
+        statisticsView.gameObject.SetActive(false);
+    }
+
+    public void ShowStatisticsView()
+    {
+        statisticsView.Show();
+        constructionOptionsView.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

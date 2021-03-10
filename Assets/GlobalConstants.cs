@@ -57,4 +57,6 @@ public class GlobalConstants
     public const double TOWN_CLICK_DELTA = 400d;
 
     public const int MAX_ACTIVE_CHUNKS = 25;
+
+    public const float BUILDING_Y_OFFSET = 3;
 }

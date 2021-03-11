@@ -12,7 +12,7 @@ public class ConstructionOptionsView : MonoBehaviour
         
         var currentView = PlayerPrefs.GetString("View");
         List<BuyOption> optionsInfo;
-        if (currentView == "Global")
+        if (currentView == "Global" || currentView == "")
         {
             optionsInfo = GetGlobalOptions();
         }

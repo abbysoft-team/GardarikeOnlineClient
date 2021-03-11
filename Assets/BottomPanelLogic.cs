@@ -10,8 +10,8 @@ public class BottomPanelLogic : MonoBehaviour
 
     void Start()
     {
-        EventBus.instance.onBuildingStarted += (id, someObj) => buildingOption.gameObject.SetActive(false);
-        EventBus.instance.onBulidingComplete += (result) =>  buildingOption.gameObject.SetActive(true);
+        EventBus.instance.onBuildingInitiated += (arg) => buildingOption.gameObject.SetActive(false);
+        EventBus.instance.onBuildingProcessFinished += () =>  buildingOption.gameObject.SetActive(true);
     }
 
     void Update()

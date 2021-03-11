@@ -10,8 +10,6 @@ public class EventBus : MonoBehaviour
     public const string NEW_BUILDING_EVENT = "NEW_BUILDING";
     public static EventBus instance;
 
-    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
-    public event Action<Building> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<float[,], int, int> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
@@ -42,8 +40,13 @@ public class EventBus : MonoBehaviour
     public event Action onRegistrationComplete;
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
+
     public event Action<int, GameObject> onBuildingStarted;
     public event Action<object> onBuildingInitiated;
+    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
+    public event Action<Building> onBulidingComplete;
+    public event Action onBuildingProcessFinished;
+
     public event Action onResourceUpdateRequest;
     public event Action<Gardarike.Resources> onResourceUpdateArrived;
     public event Action<GameObject> onClickWasMade;
@@ -264,5 +267,10 @@ public class EventBus : MonoBehaviour
     public void TopEmpiresStatisticReceived()
     {
         onTopEmpiresStatisticReceived?.Invoke();
+    }
+
+    public void FireBuildingFinished()
+    {
+        onBuildingProcessFinished?.Invoke();
     }
 }

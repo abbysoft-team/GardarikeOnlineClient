@@ -14,7 +14,7 @@ public class BuildingLogic : MonoBehaviour
     public Button applyButton;
     public Button rotationButton;
     private bool rotationMode;
-
+    
     private string buildingName;
 
     void Start()
@@ -111,6 +111,8 @@ public class BuildingLogic : MonoBehaviour
         building.SetActive(false);
         prototypingUI.SetActive(false);
 
+        EventBus.instance.FireBuildingFinished();
+
         if (buildingName == "town")
         {
             TownsManager.instance.BuildTown(building.transform);
@@ -129,6 +131,8 @@ public class BuildingLogic : MonoBehaviour
         this.state = BuildingState.READY_FOR_BUILDING;
         building.SetActive(false);
         prototypingUI.SetActive(false);
+
+        EventBus.instance.FireBuildingFinished();
     }
 
     public void ToggleRotationMode()

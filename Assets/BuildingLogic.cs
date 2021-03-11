@@ -61,17 +61,15 @@ public class BuildingLogic : MonoBehaviour
     {
         if (state != BuildingState.LOCATION_CHOOSE) return;
         
-        var touchHappen = Input.touchCount == 1 &&
-        Input.GetTouch(0).phase == TouchPhase.Stationary &&
-        !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
+        var touchHappen = Input.GetMouseButton(0);
 
         if (Input.touchCount == 2 && rotationMode)
         {
             var rotationDegrees = ScrollAndPitch.GetRotationDegrees();
             building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
         } else if (!rotationMode && touchHappen) {
-            var hit = Utility.GetHitOnTheGround(Input.GetTouch(0).position);
-            if (hit.collider.name == "ClickDetector") {
+            var hit = Utility.GetHitOnTheGround(Input.mousePosition);
+            if (!hit.collider.name.StartsWith("Terrain")) {
                 return;
             }
 

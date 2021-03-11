@@ -19,6 +19,8 @@ public class Town : MonoBehaviour
     {
         var goToTownButton = selectedUI.GetComponentInChildren<Button>();
         goToTownButton.onClick.AddListener(() => SceneManager.instance.GoToTownView(this));
+
+        name.onEndEdit.AddListener((value) => selectedUIName.text = value);
     }
 
     // Update is called once per frame

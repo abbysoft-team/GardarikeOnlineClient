@@ -101,7 +101,7 @@ public class SceneManager : MonoBehaviour
         Debug.Log("update character: " + character);
 
         PlayerPrefs.SetInt("userId", (int) character.Id);
-        PlayerPrefs.SetString("currentCharName", character.Name);
+        PlayerPrefs.SetString(GlobalConstants.COUNTRY_NAME_PROPERTY, character.Name);
         PlayerPrefs.SetInt("Population", (int) character.CurrentPopulation);
         PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
     }

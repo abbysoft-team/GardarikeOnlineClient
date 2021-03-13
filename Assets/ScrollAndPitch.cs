@@ -44,11 +44,11 @@ class ScrollAndPitch : MonoBehaviour
         //     Debug.Log("rotated 10 degrees");
         // }
 
-        // if (Input.GetMouseButton(0)) {
-        //         SoundManager.instance.PlaySound("click");
-        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-        //         EventBus.instance.ClickWasMade(collider);
-        // }
+        if (Input.GetMouseButton(0)) {
+                SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+                EventBus.instance.ClickWasMade(collider);
+        }
 
         //Update Plane
         if (Input.touchCount >= 1) {

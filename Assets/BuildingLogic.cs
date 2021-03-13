@@ -11,6 +11,7 @@ public class BuildingLogic : MonoBehaviour
     public Material invalidMaterial;
     private GameObject building;
     public GameObject prototypingUI;
+    public Text buildingType;
     public Button applyButton;
     public Button rotationButton;
     private bool rotationMode;
@@ -29,6 +30,8 @@ public class BuildingLogic : MonoBehaviour
         Debug.Log("Start building " + building);
         buildingName = (string) building;
         var referenceBuilding = ResourceManager.GetReferenceObject(buildingName);
+
+        buildingType.text = "New " + buildingName + " construction";
 
         ChooseBuildingLocation(referenceBuilding);
     }
@@ -111,6 +114,7 @@ public class BuildingLogic : MonoBehaviour
         building.SetActive(false);
         prototypingUI.SetActive(false);
 
+        state = BuildingState.ONGOING_BUILDING;
         EventBus.instance.FireBuildingFinished();
 
         if (buildingName == "town")

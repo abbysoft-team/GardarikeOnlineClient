@@ -14,7 +14,7 @@ public class ConstructionOptionsView : MonoBehaviour
         List<BuyOption> optionsInfo;
         if (currentView == "Global" || currentView == "")
         {
-            optionsInfo = GetGlobalOptions();
+            optionsInfo = GetTownOptions();
         }
         else
         {
@@ -44,11 +44,11 @@ public class ConstructionOptionsView : MonoBehaviour
         town.optionName = "Town";
         town.function = "build.town";
         town.sprite = ImageManager.GetSprite("town");
-        town.peopleReq = 0;
-        town.leatherCost = 0;
-        town.woodCost = 0;
-        town.foodCost = 0;
-        town.stoneCost = 0;
+        town.peopleReq = 100;
+        town.leatherCost = 100;
+        town.woodCost = 500;
+        town.foodCost = 500;
+        town.stoneCost = 900;
 
         global.Add(town);
 
@@ -63,9 +63,9 @@ public class ConstructionOptionsView : MonoBehaviour
         house.optionName = "House";
         house.function = "build.house";
         house.sprite = ImageManager.GetSprite("house");
-        house.leatherCost = 1;
-        house.woodCost = 7;
-        house.stoneCost = 3;
+        house.leatherCost = 0;
+        house.woodCost = 0;
+        house.stoneCost = 0;
 
         var storage = new BuyOption();
         storage.optionName = "Storage";

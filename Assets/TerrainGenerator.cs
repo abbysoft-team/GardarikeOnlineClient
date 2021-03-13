@@ -106,14 +106,12 @@ public class TerrainGenerator : MonoBehaviour
 
 	public void LoadMap()
 	{
-		SetRandomTerrain();
-
-		//EventBus.instance.OpenLoadingDialog();
+		EventBus.instance.OpenLoadingDialog();
 		for (int i = -1; i < 2; i++)
 		{
 			for (int j = -1; j < 2; j++)
 			{
-				//MapCache.LoadGlobalChunk(i, j);
+				MapCache.LoadGlobalChunk(i, j);
 			}
 		}
 	}

@@ -115,9 +115,10 @@ public class SceneManager : MonoBehaviour
         // TODO extract messages to Strings.cs
         var dialogId = EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, GlobalConstants.COUNTRY_NAME_PROPERTY);
         EventBus.instance.onEventFinished += (id, result) => {
-            dialogId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
+            if (id != dialogId) return;
+            var secondId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
             EventBus.instance.onEventFinished += (id, result) => {
-                if (id == dialogId) 
+                if (id == secondId) 
                     SendCapitalFoundationRequest();
             };
         };

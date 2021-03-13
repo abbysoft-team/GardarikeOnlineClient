@@ -63,9 +63,9 @@ public class ConstructionOptionsView : MonoBehaviour
         house.optionName = "House";
         house.function = "build.house";
         house.sprite = ImageManager.GetSprite("house");
-        house.leatherCost = 0;
-        house.woodCost = 0;
-        house.stoneCost = 0;
+        house.leatherCost = 1;
+        house.woodCost = 7;
+        house.stoneCost = 3;
 
         var storage = new BuyOption();
         storage.optionName = "Storage";

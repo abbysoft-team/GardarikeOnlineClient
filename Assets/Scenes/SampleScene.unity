@@ -13817,6 +13817,7 @@ MonoBehaviour:
   prototypeMaterial: {fileID: 2100000, guid: b95150e655d6677028042d8886c454e0, type: 2}
   invalidMaterial: {fileID: 2100000, guid: a7bedf73cbb53c643975c3062692d311, type: 2}
   prototypingUI: {fileID: 1655234385}
+  buildingType: {fileID: 1860409345}
   applyButton: {fileID: 634324274}
   rotationButton: {fileID: 1626897316}
 --- !u!1 &1575380469

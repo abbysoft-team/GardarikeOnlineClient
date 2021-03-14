@@ -5,35 +5,48 @@ using UnityEngine.UI;
 
 public class BuildingLogic : MonoBehaviour
 {
-    private const float UI_PROTOTYPE_HEIGHT = 620.0f;
+    private const float UI_PROTOTYPE_HEIGHT = 5.0f;
     private BuildingState state;
     public Material prototypeMaterial;
     public Material invalidMaterial;
     private GameObject building;
     public GameObject prototypingUI;
+    public Text buildingType;
     public Button applyButton;
     public Button rotationButton;
-    private int callbackId;
     private bool rotationMode;
+    
+    private string buildingName;
 
     void Start()
     {
-        EventBus.instance.onBuildingStarted += ChooseBuildingLocation;
+        EventBus.instance.onBuildingInitiated += StartBuildingProcess;
         prototypingUI.SetActive(false);
         state = BuildingState.READY_FOR_BUILDING;
     }
 
-    public void ChooseBuildingLocation(int eventId, GameObject referenceBuilding)
+    private void StartBuildingProcess(object building)
+    {
+        Debug.Log("Start building " + building);
+        buildingName = (string) building;
+        var referenceBuilding = ResourceManager.GetReferenceObject(buildingName);
+
+        buildingType.text = "New " + buildingName + " construction";
+
+        ChooseBuildingLocation(referenceBuilding);
+    }
+
+    public void ChooseBuildingLocation(GameObject referenceBuilding)
     {
         Debug.Log("start building");
         
         rotationMode = false;
-        callbackId = eventId;
         state = BuildingState.LOCATION_CHOOSE;
 
         building = Instantiate(referenceBuilding);
         Utility.SetMaterialForAllChildren(building, prototypeMaterial);
         building.transform.position = Utility.GetPointOnTheGroundInFrontOfCamera();
+        building.transform.position = Utility.GetGroundedPointForBuildings((long) building.transform.position.x, (long) building.transform.position.z);
         building.SetActive(true);
 
         ConfigurePrototypingUI();
@@ -60,8 +73,14 @@ public class BuildingLogic : MonoBehaviour
             var rotationDegrees = ScrollAndPitch.GetRotationDegrees();
             building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
         } else if (!rotationMode && touchHappen) {
-            building.transform.position = Utility.GetPositionOnTheGround(Input.GetTouch(0).position);
+            var hit = Utility.GetHitOnTheGround(Input.GetTouch(0).position);
+            if (!hit.collider.name.StartsWith("Terrain")) {
+                return;
+            }
 
+            var buildingPosition = new Vector3(hit.point.x, hit.point.y + GlobalConstants.BUILDING_Y_OFFSET, hit.point.z);
+            
+            building.transform.position = hit.point;
             CheckPlacementRestrictions(building);
         }
 
@@ -79,21 +98,35 @@ public class BuildingLogic : MonoBehaviour
         }
         // Invalid place
         Utility.SetMaterialForAllChildren(buildingPrototype, invalidMaterial);
-        //applyButton.enabled = false;
+        applyButton.enabled = false;
     }
 
     private void StickUIToPrototype()
     {
         var position = building.transform.position;
+        var topPoint = Utility.GetGroundedPoint(new Vector3(position.x, position.y + GlobalConstants.CHUNK_HEIGHT, position.z));
 
-        prototypingUI.transform.position = new Vector3(position.x, position.y + UI_PROTOTYPE_HEIGHT, position.z);
+        prototypingUI.transform.position = new Vector3(position.x,UI_PROTOTYPE_HEIGHT + topPoint.y, position.z);
     }
 
     public void ApplyBuilding()
     {
         building.SetActive(false);
         prototypingUI.SetActive(false);
-        EventBus.instance.NotifyEventFinished(callbackId, building.transform);
+
+        state = BuildingState.ONGOING_BUILDING;
+        EventBus.instance.FireBuildingFinished();
+
+        if (buildingName == "town")
+        {
+            TownsManager.instance.BuildTown(building.transform);
+        }
+        else
+        {
+            BuildingManager.instance.BuildBuilding(buildingName, building.transform);
+        }
+
+        Destroy(building);
     }
 
     public void CancelBuilding()
@@ -102,6 +135,8 @@ public class BuildingLogic : MonoBehaviour
         this.state = BuildingState.READY_FOR_BUILDING;
         building.SetActive(false);
         prototypingUI.SetActive(false);
+
+        EventBus.instance.FireBuildingFinished();
     }
 
     public void ToggleRotationMode()

@@ -11,23 +11,34 @@ public class BuyOption : MonoBehaviour
     public int foodCost = 0;
     public int peopleReq = 0;
 
+    public string optionName = "";
+
     public Text woodText;
     public Text stoneText;
     public Text leatherText;
     public Text foodText;
     public Text peopleText;
+    public Text optionNameText;
+
+    public Image image;
+    public Sprite sprite;
 
     private Button button;
+
+    public string function;
 
     void Start()
     {
         button = this.GetComponent<Button>();
+        button.onClick.AddListener(() => Buy());
 
         InitText(woodText, GlobalConstants.WOOD, woodCost);
         InitText(stoneText, GlobalConstants.STONE, stoneCost);
         InitText(foodText, GlobalConstants.FOOD, foodCost);
         InitText(leatherText, GlobalConstants.LEATHER, leatherCost);
         InitText(peopleText, GlobalConstants.PEOPLE_COUNT, peopleReq);
+
+        optionNameText.text = optionName;
     }
 
     private void InitText(Text text, string property, int cost)
@@ -37,12 +48,17 @@ public class BuyOption : MonoBehaviour
         text.text = PlayerPrefs.GetInt(property) + "/" + cost.ToString();
 
         if (cost > PlayerPrefs.GetInt(property)) {
-            text.color = Color.red;
-            button.enabled = false;
+            //Disable(text);
         } else {
             text.color = Color.black;
-            button.enabled = true;
         }
+    }
+
+    private void Disable(Text text)
+    {
+        text.color = Color.red;
+        button.enabled = false;
+        optionNameText.color = Color.red;
     }
 
     public void Buy()
@@ -51,6 +67,8 @@ public class BuyOption : MonoBehaviour
         Utility.AddToIntProperty(GlobalConstants.STONE, stoneCost * -1);
         Utility.AddToIntProperty(GlobalConstants.FOOD, foodCost * -1);
         Utility.AddToIntProperty(GlobalConstants.LEATHER, leatherCost * -1);
+
+        EventBus.instance.DispatchGameEvent(function, null);
     }
 
     // Update is called once per frame

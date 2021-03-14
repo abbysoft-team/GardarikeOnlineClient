@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.Collections;
+using UnityEngine;
 
 public class ProtoConverter
 {
@@ -9,7 +10,7 @@ public class ProtoConverter
         int row = 0;
         foreach (var point in points)
         {
-            heights[row, column] = point / 10.0f;
+            heights[column, row] = point;
            
             column++;
             if (column >= width)

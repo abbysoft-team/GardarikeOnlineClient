@@ -223,6 +223,6 @@ public class LevelInfoManager : MonoBehaviour
 
     public void ReloadMap()
     {
-        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"));
+        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), 0, 0);
     }
 }

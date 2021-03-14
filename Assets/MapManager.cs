@@ -8,8 +8,11 @@ public class MapManager : MonoBehaviour
 {
     public TerrainGenerator terrainGenerator;
 
+    public static MapManager instance;
+
     void Start()
     {
+        instance = this;
         EventBus.instance.onMapObjectsLoadingComplete += PlaceMapObjects;
     }
 
@@ -25,8 +28,8 @@ public class MapManager : MonoBehaviour
 
     private BuildItemInfo ToBuildingItem(Building building) {
         var item = new BuildItemInfo();
-        item.position = ProtoConverter.ToUnityVector(building.Location);
-       // item.position = Utility.GetGroundedPoint(item.position);
+        //item.position = ProtoConverter.ToUnityVector(building.Location);
+        //item.position = Utility.GetGroundedPointForBuildings(building.Location.X, building.Location.Y);
 
         return item;
     }

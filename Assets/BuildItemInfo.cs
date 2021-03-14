@@ -10,7 +10,6 @@ public class BuildItemInfo
     public UnityEngine.Vector3 lossyScale;
     public UnityEngine.Vector3 position;
 
-
     public Vector3D Location() {
         return new Vector3D {X = position.x, Y = position.y, Z = position.z};
     }

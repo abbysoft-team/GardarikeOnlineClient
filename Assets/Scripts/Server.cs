@@ -48,92 +48,94 @@ namespace Gardarike {
             "CXNlc3Npb25JRBgBIAEoCSJJChVHZXRDaGF0SGlzdG9yeVJlcXVlc3QSEQoJ",
             "c2Vzc2lvbklEGAEgASgJEg4KBm9mZnNldBgCIAEoBBINCgVjb3VudBgDIAEo",
             "BCI5ChZTZW5kQ2hhdE1lc3NhZ2VSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEo",
-            "CRIMCgR0ZXh0GAIgASgJIk4KEkdldFdvcmxkTWFwUmVxdWVzdBIRCglzZXNz",
-            "aW9uSUQYASABKAkSJQoIbG9jYXRpb24YAiABKAsyEy5HYXJkYXJpa2UuVmVj",
-            "dG9yM0QiJwoSR2V0TG9jYWxNYXBSZXF1ZXN0EhEKCXNlc3Npb25JRBgBIAEo",
-            "CSIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dv",
-            "cmQYAiABKAkiQAoWU2VsZWN0Q2hhcmFjdGVyUmVxdWVzdBIRCglzZXNzaW9u",
-            "SUQYASABKAkSEwoLY2hhcmFjdGVySUQYAiABKAMipgcKCFJlc3BvbnNlEjEK",
-            "DWVycm9yUmVzcG9uc2UYASABKAsyGC5HYXJkYXJpa2UuRXJyb3JSZXNwb25z",
-            "ZUgAEj0KE2dldExvY2FsTWFwUmVzcG9uc2UYAiABKAsyHi5HYXJkYXJpa2Uu",
-            "R2V0TG9jYWxNYXBSZXNwb25zZUgAEj0KE2dldFdvcmxkTWFwUmVzcG9uc2UY",
-            "AyABKAsyHi5HYXJkYXJpa2UuR2V0V29ybGRNYXBSZXNwb25zZUgAEjEKDWxv",
-            "Z2luUmVzcG9uc2UYBCABKAsyGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZUgA",
-            "EjkKEW11bHRpcGFydFJlc3BvbnNlGAUgASgLMhwuR2FyZGFyaWtlLk11bHRp",
-            "cGFydFJlc3BvbnNlSAASRQoXU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2UYBiAB",
-            "KAsyIi5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2VIABI5ChFw",
-            "bGFjZVRvd25SZXNwb25zZRgHIAEoCzIcLkdhcmRhcmlrZS5QbGFjZVRvd25S",
-            "ZXNwb25zZUgAEkUKF3NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlGAggASgLMiIu",
-            "R2FyZGFyaWtlLlNlbmRDaGF0TWVzc2FnZVJlc3BvbnNlSAASQwoWZ2V0Q2hh",
-            "dEhpc3RvcnlSZXNwb25zZRgJIAEoCzIhLkdhcmRhcmlrZS5HZXRDaGF0SGlz",
-            "dG9yeVJlc3BvbnNlSAASSwoaY2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2UY",
-            "CiABKAsyJS5HYXJkYXJpa2UuQ2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9uc2VI",
-            "ABJNChtnZXRXb3JrRGlzdHJpYnV0aW9uUmVzcG9uc2UYCyABKAsyJi5HYXJk",
-            "YXJpa2UuR2V0V29ya0Rpc3RyaWJ1dGlvblJlc3BvbnNlSAASQQoVY3JlYXRl",
-            "QWNjb3VudFJlc3BvbnNlGAwgASgLMiAuR2FyZGFyaWtlLkNyZWF0ZUFjY291",
-            "bnRSZXNwb25zZUgAEkUKF2NyZWF0ZUNoYXJhY3RlclJlc3BvbnNlGA0gASgL",
-            "MiIuR2FyZGFyaWtlLkNyZWF0ZUNoYXJhY3RlclJlc3BvbnNlSAASPwoUZ2V0",
-            "UmVzb3VyY2VzUmVzcG9uc2UYDiABKAsyHy5HYXJkYXJpa2UuR2V0UmVzb3Vy",
-            "Y2VzUmVzcG9uc2VIAEIGCgRkYXRhIkcKCVJlc291cmNlcxIMCgR3b29kGAEg",
-            "ASgEEg0KBXN0b25lGAIgASgEEgwKBGZvb2QYAyABKAQSDwoHbGVhdGhlchgE",
-            "IAEoBCI/ChRHZXRSZXNvdXJjZXNSZXNwb25zZRInCglyZXNvdXJjZXMYASAB",
-            "KAsyFC5HYXJkYXJpa2UuUmVzb3VyY2VzIiUKF0NyZWF0ZUNoYXJhY3RlclJl",
-            "c3BvbnNlEgoKAmlkGAEgASgDIiMKFUNyZWF0ZUFjY291bnRSZXNwb25zZRIK",
-            "CgJpZBgBIAEoAyJJChtHZXRXb3JrRGlzdHJpYnV0aW9uUmVzcG9uc2USEQoJ",
-            "aWRsZUNvdW50GAEgASgEEhcKD3dvb2RjdXR0ZXJDb3VudBgCIAEoBCIcChpD",
-            "aGF0TWVzc2FnZVB1Ymxpc2hSZXNwb25zZSJCChZHZXRDaGF0SGlzdG9yeVJl",
-            "c3BvbnNlEigKCG1lc3NhZ2VzGAEgAygLMhYuR2FyZGFyaWtlLkNoYXRNZXNz",
-            "YWdlIiwKF1NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlEhEKCW1lc3NhZ2VJRBgB",
-            "IAEoAyI6ChFQbGFjZVRvd25SZXNwb25zZRIlCghsb2NhdGlvbhgBIAEoCzIT",
-            "LkdhcmRhcmlrZS5WZWN0b3IyRCIiChFNdWx0aXBhcnRSZXNwb25zZRINCgVw",
-            "YXJ0cxgBIAEoAyJMCg1Mb2dpblJlc3BvbnNlEhEKCXNlc3Npb25JRBgBIAEo",
-            "CRIoCgpjaGFyYWN0ZXJzGAIgAygLMhQuR2FyZGFyaWtlLkNoYXJhY3RlciJA",
-            "Cg1FcnJvclJlc3BvbnNlEg8KB21lc3NhZ2UYASABKAkSHgoEY29kZRgCIAEo",
-            "DjIQLkdhcmRhcmlrZS5FcnJvciI5ChdTZWxlY3RDaGFyYWN0ZXJSZXNwb25z",
-            "ZRIeCgV0b3ducxgBIAMoCzIPLkdhcmRhcmlrZS5Ub3duIoIBCgtDaGF0TWVz",
-            "c2FnZRIKCgJpZBgBIAEoAxIOCgZzZW5kZXIYAiABKAkSDAoEdGV4dBgDIAEo",
-            "CRIpCgR0eXBlGAQgASgOMhsuR2FyZGFyaWtlLkNoYXRNZXNzYWdlLlR5cGUi",
-            "HgoEVHlwZRIKCgZOT1JNQUwQABIKCgZTWVNURU0QASJOCgVFdmVudBI6ChBj",
-            "aGF0TWVzc2FnZUV2ZW50GAEgASgLMh4uR2FyZGFyaWtlLk5ld0NoYXRNZXNz",
-            "YWdlRXZlbnRIAEIJCgdwYXlsb2FkIj4KE05ld0NoYXRNZXNzYWdlRXZlbnQS",
-            "JwoHbWVzc2FnZRgBIAEoCzIWLkdhcmRhcmlrZS5DaGF0TWVzc2FnZSIrCghW",
-            "ZWN0b3IzRBIJCgF4GAEgASgCEgkKAXkYAiABKAISCQoBehgDIAEoAiIgCghW",
-            "ZWN0b3IyRBIJCgF4GAEgASgCEgkKAXkYAiABKAIiMgoITG9jYWxNYXASJgoJ",
-            "YnVpbGRpbmdzGAQgAygLMhMuR2FyZGFyaWtlLkJ1aWxkaW5nIrIBCg1Xb3Js",
-            "ZE1hcENodW5rEgkKAXgYASABKAMSCQoBeRgCIAEoAxINCgV3aWR0aBgDIAEo",
-            "BRIOCgZoZWlnaHQYBCABKAUSDAoEZGF0YRgFIAMoAhIeCgV0b3ducxgGIAMo",
-            "CzIPLkdhcmRhcmlrZS5Ub3duEg0KBXRyZWVzGAcgASgEEg4KBnN0b25lcxgI",
-            "IAEoBBIPCgdhbmltYWxzGAkgASgEEg4KBnBsYW50cxgKIAEoBCJRCgRUb3du",
-            "EgkKAXgYASABKAMSCQoBeRgCIAEoAxIMCgRuYW1lGAMgASgJEhEKCW93bmVy",
-            "TmFtZRgEIAEoCRISCgpwb3B1bGF0aW9uGAUgASgEIj0KCEJ1aWxkaW5nEgoK",
-            "AmlkGAEgASgDEiUKCGxvY2F0aW9uGAIgASgLMhMuR2FyZGFyaWtlLlZlY3Rv",
-            "cjNEIjcKE0dldExvY2FsTWFwUmVzcG9uc2USIAoDbWFwGAEgASgLMhMuR2Fy",
-            "ZGFyaWtlLkxvY2FsTWFwIjwKE0dldFdvcmxkTWFwUmVzcG9uc2USJQoDbWFw",
-            "GAEgASgLMhguR2FyZGFyaWtlLldvcmxkTWFwQ2h1bmsiVwoJQ2hhcmFjdGVy",
-            "EgoKAmlkGAEgASgDEgwKBG5hbWUYAiABKAkSFQoNbWF4UG9wdWxhdGlvbhgD",
-            "IAEoBBIZChFjdXJyZW50UG9wdWxhdGlvbhgEIAEoBCrjAQoFRXJyb3ISCwoH",
-            "VU5LTk9XThAAEhkKFUlOVEVSTkFMX1NFUlZFUl9FUlJPUhABEhQKEElOVkFM",
-            "SURfUEFTU1dPUkQQAhISCg5OT1RfQVVUSE9SSVpFRBADEhcKE0NIQVJBQ1RF",
-            "Ul9OT1RfRk9VTkQQBBIPCgtCQURfUkVRVUVTVBAFEhoKFkNIQVJBQ1RFUl9O",
-            "T1RfU0VMRUNURUQQBhIUChBNRVNTQUdFX1RPT19MT05HEAcSHQoZVVNFUk5B",
-            "TUVfSVNfQUxSRUFEWV9UQUtFThAIEg0KCUZPUkJJRERFThAJMuEFCgpHYW1l",
-            "U2VydmVyEkwKC0dldFdvcmxkTWFwEh0uR2FyZGFyaWtlLkdldFdvcmxkTWFw",
-            "UmVxdWVzdBoeLkdhcmRhcmlrZS5HZXRXb3JsZE1hcFJlc3BvbnNlEksKC0dl",
-            "dExvY2FsTWFwEh0uR2FyZGFyaWtlLkdldExvY2FsTWFwUmVxdWVzdBodLkdh",
-            "cmRhcmlrZS5HZXRMb2NhbE1hcFJlcXVlc3QSOgoFTG9naW4SFy5HYXJkYXJp",
-            "a2UuTG9naW5SZXF1ZXN0GhguR2FyZGFyaWtlLkxvZ2luUmVzcG9uc2USWAoP",
-            "U2VsZWN0Q2hhcmFjdGVyEiEuR2FyZGFyaWtlLlNlbGVjdENoYXJhY3RlclJl",
-            "cXVlc3QaIi5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2USRgoJ",
-            "UGxhY2VUb3duEhsuR2FyZGFyaWtlLlBsYWNlVG93blJlcXVlc3QaHC5HYXJk",
-            "YXJpa2UuUGxhY2VUb3duUmVzcG9uc2USWAoPU2VuZENoYXRNZXNzYWdlEiEu",
-            "R2FyZGFyaWtlLlNlbmRDaGF0TWVzc2FnZVJlcXVlc3QaIi5HYXJkYXJpa2Uu",
-            "U2VuZENoYXRNZXNzYWdlUmVzcG9uc2USVQoOR2V0Q2hhdEhpc3RvcnkSIC5H",
-            "YXJkYXJpa2UuR2V0Q2hhdEhpc3RvcnlSZXF1ZXN0GiEuR2FyZGFyaWtlLkdl",
-            "dENoYXRIaXN0b3J5UmVzcG9uc2USUgoNQ3JlYXRlQWNjb3VudBIfLkdhcmRh",
-            "cmlrZS5DcmVhdGVBY2NvdW50UmVxdWVzdBogLkdhcmRhcmlrZS5DcmVhdGVB",
-            "Y2NvdW50UmVzcG9uc2USVQoMQ3JlYXRlRW1waXJlEiEuR2FyZGFyaWtlLkNy",
-            "ZWF0ZUNoYXJhY3RlclJlcXVlc3QaIi5HYXJkYXJpa2UuQ3JlYXRlQ2hhcmFj",
-            "dGVyUmVzcG9uc2VCB1oFLjtycGNiBnByb3RvMw=="));
+            "CRIMCgR0ZXh0GAIgASgJIlEKEkdldFdvcmxkTWFwUmVxdWVzdBIRCglzZXNz",
+            "aW9uSUQYASABKAkSKAoIbG9jYXRpb24YAiABKAsyFi5HYXJkYXJpa2UuSW50",
+            "VmVjdG9yMkQiJwoSR2V0TG9jYWxNYXBSZXF1ZXN0EhEKCXNlc3Npb25JRBgB",
+            "IAEoCSIyCgxMb2dpblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFz",
+            "c3dvcmQYAiABKAkiQAoWU2VsZWN0Q2hhcmFjdGVyUmVxdWVzdBIRCglzZXNz",
+            "aW9uSUQYASABKAkSEwoLY2hhcmFjdGVySUQYAiABKAMipgcKCFJlc3BvbnNl",
+            "EjEKDWVycm9yUmVzcG9uc2UYASABKAsyGC5HYXJkYXJpa2UuRXJyb3JSZXNw",
+            "b25zZUgAEj0KE2dldExvY2FsTWFwUmVzcG9uc2UYAiABKAsyHi5HYXJkYXJp",
+            "a2UuR2V0TG9jYWxNYXBSZXNwb25zZUgAEj0KE2dldFdvcmxkTWFwUmVzcG9u",
+            "c2UYAyABKAsyHi5HYXJkYXJpa2UuR2V0V29ybGRNYXBSZXNwb25zZUgAEjEK",
+            "DWxvZ2luUmVzcG9uc2UYBCABKAsyGC5HYXJkYXJpa2UuTG9naW5SZXNwb25z",
+            "ZUgAEjkKEW11bHRpcGFydFJlc3BvbnNlGAUgASgLMhwuR2FyZGFyaWtlLk11",
+            "bHRpcGFydFJlc3BvbnNlSAASRQoXU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2UY",
+            "BiABKAsyIi5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVzcG9uc2VIABI5",
+            "ChFwbGFjZVRvd25SZXNwb25zZRgHIAEoCzIcLkdhcmRhcmlrZS5QbGFjZVRv",
+            "d25SZXNwb25zZUgAEkUKF3NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlGAggASgL",
+            "MiIuR2FyZGFyaWtlLlNlbmRDaGF0TWVzc2FnZVJlc3BvbnNlSAASQwoWZ2V0",
+            "Q2hhdEhpc3RvcnlSZXNwb25zZRgJIAEoCzIhLkdhcmRhcmlrZS5HZXRDaGF0",
+            "SGlzdG9yeVJlc3BvbnNlSAASSwoaY2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9u",
+            "c2UYCiABKAsyJS5HYXJkYXJpa2UuQ2hhdE1lc3NhZ2VQdWJsaXNoUmVzcG9u",
+            "c2VIABJNChtnZXRXb3JrRGlzdHJpYnV0aW9uUmVzcG9uc2UYCyABKAsyJi5H",
+            "YXJkYXJpa2UuR2V0V29ya0Rpc3RyaWJ1dGlvblJlc3BvbnNlSAASQQoVY3Jl",
+            "YXRlQWNjb3VudFJlc3BvbnNlGAwgASgLMiAuR2FyZGFyaWtlLkNyZWF0ZUFj",
+            "Y291bnRSZXNwb25zZUgAEkUKF2NyZWF0ZUNoYXJhY3RlclJlc3BvbnNlGA0g",
+            "ASgLMiIuR2FyZGFyaWtlLkNyZWF0ZUNoYXJhY3RlclJlc3BvbnNlSAASPwoU",
+            "Z2V0UmVzb3VyY2VzUmVzcG9uc2UYDiABKAsyHy5HYXJkYXJpa2UuR2V0UmVz",
+            "b3VyY2VzUmVzcG9uc2VIAEIGCgRkYXRhIkcKCVJlc291cmNlcxIMCgR3b29k",
+            "GAEgASgEEg0KBXN0b25lGAIgASgEEgwKBGZvb2QYAyABKAQSDwoHbGVhdGhl",
+            "chgEIAEoBCI/ChRHZXRSZXNvdXJjZXNSZXNwb25zZRInCglyZXNvdXJjZXMY",
+            "ASABKAsyFC5HYXJkYXJpa2UuUmVzb3VyY2VzIiUKF0NyZWF0ZUNoYXJhY3Rl",
+            "clJlc3BvbnNlEgoKAmlkGAEgASgDIiMKFUNyZWF0ZUFjY291bnRSZXNwb25z",
+            "ZRIKCgJpZBgBIAEoAyJJChtHZXRXb3JrRGlzdHJpYnV0aW9uUmVzcG9uc2US",
+            "EQoJaWRsZUNvdW50GAEgASgEEhcKD3dvb2RjdXR0ZXJDb3VudBgCIAEoBCIc",
+            "ChpDaGF0TWVzc2FnZVB1Ymxpc2hSZXNwb25zZSJCChZHZXRDaGF0SGlzdG9y",
+            "eVJlc3BvbnNlEigKCG1lc3NhZ2VzGAEgAygLMhYuR2FyZGFyaWtlLkNoYXRN",
+            "ZXNzYWdlIiwKF1NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlEhEKCW1lc3NhZ2VJ",
+            "RBgBIAEoAyI6ChFQbGFjZVRvd25SZXNwb25zZRIlCghsb2NhdGlvbhgBIAEo",
+            "CzITLkdhcmRhcmlrZS5WZWN0b3IyRCIiChFNdWx0aXBhcnRSZXNwb25zZRIN",
+            "CgVwYXJ0cxgBIAEoAyJMCg1Mb2dpblJlc3BvbnNlEhEKCXNlc3Npb25JRBgB",
+            "IAEoCRIoCgpjaGFyYWN0ZXJzGAIgAygLMhQuR2FyZGFyaWtlLkNoYXJhY3Rl",
+            "ciJACg1FcnJvclJlc3BvbnNlEg8KB21lc3NhZ2UYASABKAkSHgoEY29kZRgC",
+            "IAEoDjIQLkdhcmRhcmlrZS5FcnJvciI5ChdTZWxlY3RDaGFyYWN0ZXJSZXNw",
+            "b25zZRIeCgV0b3ducxgBIAMoCzIPLkdhcmRhcmlrZS5Ub3duIoIBCgtDaGF0",
+            "TWVzc2FnZRIKCgJpZBgBIAEoAxIOCgZzZW5kZXIYAiABKAkSDAoEdGV4dBgD",
+            "IAEoCRIpCgR0eXBlGAQgASgOMhsuR2FyZGFyaWtlLkNoYXRNZXNzYWdlLlR5",
+            "cGUiHgoEVHlwZRIKCgZOT1JNQUwQABIKCgZTWVNURU0QASJOCgVFdmVudBI6",
+            "ChBjaGF0TWVzc2FnZUV2ZW50GAEgASgLMh4uR2FyZGFyaWtlLk5ld0NoYXRN",
+            "ZXNzYWdlRXZlbnRIAEIJCgdwYXlsb2FkIj4KE05ld0NoYXRNZXNzYWdlRXZl",
+            "bnQSJwoHbWVzc2FnZRgBIAEoCzIWLkdhcmRhcmlrZS5DaGF0TWVzc2FnZSIr",
+            "CghWZWN0b3IzRBIJCgF4GAEgASgCEgkKAXkYAiABKAISCQoBehgDIAEoAiIg",
+            "CghWZWN0b3IyRBIJCgF4GAEgASgCEgkKAXkYAiABKAIiIwoLSW50VmVjdG9y",
+            "MkQSCQoBeBgBIAEoBRIJCgF5GAIgASgFIjIKCExvY2FsTWFwEiYKCWJ1aWxk",
+            "aW5ncxgEIAMoCzITLkdhcmRhcmlrZS5CdWlsZGluZyLGAQoNV29ybGRNYXBD",
+            "aHVuaxIJCgF4GAEgASgFEgkKAXkYAiABKAUSDQoFd2lkdGgYAyABKAUSDgoG",
+            "aGVpZ2h0GAQgASgFEgwKBGRhdGEYBSADKAISHgoFdG93bnMYBiADKAsyDy5H",
+            "YXJkYXJpa2UuVG93bhINCgV0cmVlcxgHIAEoBBIOCgZzdG9uZXMYCCABKAQS",
+            "DwoHYW5pbWFscxgJIAEoBBIOCgZwbGFudHMYCiABKAQSEgoKd2F0ZXJMZXZl",
+            "bBgLIAEoAiJRCgRUb3duEgkKAXgYASABKAMSCQoBeRgCIAEoAxIMCgRuYW1l",
+            "GAMgASgJEhEKCW93bmVyTmFtZRgEIAEoCRISCgpwb3B1bGF0aW9uGAUgASgE",
+            "Ij0KCEJ1aWxkaW5nEgoKAmlkGAEgASgDEiUKCGxvY2F0aW9uGAIgASgLMhMu",
+            "R2FyZGFyaWtlLlZlY3RvcjNEIjcKE0dldExvY2FsTWFwUmVzcG9uc2USIAoD",
+            "bWFwGAEgASgLMhMuR2FyZGFyaWtlLkxvY2FsTWFwIjwKE0dldFdvcmxkTWFw",
+            "UmVzcG9uc2USJQoDbWFwGAEgASgLMhguR2FyZGFyaWtlLldvcmxkTWFwQ2h1",
+            "bmsiVwoJQ2hhcmFjdGVyEgoKAmlkGAEgASgDEgwKBG5hbWUYAiABKAkSFQoN",
+            "bWF4UG9wdWxhdGlvbhgDIAEoBBIZChFjdXJyZW50UG9wdWxhdGlvbhgEIAEo",
+            "BCr9AQoFRXJyb3ISCwoHVU5LTk9XThAAEhkKFUlOVEVSTkFMX1NFUlZFUl9F",
+            "UlJPUhABEhQKEElOVkFMSURfUEFTU1dPUkQQAhISCg5OT1RfQVVUSE9SSVpF",
+            "RBADEhcKE0NIQVJBQ1RFUl9OT1RfRk9VTkQQBBIPCgtCQURfUkVRVUVTVBAF",
+            "EhoKFkNIQVJBQ1RFUl9OT1RfU0VMRUNURUQQBhIUChBNRVNTQUdFX1RPT19M",
+            "T05HEAcSHQoZVVNFUk5BTUVfSVNfQUxSRUFEWV9UQUtFThAIEg0KCUZPUkJJ",
+            "RERFThAJEhgKFE5PVF9FTk9VR0hfUkVTT1VSQ0VTEAoy4QUKCkdhbWVTZXJ2",
+            "ZXISTAoLR2V0V29ybGRNYXASHS5HYXJkYXJpa2UuR2V0V29ybGRNYXBSZXF1",
+            "ZXN0Gh4uR2FyZGFyaWtlLkdldFdvcmxkTWFwUmVzcG9uc2USSwoLR2V0TG9j",
+            "YWxNYXASHS5HYXJkYXJpa2UuR2V0TG9jYWxNYXBSZXF1ZXN0Gh0uR2FyZGFy",
+            "aWtlLkdldExvY2FsTWFwUmVxdWVzdBI6CgVMb2dpbhIXLkdhcmRhcmlrZS5M",
+            "b2dpblJlcXVlc3QaGC5HYXJkYXJpa2UuTG9naW5SZXNwb25zZRJYCg9TZWxl",
+            "Y3RDaGFyYWN0ZXISIS5HYXJkYXJpa2UuU2VsZWN0Q2hhcmFjdGVyUmVxdWVz",
+            "dBoiLkdhcmRhcmlrZS5TZWxlY3RDaGFyYWN0ZXJSZXNwb25zZRJGCglQbGFj",
+            "ZVRvd24SGy5HYXJkYXJpa2UuUGxhY2VUb3duUmVxdWVzdBocLkdhcmRhcmlr",
+            "ZS5QbGFjZVRvd25SZXNwb25zZRJYCg9TZW5kQ2hhdE1lc3NhZ2USIS5HYXJk",
+            "YXJpa2UuU2VuZENoYXRNZXNzYWdlUmVxdWVzdBoiLkdhcmRhcmlrZS5TZW5k",
+            "Q2hhdE1lc3NhZ2VSZXNwb25zZRJVCg5HZXRDaGF0SGlzdG9yeRIgLkdhcmRh",
+            "cmlrZS5HZXRDaGF0SGlzdG9yeVJlcXVlc3QaIS5HYXJkYXJpa2UuR2V0Q2hh",
+            "dEhpc3RvcnlSZXNwb25zZRJSCg1DcmVhdGVBY2NvdW50Eh8uR2FyZGFyaWtl",
+            "LkNyZWF0ZUFjY291bnRSZXF1ZXN0GiAuR2FyZGFyaWtlLkNyZWF0ZUFjY291",
+            "bnRSZXNwb25zZRJVCgxDcmVhdGVFbXBpcmUSIS5HYXJkYXJpa2UuQ3JlYXRl",
+            "Q2hhcmFjdGVyUmVxdWVzdBoiLkdhcmRhcmlrZS5DcmVhdGVDaGFyYWN0ZXJS",
+            "ZXNwb25zZUIHWgUuO3JwY2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Gardarike.Error), }, new pbr::GeneratedClrTypeInfo[] {
@@ -168,8 +170,9 @@ namespace Gardarike {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.NewChatMessageEvent), global::Gardarike.NewChatMessageEvent.Parser, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Vector3D), global::Gardarike.Vector3D.Parser, new[]{ "X", "Y", "Z" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Vector2D), global::Gardarike.Vector2D.Parser, new[]{ "X", "Y" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.IntVector2D), global::Gardarike.IntVector2D.Parser, new[]{ "X", "Y" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.LocalMap), global::Gardarike.LocalMap.Parser, new[]{ "Buildings" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.WorldMapChunk), global::Gardarike.WorldMapChunk.Parser, new[]{ "X", "Y", "Width", "Height", "Data", "Towns", "Trees", "Stones", "Animals", "Plants" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.WorldMapChunk), global::Gardarike.WorldMapChunk.Parser, new[]{ "X", "Y", "Width", "Height", "Data", "Towns", "Trees", "Stones", "Animals", "Plants", "WaterLevel" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Town), global::Gardarike.Town.Parser, new[]{ "X", "Y", "Name", "OwnerName", "Population" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.Building), global::Gardarike.Building.Parser, new[]{ "Id", "Location" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gardarike.GetLocalMapResponse), global::Gardarike.GetLocalMapResponse.Parser, new[]{ "Map" }, null, null, null),
@@ -192,6 +195,7 @@ namespace Gardarike {
     [pbr::OriginalName("MESSAGE_TOO_LONG")] MessageTooLong = 7,
     [pbr::OriginalName("USERNAME_IS_ALREADY_TAKEN")] UsernameIsAlreadyTaken = 8,
     [pbr::OriginalName("FORBIDDEN")] Forbidden = 9,
+    [pbr::OriginalName("NOT_ENOUGH_RESOURCES")] NotEnoughResources = 10,
   }
 
   #endregion
@@ -1785,9 +1789,9 @@ namespace Gardarike {
 
     /// <summary>Field number for the "location" field.</summary>
     public const int LocationFieldNumber = 2;
-    private global::Gardarike.Vector3D location_;
+    private global::Gardarike.IntVector2D location_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Gardarike.Vector3D Location {
+    public global::Gardarike.IntVector2D Location {
       get { return location_; }
       set {
         location_ = value;
@@ -1859,7 +1863,7 @@ namespace Gardarike {
       }
       if (other.location_ != null) {
         if (location_ == null) {
-          location_ = new global::Gardarike.Vector3D();
+          location_ = new global::Gardarike.IntVector2D();
         }
         Location.MergeFrom(other.Location);
       }
@@ -1879,7 +1883,7 @@ namespace Gardarike {
           }
           case 18: {
             if (location_ == null) {
-              location_ = new global::Gardarike.Vector3D();
+              location_ = new global::Gardarike.IntVector2D();
             }
             input.ReadMessage(location_);
             break;
@@ -5379,6 +5383,151 @@ namespace Gardarike {
 
   }
 
+  public sealed partial class IntVector2D : pb::IMessage<IntVector2D> {
+    private static readonly pb::MessageParser<IntVector2D> _parser = new pb::MessageParser<IntVector2D>(() => new IntVector2D());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<IntVector2D> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[31]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public IntVector2D() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public IntVector2D(IntVector2D other) : this() {
+      x_ = other.x_;
+      y_ = other.y_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public IntVector2D Clone() {
+      return new IntVector2D(this);
+    }
+
+    /// <summary>Field number for the "x" field.</summary>
+    public const int XFieldNumber = 1;
+    private int x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int X {
+      get { return x_; }
+      set {
+        x_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "y" field.</summary>
+    public const int YFieldNumber = 2;
+    private int y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Y {
+      get { return y_; }
+      set {
+        y_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as IntVector2D);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(IntVector2D other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (X != other.X) return false;
+      if (Y != other.Y) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (X != 0) hash ^= X.GetHashCode();
+      if (Y != 0) hash ^= Y.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (X != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(X);
+      }
+      if (Y != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Y);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (X != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(X);
+      }
+      if (Y != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Y);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(IntVector2D other) {
+      if (other == null) {
+        return;
+      }
+      if (other.X != 0) {
+        X = other.X;
+      }
+      if (other.Y != 0) {
+        Y = other.Y;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            X = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Y = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   /// <summary>
   ///  Local map is a map of a concrete village
   /// </summary>
@@ -5389,7 +5538,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[31]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5498,7 +5647,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[32]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5525,6 +5674,7 @@ namespace Gardarike {
       stones_ = other.stones_;
       animals_ = other.animals_;
       plants_ = other.plants_;
+      waterLevel_ = other.waterLevel_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5534,9 +5684,9 @@ namespace Gardarike {
 
     /// <summary>Field number for the "x" field.</summary>
     public const int XFieldNumber = 1;
-    private long x_;
+    private int x_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long X {
+    public int X {
       get { return x_; }
       set {
         x_ = value;
@@ -5545,9 +5695,9 @@ namespace Gardarike {
 
     /// <summary>Field number for the "y" field.</summary>
     public const int YFieldNumber = 2;
-    private long y_;
+    private int y_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Y {
+    public int Y {
       get { return y_; }
       set {
         y_ = value;
@@ -5643,6 +5793,17 @@ namespace Gardarike {
       }
     }
 
+    /// <summary>Field number for the "waterLevel" field.</summary>
+    public const int WaterLevelFieldNumber = 11;
+    private float waterLevel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float WaterLevel {
+      get { return waterLevel_; }
+      set {
+        waterLevel_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as WorldMapChunk);
@@ -5666,14 +5827,15 @@ namespace Gardarike {
       if (Stones != other.Stones) return false;
       if (Animals != other.Animals) return false;
       if (Plants != other.Plants) return false;
+      if (WaterLevel != other.WaterLevel) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (X != 0L) hash ^= X.GetHashCode();
-      if (Y != 0L) hash ^= Y.GetHashCode();
+      if (X != 0) hash ^= X.GetHashCode();
+      if (Y != 0) hash ^= Y.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
       if (Height != 0) hash ^= Height.GetHashCode();
       hash ^= data_.GetHashCode();
@@ -5682,6 +5844,7 @@ namespace Gardarike {
       if (Stones != 0UL) hash ^= Stones.GetHashCode();
       if (Animals != 0UL) hash ^= Animals.GetHashCode();
       if (Plants != 0UL) hash ^= Plants.GetHashCode();
+      if (WaterLevel != 0F) hash ^= WaterLevel.GetHashCode();
       return hash;
     }
 
@@ -5692,13 +5855,13 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (X != 0L) {
+      if (X != 0) {
         output.WriteRawTag(8);
-        output.WriteInt64(X);
+        output.WriteInt32(X);
       }
-      if (Y != 0L) {
+      if (Y != 0) {
         output.WriteRawTag(16);
-        output.WriteInt64(Y);
+        output.WriteInt32(Y);
       }
       if (Width != 0) {
         output.WriteRawTag(24);
@@ -5726,16 +5889,20 @@ namespace Gardarike {
         output.WriteRawTag(80);
         output.WriteUInt64(Plants);
       }
+      if (WaterLevel != 0F) {
+        output.WriteRawTag(93);
+        output.WriteFloat(WaterLevel);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (X != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(X);
+      if (X != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(X);
       }
-      if (Y != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Y);
+      if (Y != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Y);
       }
       if (Width != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
@@ -5757,6 +5924,9 @@ namespace Gardarike {
       if (Plants != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Plants);
       }
+      if (WaterLevel != 0F) {
+        size += 1 + 4;
+      }
       return size;
     }
 
@@ -5765,10 +5935,10 @@ namespace Gardarike {
       if (other == null) {
         return;
       }
-      if (other.X != 0L) {
+      if (other.X != 0) {
         X = other.X;
       }
-      if (other.Y != 0L) {
+      if (other.Y != 0) {
         Y = other.Y;
       }
       if (other.Width != 0) {
@@ -5791,6 +5961,9 @@ namespace Gardarike {
       if (other.Plants != 0UL) {
         Plants = other.Plants;
       }
+      if (other.WaterLevel != 0F) {
+        WaterLevel = other.WaterLevel;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5802,11 +5975,11 @@ namespace Gardarike {
             input.SkipLastField();
             break;
           case 8: {
-            X = input.ReadInt64();
+            X = input.ReadInt32();
             break;
           }
           case 16: {
-            Y = input.ReadInt64();
+            Y = input.ReadInt32();
             break;
           }
           case 24: {
@@ -5842,6 +6015,10 @@ namespace Gardarike {
             Plants = input.ReadUInt64();
             break;
           }
+          case 93: {
+            WaterLevel = input.ReadFloat();
+            break;
+          }
         }
       }
     }
@@ -5855,7 +6032,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[33]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6084,7 +6261,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[34]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6235,7 +6412,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[35]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6358,7 +6535,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[36]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6481,7 +6658,7 @@ namespace Gardarike {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[37]; }
+      get { return global::Gardarike.ServerReflection.Descriptor.MessageTypes[38]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

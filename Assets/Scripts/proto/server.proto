@@ -75,7 +75,7 @@ message SendChatMessageRequest {
 
 message GetWorldMapRequest {
   string sessionID = 1;
-  Vector3D location = 2;
+  IntVector2D location = 2;
 }
 
 message GetLocalMapRequest {
@@ -207,14 +207,19 @@ message Vector2D {
   float y = 2;
 }
 
+message IntVector2D {
+  int32 x = 1;
+  int32 y = 2;
+}
+
 // Local map is a map of a concrete village
 message LocalMap {
   repeated Building buildings = 4;
 }
 
 message WorldMapChunk {
-  int64 x = 1;
-  int64 y = 2;
+  int32 x = 1;
+  int32 y = 2;
   int32 width = 3;
   int32 height = 4;
   repeated float data = 5;
@@ -225,6 +230,8 @@ message WorldMapChunk {
   uint64 stones = 8;
   uint64 animals = 9;
   uint64 plants = 10;
+
+  float waterLevel = 11;
 }
 
 message Town {
@@ -266,4 +273,5 @@ enum Error {
   MESSAGE_TOO_LONG = 7;
   USERNAME_IS_ALREADY_TAKEN = 8;
   FORBIDDEN = 9;
+  NOT_ENOUGH_RESOURCES = 10;
 }

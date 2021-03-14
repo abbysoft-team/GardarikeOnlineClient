@@ -19,6 +19,23 @@ class Utility
         return hitOccured ? hit.point : point;
     }
 
+    public static Vector3 GetGroundedPoint(long x, long y)
+    {
+        var point = new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200, y);
+
+        Ray toGround = new Ray(point, new Vector3(0, -1, 0));
+        RaycastHit hit = new RaycastHit();
+        bool hitOccured = Physics.Raycast(toGround, out hit);
+
+        return hitOccured ? hit.point : point;
+    }
+
+    public static Vector3 GetGroundedPointForBuildings(long x, long y)
+    {
+        var point = GetGroundedPoint(x, y);
+        return new Vector3(point.x, point.y + GlobalConstants.BUILDING_Y_OFFSET, point.z);
+    }
+
     public static string SquashStringList(List<string> strings)
     {
         var builder = new StringBuilder();
@@ -108,7 +125,7 @@ class Utility
 
         Debug.LogError("Raycasting position failed");
 
-        return ray.origin;
+        return Vector3.zero;
     }
 
     public static GameObject GetColliderFromTouch(Vector2 pointOnTheScreen)
@@ -117,13 +134,28 @@ class Utility
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.name);
-            return hit.rigidbody.gameObject;
+            //Debug.Log(hit.collider.name);
+            return hit.collider.gameObject;
         }
 
-        Debug.LogError("Raycasting position failed");
+        //Debug.LogError("Raycasting position failed");
 
         return null;
+    }
+
+    public static RaycastHit GetHitOnTheGround(Vector2 pointOnTheScreen)
+    {
+        var ray = Camera.main.ScreenPointToRay(pointOnTheScreen);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            //Debug.Log(hit.collider.name);
+            return hit;
+        }
+
+        //Debug.LogError("Raycasting position failed");
+
+        return hit;
     }
 
     public static void SetMaterialForAllChildren(GameObject parent, Material material)
@@ -158,5 +190,26 @@ class Utility
         }
 
         return null;
+    }
+
+    public static Gardarike.Vector2D ToServerCoordinates(Vector3 gamePosition)
+    {
+        var vector = new Gardarike.Vector2D();
+        vector.X = gamePosition.x / GlobalConstants.SERVER_COORDS_FACTOR;
+        vector.Y = gamePosition.z / GlobalConstants.SERVER_COORDS_FACTOR;
+        return vector;
+    }
+
+    public static Vector3 FromServerCoords(long x, long y)
+    {
+        return GetGroundedPoint(new Vector3(x * GlobalConstants.SERVER_COORDS_FACTOR, GlobalConstants.CHUNK_HEIGHT * 2, y * GlobalConstants.SERVER_COORDS_FACTOR));
+    }
+
+    public static void DebugChat(string text)
+    {
+        var message = new Gardarike.ChatMessage();
+        message.Sender = "Debug";
+        message.Text = text;
+        EventBus.instance.NewMessageArrived(message);
     }
 }

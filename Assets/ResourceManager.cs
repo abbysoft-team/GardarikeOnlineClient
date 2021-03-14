@@ -10,6 +10,11 @@ public class ResourceManager : MonoBehaviour
         EventBus.instance.onResourceUpdateArrived += UpdateResources;
     }
 
+    public static GameObject GetReferenceObject(string name)
+    {
+        return Resources.Load<GameObject>("Objects/Reference/" + name);
+    }
+
     private void UpdateResources(Gardarike.Resources resources)
     {
         // TODO gold

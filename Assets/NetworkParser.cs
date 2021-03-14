@@ -31,15 +31,17 @@ public class NetworkParser : MonoBehaviour
         DispatchEvents(events);
 
         // Clear buffer
-        packets.Clear();
         events.Clear();
     }
 
-    private void DispatchPackets(Queue<Response> packets)
+    private void DispatchPackets(Queue<Response> queue)
     {
+        var packets = queue.ToArray();
+        queue.Clear();
         foreach (var packet in packets)
         {
             try {
+                Debug.Log("Dispatching: " + packet);
                 DispatchPacket(packet);
             } catch (Exception e)
             {
@@ -58,6 +60,9 @@ public class NetworkParser : MonoBehaviour
                 break;
             case Response.DataOneofCase.GetWorldMapResponse:
                 ProcessWorldMapReply(packet.GetWorldMapResponse);
+                break;
+            case Response.DataOneofCase.GetLocalMapResponse:
+                ProcessLocalChunksReply(packet.GetLocalMapResponse);
                 break;
             case Response.DataOneofCase.ErrorResponse:
                 ProcessServerErrorReply(packet.ErrorResponse);
@@ -145,6 +150,13 @@ public class NetworkParser : MonoBehaviour
         Debug.Log("Received map reply: " + getMapResponse);
 
         EventBus.instance.WorldMapChunkLoaded(getMapResponse);
+    }
+
+    private void ProcessLocalChunksReply(GetLocalMapResponse localChunksResponse)
+    {
+        Debug.Log("Received local chunks reply: " + localChunksResponse);
+
+        EventBus.instance.LocalMapChunksLoaded(localChunksResponse);
     }
 
     private void ProcessLoginResponse(LoginResponse loginResponse) {

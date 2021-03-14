@@ -10,9 +10,9 @@ public class ConstructionOptionsView : MonoBehaviour
     {
         ClearOptions();
         
-        var currentView = PlayerPrefs.GetString("View");
+        var currentView = PlayerPrefs.GetString(GlobalConstants.CURRENT_VIEW_PROPERTY);
         List<BuyOption> optionsInfo;
-        if (currentView == "Global")
+        if (currentView == GlobalConstants.GLOBAL_VIEW_PROPERTY || currentView == "")
         {
             optionsInfo = GetGlobalOptions();
         }
@@ -44,11 +44,11 @@ public class ConstructionOptionsView : MonoBehaviour
         town.optionName = "Town";
         town.function = "build.town";
         town.sprite = ImageManager.GetSprite("town");
-        town.peopleReq = 0;
-        town.leatherCost = 0;
-        town.woodCost = 0;
-        town.foodCost = 0;
-        town.stoneCost = 0;
+        town.peopleReq = 100;
+        town.leatherCost = 100;
+        town.woodCost = 500;
+        town.foodCost = 500;
+        town.stoneCost = 900;
 
         global.Add(town);
 

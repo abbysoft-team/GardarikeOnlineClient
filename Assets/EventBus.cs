@@ -10,8 +10,6 @@ public class EventBus : MonoBehaviour
     public const string NEW_BUILDING_EVENT = "NEW_BUILDING";
     public static EventBus instance;
 
-    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
-    public event Action<Building> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
     public event Action<float[,], int, int> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
@@ -42,13 +40,22 @@ public class EventBus : MonoBehaviour
     public event Action onRegistrationComplete;
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
+
     public event Action<int, GameObject> onBuildingStarted;
     public event Action<object> onBuildingInitiated;
+    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
+    public event Action<Building> onBulidingComplete;
+    public event Action onBuildingProcessFinished;
+
     public event Action onResourceUpdateRequest;
     public event Action<Gardarike.Resources> onResourceUpdateArrived;
     public event Action<GameObject> onClickWasMade;
     public event Action onClearMapRequest;
     public event Action<string, object> onGameEvent;
+    public event Action onRequestTopEmpires;
+    public event Action onTopEmpiresStatisticReceived;
+    public event Action<Town> onGoToTownView;
+    public event Action onGoToGlobalView;
 
     private void Awake()
     {
@@ -254,4 +261,28 @@ public class EventBus : MonoBehaviour
         onLocalChunksArrived?.Invoke(localChunksReponse);
     }
 
+    public void RequestTopEmpires()
+    {
+        onRequestTopEmpires?.Invoke();
+    }
+
+    public void TopEmpiresStatisticReceived()
+    {
+        onTopEmpiresStatisticReceived?.Invoke();
+    }
+
+    public void FireBuildingFinished()
+    {
+        onBuildingProcessFinished?.Invoke();
+    }
+
+    public void GoToTownView(Town town)
+    {
+        onGoToTownView?.Invoke(town);
+    }
+
+    public void GoToGlobalView()
+    {
+        onGoToGlobalView?.Invoke();
+    }
 }

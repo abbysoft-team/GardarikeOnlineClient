@@ -11,10 +11,11 @@ public class BuildingLogic : MonoBehaviour
     public Material invalidMaterial;
     private GameObject building;
     public GameObject prototypingUI;
+    public Text buildingType;
     public Button applyButton;
     public Button rotationButton;
     private bool rotationMode;
-
+    
     private string buildingName;
 
     void Start()
@@ -30,6 +31,8 @@ public class BuildingLogic : MonoBehaviour
         buildingName = (string) building;
         var referenceBuilding = ResourceManager.GetReferenceObject(buildingName);
 
+        buildingType.text = "New " + buildingName + " construction";
+
         ChooseBuildingLocation(referenceBuilding);
     }
 
@@ -43,6 +46,7 @@ public class BuildingLogic : MonoBehaviour
         building = Instantiate(referenceBuilding);
         Utility.SetMaterialForAllChildren(building, prototypeMaterial);
         building.transform.position = Utility.GetPointOnTheGroundInFrontOfCamera();
+        building.transform.position = Utility.GetGroundedPointForBuildings((long) building.transform.position.x, (long) building.transform.position.z);
         building.SetActive(true);
 
         ConfigurePrototypingUI();
@@ -70,9 +74,11 @@ public class BuildingLogic : MonoBehaviour
             building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
         } else if (!rotationMode && touchHappen) {
             var hit = Utility.GetHitOnTheGround(Input.GetTouch(0).position);
-            if (hit.collider.name == "ClickDetector") {
+            if (!hit.collider.name.StartsWith("Terrain")) {
                 return;
             }
+
+            var buildingPosition = new Vector3(hit.point.x, hit.point.y + GlobalConstants.BUILDING_Y_OFFSET, hit.point.z);
             
             building.transform.position = hit.point;
             CheckPlacementRestrictions(building);
@@ -92,7 +98,7 @@ public class BuildingLogic : MonoBehaviour
         }
         // Invalid place
         Utility.SetMaterialForAllChildren(buildingPrototype, invalidMaterial);
-        //applyButton.enabled = false;
+        applyButton.enabled = false;
     }
 
     private void StickUIToPrototype()
@@ -107,6 +113,9 @@ public class BuildingLogic : MonoBehaviour
     {
         building.SetActive(false);
         prototypingUI.SetActive(false);
+
+        state = BuildingState.ONGOING_BUILDING;
+        EventBus.instance.FireBuildingFinished();
 
         if (buildingName == "town")
         {
@@ -126,6 +135,8 @@ public class BuildingLogic : MonoBehaviour
         this.state = BuildingState.READY_FOR_BUILDING;
         building.SetActive(false);
         prototypingUI.SetActive(false);
+
+        EventBus.instance.FireBuildingFinished();
     }
 
     public void ToggleRotationMode()

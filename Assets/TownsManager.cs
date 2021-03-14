@@ -34,7 +34,15 @@ public class TownsManager : MonoBehaviour
     {
         foreach (Transform town in transform)
         {
-            Destroy(town.gameObject);
+            town.gameObject.SetActive(false);
+        }
+    }
+
+    public void RestoreTowns()
+    {
+        foreach (Transform town in transform)
+        {
+            town.gameObject.SetActive(true);
         }
     }
 
@@ -69,7 +77,7 @@ public class TownsManager : MonoBehaviour
     private void InitTown(Gardarike.Town town, Quaternion rotation)
     {
         var townObject = Instantiate(referenceTown);
-        townObject.transform.position = Utility.GetGroundedPoint(town.X, town.Y);
+        townObject.transform.position = Utility.GetGroundedPointForBuildings(town.X, town.Y);
         var townComponent = ConfigureTownComponent(townObject, town);
         townObject.transform.parent = this.transform;
         townObject.transform.rotation = rotation;

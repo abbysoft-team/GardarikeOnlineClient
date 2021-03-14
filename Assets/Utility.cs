@@ -30,6 +30,11 @@ class Utility
         return hitOccured ? hit.point : point;
     }
 
+    public static Vector3 GetGroundedPointForBuildings(long x, long y)
+    {
+        var point = GetGroundedPoint(x, y);
+        return new Vector3(point.x, point.y + GlobalConstants.BUILDING_Y_OFFSET, point.z);
+    }
 
     public static string SquashStringList(List<string> strings)
     {

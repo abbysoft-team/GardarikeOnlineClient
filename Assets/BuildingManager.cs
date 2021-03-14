@@ -6,6 +6,7 @@ public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager instance;
     public List<Building> buildings;
+    private Building selectedBuilding;
 
     public GameObject model;
 
@@ -17,8 +18,22 @@ public class BuildingManager : MonoBehaviour
     void Start()
     {
         EventBus.instance.onBuildingRegistrationEvent += RegisterBuilding;
+        EventBus.instance.onClickWasMade += ProcessClick;
 
         buildings = new List<Building>();
+    }
+
+    private void ProcessClick(GameObject collider)
+    {
+        if (collider.tag != GlobalConstants.BUILDING_TAG) {
+            if (selectedBuilding == null) return;
+            selectedBuilding.Unselect();
+            selectedBuilding = null;
+        }
+
+        var buildingComponent = collider.GetComponent<Building>();
+        if (buildingComponent == null) return;
+        SelectBuilding(buildingComponent);
     }
 
     private void RegisterBuilding(BuildItemInfo building)
@@ -32,7 +47,9 @@ public class BuildingManager : MonoBehaviour
 
         buildingObject.SetActive(true);
 
-        //buildings.Add(building);
+        var buildingInfo = buildingObject.GetComponent<Building>();
+        buildings.Add(buildingInfo);
+        buildingInfo.Init();
     }
 
     public void BuildBuilding(string building, Transform info)
@@ -47,8 +64,22 @@ public class BuildingManager : MonoBehaviour
        
         var buildingInfo = reference.GetComponent<Building>();
         buildings.Add(buildingInfo);
+        buildingInfo.Init();
+
+        SelectBuilding(buildingInfo);
 
         EventBus.instance.BuildingComplete(buildingInfo);
+    }
+
+    private void SelectBuilding(Building building)
+    {
+        if (selectedBuilding != null) {
+            selectedBuilding.Unselect();
+        }
+
+        selectedBuilding = building;
+
+        selectedBuilding.Select();
     }
 
     // Update is called once per frame

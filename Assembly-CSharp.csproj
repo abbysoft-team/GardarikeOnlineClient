@@ -52,12 +52,14 @@
      <Compile Include="Assets\Sound.cs" />
      <Compile Include="Assets\ManagementScreen.cs" />
      <Compile Include="Assets\ImageManager.cs" />
+     <Compile Include="Assets\StatisticsScreen.cs" />
      <Compile Include="Assets\ChatComponent.cs" />
      <Compile Include="Assets\MusicManager.cs" />
      <Compile Include="Assets\BuildingInfo.cs" />
      <Compile Include="Assets\TerrainGenerator.cs" />
      <Compile Include="Assets\Tree.cs" />
      <Compile Include="Assets\LevelInfoManager.cs" />
+     <Compile Include="Assets\BlockOnCondition.cs" />
      <Compile Include="Assets\InputDialog.cs" />
      <Compile Include="Assets\Lumberjack.cs" />
      <Compile Include="Assets\NetworkParser.cs" />
@@ -107,6 +109,7 @@
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
      <Compile Include="Assets\ResourceManager.cs" />
+     <Compile Include="Assets\TopUILogic.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

@@ -22,6 +22,7 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.onCharacterSelected += CharacterSelected;
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
         EventBus.instance.onLocalChunksArrived += LocalChunksArrived;
+        EventBus.instance.onGoToTownView += GoToTownView;
     }
 
     private void LocalChunksArrived(GetLocalMapResponse response)
@@ -90,6 +91,8 @@ public class SceneManager : MonoBehaviour
         Debug.Log("Login complete. Welcome, " + character.Name);
         Debug.Log("Selecting character to 0 " + character);
 
+        PlayerPrefs.SetString(GlobalConstants.CURRENT_VIEW_PROPERTY, GlobalConstants.GLOBAL_VIEW_PROPERTY);
+
         UpdateCharacterInfo(character);
         //SpawnNewPeople(characters[0]);
 
@@ -101,7 +104,7 @@ public class SceneManager : MonoBehaviour
         Debug.Log("update character: " + character);
 
         PlayerPrefs.SetInt("userId", (int) character.Id);
-        PlayerPrefs.SetString("currentCharName", character.Name);
+        PlayerPrefs.SetString(GlobalConstants.COUNTRY_NAME_PROPERTY, character.Name);
         PlayerPrefs.SetInt("Population", (int) character.CurrentPopulation);
         PlayerPrefs.SetInt("MaxPopulation", (int) character.MaxPopulation);
     }
@@ -114,10 +117,13 @@ public class SceneManager : MonoBehaviour
         Debug.Log("Showing tutorial message");
         // TODO extract messages to Strings.cs
         var dialogId = EventBus.instance.ShowInputDialog(Strings.TUTORIAL_TITLE, Strings.TUTORIAL_MESSAGE, GlobalConstants.COUNTRY_NAME_PROPERTY);
-        dialogId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
         EventBus.instance.onEventFinished += (id, result) => {
-            if (id == dialogId) 
-                SendCapitalFoundationRequest();
+            if (id != dialogId) return;
+            var secondId = EventBus.instance.ShowInputDialog("Capital", "Some of the first men of " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " found first town. Choose the name for your capital.", GlobalConstants.CAPITAL_NAME_PROPERTY);
+            EventBus.instance.onEventFinished += (id, result) => {
+                if (id == secondId) 
+                    SendCapitalFoundationRequest();
+            };
         };
 
         //EventBus.instance.SendChatMessage("New empire " + PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY) + " now exists");
@@ -151,7 +157,9 @@ public class SceneManager : MonoBehaviour
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
 
         // world map is just some model, so don't draw all trees on the chunk
-        treeGenerator.GenerateTrees((int) (chunkInfo.Map.Trees));
+        var treeCount = (int) chunkInfo.Map.Trees;
+        treeCount = Math.Min(200, treeCount);
+        treeGenerator.GenerateTrees(treeCount);
         townsManager.InitTowns(chunkInfo.Map.Towns);
     }
 
@@ -164,10 +172,21 @@ public class SceneManager : MonoBehaviour
     public void GoToTownView(Town town) {
        Debug.Log("Open " + town + " town");
     
-       PlayerPrefs.SetString("View", "Town");
+       PlayerPrefs.SetString(GlobalConstants.CURRENT_VIEW_PROPERTY, GlobalConstants.TOWN_VIEW_PROPERTY);
+       PlayerPrefs.SetString(GlobalConstants.CURRENT_TOWN_PROPERTY, town.name.text);
 
        EventBus.instance.ClearMapRequest();
-
        EventBus.instance.LocalChunksLoadRequest(new Vector2(), new Vector2());
+    }
+
+    public void GoToGlobalView()
+    {
+        Debug.Log("Go to global view");
+
+        EventBus.instance.GoToGlobalView();
+
+        PlayerPrefs.SetString(GlobalConstants.CURRENT_VIEW_PROPERTY, GlobalConstants.GLOBAL_VIEW_PROPERTY);
+        TownsManager.instance.RestoreTowns();
+        //TerrainGenerator.instance.LoadMap();
     }
 }

@@ -106,14 +106,24 @@ public class TerrainGenerator : MonoBehaviour
 
 	public void LoadMap()
 	{
-		EventBus.instance.OpenLoadingDialog();
-		for (int i = -1; i < 2; i++)
+
+
+		SetRandomTerrain();
+	}
+
+	private void SetRandomTerrain()
+	{
+		float[,] heights = new float[GlobalConstants.CHUNK_RESOLUTION, GlobalConstants.CHUNK_RESOLUTION];
+
+		for (int i = 0; i < GlobalConstants.CHUNK_RESOLUTION; i++)
 		{
-			for (int j = -1; j < 2; j++)
+			for (int j = 0; j < GlobalConstants.CHUNK_RESOLUTION; j++)
 			{
-				MapCache.LoadGlobalChunk(i, j);
+				heights[i, j] = 0.6f;
 			}
 		}
+
+		OnTerrainLoaded(heights, 0, 0);
 	}
 
 	// Update is called once per frame

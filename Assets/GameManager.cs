@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         // Give free gold
         //PlayerPrefs.SetInt("Gold", 1000);
 
-        //PlayerPrefs.DeleteAll();
+       // PlayerPrefs.DeleteAll();
         
         PlayerPrefs.SetInt("Population", 0);
 

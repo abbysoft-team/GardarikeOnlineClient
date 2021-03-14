@@ -34,7 +34,15 @@ public class TownsManager : MonoBehaviour
     {
         foreach (Transform town in transform)
         {
-            Destroy(town.gameObject);
+            town.gameObject.SetActive(false);
+        }
+    }
+
+    public void RestoreTowns()
+    {
+        foreach (Transform town in transform)
+        {
+            town.gameObject.SetActive(true);
         }
     }
 

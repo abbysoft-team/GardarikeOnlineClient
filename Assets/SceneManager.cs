@@ -22,6 +22,7 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.onCharacterSelected += CharacterSelected;
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
         EventBus.instance.onLocalChunksArrived += LocalChunksArrived;
+        EventBus.instance.onGoToTownView += GoToTownView;
     }
 
     private void LocalChunksArrived(GetLocalMapResponse response)
@@ -89,6 +90,8 @@ public class SceneManager : MonoBehaviour
     {
         Debug.Log("Login complete. Welcome, " + character.Name);
         Debug.Log("Selecting character to 0 " + character);
+
+        PlayerPrefs.SetString(GlobalConstants.CURRENT_VIEW_PROPERTY, GlobalConstants.GLOBAL_VIEW_PROPERTY);
 
         UpdateCharacterInfo(character);
         //SpawnNewPeople(characters[0]);
@@ -169,10 +172,21 @@ public class SceneManager : MonoBehaviour
     public void GoToTownView(Town town) {
        Debug.Log("Open " + town + " town");
     
-       PlayerPrefs.SetString("View", "Town");
+       PlayerPrefs.SetString(GlobalConstants.CURRENT_VIEW_PROPERTY, GlobalConstants.TOWN_VIEW_PROPERTY);
+       PlayerPrefs.SetString(GlobalConstants.CURRENT_TOWN_PROPERTY, town.name.text);
 
        EventBus.instance.ClearMapRequest();
-
        EventBus.instance.LocalChunksLoadRequest(new Vector2(), new Vector2());
+    }
+
+    public void GoToGlobalView()
+    {
+        Debug.Log("Go to global view");
+
+        EventBus.instance.GoToGlobalView();
+
+        PlayerPrefs.SetString(GlobalConstants.CURRENT_VIEW_PROPERTY, GlobalConstants.GLOBAL_VIEW_PROPERTY);
+        TownsManager.instance.RestoreTowns();
+        //TerrainGenerator.instance.LoadMap();
     }
 }

@@ -10,11 +10,11 @@ public class ConstructionOptionsView : MonoBehaviour
     {
         ClearOptions();
         
-        var currentView = PlayerPrefs.GetString("View");
+        var currentView = PlayerPrefs.GetString(GlobalConstants.CURRENT_VIEW_PROPERTY);
         List<BuyOption> optionsInfo;
-        if (currentView == "Global" || currentView == "")
+        if (currentView == GlobalConstants.GLOBAL_VIEW_PROPERTY || currentView == "")
         {
-            optionsInfo = GetTownOptions();
+            optionsInfo = GetGlobalOptions();
         }
         else
         {

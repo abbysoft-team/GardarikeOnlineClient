@@ -54,6 +54,8 @@ public class EventBus : MonoBehaviour
     public event Action<string, object> onGameEvent;
     public event Action onRequestTopEmpires;
     public event Action onTopEmpiresStatisticReceived;
+    public event Action<Town> onGoToTownView;
+    public event Action onGoToGlobalView;
 
     private void Awake()
     {
@@ -272,5 +274,15 @@ public class EventBus : MonoBehaviour
     public void FireBuildingFinished()
     {
         onBuildingProcessFinished?.Invoke();
+    }
+
+    public void GoToTownView(Town town)
+    {
+        onGoToTownView?.Invoke(town);
+    }
+
+    public void GoToGlobalView()
+    {
+        onGoToGlobalView?.Invoke();
     }
 }

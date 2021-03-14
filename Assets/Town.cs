@@ -18,7 +18,7 @@ public class Town : MonoBehaviour
     void Start()
     {
         var goToTownButton = selectedUI.GetComponentInChildren<Button>();
-        goToTownButton.onClick.AddListener(() => SceneManager.instance.GoToTownView(this));
+        goToTownButton.onClick.AddListener(() => EventBus.instance.GoToTownView(this));
 
         name.onEndEdit.AddListener((value) => selectedUIName.text = value);
     }

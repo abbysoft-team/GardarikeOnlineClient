@@ -59,4 +59,9 @@ public class GlobalConstants
     public const int MAX_ACTIVE_CHUNKS = 25;
 
     public const float BUILDING_Y_OFFSET = 7;
+
+    public const string CURRENT_VIEW_PROPERTY = "CurrentView";
+    public const string GLOBAL_VIEW_PROPERTY = "GlobalView";
+    public const string TOWN_VIEW_PROPERTY = "TownView";
+    public const string CURRENT_TOWN_PROPERTY = "CurrentTown";
 }

@@ -38,6 +38,8 @@ jobs:
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      - name: Build unity project
+        uses: game-ci/unity-builder@v2.0-alpha-6
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -46,5 +48,4 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"abbysoft-team_GardarikeOnlineClient" /o:"abbysoft-team" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           Copy-Item -Path D:\a\GardarikeOnlineClient\GardarikeOnlineClient\ci\pr_temp.cs -Destination D:\a\GardarikeOnlineClient\GardarikeOnlineClient\Assets\Private.cs
-          msbuild Assembly-CSharp.csproj
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

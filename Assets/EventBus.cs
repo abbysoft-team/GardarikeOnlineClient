@@ -10,10 +10,8 @@ public class EventBus : MonoBehaviour
     public const string NEW_BUILDING_EVENT = "NEW_BUILDING";
     public static EventBus instance;
 
-    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
-    public event Action<BuildItemInfo> onBulidingComplete;
     public event Action<float[,]> onTerrainGenerationFinished;
-    public event Action<int, int, float[,]> onTerrainLoadingComplete;
+    public event Action<float[,], int, int> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
     public event Action<string> onErrorShowRequest;
@@ -23,7 +21,8 @@ public class EventBus : MonoBehaviour
     public event Action<long> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
-    public event Action<string> onMapLoadRequest;
+    public event Action<string, int, int> onMapLoadRequest;
+    public event Action<Vector2, Vector2> onLocalChunksLoadRequest;
     public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
     public event Action<string> onChatMessagePublishRequest;
@@ -33,6 +32,7 @@ public class EventBus : MonoBehaviour
     public event Action<int> onSpawnTreesRequest;
     public event Action onMapReady;
     public event Action<GetWorldMapResponse> onWorldMapChunkLoaded;
+    public event Action<GetLocalMapResponse> onLocalChunksArrived;
     //public event Action<ResourceUpdatedEvent> onResourceUpdateArrived;
     public event Action onJobMarketLoadingRequest;
     public event Action<string, string, string> onRegistrationRequest;
@@ -40,13 +40,45 @@ public class EventBus : MonoBehaviour
     public event Action onRegistrationComplete;
     public event Action<Vector2D, String> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
+
     public event Action<int, GameObject> onBuildingStarted;
+    public event Action<object> onBuildingInitiated;
+    public event Action<BuildItemInfo> onBuildingRegistrationEvent;
+    public event Action<Building> onBulidingComplete;
+    public event Action onBuildingProcessFinished;
+
     public event Action onResourceUpdateRequest;
     public event Action<Gardarike.Resources> onResourceUpdateArrived;
+    public event Action<GameObject> onClickWasMade;
+    public event Action onClearMapRequest;
+    public event Action<string, object> onGameEvent;
+    public event Action onRequestTopEmpires;
+    public event Action onTopEmpiresStatisticReceived;
+    public event Action<Town> onGoToTownView;
+    public event Action onGoToGlobalView;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void DispatchGameEvent(string eventAddress, object arguments)
+    {
+        if (eventAddress.StartsWith("build"))
+        {
+            var type = eventAddress.Substring(6);
+            onBuildingInitiated?.Invoke(type);
+        }
+    }
+
+    public void ClearMapRequest()
+    {
+        onClearMapRequest?.Invoke();
+    }
+    
+    public void ClickWasMade(GameObject collider)
+    {
+        onClickWasMade?.Invoke(collider);
     }
 
     public void RegisterBuilding(BuildItemInfo building)
@@ -54,7 +86,7 @@ public class EventBus : MonoBehaviour
         onBuildingRegistrationEvent?.Invoke(building);
     }
 
-    public void BuildingComplete(BuildItemInfo building)
+    public void BuildingComplete(Building building)
     {
         onBulidingComplete?.Invoke(building);
     }
@@ -64,9 +96,9 @@ public class EventBus : MonoBehaviour
         onTerrainGenerationFinished?.Invoke(heights);
     }
 
-    public void TerrainLoaded(int width, int height, float[,] heights)
+    public void TerrainLoaded(float[,] heights, int x, int y)
     {
-        onTerrainLoadingComplete?.Invoke(width, height, heights);
+        onTerrainLoadingComplete?.Invoke(heights, x, y);
     }
 
     public void MapObjectsLoaded(RepeatedField<Building> buildings, int treesCount) {
@@ -110,8 +142,8 @@ public class EventBus : MonoBehaviour
         onSelectCharacterRequest?.Invoke(charId);
     }
 
-    public void LoadMap(string sessionId) {
-        onMapLoadRequest?.Invoke(sessionId);
+    public void LoadMap(string sessionId, int x, int y) {
+        onMapLoadRequest?.Invoke(sessionId, x, y);
     }
 
     public void CharacterSelectionConfirmed(RepeatedField<Gardarike.Town> town) {
@@ -219,4 +251,38 @@ public class EventBus : MonoBehaviour
         onResourceUpdateArrived?.Invoke(resources);
     }
 
+    public void LocalChunksLoadRequest(Vector2 globalMapChunk, Vector2 localOffsetChunks)
+    {
+        onLocalChunksLoadRequest?.Invoke(globalMapChunk, localOffsetChunks);
+    }
+
+    public void LocalMapChunksLoaded(GetLocalMapResponse localChunksReponse)
+    {
+        onLocalChunksArrived?.Invoke(localChunksReponse);
+    }
+
+    public void RequestTopEmpires()
+    {
+        onRequestTopEmpires?.Invoke();
+    }
+
+    public void TopEmpiresStatisticReceived()
+    {
+        onTopEmpiresStatisticReceived?.Invoke();
+    }
+
+    public void FireBuildingFinished()
+    {
+        onBuildingProcessFinished?.Invoke();
+    }
+
+    public void GoToTownView(Town town)
+    {
+        onGoToTownView?.Invoke(town);
+    }
+
+    public void GoToGlobalView()
+    {
+        onGoToGlobalView?.Invoke();
+    }
 }

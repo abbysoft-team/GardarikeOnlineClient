@@ -12,7 +12,7 @@ public class InputDialog : Dialog
     public DialogManager dialogManager;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         errorLabel.gameObject.SetActive(false);
     }
@@ -31,9 +31,9 @@ public class InputDialog : Dialog
         if (input.text.Trim() == "") {
             SetErrorLabel("This field cannot be empty");
             return false;
-        } else if (input.text.Trim().Length < 5)
+        } else if (input.text.Trim().Length < 2)
         {
-            SetErrorLabel("This field cannot be shorter than 5 symbols");
+            SetErrorLabel("This field cannot be shorter than 2 symbols");
             return false;
         }
 

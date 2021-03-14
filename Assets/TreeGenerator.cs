@@ -7,6 +7,15 @@ public class TreeGenerator : MonoBehaviour
     private void Start()
     {
         EventBus.instance.onSpawnTreesRequest += GenerateTrees;
+        EventBus.instance.onClearMapRequest += ResetTrees;
+    }
+
+    private void ResetTrees()
+    {
+        foreach (Transform tree in transform)
+        {
+            Destroy(tree.gameObject);
+        }
     }
 
     public void GenerateTrees(int count)
@@ -40,7 +49,7 @@ public class TreeGenerator : MonoBehaviour
         var referenceTree = GetRandomChild();
         var newTree = Instantiate(referenceTree);
 
-        newTree.transform.position = Utility.GetGroundedPoint(new Vector3(x, 5000, y));
+        newTree.transform.position = Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200, y));
         newTree.SetActive(true);
 
         newTree.transform.parent = transform;

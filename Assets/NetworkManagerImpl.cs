@@ -140,7 +140,9 @@ public class NetworkManagerImpl : NetworkManager
         try
         {
             var response = Response.Parser.ParseFrom(rawResponse);
+            Debug.Log("Parsed: " + response);
             responseQueue.Enqueue(response);
+            Debug.Log("Enqued, " + responseQueue.Count);
         }
         catch
         {
@@ -177,6 +179,7 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onLoginRequest += SendLoginRequest;
         EventBus.instance.onSelectCharacterRequest += SendCharacterSelectionRequest;
         EventBus.instance.onMapLoadRequest += SendWorldMapRequest;
+        EventBus.instance.onLocalChunksLoadRequest += SendLocalMapRequest;
         EventBus.instance.onBulidingComplete += SendBuildingEvent;
         EventBus.instance.onLoadChatHistoryRequest += SendLoadChatHistoryRequest;
         EventBus.instance.onChatMessagePublishRequest += PublishChatMessage;
@@ -188,6 +191,21 @@ public class NetworkManagerImpl : NetworkManager
         //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendLocalMapRequest(Vector2 globalChunkCoords, Vector2 localOffset)
+    {
+        Debug.Log("Send local map chunk request");
+
+        var localMapRequest = new Request
+        {
+            GetLocalMapRequest = new GetLocalMapRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId")
+            }
+        };
+
+        requestQueue.Enqueue(localMapRequest.ToByteArray());
     }
 
     private void SendResourceRequest()
@@ -285,18 +303,17 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
-    private void SendWorldMapRequest(string sessionId)
+    private void SendWorldMapRequest(string sessionId, int x, int y)
     {
         Debug.Log("Trying to request world map information ");
 
         var mapRequest = new Request
         {
             GetWorldMapRequest = new GetWorldMapRequest {
-                Location = new Vector3D
+                Location = new IntVector2D
                 {
-                    X = 0,
-                    Y = 0,
-                    Z = 0
+                    X = x,
+                    Y = y,
                 },
                 SessionID = sessionId
             }
@@ -305,7 +322,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(mapRequest.ToByteArray());
     }
 
-    private void SendBuildingEvent(BuildItemInfo building)
+    private void SendBuildingEvent(Building building)
     {
         Debug.Log("Sending build event to server");
 
@@ -317,7 +334,7 @@ public class NetworkManagerImpl : NetworkManager
         //     }
         // };
 
-        // requestQueue.Enqueue(buildingEvent.ToByteArray());
+        //requestQueue.Enqueue(buildingEvent.ToByteArray());
     }
 
     private void SendLoadChatHistoryRequest()

@@ -12,6 +12,8 @@ class ScrollAndPitch : MonoBehaviour
     public static ScrollAndPitch instance;
     private float rotationDegrees;
 
+    private float cameraHeight = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2;
+
     private void Awake()
     {
         if (camera == null)
@@ -20,11 +22,33 @@ class ScrollAndPitch : MonoBehaviour
         instance = this;
     }
 
+    public void InitCameraPosition()
+    {
+        // Set camera at the saved point
+		var x = PlayerPrefs.GetFloat("cameraX");
+		var z = PlayerPrefs.GetFloat("cameraZ");
+		var y = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2 + Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200f, z)).y;
+
+		Camera.main.transform.position = new Vector3(x, y, z);
+    }
+
     private void Update()
     {
-        rotationDegrees = 0;
+        instance.rotationDegrees = 0;
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
+
+        // if (Input.GetMouseButton(2))
+        // {
+        //     instance.rotationDegrees = 10;
+        //     Debug.Log("rotated 10 degrees");
+        // }
+
+        if (Input.GetMouseButton(0)) {
+                SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+                EventBus.instance.ClickWasMade(collider);
+        }
 
         //Update Plane
         if (Input.touchCount >= 1) {
@@ -44,7 +68,7 @@ class ScrollAndPitch : MonoBehaviour
 
             var midPoint = (pos1b + pos2) / 2;
 
-            rotationDegrees = Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal);
+            instance.rotationDegrees = Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, Plane.normal);
 
             if (Rotate && pos2b != pos2) {
                 camera.transform.RotateAround(midPoint, Plane.normal, rotationDegrees);
@@ -54,9 +78,7 @@ class ScrollAndPitch : MonoBehaviour
             //calc zoom
             var zoom = Vector3.Distance(pos1, pos2) /
                        Vector3.Distance(pos1b, pos2b);
-
-
-
+            
             // //edge case
             // if (zoom <= 3 || zoom > 5)
             //    return;
@@ -64,7 +86,14 @@ class ScrollAndPitch : MonoBehaviour
             //Move cam amount the mid ray
             var beforeZoom = camera.transform.position;
             camera.transform.position = Vector3.LerpUnclamped(midPoint, camera.transform.position, 1 / zoom);
+            //Go up or down, depending on terrain height
+            var groundHeight = Utility.GetGroundedPoint(new Vector3(camera.transform.position.x, GlobalConstants.CHUNK_HEIGHT + 200, camera.transform.position.z)).y;
+            cameraHeight = camera.transform.position.y - groundHeight;
+
             ApplyCameraBorders(beforeZoom);
+
+            PlayerPrefs.SetFloat("cameraX", camera.transform.position.x);
+            PlayerPrefs.SetFloat("cameraZ", camera.transform.position.z);
 
             return;
         }
@@ -75,25 +104,31 @@ class ScrollAndPitch : MonoBehaviour
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
             //Delta1 /= Vector3.Distance(pos1, camera.transform.position);
             //Delta1 *= 10;
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            if (Input.GetTouch(0).phase == TouchPhase.Moved) {
+                var beforeTranslate = camera.transform.position;
                 camera.transform.Translate(Delta1, Space.World);
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+                var groundHeight = Utility.GetGroundedPoint(new Vector3(camera.transform.position.x, GlobalConstants.CHUNK_HEIGHT + 200, camera.transform.position.z)).y;
+                camera.transform.position = new Vector3(camera.transform.position.x, groundHeight + cameraHeight, camera.transform.position.z);
+            }
+            if (Input.GetTouch(0).phase == TouchPhase.Began) {
                 SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.GetTouch(0).position);
+                EventBus.instance.ClickWasMade(collider);
+            }
         }
 
+        TerrainGenerator.instance.CameraMoved(camera.transform.position);
     }
 
     private void ApplyCameraBorders(Vector3 beforeZoom)
     {
-        var minY = Utility.GetGroundedPoint(camera.transform.position).y + GlobalConstants.MIN_CAMERA_Y;
-
         Debug.Log("minY");
         Debug.Log(camera.transform.position);
 
-        if (camera.transform.position.y < minY)
+        if (cameraHeight < GlobalConstants.MIN_CAMERA_Y)
         {
             camera.transform.position = beforeZoom;
-        } else if (camera.transform.position.y > GlobalConstants.MAX_CAMERA_Y)
+        } else if (cameraHeight > GlobalConstants.MAX_CAMERA_Y)
         {
             camera.transform.position = beforeZoom;
         }
@@ -119,11 +154,14 @@ class ScrollAndPitch : MonoBehaviour
     protected Vector3 PlanePosition(Vector2 screenPos)
     {
         //position
-        var rayNow = Camera.main.ScreenPointToRay(screenPos);
-        if (Plane.Raycast(rayNow, out var enterNow))
-            return rayNow.GetPoint(enterNow);
+        // var rayNow = Camera.main.ScreenPointToRay(screenPos);
+        // if (Plane.Raycast(rayNow, out var enterNow))
+        //     return rayNow.GetPoint(enterNow);
 
-        return Vector3.zero;
+        return Utility.GetPositionOnTheGround(screenPos);
+
+
+        //return Vector3.zero;
     }
 
     private void OnDrawGizmos()

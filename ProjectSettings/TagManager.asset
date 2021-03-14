@@ -6,6 +6,9 @@ TagManager:
   tags:
   - BUILDING
   - Obstacle
+  - TouchDetector
+  - GLOBAL_VIEW
+  - TOWN_VIEW
   layers:
   - Default
   - TransparentFX

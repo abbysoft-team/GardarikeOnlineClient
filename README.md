@@ -17,6 +17,7 @@ What already done (v 0.0.3 - Sprint 3):
 - Ability to place one type of building on the map and send this info to the server
 - Receiving build event from server
 
+
 Roadmap:
 
 see Projects for more info. Currently we're trying to apply some Scrum methodology (but a bit modified one)

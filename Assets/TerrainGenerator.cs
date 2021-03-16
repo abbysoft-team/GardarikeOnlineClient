@@ -106,9 +106,15 @@ public class TerrainGenerator : MonoBehaviour
 
 	public void LoadMap()
 	{
+		for (int i = -1; i < 1; i++)
+		{
+			for (int j = -1; j < 1; j++)
+			{
+				MapCache.LoadGlobalChunk(i, j);
+			}
+		}
 
-
-		SetRandomTerrain();
+		//SetRandomTerrain();
 	}
 
 	private void SetRandomTerrain()
@@ -172,6 +178,11 @@ public class TerrainGenerator : MonoBehaviour
 	private string GetChunkKey(int x, int y)
 	{
 		return x + ";" + y;
+	}
+
+	public void ClearActiveChunks()
+	{
+		activeChunks.Clear();
 	}
 
 	// public void UpdateTerrain()

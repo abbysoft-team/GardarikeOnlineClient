@@ -13,24 +13,28 @@ public class StatisticsScreen : MonoBehaviour
         EventBus.instance.onTopEmpiresStatisticReceived += InitScreen;
     }
 
-    private void InitScreen()
+    private void InitScreen(Gardarike.GetEmpiresRatingResponse response)
     {
         EventBus.instance.CloseLoadingDialog();
 
+        var otherEmpiresToShow = response.PlayerRating.Position <= 6 ? 7 : 6;
+
         // init screen based on data received
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < otherEmpiresToShow; i++)
         {
-            CreateRow(i, "Stub", 77 * i);
+            CreateRow((ulong) i, response.Entries[i].EmpireName, response.Entries[i].Value, i == 0 ? Color.yellow : Color.black);
+        }
+
+        if (otherEmpiresToShow < 7) {
+            CreateRow(response.PlayerRating.Position, response.PlayerRating.EmpireName, response.PlayerRating.Value, Color.red);
         }
     }
 
-    private void CreateRow(int i, string empire, int peopleCount)
+    private void CreateRow(ulong i, string empire, ulong peopleCount, Color color)
     {
         var row = Instantiate(referenceRow);
         var textComponent = row.GetComponent<Text>();
-        if (i == 0) {
-            textComponent.color = Color.yellow;
-        }
+        textComponent.color = color;
         textComponent.text = (i + 1) + ". " + empire + " - " + peopleCount + " people";
 
         textComponent.transform.parent = container.transform;
@@ -41,11 +45,9 @@ public class StatisticsScreen : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        //EventBus.instance.OpenLoadingDialog();
+        EventBus.instance.OpenLoadingDialog();
 
         EventBus.instance.RequestTopEmpires();
-
-        InitScreen();
     }
 
     // Update is called once per frame

@@ -6,6 +6,13 @@ public class ConstructionOptionsView : MonoBehaviour
 {
     private List<BuyOption> options;
 
+    private BuyOption lastOption;
+
+    void Start()
+    {
+        EventBus.instance.onBuyOptionChoosen += (option) => lastOption = option;
+    }
+
     public void Show()
     {
         ClearOptions();
@@ -122,6 +129,11 @@ public class ConstructionOptionsView : MonoBehaviour
         newObject.SetActive(true);
 
         return optionComponent;
+    }
+
+    public void UndoneLastBuyOption()
+    {
+        lastOption.Unbuy();
     }
 
     // Update is called once per frame

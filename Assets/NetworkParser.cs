@@ -99,6 +99,10 @@ public class NetworkParser : MonoBehaviour
                     Debug.Log("Resources received " + packet.GetResourcesResponse.Resources);
                     EventBus.instance.ResourceUpdateReceived(packet.GetResourcesResponse.Resources);
                     break;
+                case Response.DataOneofCase.GetEmpiresRatingResponse:
+                    Debug.Log("Empires rating received");
+                    EventBus.instance.TopEmpiresStatisticReceived(packet.GetEmpiresRatingResponse);
+                    break;
                 default:
                     ProcessInvalidReply(packet);
                     break;

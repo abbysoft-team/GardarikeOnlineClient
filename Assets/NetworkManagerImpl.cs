@@ -188,9 +188,28 @@ public class NetworkManagerImpl : NetworkManager
         EventBus.instance.onNewCharacterRequest += SendNewCharacterRequest;
         EventBus.instance.onNewTownRequest += SendNewTownRequest;
         EventBus.instance.onResourceUpdateRequest += SendResourceRequest;
+        EventBus.instance.onRequestTopEmpires += SendRatingRequest;
         //EventBus.instance.onWorkInfoRequest += SendWorkInfoRequest;
 
         StartZeroMQCommunicationThread();
+    }
+
+    private void SendRatingRequest()
+    {
+        Debug.Log("Send rating request");
+
+        var ratingRequest = new Request
+        {
+            GetEmpiresRatingRequest = new GetEmpiresRatingRequest
+            {
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Criteria = Gardarike.EmpiresRatingCriteria.Population,
+                Offset = 0,
+                Limit = 7
+            }
+        };
+
+        requestQueue.Enqueue(ratingRequest.ToByteArray());
     }
 
     private void SendLocalMapRequest(Vector2 globalChunkCoords, Vector2 localOffset)

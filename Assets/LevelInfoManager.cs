@@ -223,6 +223,14 @@ public class LevelInfoManager : MonoBehaviour
 
     public void ReloadMap()
     {
-        EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), 0, 0);
+        TerrainGenerator.instance.ClearActiveChunks();
+        
+        for (int i = -1; i < 1; i++)
+		{
+			for (int j = -1; j < 1; j++)
+			{
+                EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), i, j);
+			}
+		}
     }
 }

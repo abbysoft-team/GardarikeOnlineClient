@@ -15,6 +15,8 @@ service GameServer {
   rpc GetChatHistory(GetChatHistoryRequest) returns (GetChatHistoryResponse);
   rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
   rpc CreateEmpire(CreateCharacterRequest) returns (CreateCharacterResponse);
+  rpc PlaceBuilding(PlaceBuildingRequest) returns (PlaceBuildingResponse);
+  rpc GetEmpiresRating(GetEmpiresRatingRequest) returns (GetEmpiresRatingResponse);
 }
 
 // Requests
@@ -31,7 +33,32 @@ message Request {
     CreateAccountRequest createAccountRequest = 9;
     CreateCharacterRequest createCharacterRequest = 10;
     GetResourcesRequest getResourcesRequest = 11;
+    PlaceBuildingRequest placeBuildingRequest = 12;
+    GetEmpiresRatingRequest getEmpiresRatingRequest = 13;
   }
+}
+
+enum EmpiresRatingCriteria {
+  POPULATION = 0;
+}
+
+message GetEmpiresRatingRequest {
+  string sessionID = 1;
+  EmpiresRatingCriteria criteria = 2;
+  uint32 offset = 3;
+  uint32 limit = 4;
+}
+
+enum BuildingType {
+  HOUSE = 0;
+  QUARRY = 1;
+}
+
+message PlaceBuildingRequest {
+  string sessionID = 1;
+  BuildingType buildingID = 2;
+  int64 townID = 3;
+  Vector2D location = 4;
 }
 
 message GetResourcesRequest {
@@ -109,7 +136,24 @@ message Response {
     CreateAccountResponse createAccountResponse = 12;
     CreateCharacterResponse createCharacterResponse = 13;
     GetResourcesResponse getResourcesResponse = 14;
+    PlaceBuildingResponse placeBuildingResponse = 15;
+    GetEmpiresRatingResponse getEmpiresRatingResponse = 16;
   }
+}
+
+message RatingEntry {
+  uint64 position = 1;
+  string empireName = 2;
+  uint64 value = 3;
+}
+
+message GetEmpiresRatingResponse {
+  repeated RatingEntry entries = 1;
+  RatingEntry playerRating = 2;
+}
+
+message PlaceBuildingResponse {
+
 }
 
 message Resources {
@@ -171,6 +215,7 @@ message ErrorResponse {
 
 message SelectCharacterResponse {
   repeated Town towns = 1;
+  Resources resources = 2;
 }
 
 message ChatMessage {
@@ -240,6 +285,7 @@ message Town {
   string name = 3;
   string ownerName = 4;
   uint64 population = 5;
+  int64  id = 6;
 }
 
 message Building {
@@ -274,4 +320,5 @@ enum Error {
   USERNAME_IS_ALREADY_TAKEN = 8;
   FORBIDDEN = 9;
   NOT_ENOUGH_RESOURCES = 10;
+  TOWN_NOT_FOUND = 11;
 }

@@ -53,13 +53,19 @@ public class EventBus : MonoBehaviour
     public event Action onClearMapRequest;
     public event Action<string, object> onGameEvent;
     public event Action onRequestTopEmpires;
-    public event Action onTopEmpiresStatisticReceived;
+    public event Action<GetEmpiresRatingResponse> onTopEmpiresStatisticReceived;
     public event Action<Town> onGoToTownView;
     public event Action onGoToGlobalView;
+    public event Action<BuyOption> onBuyOptionChoosen;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void BuyOptionChoosen(BuyOption option)
+    {
+        onBuyOptionChoosen?.Invoke(option);
     }
 
     public void DispatchGameEvent(string eventAddress, object arguments)
@@ -266,9 +272,9 @@ public class EventBus : MonoBehaviour
         onRequestTopEmpires?.Invoke();
     }
 
-    public void TopEmpiresStatisticReceived()
+    public void TopEmpiresStatisticReceived(GetEmpiresRatingResponse response)
     {
-        onTopEmpiresStatisticReceived?.Invoke();
+        onTopEmpiresStatisticReceived?.Invoke(response);
     }
 
     public void FireBuildingFinished()

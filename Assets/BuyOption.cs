@@ -68,7 +68,16 @@ public class BuyOption : MonoBehaviour
         Utility.AddToIntProperty(GlobalConstants.FOOD, foodCost * -1);
         Utility.AddToIntProperty(GlobalConstants.LEATHER, leatherCost * -1);
 
+        EventBus.instance.BuyOptionChoosen(this);
         EventBus.instance.DispatchGameEvent(function, null);
+    }
+
+    public void Unbuy()
+    {
+        Utility.AddToIntProperty(GlobalConstants.WOOD, woodCost * 1);
+        Utility.AddToIntProperty(GlobalConstants.STONE, stoneCost * 1);
+        Utility.AddToIntProperty(GlobalConstants.FOOD, foodCost * 1);
+        Utility.AddToIntProperty(GlobalConstants.LEATHER, leatherCost * 1);
     }
 
     // Update is called once per frame

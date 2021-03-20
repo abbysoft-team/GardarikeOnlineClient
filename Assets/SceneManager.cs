@@ -62,7 +62,7 @@ public class SceneManager : MonoBehaviour
         // Update info about resource count
         EventBus.instance.SendResourceUpdateRequest();
 
-        TerrainGenerator.instance.LoadMap();
+        TerrainGenerator.instance.LoadMap(0, 0);
     }
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
@@ -149,6 +149,8 @@ public class SceneManager : MonoBehaviour
         Debug.Log("Stones on chank: " + chunkInfo.Map.Stones);
 
         PlayerPrefs.SetString("View", "Global");
+
+        MapCache.StoreWorldChunk(chunkInfo);
 
         var width = (int) Mathf.Sqrt(chunkInfo.Map.Data.Count);
         var height = width;

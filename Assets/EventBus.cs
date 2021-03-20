@@ -21,7 +21,7 @@ public class EventBus : MonoBehaviour
     public event Action<long> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
-    public event Action<string, int, int> onMapLoadRequest;
+    public event Action<int, int> onMapLoadRequest;
     public event Action<Vector2, Vector2> onLocalChunksLoadRequest;
     public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
@@ -148,8 +148,8 @@ public class EventBus : MonoBehaviour
         onSelectCharacterRequest?.Invoke(charId);
     }
 
-    public void LoadMap(string sessionId, int x, int y) {
-        onMapLoadRequest?.Invoke(sessionId, x, y);
+    public void LoadMap(int x, int y) {
+        onMapLoadRequest?.Invoke(x, y);
     }
 
     public void CharacterSelectionConfirmed(RepeatedField<Gardarike.Town> town) {

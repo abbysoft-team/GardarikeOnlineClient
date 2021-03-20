@@ -322,7 +322,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(loginRequest.ToByteArray());
     }
 
-    private void SendWorldMapRequest(string sessionId, int x, int y)
+    private void SendWorldMapRequest(int x, int y)
     {
         Debug.Log("Trying to request world map information ");
 
@@ -334,7 +334,8 @@ public class NetworkManagerImpl : NetworkManager
                     X = x,
                     Y = y,
                 },
-                SessionID = sessionId
+                SessionID = PlayerPrefs.GetString(GlobalConstants.SESSION_ID_PROPERTY),
+
             }
         };
 

@@ -5,14 +5,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Google.Protobuf;
 
+public class CacheMissException : System.Exception
+{
+    public CacheMissException() { }
+    public CacheMissException(int x, int y) : base("cacheMiss(" + x + "; " + y +")") { }
+    public CacheMissException(int x, int y, System.Exception inner) : base("cacheMiss(" + x + "; " + y +")", inner) { }
+    protected CacheMissException(
+        System.Runtime.Serialization.SerializationInfo info,
+        System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+}
+
 public class MapCache : MonoBehaviour
 {
     void Start()
     {
-        EventBus.instance.onWorldMapChunkLoaded += StoreWorldChunk;
     }
 
-    private void StoreWorldChunk(Gardarike.GetWorldMapResponse map)
+    public static void StoreWorldChunk(Gardarike.GetWorldMapResponse map)
     {
         if (!ChunkIsMissing(map.Map.X, map.Map.Y, true)) return;
 
@@ -28,20 +37,19 @@ public class MapCache : MonoBehaviour
         Debug.Log("Map chunk " + key + " saved. Size " + buffer.Length);
     }
 
-    public static void LoadGlobalChunk(int x, int y)
+    public static Gardarike.GetWorldMapResponse GetGlobalChunk(int x, int y)
     {
-        if (ChunkIsMissing(x, y, true)) 
-        {
-            Debug.Log("Chunk cache miss for chunk " + x + ";" + y);
-            EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), x, y);
-        } else 
-        {
-            Debug.Log("Loading " + x + ";" + y + " from cache");
-            EventBus.instance.WorldMapChunkLoaded(Deserialize(x, y));
-        }
+        // if (ChunkIsMissing(x, y, true)) 
+        // {
+        //     Debug.LogError("Chunk cache miss for chunk " + x + ";" + y);
+        //     //EventBus.instance.LoadMap(PlayerPrefs.GetString("sessionId"), x, y);
+        //     throw new CacheMissException(x, y);
+        // }
+        Debug.Log("Loading " + x + ";" + y + " from cache");
+        return Deserialize(x, y);
     }
 
-    private static bool ChunkIsMissing(int x, int y, bool isWorldMap)
+    public static bool ChunkIsMissing(int x, int y, bool isWorldMap)
     {
         return !PlayerPrefs.HasKey(GetKey(x, y, true));
     }
@@ -81,4 +89,6 @@ public class MapCache : MonoBehaviour
             }
         }
     }
+
+
 }

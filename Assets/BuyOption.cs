@@ -48,7 +48,7 @@ public class BuyOption : MonoBehaviour
         text.text = PlayerPrefs.GetInt(property) + "/" + cost.ToString();
 
         if (cost > PlayerPrefs.GetInt(property)) {
-            //Disable(text);
+            Disable(text);
         } else {
             text.color = Color.black;
         }

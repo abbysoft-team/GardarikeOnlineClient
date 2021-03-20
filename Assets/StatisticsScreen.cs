@@ -17,7 +17,7 @@ public class StatisticsScreen : MonoBehaviour
     {
         EventBus.instance.CloseLoadingDialog();
 
-        var otherEmpiresToShow = response.PlayerRating.Position <= 6 ? 7 : 6;
+        var otherEmpiresToShow = response.PlayerRating == null ? 7 : 6;
 
         // init screen based on data received
         for (int i = 0; i < otherEmpiresToShow; i++)
@@ -25,7 +25,7 @@ public class StatisticsScreen : MonoBehaviour
             CreateRow((ulong) i, response.Entries[i].EmpireName, response.Entries[i].Value, i == 0 ? Color.yellow : Color.black);
         }
 
-        if (otherEmpiresToShow < 7) {
+        if (otherEmpiresToShow == 6) {
             CreateRow(response.PlayerRating.Position, response.PlayerRating.EmpireName, response.PlayerRating.Value, Color.red);
         }
     }

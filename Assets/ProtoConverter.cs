@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class ProtoConverter
 {
-    public static float[,] ToHeightsFromProto(RepeatedField<float> points, int width, int height) {
-        float[,] heights = new float[width, height];
+    public static float[,] ToHeightsFromProto(RepeatedField<float> points) {
+        var size = (int) Mathf.Sqrt(points.Count);
+
+        float[,] heights = new float[size, size];
 
         int column = 0;
         int row = 0;
@@ -13,7 +15,7 @@ public class ProtoConverter
             heights[column, row] = point;
            
             column++;
-            if (column >= width)
+            if (column >= size)
             {
                 column = 0;
                 row++;

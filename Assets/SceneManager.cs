@@ -152,9 +152,7 @@ public class SceneManager : MonoBehaviour
 
         MapCache.StoreWorldChunk(chunkInfo);
 
-        var width = (int) Mathf.Sqrt(chunkInfo.Map.Data.Count);
-        var height = width;
-        var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data, width, height);
+        var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data);
         EventBus.instance.TerrainLoaded(heights, chunkInfo.Map.X, chunkInfo.Map.Y);
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
 

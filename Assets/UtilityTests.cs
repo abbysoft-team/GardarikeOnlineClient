@@ -16,7 +16,7 @@ public class UtilityTests : MonoBehaviour
             protoHeights.Add(height);
         }
 
-        var resultHeights = ProtoConverter.ToHeightsFromProto(protoHeights, size, size);
+        var resultHeights = ProtoConverter.ToHeightsFromProto(protoHeights);
 
         Debug.Log("[");
         for (int i = 0; i < size; i++)

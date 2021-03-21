@@ -29,12 +29,17 @@ public class TerrainGenerator : MonoBehaviour
 	private HashSet<Vector2Int> loadedChunks = new HashSet<Vector2Int>();
 
 	private float[,] bigChunkData = new float[GlobalConstants.CHUNK_RESOLUTION, GlobalConstants.CHUNK_RESOLUTION];
+	private TerrainData data;
 
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		referenceTerrain = FindObjectOfType<Terrain>();
+		data = new TerrainData();
+		data.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
+		data.size = new Vector3(GlobalConstants.CHUNK_SIZE, GlobalConstants.CHUNK_HEIGHT, GlobalConstants.CHUNK_SIZE);
+		referenceTerrain.terrainData = data;
 
 		//OnTerrainLoaded(100, 100, GetHeights());
 		//GenerateRandomTerrain();
@@ -100,33 +105,34 @@ public class TerrainGenerator : MonoBehaviour
 
 		int chunkSize = (int) GlobalConstants.SERVER_CHUNK_SIZE;
 
+		int chunksProcessed = 0;
 		foreach (var chunk in serverChunks)
 		{
 			var offsetX = (chunk.Map.X - centralCell.x + 1) * chunkSize;
 			var offsetY = (chunk.Map.Y - centralCell.y + 1) * chunkSize;
 
-			for (int i = 0; i < chunkSize; i++)
-			{
-				for (int j = 0; j < chunkSize; j++)
-				{
-					bigChunkData[offsetX + j, offsetY + i] = chunk.Map.Data[i * chunkSize + j];
-				}
-			}
+			Debug.LogError("CHUNK: " + chunk.Map.X + "; " + chunk.Map.Y);
+			Debug.LogError("Offset: " + offsetX + "; " + offsetY);
+
+			// for (int i = 0; i < chunkSize; i++)
+			// {
+			// 	for (int j = 0; j < chunkSize; j++)
+			// 	{
+			// 		bigChunkData[offsetX + i, offsetY + j] = chunk.Map.Data[i + chunkSize * j];
+			// 	}
+			// }
+
+			var chunkData = ProtoConverter.ToHeightsFromProto(chunk.Map.Data);
+
+			data.SetHeights(offsetX, offsetY, chunkData);
 		}
 	}
 
 	private void ConfigureTerrainComponent(float x, float y, float[,] heights)
 	{
-		var terrainData = new TerrainData();
-
-		terrainData.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
-		terrainData.size = new Vector3(GlobalConstants.CHUNK_SIZE, GlobalConstants.CHUNK_HEIGHT, GlobalConstants.CHUNK_SIZE);
-		terrainData.SetHeights(0, 0, heights);
-
 		//var newTerrainObject = Instantiate(referenceTerrain);
 		//referenceTerrain.transform.parent = transform;
-		referenceTerrain.GetComponent<TerrainCollider>().terrainData = terrainData;
-		referenceTerrain.terrainData = terrainData;
+		referenceTerrain.GetComponent<TerrainCollider>().terrainData = data;
 		referenceTerrain.gameObject.SetActive(true);
 		referenceTerrain.transform.position = new Vector3(x, 0, y);
 
@@ -170,6 +176,11 @@ public class TerrainGenerator : MonoBehaviour
 
 		FillChunksToLoadAndLoaded(x, y);
 		centralCell = new Vector2Int(x, y);
+
+		if (chunksToLoad.Count == 0) {
+			FinishTerrainGeneration();
+			return;
+		}
 
 		foreach (var chunks in chunksToLoad)
 		{

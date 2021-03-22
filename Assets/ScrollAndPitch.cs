@@ -32,6 +32,12 @@ class ScrollAndPitch : MonoBehaviour
 		Camera.main.transform.position = new Vector3(x, y, z);
     }
 
+    public void SetStartPosition(float cameraX, float cameraZ)
+    {
+		PlayerPrefs.SetFloat("cameraX", cameraX);
+		PlayerPrefs.SetFloat("cameraZ", cameraZ);
+    }
+
     private void Update()
     {
         instance.rotationDegrees = 0;
@@ -183,6 +189,14 @@ class ScrollAndPitch : MonoBehaviour
     public static float GetRotationDegrees()
     {
         return instance.rotationDegrees;
+    }
+
+    /*
+        Focus maincamera on some gameobject
+    */
+    public void FocusOn(GameObject toFocus)
+    {
+        camera.transform.position = new Vector3(toFocus.transform.position.x, toFocus.transform.position.y + GlobalConstants.MIN_CAMERA_Y, toFocus.transform.position.z - GlobalConstants.FOCUS_OBJECT_OFFSET);
     }
 
 #endif

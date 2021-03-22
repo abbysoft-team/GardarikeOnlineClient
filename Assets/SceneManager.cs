@@ -23,6 +23,32 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
         EventBus.instance.onLocalChunksArrived += LocalChunksArrived;
         EventBus.instance.onGoToTownView += GoToTownView;
+        EventBus.instance.onTownPlacedResponse += OnTownPlaced;
+    }
+
+    private void OnTownPlaced(PlaceTownResponse response)
+    {
+        if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) != 3) {
+            return;
+        }
+
+        Debug.Log("First town placed, end tutorial");
+
+        // first town placed. Register it and
+        // set camera position to it (at least x and z coords, y coord should be set when terrain is ready)
+
+        var newTown = new Gardarike.Town();
+        newTown.X = (long) response.Location.X;
+        newTown.Y = (long) response.Location.Y;
+        newTown.Population = 0;
+        newTown.OwnerName = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
+        newTown.Name = PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY);
+
+        var townObject = TownsManager.instance.RegisterTown(newTown);
+
+        ScrollAndPitch.instance.FocusOn(townObject);
+
+        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 4);
     }
 
     private void LocalChunksArrived(GetLocalMapResponse response)
@@ -50,8 +76,12 @@ public class SceneManager : MonoBehaviour
     private void CharacterSelected(RepeatedField<Gardarike.Town> towns) {
         Debug.Log("Character selected");
 
+        Debug.Log("towns: " + towns);
+
         if (towns.Count == 0)
         {
+            Debug.Log("No towns, founding new town");
+            PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 3);
             // build first town
             EventBus.instance.SendNewTownRequest(null, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
         }

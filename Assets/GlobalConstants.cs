@@ -32,7 +32,7 @@ public class GlobalConstants
     public const float SERVER_CHUNK_SIZE = CHUNK_RESOLUTION / 3.0f;
     public const float CHUNK_HEIGHT = 50000f;
     public const int CHUNK_RESOLUTION = 1025;
-    public const float SERVER_COORDS_FACTOR = (GlobalConstants.CHUNK_SIZE / GlobalConstants.CHUNK_RESOLUTION);
+    public const float SERVER_COORDS_FACTOR = (GlobalConstants.CHUNK_SIZE / GlobalConstants.SERVER_CHUNK_SIZE);
 
     public const float WATER_LEVEL = -18.7f;
 
@@ -48,6 +48,7 @@ public class GlobalConstants
 
     public const int MIN_CAMERA_Y = 100;
     public const int MAX_CAMERA_Y = 500;
+    public const int FOCUS_OBJECT_OFFSET = 100;
 
     public const bool DEBUG_MODE = true;
 

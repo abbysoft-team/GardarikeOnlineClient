@@ -71,6 +71,8 @@ public class TerrainGenerator : MonoBehaviour
 
 		ConfigureTerrainComponent(x, y, bigChunkData);
 
+		ScrollAndPitch.instance.InitCameraPosition();
+
 		EventBus.instance.CloseLoadingDialog();
 	}
 

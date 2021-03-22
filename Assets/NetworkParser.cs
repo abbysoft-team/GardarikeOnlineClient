@@ -94,6 +94,7 @@ public class NetworkParser : MonoBehaviour
                     break;
                 case Response.DataOneofCase.PlaceTownResponse:
                     Debug.Log("Town placed");
+                    EventBus.instance.TownPlacedResponse(packet.PlaceTownResponse);
                     break;
                 case Response.DataOneofCase.GetResourcesResponse:
                     Debug.Log("Resources received " + packet.GetResourcesResponse.Resources);

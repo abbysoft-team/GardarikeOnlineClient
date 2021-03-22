@@ -66,15 +66,20 @@ public class TownsManager : MonoBehaviour
 
         foreach (var town in towns)
         {
-            Debug.Log(town);
-            var gameCoords = Utility.FromServerCoords(town.X, town.Y);
-            InitTown(town, new Quaternion());
+            RegisterTown(town);
         }
 
         Debug.Log("All towns initialized");
     }
 
-    private void InitTown(Gardarike.Town town, Quaternion rotation)
+    public GameObject RegisterTown(Gardarike.Town town)
+    {
+        Debug.Log(town);
+        var gameCoords = Utility.FromServerCoords(town.X, town.Y);
+        return InitTown(town, new Quaternion());
+    }
+
+    private GameObject InitTown(Gardarike.Town town, Quaternion rotation)
     {
         var townObject = Instantiate(referenceTown);
         townObject.transform.position = Utility.GetGroundedPointForBuildings(town.X, town.Y);
@@ -84,6 +89,8 @@ public class TownsManager : MonoBehaviour
         townObject.SetActive(true);
 
         towns.Add(townComponent);
+
+        return townObject;
     }
 
     private Town ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters)

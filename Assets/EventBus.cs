@@ -57,10 +57,16 @@ public class EventBus : MonoBehaviour
     public event Action<Town> onGoToTownView;
     public event Action onGoToGlobalView;
     public event Action<BuyOption> onBuyOptionChoosen;
+    public event Action<PlaceTownResponse> onTownPlacedResponse;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void TownPlacedResponse(PlaceTownResponse response)
+    {
+        onTownPlacedResponse?.Invoke(response);
     }
 
     public void BuyOptionChoosen(BuyOption option)

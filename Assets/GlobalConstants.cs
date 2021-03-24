@@ -67,4 +67,7 @@ public class GlobalConstants
     public const string GLOBAL_VIEW_PROPERTY = "GlobalView";
     public const string TOWN_VIEW_PROPERTY = "TownView";
     public const string CURRENT_TOWN_PROPERTY = "CurrentTown";
+    public const string CAMERA_X_PROPERTY = "cameraX";
+    public const string CAMERA_Z_PROPERTY = "cameraZ";
+
 }

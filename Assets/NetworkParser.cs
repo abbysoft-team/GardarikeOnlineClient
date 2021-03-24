@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Google.Protobuf.Collections;
 using System;
+using System.Threading.Tasks;
+using System.Threading;
 
 using Gardarike;
 

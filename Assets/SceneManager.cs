@@ -14,6 +14,8 @@ public class SceneManager : MonoBehaviour
 
     public static SceneManager instance;
 
+    private Gardarike.Town firstTown;
+
     // Start is called before the first frame update
     void Awake() 
     {   
@@ -24,6 +26,7 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.onLocalChunksArrived += LocalChunksArrived;
         EventBus.instance.onGoToTownView += GoToTownView;
         EventBus.instance.onTownPlacedResponse += OnTownPlaced;
+        EventBus.instance.onTerrainGenerationFinished += TerrainReady;
     }
 
     private void OnTownPlaced(PlaceTownResponse response)
@@ -44,11 +47,26 @@ public class SceneManager : MonoBehaviour
         newTown.OwnerName = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
         newTown.Name = PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY);
 
-        var townObject = TownsManager.instance.RegisterTown(newTown);
+        firstTown = newTown;
 
-        ScrollAndPitch.instance.FocusOn(townObject);
+        var chunkPos = Utility.ToChunkPos(Utility.FromServerCoords(newTown.X, newTown.Y));
+        TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
 
         PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 4);
+    }
+
+    private void TerrainReady(float[,] heights)
+    {
+        // TODO extract tutorial code to separate class (with some framework sketches)
+        if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) != 4) {
+            return;
+        }
+        
+        var townObject = TownsManager.instance.RegisterTown(firstTown);
+        ScrollAndPitch.instance.FocusOn(townObject);
+        ScrollAndPitch.instance.SetStartPosition(ScrollAndPitch.instance.camera.transform.position);
+
+        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 5);
     }
 
     private void LocalChunksArrived(GetLocalMapResponse response)
@@ -84,6 +102,8 @@ public class SceneManager : MonoBehaviour
             PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 3);
             // build first town
             EventBus.instance.SendNewTownRequest(null, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
+
+            return;
         }
 
         // We've got towns from getMap request, so this one is obsolete
@@ -92,7 +112,9 @@ public class SceneManager : MonoBehaviour
         // Update info about resource count
         EventBus.instance.SendResourceUpdateRequest();
 
-        TerrainGenerator.instance.LoadMap(0, 0);
+
+        var chunkPos = Utility.ToChunkPos(ScrollAndPitch.instance.GetCachedCameraPosition());
+        TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
     }
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)

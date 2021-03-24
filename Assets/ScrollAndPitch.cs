@@ -7,6 +7,7 @@ class ScrollAndPitch : MonoBehaviour
 {
 #if true
     public GameObject camera;
+    private bool debugCameraMovement = false;
     public bool Rotate;
     protected Plane Plane;
     public static ScrollAndPitch instance;
@@ -22,20 +23,27 @@ class ScrollAndPitch : MonoBehaviour
         instance = this;
     }
 
-    public void InitCameraPosition()
+    public Vector2 GetCachedCameraPosition()
+    {
+        return new Vector2(PlayerPrefs.GetFloat(GlobalConstants.CAMERA_X_PROPERTY), PlayerPrefs.GetFloat(GlobalConstants.CAMERA_Z_PROPERTY));
+    }
+
+    public Vector3 InitCameraPosition()
     {
         // Set camera at the saved point
-		var x = PlayerPrefs.GetFloat("cameraX");
-		var z = PlayerPrefs.GetFloat("cameraZ");
+		var x = PlayerPrefs.GetFloat(GlobalConstants.CAMERA_X_PROPERTY);
+		var z = PlayerPrefs.GetFloat(GlobalConstants.CAMERA_Z_PROPERTY);
 		var y = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2 + Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200f, z)).y;
 
 		Camera.main.transform.position = new Vector3(x, y, z);
+
+        return Camera.main.transform.position;
     }
 
-    public void SetStartPosition(float cameraX, float cameraZ)
+    public void SetStartPosition(Vector3 position)
     {
-		PlayerPrefs.SetFloat("cameraX", cameraX);
-		PlayerPrefs.SetFloat("cameraZ", cameraZ);
+		PlayerPrefs.SetFloat(GlobalConstants.CAMERA_X_PROPERTY, position.x);
+		PlayerPrefs.SetFloat(GlobalConstants.CAMERA_Z_PROPERTY, position.z);
     }
 
     private void Update()
@@ -44,6 +52,12 @@ class ScrollAndPitch : MonoBehaviour
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
+        if (instance.debugCameraMovement) {
+            camera.transform.position += new Vector3(30, 0, 0);
+            TerrainGenerator.instance.CameraMoved(camera.transform.position);
+            SetStartPosition(camera.transform.position);
+            return;
+        }
         // if (Input.GetMouseButton(2))
         // {
         //     instance.rotationDegrees = 10;
@@ -197,6 +211,14 @@ class ScrollAndPitch : MonoBehaviour
     public void FocusOn(GameObject toFocus)
     {
         camera.transform.position = new Vector3(toFocus.transform.position.x, toFocus.transform.position.y + GlobalConstants.MIN_CAMERA_Y, toFocus.transform.position.z - GlobalConstants.FOCUS_OBJECT_OFFSET);
+    }
+
+    /*
+        Start moving camera on x axis on each Update()
+    */
+    public static void DebugCameraMovement()
+    {
+        instance.debugCameraMovement = true;
     }
 
 #endif

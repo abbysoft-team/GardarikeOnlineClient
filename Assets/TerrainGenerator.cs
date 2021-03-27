@@ -79,7 +79,7 @@ public class TerrainGenerator : MonoBehaviour
 		var chunkPos = Utility.ToChunkPos(cameraPos);
 		cameraCell = chunkPos;
 
-		ScrollAndPitch.DebugCameraMovement();
+		//ScrollAndPitch.DebugCameraMovement();
 
 		terrainLoaded = true;
 

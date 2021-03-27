@@ -9,6 +9,8 @@ TagManager:
   - TouchDetector
   - GLOBAL_VIEW
   - TOWN_VIEW
+  - headerGui
+  - Mesh
   layers:
   - Default
   - TransparentFX

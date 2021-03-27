@@ -83,9 +83,8 @@ public class TownsManager : MonoBehaviour
     {
         var townObject = Instantiate(referenceTown);
         townObject.transform.position = Utility.GetGroundedPointForBuildings(town.X, town.Y);
-        var townComponent = ConfigureTownComponent(townObject, town);
+        var townComponent = ConfigureTownComponent(townObject, town, rotation);
         townObject.transform.parent = this.transform;
-        townObject.transform.rotation = rotation;
         townObject.SetActive(true);
 
         towns.Add(townComponent);
@@ -93,11 +92,12 @@ public class TownsManager : MonoBehaviour
         return townObject;
     }
 
-    private Town ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters)
+    private Town ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters, Quaternion rotation)
     {
         //var component = townObject.AddComponent<Town>();
         var component = townObject.GetComponent<Town>();
         component.Init(townParameters);
+        component.Rotate(rotation);
 
         return component;
     }

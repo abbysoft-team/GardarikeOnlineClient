@@ -59,12 +59,12 @@ public class BuildingManager : MonoBehaviour
 
         copy.transform.parent = transform;
         copy.transform.position = info.position;
-        copy.transform.rotation = info.rotation;
         copy.gameObject.SetActive(true);
        
         var buildingInfo = reference.GetComponent<Building>();
         buildings.Add(buildingInfo);
         buildingInfo.Init();
+        buildingInfo.Rotate(info.rotation);
 
         SelectBuilding(buildingInfo);
 

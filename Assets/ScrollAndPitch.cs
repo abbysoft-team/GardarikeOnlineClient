@@ -58,6 +58,9 @@ class ScrollAndPitch : MonoBehaviour
             SetStartPosition(camera.transform.position);
             return;
         }
+
+        // DEBUG 
+
         // if (Input.GetMouseButton(2))
         // {
         //     instance.rotationDegrees = 10;
@@ -69,6 +72,8 @@ class ScrollAndPitch : MonoBehaviour
                 var collider = Utility.GetColliderFromTouch(Input.mousePosition);
                 EventBus.instance.ClickWasMade(collider);
         }
+
+        // END DEBUG
 
         //Update Plane
         if (Input.touchCount >= 1) {

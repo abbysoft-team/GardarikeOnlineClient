@@ -82,6 +82,7 @@
      <Compile Include="Assets\DialogManager.cs" />
      <Compile Include="Assets\MapManager.cs" />
      <Compile Include="Assets\MapCache.cs" />
+     <Compile Include="Assets\GardarikeBuilding.cs" />
      <Compile Include="Assets\Saveable.cs" />
      <Compile Include="Assets\ActivateObjectScript.cs" />
      <Compile Include="Assets\Dialog.cs" />
@@ -110,7 +111,6 @@
      <Compile Include="Assets\Event.cs" />
      <Compile Include="Assets\GameAction.cs" />
      <Compile Include="Assets\ResourceManager.cs" />
-     <Compile Include="Assets\GardarikeBuilding.cs" />
      <None Include="Assets\Shaders\TerrainShader.shader" />
      <None Include="Assets\Packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.xml" />
      <None Include="Assets\Packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />

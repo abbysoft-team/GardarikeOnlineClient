@@ -16341,7 +16341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611242017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -151.6, y: -98.5, z: 63.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1900760560}
@@ -19559,7 +19559,6 @@ MonoBehaviour:
   buildingType: {fileID: 149221502}
   empireName: {fileID: 499008911}
   effect: {fileID: 748266088}
-  headerGui: {fileID: 0}
 --- !u!1 &1879217135
 GameObject:
   m_ObjectHideFlags: 0

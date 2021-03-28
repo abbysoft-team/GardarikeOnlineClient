@@ -29,10 +29,11 @@ public class GlobalConstants
     public const float TREE_GROW_DELTA = 0.05f;
 
     public const float CHUNK_SIZE = 300000f;
-    public const float SERVER_CHUNK_SIZE = CHUNK_RESOLUTION / 3.0f;
+    public const float SUBCHUNK_SIZE = CHUNK_SIZE / 3;
+    public const int SERVER_CHUNK_SIZE = 341;
     public const float CHUNK_HEIGHT = 50000f;
     public const int CHUNK_RESOLUTION = 1025;
-    public const float SERVER_COORDS_FACTOR = (GlobalConstants.CHUNK_SIZE / GlobalConstants.SERVER_CHUNK_SIZE);
+    public const float SERVER_COORDS_FACTOR = (GlobalConstants.SUBCHUNK_SIZE / GlobalConstants.SERVER_CHUNK_SIZE);
 
     public const float WATER_LEVEL = -18.7f;
 

@@ -200,9 +200,15 @@ class Utility
         return vector;
     }
 
-    public static Vector3 FromServerCoords(long x, long y)
+    public static Vector3 FromServerCoords(long xOffset, long yOffset, int chunkX, int chunkY)
     {
-        return GetGroundedPoint(new Vector3(x * GlobalConstants.SERVER_COORDS_FACTOR, GlobalConstants.CHUNK_HEIGHT * 2, y * GlobalConstants.SERVER_COORDS_FACTOR));
+        var globalServerX = chunkX * GlobalConstants.SERVER_CHUNK_SIZE;
+        var globalServerY = chunkY * GlobalConstants.SERVER_CHUNK_SIZE;
+
+        var gameX = (globalServerX + xOffset) * GlobalConstants.SERVER_COORDS_FACTOR;
+        var gameY = (globalServerY + yOffset) * GlobalConstants.SERVER_COORDS_FACTOR;
+
+        return GetGroundedPoint(new Vector3(gameX, GlobalConstants.CHUNK_HEIGHT * 2, gameY));
     }
 
     public static void DebugChat(string text)

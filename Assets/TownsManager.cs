@@ -60,22 +60,24 @@ public class TownsManager : MonoBehaviour
         selectedTown.WasClicked();
     }
 
-    public void InitTowns(RepeatedField<Gardarike.Town> towns)
+    public void RegisterServerTowns(RepeatedField<Gardarike.Town> towns, int chunkX, int chunkY)
     {
         Debug.Log("Initializing " + towns.Count + " towns...");
 
         foreach (var town in towns)
         {
-            RegisterTown(town);
+            RegisterServerTown(town, chunkX, chunkY);
         }
 
         Debug.Log("All towns initialized");
     }
 
-    public GameObject RegisterTown(Gardarike.Town town)
+    public GameObject RegisterServerTown(Gardarike.Town town, int chunkX, int chunkY)
     {
         Debug.Log(town);
-        var gameCoords = Utility.FromServerCoords(town.X, town.Y);
+        var gameCoords = Utility.FromServerCoords(town.X, town.Y, chunkX, chunkY);
+        town.X = (long) gameCoords.x;
+        town.Y = (long) gameCoords.z;
         return InitTown(town, new Quaternion());
     }
 

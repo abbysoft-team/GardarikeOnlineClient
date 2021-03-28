@@ -49,24 +49,43 @@ public class SceneManager : MonoBehaviour
 
         firstTown = newTown;
 
-        var chunkPos = Utility.ToChunkPos(Utility.FromServerCoords(newTown.X, newTown.Y));
+        var chunkPos = Utility.ToChunkPos(Utility.FromServerCoords(newTown.X, newTown.Y, 0, 0));
         TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
 
         PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 4);
     }
 
-    private void TerrainReady(float[,] heights)
+    private void TerrainReady(List<GetWorldMapResponse> chunks)
+    {
+        CompleteTutorial();
+
+        //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
+        InitChunkObjects(chunks);
+    }
+
+    private void CompleteTutorial()
     {
         // TODO extract tutorial code to separate class (with some framework sketches)
         if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) != 4) {
             return;
         }
         
-        var townObject = TownsManager.instance.RegisterTown(firstTown);
+        var townObject = TownsManager.instance.RegisterServerTown(firstTown, 0, 0);
         ScrollAndPitch.instance.FocusOn(townObject);
         ScrollAndPitch.instance.SetStartPosition(ScrollAndPitch.instance.camera.transform.position);
 
         PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 5);
+    }
+
+    private void InitChunkObjects(List<GetWorldMapResponse> chunks)
+    {
+        foreach (var chunk in chunks)
+        {
+            var treeCount = (int) chunk.Map.Trees;
+            treeCount = Math.Min(200, treeCount);
+            treeGenerator.GenerateTrees(treeCount, chunk.Map.X, chunk.Map.Y);
+            townsManager.RegisterServerTowns(chunk.Map.Towns, chunk.Map.X, chunk.Map.Y);
+        }
     }
 
     private void LocalChunksArrived(GetLocalMapResponse response)
@@ -203,16 +222,8 @@ public class SceneManager : MonoBehaviour
         PlayerPrefs.SetString("View", "Global");
 
         MapCache.StoreWorldChunk(chunkInfo);
-
         var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data);
         EventBus.instance.TerrainLoaded(heights, chunkInfo.Map.X, chunkInfo.Map.Y);
-        //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
-
-        // world map is just some model, so don't draw all trees on the chunk
-        var treeCount = (int) chunkInfo.Map.Trees;
-        treeCount = Math.Min(200, treeCount);
-        treeGenerator.GenerateTrees(treeCount);
-        townsManager.InitTowns(chunkInfo.Map.Towns);
     }
 
     // Update is called once per frame

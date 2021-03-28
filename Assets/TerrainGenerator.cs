@@ -65,13 +65,12 @@ public class TerrainGenerator : MonoBehaviour
 
 	private void FinishTerrainGeneration()
 	{
-		Debug.Log("chunks loaded in " + (DateTime.Now.Millisecond - PlayerPrefs.GetFloat("debugTime")) + " ms");
-
 		var serverChunks = GetServerChunks(centralCell.x, centralCell.y);
 
 		FillBigChunkHeights(serverChunks);
-		var x = centralCell.x * GlobalConstants.CHUNK_SIZE / 3.0f;
-		var y = centralCell.y * GlobalConstants.CHUNK_SIZE / 3.0f;
+		// chunk 0;0 will be at the origin
+		var x = (centralCell.x - 1) * GlobalConstants.CHUNK_SIZE / 3.0f;
+		var y = (centralCell.y - 1) * GlobalConstants.CHUNK_SIZE / 3.0f;
 
 		ConfigureTerrainComponent(x, y, bigChunkData);
 
@@ -79,11 +78,9 @@ public class TerrainGenerator : MonoBehaviour
 		var chunkPos = Utility.ToChunkPos(cameraPos);
 		cameraCell = chunkPos;
 
-		//ScrollAndPitch.DebugCameraMovement();
-
 		terrainLoaded = true;
 
-		Debug.Log("terrain ready in " + (DateTime.Now.Millisecond - PlayerPrefs.GetFloat("debugTime")) + " ms");
+		EventBus.instance.TerrainGenerationFinished(serverChunks);
 
 		EventBus.instance.CloseLoadingDialog();
 	}
@@ -105,36 +102,14 @@ public class TerrainGenerator : MonoBehaviour
 
 	private void FillBigChunkHeights(List<Gardarike.GetWorldMapResponse> serverChunks)
 	{
-		// for (int i = 0; i < GlobalConstants.CHUNK_SIZE; i++)
-		// {
-		// 	var serverChunkX = (int) (i / GlobalConstants.SERVER_CHUNK_SIZE);
-
-		// 	for (int j = 0; j < GlobalConstants.CHUNK_SIZE; j++)
-		// 	{
-		// 		var serverChunkY = (int) (j / GlobalConstants.SERVER_CHUNK_SIZE);
-
-		// 		bigChunkData[i, j] = 
-		// 	}
-		// }
-
 		int chunkSize = (int) GlobalConstants.SERVER_CHUNK_SIZE;
 
-		int chunksProcessed = 0;
 		foreach (var chunk in serverChunks)
 		{
+
+
 			var offsetX = (chunk.Map.X - centralCell.x + 1) * chunkSize;
 			var offsetY = (chunk.Map.Y - centralCell.y + 1) * chunkSize;
-
-			Debug.LogError("CHUNK: " + chunk.Map.X + "; " + chunk.Map.Y);
-			Debug.LogError("Offset: " + offsetX + "; " + offsetY);
-
-			// for (int i = 0; i < chunkSize; i++)
-			// {
-			// 	for (int j = 0; j < chunkSize; j++)
-			// 	{
-			// 		bigChunkData[offsetX + i, offsetY + j] = chunk.Map.Data[i + chunkSize * j];
-			// 	}
-			// }
 
 			var chunkData = ProtoConverter.ToHeightsFromProto(chunk.Map.Data);
 
@@ -146,9 +121,9 @@ public class TerrainGenerator : MonoBehaviour
 	{
 		//var newTerrainObject = Instantiate(referenceTerrain);
 		//referenceTerrain.transform.parent = transform;
-		referenceTerrain.GetComponent<TerrainCollider>().terrainData = data;
 		referenceTerrain.gameObject.SetActive(true);
 		referenceTerrain.transform.position = new Vector3(x, 0, y);
+		referenceTerrain.GetComponent<TerrainCollider>().terrainData = data;
 
 		// cameraCell = new Vector2Int(0, 0);
 		// ScrollAndPitch.instance.InitCameraPosition();

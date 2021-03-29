@@ -24,7 +24,7 @@ public class ManagementScreen : MonoBehaviour
     public void ShowStatisticsView()
     {
         statisticsView.Show();
-        constructionOptionsView.gameObject.SetActive(false);
+        constructionOptionsView.Close();
     }
 
     // Update is called once per frame

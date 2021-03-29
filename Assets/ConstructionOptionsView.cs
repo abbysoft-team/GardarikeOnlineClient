@@ -31,7 +31,13 @@ public class ConstructionOptionsView : MonoBehaviour
 
         options = InitGUI(optionsInfo);
 
-        gameObject.SetActive(true);
+        transform.parent.gameObject.SetActive(true);
+    }
+
+    public void Close()
+    {
+        // close parent object, because this script should be attached to the content of a scrollRect
+        transform.parent.gameObject.SetActive(false);
     }
 
     private void ClearOptions()

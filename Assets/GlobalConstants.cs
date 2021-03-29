@@ -48,7 +48,7 @@ public class GlobalConstants
     public const string SESSION_ID_PROPERTY = "sessionId";
 
     public const int MIN_CAMERA_Y = 1000;
-    public const int MAX_CAMERA_Y = 5000;
+    public const int MAX_CAMERA_Y = 7000;
     public const int FOCUS_OBJECT_OFFSET = 100;
 
     public const bool DEBUG_MODE = true;

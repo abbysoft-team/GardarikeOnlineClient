@@ -7,6 +7,7 @@ public class StatisticsScreen : MonoBehaviour
 {
     public GameObject referenceRow;
     public GameObject container;
+    private List<GameObject> rows = new List<GameObject>(10);
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class StatisticsScreen : MonoBehaviour
     private void InitScreen(Gardarike.GetEmpiresRatingResponse response)
     {
         EventBus.instance.CloseLoadingDialog();
+
+        ClearScreen();
 
         var otherEmpiresToShow = response.PlayerRating == null ? 7 : 6;
 
@@ -30,6 +33,14 @@ public class StatisticsScreen : MonoBehaviour
         }
     }
 
+    private void ClearScreen()
+    {
+        foreach (var row in rows)
+        {
+            Destroy(row);
+        }
+    }
+
     private void CreateRow(ulong i, string empire, ulong peopleCount, Color color)
     {
         var row = Instantiate(referenceRow);
@@ -40,6 +51,8 @@ public class StatisticsScreen : MonoBehaviour
         textComponent.transform.parent = container.transform;
 
         row.SetActive(true);
+
+        rows.Add(row);
     }
 
     public void Show()

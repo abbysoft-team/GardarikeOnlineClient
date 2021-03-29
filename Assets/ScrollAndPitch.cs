@@ -223,7 +223,8 @@ class ScrollAndPitch : MonoBehaviour
     */
     public void FocusOn(GameObject toFocus)
     {
-        camera.transform.position = new Vector3(toFocus.transform.position.x, toFocus.transform.position.y + GlobalConstants.MIN_CAMERA_Y, toFocus.transform.position.z - GlobalConstants.FOCUS_OBJECT_OFFSET);
+        cameraHeight = GlobalConstants.MIN_CAMERA_Y;
+        camera.transform.position = new Vector3(toFocus.transform.position.x, toFocus.transform.position.y, toFocus.transform.position.z - GlobalConstants.FOCUS_OBJECT_OFFSET);
     }
 
     /*

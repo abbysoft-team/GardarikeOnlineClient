@@ -224,8 +224,8 @@ class Utility
     */
     public static Vector2Int ToChunkPos(Vector3 position)
     {
-        var chunkX = (int) (position.x / (GlobalConstants.CHUNK_SIZE / 3.0)) - 1;
-        var chunkY = (int) (position.z / (GlobalConstants.CHUNK_SIZE / 3.0)) - 1;
+        var chunkX = (int) (position.x / (GlobalConstants.CHUNK_SIZE / 3.0));
+        var chunkY = (int) (position.z / (GlobalConstants.CHUNK_SIZE / 3.0));
 
         return new Vector2Int(chunkX, chunkY);
     }

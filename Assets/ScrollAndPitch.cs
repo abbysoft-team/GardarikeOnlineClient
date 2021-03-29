@@ -67,11 +67,11 @@ class ScrollAndPitch : MonoBehaviour
         //     Debug.Log("rotated 10 degrees");
         // }
 
-        if (Input.GetMouseButton(0)) {
-                SoundManager.instance.PlaySound("click");
-                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-                EventBus.instance.ClickWasMade(collider);
-        }
+        // if (Input.GetMouseButton(0)) {
+        //         SoundManager.instance.PlaySound("click");
+        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+        //         EventBus.instance.ClickWasMade(collider);
+        // }
 
         // END DEBUG
 
@@ -127,8 +127,7 @@ class ScrollAndPitch : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
-            //Delta1 /= Vector3.Distance(pos1, camera.transform.position);
-            //Delta1 *= 10;
+
             if (Input.GetTouch(0).phase == TouchPhase.Moved) {
                 var beforeTranslate = camera.transform.position;
                 camera.transform.Translate(Delta1, Space.World);
@@ -166,14 +165,23 @@ class ScrollAndPitch : MonoBehaviour
         if (touch.phase != TouchPhase.Moved)
             return Vector3.zero;
 
+        // delete this code in future releases
+        // Work not as expected (too fast)
         //delta
-        var rayBefore = Camera.main.ScreenPointToRay(touch.position - touch.deltaPosition);
-        var rayNow = Camera.main.ScreenPointToRay(touch.position);
-        if (Plane.Raycast(rayBefore, out var enterBefore) && Plane.Raycast(rayNow, out var enterNow))
-            return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
+        //var rayBefore = Camera.main.ScreenPointToRay(touch.position - touch.deltaPosition);
+        //var rayNow = Camera.main.ScreenPointToRay(touch.position);
+        //if (Plane.Raycast(rayBefore, out var enterBefore) && Plane.Raycast(rayNow, out var enterNow))
+        //    return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
 
         //not on plane
-        return Vector3.zero;
+        //return Vector3.zero;
+
+        var beforePosition = Utility.GetPositionOnTheGround(touch.position - touch.deltaPosition);
+        var afterPosition = Utility.GetPositionOnTheGround(touch.position);
+
+        return beforePosition - afterPosition;
+
+
     }
 
     protected Vector3 PlanePosition(Vector2 screenPos)

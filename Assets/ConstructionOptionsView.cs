@@ -19,8 +19,8 @@ public class ConstructionOptionsView : MonoBehaviour
         
         var currentView = PlayerPrefs.GetString(GlobalConstants.CURRENT_VIEW_PROPERTY);
         List<BuyOption> optionsInfo;
-       // if (currentView == GlobalConstants.GLOBAL_VIEW_PROPERTY || currentView == "")
-        if (currentView != GlobalConstants.GLOBAL_VIEW_PROPERTY)
+        if (currentView == GlobalConstants.GLOBAL_VIEW_PROPERTY || currentView == "")
+        //if (currentView != GlobalConstants.GLOBAL_VIEW_PROPERTY)
         {
             optionsInfo = GetGlobalOptions();
         }

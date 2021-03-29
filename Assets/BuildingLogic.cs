@@ -133,10 +133,10 @@ public class BuildingLogic : MonoBehaviour
     {
         Debug.Log("Building canceled");
         this.state = BuildingState.READY_FOR_BUILDING;
-        building.SetActive(false);
+        Destroy(building);
         prototypingUI.SetActive(false);
 
-        EventBus.instance.FireBuildingFinished();
+        EventBus.instance.BuildingCanceled();
     }
 
     public void ToggleRotationMode()

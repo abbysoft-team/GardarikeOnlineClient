@@ -11,6 +11,7 @@ public class ConstructionOptionsView : MonoBehaviour
     void Start()
     {
         EventBus.instance.onBuyOptionChoosen += (option) => lastOption = option;
+        EventBus.instance.onBuildingCanceled += UndoneLastBuyOption;
     }
 
     public void Show()

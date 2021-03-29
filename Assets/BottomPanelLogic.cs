@@ -12,6 +12,7 @@ public class BottomPanelLogic : MonoBehaviour
     {
         EventBus.instance.onBuildingInitiated += (arg) => buildingOption.gameObject.SetActive(false);
         EventBus.instance.onBuildingProcessFinished += () =>  buildingOption.gameObject.SetActive(true);
+        EventBus.instance.onBuildingCanceled += () =>  buildingOption.gameObject.SetActive(true);
     }
 
     void Update()

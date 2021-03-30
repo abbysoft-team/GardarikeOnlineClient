@@ -9,15 +9,13 @@ public enum BuildingType {
     QUARRY
 }
 
-public class Building : MonoBehaviour
+public class Building : GardarikeBuilding
 {
     public BuildingType type;
 
     public Text buildingType;
     public Text empireName;
     public Text effect;
-
-    public GameObject headerGui;
 
     public void Init()
     {
@@ -37,6 +35,7 @@ public class Building : MonoBehaviour
             buildingType.text = "Storage";
             effect.text = "+50 stone/leather/wood capacity";
         }
+
     }
 
     public void Select()

@@ -6,7 +6,7 @@ public class FoodGenerator : MonoBehaviour
 {
     void Start()
     {
-        EventBus.instance.onTerrainGenerationFinished += GenerateFoodSources;
+        //EventBus.instance.onTerrainGenerationFinished += GenerateFoodSources;
     }
 
     private void GenerateFoodSources(float[,] heights)

@@ -14,6 +14,8 @@ public class SceneManager : MonoBehaviour
 
     public static SceneManager instance;
 
+    private Gardarike.Town firstTown;
+
     // Start is called before the first frame update
     void Awake() 
     {   
@@ -23,6 +25,67 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
         EventBus.instance.onLocalChunksArrived += LocalChunksArrived;
         EventBus.instance.onGoToTownView += GoToTownView;
+        EventBus.instance.onTownPlacedResponse += OnTownPlaced;
+        EventBus.instance.onTerrainGenerationFinished += TerrainReady;
+    }
+
+    private void OnTownPlaced(PlaceTownResponse response)
+    {
+        if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) != 3) {
+            return;
+        }
+
+        Debug.Log("First town placed, end tutorial");
+
+        // first town placed. Register it and
+        // set camera position to it (at least x and z coords, y coord should be set when terrain is ready)
+
+        var newTown = new Gardarike.Town();
+        newTown.X = (long) response.Location.X;
+        newTown.Y = (long) response.Location.Y;
+        newTown.Population = 0;
+        newTown.OwnerName = PlayerPrefs.GetString(GlobalConstants.COUNTRY_NAME_PROPERTY);
+        newTown.Name = PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY);
+
+        firstTown = newTown;
+
+        var chunkPos = Utility.ToChunkPos(Utility.FromServerCoords(newTown.X, newTown.Y, 0, 0));
+        TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
+
+        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 4);
+    }
+
+    private void TerrainReady(List<GetWorldMapResponse> chunks)
+    {
+        CompleteTutorial();
+
+        //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
+        InitChunkObjects(chunks);
+    }
+
+    private void CompleteTutorial()
+    {
+        // TODO extract tutorial code to separate class (with some framework sketches)
+        if (PlayerPrefs.GetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY) != 4) {
+            return;
+        }
+        
+        var townObject = TownsManager.instance.RegisterServerTown(firstTown, 0, 0);
+        ScrollAndPitch.instance.FocusOn(townObject);
+        ScrollAndPitch.instance.SetStartPosition(ScrollAndPitch.instance.camera.transform.position);
+
+        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 5);
+    }
+
+    private void InitChunkObjects(List<GetWorldMapResponse> chunks)
+    {
+        foreach (var chunk in chunks)
+        {
+            var treeCount = (int) chunk.Map.Trees;
+            treeCount = Math.Min(200, treeCount);
+            treeGenerator.GenerateTrees(treeCount, chunk.Map.X, chunk.Map.Y);
+            townsManager.RegisterServerTowns(chunk.Map.Towns, chunk.Map.X, chunk.Map.Y);
+        }
     }
 
     private void LocalChunksArrived(GetLocalMapResponse response)
@@ -50,10 +113,16 @@ public class SceneManager : MonoBehaviour
     private void CharacterSelected(RepeatedField<Gardarike.Town> towns) {
         Debug.Log("Character selected");
 
+        Debug.Log("towns: " + towns);
+
         if (towns.Count == 0)
         {
+            Debug.Log("No towns, founding new town");
+            PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 3);
             // build first town
             EventBus.instance.SendNewTownRequest(null, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
+
+            return;
         }
 
         // We've got towns from getMap request, so this one is obsolete
@@ -62,7 +131,9 @@ public class SceneManager : MonoBehaviour
         // Update info about resource count
         EventBus.instance.SendResourceUpdateRequest();
 
-        TerrainGenerator.instance.LoadMap();
+
+        var chunkPos = Utility.ToChunkPos(ScrollAndPitch.instance.GetCachedCameraPosition());
+        TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
     }
 
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
@@ -150,17 +221,9 @@ public class SceneManager : MonoBehaviour
 
         PlayerPrefs.SetString("View", "Global");
 
-        var width = (int) Mathf.Sqrt(chunkInfo.Map.Data.Count);
-        var height = width;
-        var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data, width, height);
+        MapCache.StoreWorldChunk(chunkInfo);
+        var heights = ProtoConverter.ToHeightsFromProto(chunkInfo.Map.Data);
         EventBus.instance.TerrainLoaded(heights, chunkInfo.Map.X, chunkInfo.Map.Y);
-        //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
-
-        // world map is just some model, so don't draw all trees on the chunk
-        var treeCount = (int) chunkInfo.Map.Trees;
-        treeCount = Math.Min(200, treeCount);
-        treeGenerator.GenerateTrees(treeCount);
-        townsManager.InitTowns(chunkInfo.Map.Towns);
     }
 
     // Update is called once per frame

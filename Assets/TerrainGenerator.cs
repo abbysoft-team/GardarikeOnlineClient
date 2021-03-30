@@ -23,17 +23,30 @@ public class TerrainGenerator : MonoBehaviour
 
 	private Vector2Int cameraCell;
 
-	private List<Vector2Int> chunksToLoad = new List<Vector2Int>(GlobalConstants.MAX_ACTIVE_CHUNKS);
+	private Vector2Int centralCell;
+
+	private HashSet<Vector2Int> chunksToLoad = new HashSet<Vector2Int>();
+	private HashSet<Vector2Int> loadedChunks = new HashSet<Vector2Int>();
+
+	private float[,] bigChunkData = new float[GlobalConstants.CHUNK_RESOLUTION, GlobalConstants.CHUNK_RESOLUTION];
+	private TerrainData data;
+
+	private bool terrainLoaded = false;
+
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		referenceTerrain = FindObjectOfType<Terrain>();
+		data = new TerrainData();
+		data.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
+		data.size = new Vector3(GlobalConstants.CHUNK_SIZE, GlobalConstants.CHUNK_HEIGHT, GlobalConstants.CHUNK_SIZE);
+		referenceTerrain.terrainData = data;
 
 		//OnTerrainLoaded(100, 100, GetHeights());
 		//GenerateRandomTerrain();
 		//EventBus.instance.TerrainGenerationFinished(heights);
-		EventBus.instance.onTerrainLoadingComplete += OnTerrainLoaded;
+		EventBus.instance.onTerrainLoadingComplete += OnWorldChunkLoaded;
 	}
 
 	private void Awake()
@@ -42,36 +55,78 @@ public class TerrainGenerator : MonoBehaviour
 	}
 
 	// TODO Implement chunk pool to reduce instantiation count
-	private void OnTerrainLoaded(float[,] heights, int chunkX, int chunkY)
+	private void OnWorldChunkLoaded(float[,] heights, int chunkX, int chunkY)
 	{
-		if (activeChunks.Count >= GlobalConstants.MAX_ACTIVE_CHUNKS)
+		var chunk = new Vector2Int(chunkX, chunkY);
+		chunksToLoad.Remove(chunk);
+		loadedChunks.Add(chunk);
+		if (chunksToLoad.Count == 0) FinishTerrainGeneration();
+	}
+
+	private void FinishTerrainGeneration()
+	{
+		var serverChunks = GetServerChunks(centralCell.x, centralCell.y);
+
+		FillBigChunkHeights(serverChunks);
+		// chunk 0;0 will be at the origin
+		var x = (centralCell.x - 1) * GlobalConstants.CHUNK_SIZE / 3.0f;
+		var y = (centralCell.y - 1) * GlobalConstants.CHUNK_SIZE / 3.0f;
+
+		ConfigureTerrainComponent(x, y, bigChunkData);
+
+		var cameraPos = ScrollAndPitch.instance.InitCameraPosition();
+		var chunkPos = Utility.ToChunkPos(cameraPos);
+		cameraCell = chunkPos;
+
+		terrainLoaded = true;
+
+		EventBus.instance.TerrainGenerationFinished(serverChunks);
+
+		EventBus.instance.CloseLoadingDialog();
+	}
+
+	private List<Gardarike.GetWorldMapResponse> GetServerChunks(int x, int y)
+	{
+		var chunks = new List<Gardarike.GetWorldMapResponse>();
+
+		for (int i = -1; i < 2; i++)
 		{
-			UnloadFarthestChunk(chunkX, chunkY);
+			for (int j = -1; j < 2; j++)
+			{
+				chunks.Add(MapCache.GetGlobalChunk(x + i, y + j));
+			}
 		}
 
-		var terrainData = new TerrainData();
+		return chunks;
+	}
 
-		terrainData.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
-		terrainData.size = new Vector3(GlobalConstants.CHUNK_SIZE, GlobalConstants.CHUNK_HEIGHT, GlobalConstants.CHUNK_SIZE);
-		terrainData.SetHeights(0, 0, heights);
+	private void FillBigChunkHeights(List<Gardarike.GetWorldMapResponse> serverChunks)
+	{
+		int chunkSize = (int) GlobalConstants.SERVER_CHUNK_SIZE;
 
-		var newTerrainObject = Instantiate(referenceTerrain);
-		newTerrainObject.transform.parent = transform;
-		newTerrainObject.GetComponent<TerrainCollider>().terrainData = terrainData;
-		newTerrainObject.terrainData = terrainData;
-		newTerrainObject.gameObject.SetActive(true);
-		newTerrainObject.transform.position = new Vector3(chunkX * GlobalConstants.CHUNK_SIZE, 0, chunkY * GlobalConstants.CHUNK_SIZE);
-
-		activeChunks.Add(GetChunkKey(chunkX, chunkY), newTerrainObject);
-
-		if (activeChunks.Count == 1)
+		foreach (var chunk in serverChunks)
 		{
-			cameraCell = new Vector2Int(0, 0);
-			ScrollAndPitch.instance.InitCameraPosition();
-		} else if (activeChunks.Count >= 9)
-		{
-			EventBus.instance.CloseLoadingDialog();
+
+
+			var offsetX = (chunk.Map.X - centralCell.x + 1) * chunkSize;
+			var offsetY = (chunk.Map.Y - centralCell.y + 1) * chunkSize;
+
+			var chunkData = ProtoConverter.ToHeightsFromProto(chunk.Map.Data);
+
+			data.SetHeights(offsetX, offsetY, chunkData);
 		}
+	}
+
+	private void ConfigureTerrainComponent(float x, float y, float[,] heights)
+	{
+		//var newTerrainObject = Instantiate(referenceTerrain);
+		//referenceTerrain.transform.parent = transform;
+		referenceTerrain.gameObject.SetActive(true);
+		referenceTerrain.transform.position = new Vector3(x, 0, y);
+		referenceTerrain.GetComponent<TerrainCollider>().terrainData = data;
+
+		// cameraCell = new Vector2Int(0, 0);
+		// ScrollAndPitch.instance.InitCameraPosition();
 	}
 
 	private void UnloadFarthestChunk(int chunkX, int chunkY)
@@ -104,17 +159,46 @@ public class TerrainGenerator : MonoBehaviour
 		farthestChunk.gameObject.SetActive(false);
 	}
 
-	public void LoadMap()
+	public void LoadMap(int x, int y)
 	{
-		for (int i = -1; i < 1; i++)
-		{
-			for (int j = -1; j < 1; j++)
-			{
-				MapCache.LoadGlobalChunk(i, j);
-			}
+		EventBus.instance.OpenLoadingDialog();
+		PlayerPrefs.SetFloat("debugTime", DateTime.Now.Millisecond);
+
+		FillChunksToLoadAndLoaded(x, y);
+		centralCell = new Vector2Int(x, y);
+
+		if (chunksToLoad.Count == 0) {
+			FinishTerrainGeneration();
+			return;
 		}
 
-		//SetRandomTerrain();
+		foreach (var chunks in chunksToLoad)
+		{
+			EventBus.instance.LoadMap(chunks.x, chunks.y);	
+		}
+
+		cameraCell = new Vector2Int(x, y);
+	}
+
+	private void FillChunksToLoadAndLoaded(int x, int y)
+	{
+		chunksToLoad.Clear();
+		loadedChunks.Clear();
+
+		for (int i = -1; i < 2; i++)
+		{
+			for (int j = -1; j < 2; j++)
+			{
+				var miss = MapCache.ChunkIsMissing(j + x, i + y, true);
+				if (miss)
+				{
+					chunksToLoad.Add(new Vector2Int(j + x, i + y));
+				} else
+				{
+					loadedChunks.Add(new Vector2Int(j + x, i + y));
+				}
+			}
+		}
 	}
 
 	private void SetRandomTerrain()
@@ -129,7 +213,7 @@ public class TerrainGenerator : MonoBehaviour
 			}
 		}
 
-		OnTerrainLoaded(heights, 0, 0);
+		//OnTerrainLoaded(heights, 0, 0);
 	}
 
 	// Update is called once per frame
@@ -138,36 +222,23 @@ public class TerrainGenerator : MonoBehaviour
 
 	}
     public void CameraMoved(Vector3 position)
-    {   
-		if (activeChunks.Count < 1) return;
+    {  
+		if (!terrainLoaded) return;
 
 		var x = position.x;
 		var y = position.z;
 
-		if (x < 0) x-= GlobalConstants.CHUNK_SIZE;
-		if (y < 0) y-= GlobalConstants.CHUNK_SIZE;
+		var chunkPos = Utility.ToChunkPos(position);
 
-		int chunkX = (int) (x / GlobalConstants.CHUNK_SIZE);
-		int chunkY = (int) (y / GlobalConstants.CHUNK_SIZE);
-
-		int diffX = cameraCell.x - chunkX;
-		int diffY = cameraCell.y - chunkY;
+		int diffX = cameraCell.x - chunkPos.x;
+		int diffY = cameraCell.y - chunkPos.y;
 
 		if (diffX == 0 && diffY == 0) return;
 
-		chunksToLoad.Clear();
+		// reload all map, camera chunk is changed
+		LoadMap(chunkPos.x, chunkPos.y);
 
-		for (int i = -1; i < 2; i++)
-		{
-			for (int j = -1; j < 2; j++)
-			{
-				if (ChunkIsActive(chunkX + i, chunkY + j)) continue;
-
-				MapCache.LoadGlobalChunk(chunkX + i, chunkY + j);
-			}
-		}
-
-		cameraCell = new Vector2Int(chunkX, chunkY);
+		cameraCell = new Vector2Int(chunkPos.x, chunkPos.y);
     }
 
 	private bool ChunkIsActive(int x, int y)

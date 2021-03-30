@@ -11,6 +11,7 @@ public class ConstructionOptionsView : MonoBehaviour
     void Start()
     {
         EventBus.instance.onBuyOptionChoosen += (option) => lastOption = option;
+        EventBus.instance.onBuildingCanceled += UndoneLastBuyOption;
     }
 
     public void Show()
@@ -20,6 +21,7 @@ public class ConstructionOptionsView : MonoBehaviour
         var currentView = PlayerPrefs.GetString(GlobalConstants.CURRENT_VIEW_PROPERTY);
         List<BuyOption> optionsInfo;
         if (currentView == GlobalConstants.GLOBAL_VIEW_PROPERTY || currentView == "")
+        //if (currentView != GlobalConstants.GLOBAL_VIEW_PROPERTY)
         {
             optionsInfo = GetGlobalOptions();
         }
@@ -30,7 +32,13 @@ public class ConstructionOptionsView : MonoBehaviour
 
         options = InitGUI(optionsInfo);
 
-        gameObject.SetActive(true);
+        transform.parent.gameObject.SetActive(true);
+    }
+
+    public void Close()
+    {
+        // close parent object, because this script should be attached to the content of a scrollRect
+        transform.parent.gameObject.SetActive(false);
     }
 
     private void ClearOptions()

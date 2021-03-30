@@ -6,7 +6,7 @@ public class TreeGenerator : MonoBehaviour
 {
     private void Start()
     {
-        EventBus.instance.onSpawnTreesRequest += GenerateTrees;
+        //EventBus.instance.onSpawnTreesRequest += GenerateTrees;
         EventBus.instance.onClearMapRequest += ResetTrees;
     }
 
@@ -18,13 +18,16 @@ public class TreeGenerator : MonoBehaviour
         }
     }
 
-    public void GenerateTrees(int count)
+    public void GenerateTrees(int count, int chunkX, int chunkY)
     {
+        var startChunkX = chunkX * GlobalConstants.SUBCHUNK_SIZE;
+        var startChunkY = chunkY * GlobalConstants.SUBCHUNK_SIZE;
+
         // * 2 to compensate loss of trees spawned on water
         for (int i = 0; i < count * 2; i++)
         {
-            var x = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
-            var y = Random.Range(0, GlobalConstants.CHUNK_SIZE -5);
+            var x = Random.Range(startChunkX, startChunkX + GlobalConstants.CHUNK_SIZE / 3 - 5);
+            var y = Random.Range(startChunkY, startChunkY + GlobalConstants.CHUNK_SIZE / 3 - 5);
 
             if (NotOnWater(x, y)) {
                 SpawnTree(x, y);

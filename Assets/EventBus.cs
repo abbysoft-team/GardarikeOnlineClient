@@ -10,7 +10,7 @@ public class EventBus : MonoBehaviour
     public const string NEW_BUILDING_EVENT = "NEW_BUILDING";
     public static EventBus instance;
 
-    public event Action<float[,]> onTerrainGenerationFinished;
+    public event Action<List<GetWorldMapResponse> > onTerrainGenerationFinished;
     public event Action<float[,], int, int> onTerrainLoadingComplete;
     public event Action<RepeatedField<Building>, int> onMapObjectsLoadingComplete;
     public event Action<string, RepeatedField<Character>> onLoginComplete;
@@ -21,7 +21,7 @@ public class EventBus : MonoBehaviour
     public event Action<long> onSelectCharacterRequest;
     public event Action onLoadChatHistoryRequest;
     public event Action<RepeatedField<ChatMessage>> onChatHistoryLoaded;
-    public event Action<string, int, int> onMapLoadRequest;
+    public event Action<int, int> onMapLoadRequest;
     public event Action<Vector2, Vector2> onLocalChunksLoadRequest;
     public event Action<RepeatedField<Gardarike.Town>> onCharacterSelected;
     public event Action<ChatMessage> onNewMessageArrived;
@@ -57,10 +57,23 @@ public class EventBus : MonoBehaviour
     public event Action<Town> onGoToTownView;
     public event Action onGoToGlobalView;
     public event Action<BuyOption> onBuyOptionChoosen;
+    public event Action<PlaceTownResponse> onTownPlacedResponse;
+    public event Action onBuildingCanceled;
 
     private void Awake()
     {
         instance = this;
+    }
+
+
+    public void BuildingCanceled()
+    {
+        onBuildingCanceled?.Invoke();
+    }
+
+    public void TownPlacedResponse(PlaceTownResponse response)
+    {
+        onTownPlacedResponse?.Invoke(response);
     }
 
     public void BuyOptionChoosen(BuyOption option)
@@ -97,9 +110,9 @@ public class EventBus : MonoBehaviour
         onBulidingComplete?.Invoke(building);
     }
 
-    public void TerrainGenerationFinished(float[,] heights)
+    public void TerrainGenerationFinished(List<GetWorldMapResponse> chunks)
     {
-        onTerrainGenerationFinished?.Invoke(heights);
+        onTerrainGenerationFinished?.Invoke(chunks);
     }
 
     public void TerrainLoaded(float[,] heights, int x, int y)
@@ -148,8 +161,8 @@ public class EventBus : MonoBehaviour
         onSelectCharacterRequest?.Invoke(charId);
     }
 
-    public void LoadMap(string sessionId, int x, int y) {
-        onMapLoadRequest?.Invoke(sessionId, x, y);
+    public void LoadMap(int x, int y) {
+        onMapLoadRequest?.Invoke(x, y);
     }
 
     public void CharacterSelectionConfirmed(RepeatedField<Gardarike.Town> town) {

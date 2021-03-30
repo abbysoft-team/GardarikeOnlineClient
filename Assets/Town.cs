@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Town : MonoBehaviour
+public class Town : GardarikeBuilding
 {
     public Text population;
     public InputField name;

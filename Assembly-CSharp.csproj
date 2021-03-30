@@ -82,6 +82,7 @@
      <Compile Include="Assets\DialogManager.cs" />
      <Compile Include="Assets\MapManager.cs" />
      <Compile Include="Assets\MapCache.cs" />
+     <Compile Include="Assets\GardarikeBuilding.cs" />
      <Compile Include="Assets\Saveable.cs" />
      <Compile Include="Assets\ActivateObjectScript.cs" />
      <Compile Include="Assets\Dialog.cs" />

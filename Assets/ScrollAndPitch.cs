@@ -7,6 +7,7 @@ class ScrollAndPitch : MonoBehaviour
 {
 #if true
     public GameObject camera;
+    private bool debugCameraMovement = false;
     public bool Rotate;
     protected Plane Plane;
     public static ScrollAndPitch instance;
@@ -22,14 +23,27 @@ class ScrollAndPitch : MonoBehaviour
         instance = this;
     }
 
-    public void InitCameraPosition()
+    public Vector2 GetCachedCameraPosition()
+    {
+        return new Vector2(PlayerPrefs.GetFloat(GlobalConstants.CAMERA_X_PROPERTY), PlayerPrefs.GetFloat(GlobalConstants.CAMERA_Z_PROPERTY));
+    }
+
+    public Vector3 InitCameraPosition()
     {
         // Set camera at the saved point
-		var x = PlayerPrefs.GetFloat("cameraX");
-		var z = PlayerPrefs.GetFloat("cameraZ");
+		var x = PlayerPrefs.GetFloat(GlobalConstants.CAMERA_X_PROPERTY);
+		var z = PlayerPrefs.GetFloat(GlobalConstants.CAMERA_Z_PROPERTY);
 		var y = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2 + Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200f, z)).y;
 
 		Camera.main.transform.position = new Vector3(x, y, z);
+
+        return Camera.main.transform.position;
+    }
+
+    public void SetStartPosition(Vector3 position)
+    {
+		PlayerPrefs.SetFloat(GlobalConstants.CAMERA_X_PROPERTY, position.x);
+		PlayerPrefs.SetFloat(GlobalConstants.CAMERA_Z_PROPERTY, position.z);
     }
 
     private void Update()
@@ -38,17 +52,28 @@ class ScrollAndPitch : MonoBehaviour
         Vector3 pos1b = Vector3.zero;
         Vector3 pos1 = Vector3.zero;
 
+        if (instance.debugCameraMovement) {
+            camera.transform.position += new Vector3(30, 0, 0);
+            TerrainGenerator.instance.CameraMoved(camera.transform.position);
+            SetStartPosition(camera.transform.position);
+            return;
+        }
+
+        // DEBUG 
+
         // if (Input.GetMouseButton(2))
         // {
         //     instance.rotationDegrees = 10;
         //     Debug.Log("rotated 10 degrees");
         // }
 
-        if (Input.GetMouseButton(0)) {
-                SoundManager.instance.PlaySound("click");
-                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-                EventBus.instance.ClickWasMade(collider);
-        }
+        // if (Input.GetMouseButton(0)) {
+        //         SoundManager.instance.PlaySound("click");
+        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+        //         EventBus.instance.ClickWasMade(collider);
+        // }
+
+        // END DEBUG
 
         //Update Plane
         if (Input.touchCount >= 1) {
@@ -102,8 +127,7 @@ class ScrollAndPitch : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Delta1 = PlanePositionDelta(Input.GetTouch(0));
-            //Delta1 /= Vector3.Distance(pos1, camera.transform.position);
-            //Delta1 *= 10;
+
             if (Input.GetTouch(0).phase == TouchPhase.Moved) {
                 var beforeTranslate = camera.transform.position;
                 camera.transform.Translate(Delta1, Space.World);
@@ -141,14 +165,23 @@ class ScrollAndPitch : MonoBehaviour
         if (touch.phase != TouchPhase.Moved)
             return Vector3.zero;
 
+        // delete this code in future releases
+        // Work not as expected (too fast)
         //delta
-        var rayBefore = Camera.main.ScreenPointToRay(touch.position - touch.deltaPosition);
-        var rayNow = Camera.main.ScreenPointToRay(touch.position);
-        if (Plane.Raycast(rayBefore, out var enterBefore) && Plane.Raycast(rayNow, out var enterNow))
-            return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
+        //var rayBefore = Camera.main.ScreenPointToRay(touch.position - touch.deltaPosition);
+        //var rayNow = Camera.main.ScreenPointToRay(touch.position);
+        //if (Plane.Raycast(rayBefore, out var enterBefore) && Plane.Raycast(rayNow, out var enterNow))
+        //    return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
 
         //not on plane
-        return Vector3.zero;
+        //return Vector3.zero;
+
+        var beforePosition = Utility.GetPositionOnTheGround(touch.position - touch.deltaPosition);
+        var afterPosition = Utility.GetPositionOnTheGround(touch.position);
+
+        return beforePosition - afterPosition;
+
+
     }
 
     protected Vector3 PlanePosition(Vector2 screenPos)
@@ -183,6 +216,23 @@ class ScrollAndPitch : MonoBehaviour
     public static float GetRotationDegrees()
     {
         return instance.rotationDegrees;
+    }
+
+    /*
+        Focus maincamera on some gameobject
+    */
+    public void FocusOn(GameObject toFocus)
+    {
+        cameraHeight = GlobalConstants.MIN_CAMERA_Y;
+        camera.transform.position = new Vector3(toFocus.transform.position.x, toFocus.transform.position.y, toFocus.transform.position.z - GlobalConstants.FOCUS_OBJECT_OFFSET);
+    }
+
+    /*
+        Start moving camera on x axis on each Update()
+    */
+    public static void DebugCameraMovement()
+    {
+        instance.debugCameraMovement = true;
     }
 
 #endif

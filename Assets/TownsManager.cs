@@ -60,37 +60,46 @@ public class TownsManager : MonoBehaviour
         selectedTown.WasClicked();
     }
 
-    public void InitTowns(RepeatedField<Gardarike.Town> towns)
+    public void RegisterServerTowns(RepeatedField<Gardarike.Town> towns, int chunkX, int chunkY)
     {
         Debug.Log("Initializing " + towns.Count + " towns...");
 
         foreach (var town in towns)
         {
-            Debug.Log(town);
-            var gameCoords = Utility.FromServerCoords(town.X, town.Y);
-            InitTown(town, new Quaternion());
+            RegisterServerTown(town, chunkX, chunkY);
         }
 
         Debug.Log("All towns initialized");
     }
 
-    private void InitTown(Gardarike.Town town, Quaternion rotation)
+    public GameObject RegisterServerTown(Gardarike.Town town, int chunkX, int chunkY)
+    {
+        Debug.Log(town);
+        var gameCoords = Utility.FromServerCoords(town.X, town.Y, chunkX, chunkY);
+        town.X = (long) gameCoords.x;
+        town.Y = (long) gameCoords.z;
+        return InitTown(town, new Quaternion());
+    }
+
+    private GameObject InitTown(Gardarike.Town town, Quaternion rotation)
     {
         var townObject = Instantiate(referenceTown);
         townObject.transform.position = Utility.GetGroundedPointForBuildings(town.X, town.Y);
-        var townComponent = ConfigureTownComponent(townObject, town);
+        var townComponent = ConfigureTownComponent(townObject, town, rotation);
         townObject.transform.parent = this.transform;
-        townObject.transform.rotation = rotation;
         townObject.SetActive(true);
 
         towns.Add(townComponent);
+
+        return townObject;
     }
 
-    private Town ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters)
+    private Town ConfigureTownComponent(GameObject townObject, Gardarike.Town townParameters, Quaternion rotation)
     {
         //var component = townObject.AddComponent<Town>();
         var component = townObject.GetComponent<Town>();
         component.Init(townParameters);
+        component.Rotate(rotation);
 
         return component;
     }

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public bool devMode;
 
+    private float lastResourceUpdateTime = 0;
+
     void Start()
     {
         //ConnectToServer(LOGIN, PASSWORD);
@@ -30,6 +32,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Utility.AddToIntProperty(GlobalConstants.GAME_MILLIS, (int) (Time.deltaTime * 1000));
+        if (SceneManager.instance.currentScene != GameScene.GAME)
+        {
+            return;
+        }
+
+        if (Time.time - lastResourceUpdateTime > GlobalConstants.RESOURCE_UPDATE_DELAY)
+        {
+            lastResourceUpdateTime = Time.time;
+
+            // update resources
+            EventBus.instance.SendResourceUpdateRequest();
+        }
+        
     }
 }

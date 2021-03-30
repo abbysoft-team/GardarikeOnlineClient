@@ -71,4 +71,6 @@ public class GlobalConstants
     public const string CAMERA_X_PROPERTY = "cameraX";
     public const string CAMERA_Z_PROPERTY = "cameraZ";
 
+    public const float RESOURCE_UPDATE_DELAY = 15f;
+
 }

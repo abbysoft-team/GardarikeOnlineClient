@@ -6,6 +6,12 @@ using System;
 
 using Gardarike;
 
+public enum GameScene {
+    LOGGING,
+    LOADING,
+    GAME
+}
+
 public class SceneManager : MonoBehaviour
 {
     public GameObject loginScreen;
@@ -15,6 +21,8 @@ public class SceneManager : MonoBehaviour
     public static SceneManager instance;
 
     private Gardarike.Town firstTown;
+
+    public GameScene currentScene = GameScene.LOGGING;
 
     // Start is called before the first frame update
     void Awake() 
@@ -61,6 +69,8 @@ public class SceneManager : MonoBehaviour
 
         //EventBus.instance.MapObjectsLoaded(getMapResponse.Map.Buildings, (int) getMapResponse.Map.TreesCount);
         InitChunkObjects(chunks);
+
+        currentScene = GameScene.GAME;
     }
 
     private void CompleteTutorial()
@@ -139,6 +149,8 @@ public class SceneManager : MonoBehaviour
     private void LoginComplete(string sessionID, RepeatedField<Character> characters)
     {
         Debug.Log("Login complete, selecting character");
+
+        currentScene = GameScene.LOADING;
 
         PlayerPrefs.SetString("sessionId", sessionID);
     

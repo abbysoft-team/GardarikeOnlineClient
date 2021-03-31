@@ -16,7 +16,13 @@ public class GameManager : MonoBehaviour
 
         //PlayerPrefs.DeleteAll();
         
-        PlayerPrefs.SetInt("Population", 0);
+        // Reset all counters
+        PlayerPrefs.SetInt(GlobalConstants.PEOPLE_COUNT, 0);
+        PlayerPrefs.SetInt(GlobalConstants.STONE, 0);
+        PlayerPrefs.SetInt(GlobalConstants.FOOD, 0);
+        PlayerPrefs.SetInt(GlobalConstants.LEATHER, 0);
+        PlayerPrefs.SetInt(GlobalConstants.WOOD, 0);
+        PlayerPrefs.SetInt(GlobalConstants.FOOD, 0);
 
         //EventBus.instance.onBuildingComplete += AddMaxPopulation;
 

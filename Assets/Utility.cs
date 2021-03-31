@@ -229,4 +229,19 @@ class Utility
 
         return new Vector2Int(chunkX, chunkY);
     }
+
+    public static Gardarike.BuildingType ToServerBuildingType(BuildingType gameType)
+    {
+        if (gameType == BuildingType.HOUSE)
+        {
+            return Gardarike.BuildingType.House;
+        }
+        if (gameType == BuildingType.QUARRY)
+        {
+            return Gardarike.BuildingType.Quarry;
+        }
+
+        // fallback
+        return Gardarike.BuildingType.House;
+    }
 }

@@ -130,7 +130,7 @@ public class SceneManager : MonoBehaviour
             Debug.Log("No towns, founding new town");
             PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 3);
             // build first town
-            EventBus.instance.SendNewTownRequest(null, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY));
+            EventBus.instance.SendNewTownRequest(null, PlayerPrefs.GetString(GlobalConstants.CAPITAL_NAME_PROPERTY), 0);
 
             return;
         }

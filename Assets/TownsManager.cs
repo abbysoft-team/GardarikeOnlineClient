@@ -123,6 +123,6 @@ public class TownsManager : MonoBehaviour
 
         InitTown(newTown, transform.localRotation);
 
-        //EventBus.instance.SendNewTownRequest(Utility.ToServerCoordinates(transform.position), newTown.Name);
+        EventBus.instance.SendNewTownRequest(Utility.ToServerCoordinates(transform.position), newTown.Name, transform.rotation.y);
     }
 }

@@ -38,7 +38,7 @@ public class EventBus : MonoBehaviour
     public event Action<string, string, string> onRegistrationRequest;
     public event Action<int, System.Object> onEventFinished;
     public event Action onRegistrationComplete;
-    public event Action<Vector2D, String> onNewTownRequest;
+    public event Action<Vector2D, String, float> onNewTownRequest;
     public event Action<String> onNewCharacterRequest;
 
     public event Action<int, GameObject> onBuildingStarted;
@@ -237,9 +237,9 @@ public class EventBus : MonoBehaviour
         onRegistrationComplete?.Invoke();
     }
 
-    public void SendNewTownRequest(Vector2D location, String name)
+    public void SendNewTownRequest(Vector2D location, String name, float rotation)
     {
-        onNewTownRequest?.Invoke(location, name);
+        onNewTownRequest?.Invoke(location, name, rotation);
     }
 
     public void SendNewCharacterRequest(string name)

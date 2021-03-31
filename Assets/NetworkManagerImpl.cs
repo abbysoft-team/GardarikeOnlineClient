@@ -258,7 +258,7 @@ public class NetworkManagerImpl : NetworkManager
         requestQueue.Enqueue(newCharacterRequest.ToByteArray());
     }
 
-    private void SendNewTownRequest(Vector2D location, string name)
+    private void SendNewTownRequest(Vector2D location, string name, float rotation)
     {
         Debug.Log("Send new town request");
 
@@ -268,7 +268,8 @@ public class NetworkManagerImpl : NetworkManager
             {
                 SessionID = PlayerPrefs.GetString("sessionId"),
                 Location = location,
-                Name = name
+                Name = name,
+                Rotation = rotation
             }
         };
 
@@ -346,15 +347,20 @@ public class NetworkManagerImpl : NetworkManager
     {
         Debug.Log("Sending build event to server");
 
-        // var buildingEvent = new Request {
-        //     PlaceBuildingRequest = new PlaceBuildingRequest {
-        //         BuildingID = 1,
-        //         SessionID = PlayerPrefs.GetString("sessionId"),
-        //         Location = building.Location()
-        //     }
-        // };
+        var type = Utility.ToServerBuildingType(building.type);
+        var location = Utility.ToServerCoordinates(building.transform.position);
+        var rotation = building.transform.rotation.y;
 
-        //requestQueue.Enqueue(buildingEvent.ToByteArray());
+        var buildingEvent = new Request {
+            PlaceBuildingRequest = new PlaceBuildingRequest {
+                BuildingID = type,
+                SessionID = PlayerPrefs.GetString("sessionId"),
+                Location = location,
+                Rotation = rotation
+            }
+        };
+
+        requestQueue.Enqueue(buildingEvent.ToByteArray());
     }
 
     private void SendLoadChatHistoryRequest()

@@ -57,10 +57,11 @@ public class SceneManager : MonoBehaviour
 
         firstTown = newTown;
 
+        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 4);
+
+        // LoadMap
         var chunkPos = Utility.ToChunkPos(Utility.FromServerCoords(newTown.X, newTown.Y, 0, 0));
         TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
-
-        PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 4);
     }
 
     private void TerrainReady(List<GetWorldMapResponse> chunks)

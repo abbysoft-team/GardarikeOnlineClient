@@ -49,7 +49,7 @@ public class GlobalConstants
 
     public const int MIN_CAMERA_Y = 1000;
     public const int MAX_CAMERA_Y = 7000;
-    public const int FOCUS_OBJECT_OFFSET = 3000;
+    public const int FOCUS_OBJECT_OFFSET = 3500;
 
     public const bool DEBUG_MODE = true;
 

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
 {
+    private float waterlevel;
+
     private void Start()
     {
         //EventBus.instance.onSpawnTreesRequest += GenerateTrees;
         EventBus.instance.onClearMapRequest += ResetTrees;
+
+        waterlevel = GameManager.GetWaterlevel();
     }
 
     private void ResetTrees()
@@ -36,15 +40,7 @@ public class TreeGenerator : MonoBehaviour
     }
 
     private bool NotOnWater(float x, float y) {
-        Ray toGround = new Ray(new Vector3(x, 10000, y), new Vector3(0, -1, 0));
-        RaycastHit hit = new RaycastHit();
-        bool hitOccured = Physics.Raycast(toGround, out hit);
-
-        if (hitOccured && hit.collider.name == "Waterlevel") {
-            return false;
-        }
-
-        return true;
+        return !Utility.IsOnWater(new Vector3(x, GlobalConstants.CHUNK_HEIGHT, y));
     }
 
     private void SpawnTree(float x, float y)

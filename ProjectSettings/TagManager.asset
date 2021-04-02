@@ -11,6 +11,7 @@ TagManager:
   - TOWN_VIEW
   - headerGui
   - Mesh
+  - waterlevel
   layers:
   - Default
   - TransparentFX

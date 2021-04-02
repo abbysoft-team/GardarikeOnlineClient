@@ -52,4 +52,12 @@ public class GameManager : MonoBehaviour
         }
         
     }
+
+    /**
+        Get water level in game coordinates
+    */
+    public static float GetWaterlevel()
+    {
+        return ScrollAndPitch.GetPlaneHeight();
+    }
 }

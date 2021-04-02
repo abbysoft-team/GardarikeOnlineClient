@@ -172,17 +172,17 @@ class Utility
         return GetPositionOnTheGround(new Vector2(Screen.width / 2, Screen.height / 2));
     }
 
-    public static bool IsOnWater(GameObject objectToCheck)
+    public static bool IsOnWater(Vector3 position)
     {
-        var collider = GetGroundCollider(objectToCheck);
+        var collider = GetGroundCollider(position);
         if (collider == null) return false;
 
         return collider.tag == "Obstacle";
     }
 
-    public static GameObject GetGroundCollider(GameObject obj)
+    public static GameObject GetGroundCollider(Vector3 position)
     {
-        var ray = new Ray(obj.transform.position + new Vector3(0, 10, 0), new Vector3(0, -1, 0));
+        var ray = new Ray(position + new Vector3(0, 10, 0), new Vector3(0, -1, 0));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
@@ -194,9 +194,14 @@ class Utility
 
     public static Gardarike.Vector2D ToServerCoordinates(Vector3 gamePosition)
     {
+        return ToServerCoordinates(gamePosition.x, gamePosition.z);
+    }
+
+    public static Gardarike.Vector2D ToServerCoordinates(float x, float y)
+    {
         var vector = new Gardarike.Vector2D();
-        vector.X = gamePosition.x / GlobalConstants.SERVER_COORDS_FACTOR;
-        vector.Y = gamePosition.z / GlobalConstants.SERVER_COORDS_FACTOR;
+        vector.X = x / GlobalConstants.SERVER_COORDS_FACTOR;
+        vector.Y = y / GlobalConstants.SERVER_COORDS_FACTOR;
         return vector;
     }
 
@@ -224,8 +229,16 @@ class Utility
     */
     public static Vector2Int ToChunkPos(Vector3 position)
     {
-        var chunkX = (int) (position.x / (GlobalConstants.CHUNK_SIZE / 3.0));
-        var chunkY = (int) (position.z / (GlobalConstants.CHUNK_SIZE / 3.0));
+        return ToChunkPos(position.x, position.z);
+    }
+
+    /*
+        Transform game position into chunk position
+    */
+    public static Vector2Int ToChunkPos(float x, float y)
+    {
+        var chunkX = (int) (x / (GlobalConstants.CHUNK_SIZE / 3.0));
+        var chunkY = (int) (y / (GlobalConstants.CHUNK_SIZE / 3.0));
 
         return new Vector2Int(chunkX, chunkY);
     }

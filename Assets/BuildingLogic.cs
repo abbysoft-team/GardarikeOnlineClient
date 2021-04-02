@@ -90,7 +90,7 @@ public class BuildingLogic : MonoBehaviour
     private void CheckPlacementRestrictions(GameObject buildingPrototype)
     {
         // in further releases, must check if building allowed to be built on the water
-        var invalid = Utility.IsOnWater(buildingPrototype);
+        var invalid = Utility.IsOnWater(buildingPrototype.transform.position);
         if (!invalid) {
             Utility.SetMaterialForAllChildren(buildingPrototype, prototypeMaterial);
             applyButton.enabled = true;

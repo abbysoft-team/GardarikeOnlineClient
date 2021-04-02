@@ -256,6 +256,15 @@ public class TerrainGenerator : MonoBehaviour
 		activeChunks.Clear();
 	}
 
+	public float GetHeight(float x, float y)
+	{
+		var chunkPos = Utility.ToServerCoordinates(x, y);
+		chunkPos.X += GlobalConstants.SERVER_CHUNK_SIZE;
+		chunkPos.Y += GlobalConstants.SERVER_CHUNK_SIZE;
+
+		return data.GetHeight((int) chunkPos.X, (int) chunkPos.Y);
+	}
+
 	// public void UpdateTerrain()
 	// {
 	// 	var terrain = FindObjectOfType<Terrain>();

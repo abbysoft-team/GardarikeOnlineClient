@@ -42,6 +42,7 @@ public class GlobalConstants
     public const string SAVE_PREFIX = "Saving_";
     public const string REFERENCE_TAG = "Reference_";
     public const string BUILDING_TAG = "BUILDING";
+    public const string WATERLEVEL_TAG = "waterlevel";
     public const string COUNTRY_NAME_PROPERTY = "country_name";
     public const string TUTORIAL_COMPLETE_PROPERTY = "tutorial_complete";
     public const string CAPITAL_NAME_PROPERTY = "capital_name";

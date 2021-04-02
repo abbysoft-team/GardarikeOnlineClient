@@ -67,11 +67,11 @@ class ScrollAndPitch : MonoBehaviour
         //     Debug.Log("rotated 10 degrees");
         // }
 
-        // if (Input.GetMouseButton(0)) {
-        //         SoundManager.instance.PlaySound("click");
-        //         var collider = Utility.GetColliderFromTouch(Input.mousePosition);
-        //         EventBus.instance.ClickWasMade(collider);
-        // }
+        if (Input.GetMouseButton(0)) {
+                SoundManager.instance.PlaySound("click");
+                var collider = Utility.GetColliderFromTouch(Input.mousePosition);
+                EventBus.instance.ClickWasMade(collider);
+        }
 
         // END DEBUG
 
@@ -233,6 +233,11 @@ class ScrollAndPitch : MonoBehaviour
     public static void DebugCameraMovement()
     {
         instance.debugCameraMovement = true;
+    }
+
+    public static float GetPlaneHeight()
+    {
+        return instance.transform.position.y;
     }
 
 #endif

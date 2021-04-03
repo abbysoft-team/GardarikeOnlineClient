@@ -24,10 +24,13 @@ public class SceneManager : MonoBehaviour
 
     public GameScene currentScene = GameScene.LOGGING;
 
+    private InputManager inputManager;
+
     // Start is called before the first frame update
     void Awake() 
     {   
         instance = this;
+
         EventBus.instance.onLoginComplete += LoginComplete;
         EventBus.instance.onCharacterSelected += CharacterSelected;
         EventBus.instance.onWorldMapChunkLoaded += ProcessMapChunk;
@@ -35,6 +38,11 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.onGoToTownView += GoToTownView;
         EventBus.instance.onTownPlacedResponse += OnTownPlaced;
         EventBus.instance.onTerrainGenerationFinished += TerrainReady;
+    }
+
+    void Start()
+    {
+        inputManager = InputManagerFatory.GetDefaultManager();
     }
 
     private void OnTownPlaced(PlaceTownResponse response)
@@ -72,6 +80,8 @@ public class SceneManager : MonoBehaviour
         InitChunkObjects(chunks);
 
         currentScene = GameScene.GAME;
+
+        EventBus.instance.CloseLoadingDialog();
     }
 
     private void CompleteTutorial()
@@ -82,8 +92,8 @@ public class SceneManager : MonoBehaviour
         }
         
         var townObject = TownsManager.instance.RegisterServerTown(firstTown, 0, 0);
-        ScrollAndPitch.instance.FocusOn(townObject);
-        ScrollAndPitch.instance.SetStartPosition(ScrollAndPitch.instance.camera.transform.position);
+        inputManager.FocusOn(townObject);
+        inputManager.SetCameraStartPosition(inputManager.GetCameraStartPosition());
 
         PlayerPrefs.SetInt(GlobalConstants.TUTORIAL_COMPLETE_PROPERTY, 5);
     }
@@ -143,7 +153,7 @@ public class SceneManager : MonoBehaviour
         EventBus.instance.SendResourceUpdateRequest();
 
 
-        var chunkPos = Utility.ToChunkPos(ScrollAndPitch.instance.GetCachedCameraPosition());
+        var chunkPos = Utility.ToChunkPos(inputManager.GetCameraStartPosition());
         TerrainGenerator.instance.LoadMap(chunkPos.x, chunkPos.y);
     }
 

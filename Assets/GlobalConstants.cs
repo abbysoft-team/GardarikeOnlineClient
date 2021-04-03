@@ -74,4 +74,7 @@ public class GlobalConstants
 
     public const float RESOURCE_UPDATE_DELAY = 15f;
 
+
+    // Gardarike engine properties
+    public const string WATERLEVEL_PROPERTY = "waterlevel_property";
 }

@@ -11,7 +11,7 @@ public class TreeGenerator : MonoBehaviour
         //EventBus.instance.onSpawnTreesRequest += GenerateTrees;
         EventBus.instance.onClearMapRequest += ResetTrees;
 
-        waterlevel = GameManager.GetWaterlevel();
+        waterlevel = GameManager.GetFloatProperty(GlobalConstants.WATERLEVEL_PROPERTY);
     }
 
     private void ResetTrees()

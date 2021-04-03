@@ -33,10 +33,13 @@ public class TerrainGenerator : MonoBehaviour
 
 	private bool terrainLoaded = false;
 
+	private InputManager inputManager;
+
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		inputManager = InputManagerFatory.GetDefaultManager();
 		referenceTerrain = FindObjectOfType<Terrain>();
 		data = new TerrainData();
 		data.heightmapResolution = GlobalConstants.CHUNK_RESOLUTION;
@@ -74,7 +77,7 @@ public class TerrainGenerator : MonoBehaviour
 
 		ConfigureTerrainComponent(x, y, bigChunkData);
 
-		var cameraPos = ScrollAndPitch.instance.InitCameraPosition();
+		var cameraPos = InputManagerFatory.GetDefaultManager().InitCameraPosition();
 		var chunkPos = Utility.ToChunkPos(cameraPos);
 		cameraCell = chunkPos;
 
@@ -161,8 +164,7 @@ public class TerrainGenerator : MonoBehaviour
 
 	public void LoadMap(int x, int y)
 	{
-		EventBus.instance.OpenLoadingDialog();
-		PlayerPrefs.SetFloat("debugTime", DateTime.Now.Millisecond);
+		//EventBus.instance.OpenLoadingDialog();
 
 		FillChunksToLoadAndLoaded(x, y);
 		centralCell = new Vector2Int(x, y);

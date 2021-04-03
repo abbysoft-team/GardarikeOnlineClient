@@ -18,11 +18,15 @@ public class BuildingLogic : MonoBehaviour
     
     private string buildingName;
 
+    private InputManager inputManager;
+
     void Start()
     {
         EventBus.instance.onBuildingInitiated += StartBuildingProcess;
         prototypingUI.SetActive(false);
         state = BuildingState.READY_FOR_BUILDING;
+
+        inputManager = InputManagerFatory.GetDefaultManager();
     }
 
     private void StartBuildingProcess(object building)
@@ -66,11 +70,11 @@ public class BuildingLogic : MonoBehaviour
         
         var touchHappen = Input.touchCount == 1 &&
         Input.GetTouch(0).phase == TouchPhase.Stationary &&
-        !ScrollAndPitch.IsClickedOnSomeWorldspaceUI();
+        !inputManager.IsClickedOnSomeWorldspaceUI();
 
         if (Input.touchCount == 2 && rotationMode)
         {
-            var rotationDegrees = ScrollAndPitch.GetRotationDegrees();
+            var rotationDegrees = inputManager.GetRotationDegrees();
             building.transform.RotateAround(building.transform.position, new Vector3(0, -1, 0), rotationDegrees);
         } else if (!rotationMode && touchHappen) {
             var hit = Utility.GetHitOnTheGround(Input.GetTouch(0).position);
@@ -143,7 +147,7 @@ public class BuildingLogic : MonoBehaviour
     {
         rotationMode = !rotationMode;
 
-        ScrollAndPitch.instance.Rotate = !rotationMode;
+        inputManager.ToggleRotationMode(rotationMode);
         if (rotationMode)
         {
             rotationButton.GetComponent<Image>().color = Color.green;

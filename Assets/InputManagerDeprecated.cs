@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 using System.Collections.Generic;
 
-class ScrollAndPitch : MonoBehaviour
+class InputManagerDeprecated : MonoBehaviour, InputManager
 {
 #if true
     public GameObject camera;
     private bool debugCameraMovement = false;
     public bool Rotate;
     protected Plane Plane;
-    public static ScrollAndPitch instance;
+    public static InputManagerDeprecated instance;
     private float rotationDegrees;
 
     private float cameraHeight = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2;
@@ -23,24 +23,42 @@ class ScrollAndPitch : MonoBehaviour
         instance = this;
     }
 
+    public void ToggleRotationMode(bool rotation)
+    {
+        this.Rotate = rotation;
+    }
+
     public Vector2 GetCachedCameraPosition()
     {
         return new Vector2(PlayerPrefs.GetFloat(GlobalConstants.CAMERA_X_PROPERTY), PlayerPrefs.GetFloat(GlobalConstants.CAMERA_Z_PROPERTY));
     }
 
-    public Vector3 InitCameraPosition()
+    public Vector3 GetCameraStartPosition()
     {
         // Set camera at the saved point
 		var x = PlayerPrefs.GetFloat(GlobalConstants.CAMERA_X_PROPERTY);
 		var z = PlayerPrefs.GetFloat(GlobalConstants.CAMERA_Z_PROPERTY);
 		var y = (GlobalConstants.MAX_CAMERA_Y - GlobalConstants.MIN_CAMERA_Y) / 2 + Utility.GetGroundedPoint(new Vector3(x, GlobalConstants.CHUNK_HEIGHT + 200f, z)).y;
 
-		Camera.main.transform.position = new Vector3(x, y, z);
-
-        return Camera.main.transform.position;
+		return new Vector3(x, y, z);
     }
 
-    public void SetStartPosition(Vector3 position)
+    public Vector3 GetCameraPosition()
+    {
+        return camera.transform.position;
+    }
+
+    public Vector3 InitCameraPosition()
+    {
+        // Set camera at the saved point
+		var point = GetCameraStartPosition();
+
+        camera.transform.position = point;
+
+        return point;
+    }
+
+    public void SetCameraStartPosition(Vector3 position)
     {
 		PlayerPrefs.SetFloat(GlobalConstants.CAMERA_X_PROPERTY, position.x);
 		PlayerPrefs.SetFloat(GlobalConstants.CAMERA_Z_PROPERTY, position.z);
@@ -55,7 +73,7 @@ class ScrollAndPitch : MonoBehaviour
         if (instance.debugCameraMovement) {
             camera.transform.position += new Vector3(30, 0, 0);
             TerrainGenerator.instance.CameraMoved(camera.transform.position);
-            SetStartPosition(camera.transform.position);
+            SetCameraStartPosition(camera.transform.position);
             return;
         }
 
@@ -202,7 +220,7 @@ class ScrollAndPitch : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + transform.up);
     }
 
-    public static bool IsClickedOnSomeWorldspaceUI()
+    public bool IsClickedOnSomeWorldspaceUI()
     {
         var pointerData = new PointerEventData(EventSystem.current);
         pointerData.position = Input.mousePosition;
@@ -213,7 +231,7 @@ class ScrollAndPitch : MonoBehaviour
         return raycastResults.Count > 0 && raycastResults[0].gameObject.layer == LayerMask.NameToLayer("WorldUI");
     }
 
-    public static float GetRotationDegrees()
+    public float GetRotationDegrees()
     {
         return instance.rotationDegrees;
     }

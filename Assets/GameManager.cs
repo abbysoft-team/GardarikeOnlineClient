@@ -6,7 +6,18 @@ public class GameManager : MonoBehaviour
 {
     public bool devMode;
 
+    public GameObject waterlevel;
+
     private float lastResourceUpdateTime = 0;
+
+    /**
+        Modules can set this properties and use them
+
+        This is looses intercomunication between parts of program
+
+        Don't want to user PlayerPrefs because it's persistent
+    */
+    private static Dictionary<string, object> properties = new Dictionary<string, object>();
 
     void Start()
     {
@@ -28,6 +39,13 @@ public class GameManager : MonoBehaviour
 
         var ipAddress = devMode ? "127.0.0.1" : Private.ipAddress;
         NetworkManagerFactory.GetManager().Init(ipAddress, Private.requestSockPort, Private.eventSockPort);
+
+        InitProperties();
+    }
+
+    private void InitProperties()
+    {
+        properties.Add(GlobalConstants.WATERLEVEL_PROPERTY, waterlevel.transform.position.y);
     }
 
     private void AddMaxPopulation(BuildItem item)
@@ -54,10 +72,24 @@ public class GameManager : MonoBehaviour
     }
 
     /**
-        Get water level in game coordinates
+        Get some properties, registered by other modules
     */
-    public static float GetWaterlevel()
+    public static float GetFloatProperty(string key)
     {
-        return ScrollAndPitch.GetPlaneHeight();
+        if (!properties.ContainsKey(key)) throw new NoSuchPropertyException();
+
+        return (float) properties[key];
+    }
+
+    /**
+        Register some property accessable for any module
+    */
+    public static void AddProperty(string key, object value)
+    {
+        properties[key] = value;
+    }
+
+    public class NoSuchPropertyException : System.Exception {
+
     }
 }
